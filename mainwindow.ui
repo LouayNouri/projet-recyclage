@@ -24,7 +24,7 @@
      </rect>
     </property>
     <property name="currentIndex">
-     <number>0</number>
+     <number>1</number>
     </property>
     <property name="tabBarAutoHide">
      <bool>false</bool>
@@ -262,16 +262,6 @@ border-radius: 3px;
        <string/>
       </property>
      </widget>
-     <widget class="QTableView" name="tab_equipement">
-      <property name="geometry">
-       <rect>
-        <x>480</x>
-        <y>50</y>
-        <width>791</width>
-        <height>411</height>
-       </rect>
-      </property>
-     </widget>
      <widget class="QComboBox" name="type">
       <property name="geometry">
        <rect>
@@ -315,45 +305,6 @@ border-radius: 3px;
        <string/>
       </property>
      </widget>
-     <widget class="QPushButton" name="pb_afficher">
-      <property name="geometry">
-       <rect>
-        <x>480</x>
-        <y>10</y>
-        <width>781</width>
-        <height>30</height>
-       </rect>
-      </property>
-      <property name="font">
-       <font>
-        <family>Calibri Light</family>
-        <pointsize>11</pointsize>
-        <weight>75</weight>
-        <bold>true</bold>
-       </font>
-      </property>
-      <property name="cursor">
-       <cursorShape>PointingHandCursor</cursorShape>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">background-color: rgb(255, 255, 255);
-border-radius: 3px;
-</string>
-      </property>
-      <property name="text">
-       <string>Afficher</string>
-      </property>
-      <property name="icon">
-       <iconset>
-        <normaloff>../../Gestion_voiture/Gestion_voiture/ressources/-.png</normaloff>../../Gestion_voiture/Gestion_voiture/ressources/-.png</iconset>
-      </property>
-      <property name="iconSize">
-       <size>
-        <width>20</width>
-        <height>20</height>
-       </size>
-      </property>
-     </widget>
      <widget class="QDateEdit" name="date">
       <property name="geometry">
        <rect>
@@ -388,6 +339,237 @@ border-radius: 3px;
       </property>
       <property name="text">
        <string/>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="tab_4">
+     <attribute name="title">
+      <string>Afficher Equipement</string>
+     </attribute>
+     <widget class="QTableView" name="tab_equipement">
+      <property name="geometry">
+       <rect>
+        <x>530</x>
+        <y>90</y>
+        <width>791</width>
+        <height>411</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="lineEdit_recherche">
+      <property name="geometry">
+       <rect>
+        <x>540</x>
+        <y>30</y>
+        <width>611</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QLineEdit {
+background-color: rgba(254,179,177,20);
+border: 2px solid rgba(254,179,177,200);
+border-radius: 10px;
+}
+QLineEdit:hover {
+background-color: rgba(254,179,177,200);
+border: 1px solid rgba(128, 97, 171, 200);
+border-radius: 10px;
+}
+
+</string>
+      </property>
+     </widget>
+     <widget class="QComboBox" name="comboBox_tri">
+      <property name="geometry">
+       <rect>
+        <x>1160</x>
+        <y>30</y>
+        <width>131</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <item>
+       <property name="text">
+        <string>Default</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Type (A-&gt;Z)</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Prix (Des)</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Niveau Remplissage (Asc)</string>
+       </property>
+      </item>
+     </widget>
+     <widget class="QPushButton" name="statistique">
+      <property name="geometry">
+       <rect>
+        <x>1010</x>
+        <y>510</y>
+        <width>281</width>
+        <height>30</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Calibri Light</family>
+        <pointsize>11</pointsize>
+        <weight>75</weight>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="cursor">
+       <cursorShape>PointingHandCursor</cursorShape>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(255, 255, 255);
+border-radius: 3px;
+</string>
+      </property>
+      <property name="text">
+       <string>Statistique</string>
+      </property>
+      <property name="icon">
+       <iconset>
+        <normaloff>../../Gestion_voiture/Gestion_voiture/ressources/+.png</normaloff>../../Gestion_voiture/Gestion_voiture/ressources/+.png</iconset>
+      </property>
+      <property name="iconSize">
+       <size>
+        <width>20</width>
+        <height>20</height>
+       </size>
+      </property>
+      <property name="flat">
+       <bool>false</bool>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="PDF">
+      <property name="geometry">
+       <rect>
+        <x>670</x>
+        <y>510</y>
+        <width>281</width>
+        <height>30</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Calibri Light</family>
+        <pointsize>11</pointsize>
+        <weight>75</weight>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="cursor">
+       <cursorShape>PointingHandCursor</cursorShape>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(255, 255, 255);
+border-radius: 3px;
+</string>
+      </property>
+      <property name="text">
+       <string>PDF</string>
+      </property>
+      <property name="icon">
+       <iconset>
+        <normaloff>../../Gestion_voiture/Gestion_voiture/ressources/+.png</normaloff>../../Gestion_voiture/Gestion_voiture/ressources/+.png</iconset>
+      </property>
+      <property name="iconSize">
+       <size>
+        <width>20</width>
+        <height>20</height>
+       </size>
+      </property>
+      <property name="flat">
+       <bool>false</bool>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_3">
+      <property name="geometry">
+       <rect>
+        <x>120</x>
+        <y>100</y>
+        <width>56</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+     <widget class="QLabel" name="qrcodecommande">
+      <property name="geometry">
+       <rect>
+        <x>110</x>
+        <y>120</y>
+        <width>200</width>
+        <height>200</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="qrcodegen">
+      <property name="geometry">
+       <rect>
+        <x>90</x>
+        <y>330</y>
+        <width>281</width>
+        <height>30</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Calibri Light</family>
+        <pointsize>11</pointsize>
+        <weight>75</weight>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="cursor">
+       <cursorShape>PointingHandCursor</cursorShape>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(255, 255, 255);
+border-radius: 3px;
+</string>
+      </property>
+      <property name="text">
+       <string>QR Code</string>
+      </property>
+      <property name="icon">
+       <iconset>
+        <normaloff>../../Gestion_voiture/Gestion_voiture/ressources/+.png</normaloff>../../Gestion_voiture/Gestion_voiture/ressources/+.png</iconset>
+      </property>
+      <property name="iconSize">
+       <size>
+        <width>20</width>
+        <height>20</height>
+       </size>
+      </property>
+      <property name="flat">
+       <bool>false</bool>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="lineEdit_qrcode">
+      <property name="geometry">
+       <rect>
+        <x>90</x>
+        <y>370</y>
+        <width>281</width>
+        <height>41</height>
+       </rect>
       </property>
      </widget>
     </widget>
@@ -641,55 +823,6 @@ text-align: middle;
        </rect>
       </property>
      </widget>
-     <widget class="QPushButton" name="pb_afficher_3">
-      <property name="geometry">
-       <rect>
-        <x>670</x>
-        <y>70</y>
-        <width>781</width>
-        <height>30</height>
-       </rect>
-      </property>
-      <property name="font">
-       <font>
-        <family>Calibri Light</family>
-        <pointsize>11</pointsize>
-        <weight>75</weight>
-        <bold>true</bold>
-       </font>
-      </property>
-      <property name="cursor">
-       <cursorShape>PointingHandCursor</cursorShape>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">background-color: rgb(255, 255, 255);
-border-radius: 3px;
-</string>
-      </property>
-      <property name="text">
-       <string>Afficher</string>
-      </property>
-      <property name="icon">
-       <iconset>
-        <normaloff>../../Gestion_voiture/Gestion_voiture/ressources/-.png</normaloff>../../Gestion_voiture/Gestion_voiture/ressources/-.png</iconset>
-      </property>
-      <property name="iconSize">
-       <size>
-        <width>20</width>
-        <height>20</height>
-       </size>
-      </property>
-     </widget>
-     <widget class="QTableView" name="tab_equipement_5">
-      <property name="geometry">
-       <rect>
-        <x>670</x>
-        <y>110</y>
-        <width>791</width>
-        <height>411</height>
-       </rect>
-      </property>
-     </widget>
     </widget>
     <widget class="QWidget" name="tab_2">
      <attribute name="title">
@@ -698,8 +831,8 @@ border-radius: 3px;
      <widget class="QLabel" name="label_5">
       <property name="geometry">
        <rect>
-        <x>510</x>
-        <y>50</y>
+        <x>20</x>
+        <y>30</y>
         <width>101</width>
         <height>20</height>
        </rect>
@@ -711,8 +844,8 @@ border-radius: 3px;
      <widget class="QComboBox" name="comboSupp">
       <property name="geometry">
        <rect>
-        <x>640</x>
-        <y>50</y>
+        <x>120</x>
+        <y>30</y>
         <width>111</width>
         <height>22</height>
        </rect>
@@ -721,9 +854,9 @@ border-radius: 3px;
      <widget class="QPushButton" name="pb_supprimer_2">
       <property name="geometry">
        <rect>
-        <x>909</x>
-        <y>50</y>
-        <width>361</width>
+        <x>250</x>
+        <y>40</y>
+        <width>231</width>
         <height>30</height>
        </rect>
       </property>
@@ -757,53 +890,188 @@ border-radius: 3px;
        </size>
       </property>
      </widget>
-     <widget class="QTableView" name="tab_equipement_2">
+    </widget>
+    <widget class="QWidget" name="tab_5">
+     <attribute name="title">
+      <string>Mailing</string>
+     </attribute>
+     <widget class="QPushButton" name="send_mail_2">
       <property name="geometry">
        <rect>
-        <x>500</x>
-        <y>90</y>
-        <width>791</width>
-        <height>411</height>
+        <x>850</x>
+        <y>550</y>
+        <width>140</width>
+        <height>41</height>
        </rect>
-      </property>
-     </widget>
-     <widget class="QPushButton" name="pb_afficher_4">
-      <property name="geometry">
-       <rect>
-        <x>500</x>
-        <y>10</y>
-        <width>781</width>
-        <height>30</height>
-       </rect>
-      </property>
-      <property name="font">
-       <font>
-        <family>Calibri Light</family>
-        <pointsize>11</pointsize>
-        <weight>75</weight>
-        <bold>true</bold>
-       </font>
-      </property>
-      <property name="cursor">
-       <cursorShape>PointingHandCursor</cursorShape>
       </property>
       <property name="styleSheet">
-       <string notr="true">background-color: rgb(255, 255, 255);
-border-radius: 3px;
-</string>
+       <string notr="true">QPushButton {
+    background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
+                                stop: 0 #1c3087, stop: 1 #1c3087);
+    border: 2px solid #000000;
+    border-radius: 10px;
+    padding: 10px;
+    color: white;
+    font-size: 15px;
+    font-weight: bold;
+    text-align: center;
+}
+
+QPushButton:hover {
+    background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
+                                stop: 0 #bd9a06, stop: 1 #deb60d);
+    cursor: pointer;
+    box-shadow: 0px 0px 5px #004040;
+}
+
+QPushButton:pressed {
+    background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
+                                stop: 0 #004080, stop: 1 #002040);
+}</string>
       </property>
       <property name="text">
-       <string>Afficher</string>
+       <string>Envoyer</string>
       </property>
       <property name="icon">
        <iconset>
-        <normaloff>../../Gestion_voiture/Gestion_voiture/ressources/-.png</normaloff>../../Gestion_voiture/Gestion_voiture/ressources/-.png</iconset>
+        <normaloff>../../../../ismae/Downloads/Projet-Qt-C-Smart-Technical-Visit-Center-master (1)/Projet-Qt-C-Smart-Technical-Visit-Center-master/image QT/2344221.png</normaloff>../../../../ismae/Downloads/Projet-Qt-C-Smart-Technical-Visit-Center-master (1)/Projet-Qt-C-Smart-Technical-Visit-Center-master/image QT/2344221.png</iconset>
       </property>
       <property name="iconSize">
        <size>
-        <width>20</width>
-        <height>20</height>
+        <width>30</width>
+        <height>25</height>
        </size>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_email_2">
+      <property name="geometry">
+       <rect>
+        <x>40</x>
+        <y>50</y>
+        <width>111</width>
+        <height>30</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color:rgba(0,0,0,0);
+color: rgb(255, 255, 255);
+border-color:rgba(0,0,0,0);  font-size: 17px;</string>
+      </property>
+      <property name="text">
+       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:10pt; font-weight:600;&quot;&gt;Adresse Mail&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_subject_2">
+      <property name="geometry">
+       <rect>
+        <x>50</x>
+        <y>110</y>
+        <width>90</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color:rgba(0,0,0,0);
+color: rgb(255, 255, 255);
+border-color:rgba(0,0,0,0);  font-size: 17px;</string>
+      </property>
+      <property name="text">
+       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:10pt; font-weight:600;&quot;&gt;Sujet&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="client_email_subject_2">
+      <property name="geometry">
+       <rect>
+        <x>210</x>
+        <y>120</y>
+        <width>200</width>
+        <height>30</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QLineEdit {
+    background-color: #FFFFFF;
+    border: 1px solid #BBBBBB;
+    border-radius: 5px;
+    padding: 3px;
+    font-size: 15px;
+    font-family: &quot;Arial&quot;;
+}
+
+QLineEdit:focus {
+    border: 2px solid #0000FF;
+    background-color: #F0F0F0;
+}
+</string>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="client_email_to_send_2">
+      <property name="geometry">
+       <rect>
+        <x>210</x>
+        <y>50</y>
+        <width>200</width>
+        <height>30</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QLineEdit {
+    background-color: #FFFFFF;
+    border: 1px solid #BBBBBB;
+    border-radius: 5px;
+    padding: 3px;
+    font-size: 15px;
+    font-family: &quot;Arial&quot;;
+}
+
+QLineEdit:focus {
+    border: 2px solid #0000FF;
+    background-color: #F0F0F0;
+}
+</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_text_2">
+      <property name="geometry">
+       <rect>
+        <x>50</x>
+        <y>180</y>
+        <width>90</width>
+        <height>30</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color:rgba(0,0,0,0);
+color: rgb(255, 255, 255);
+border-color:rgba(0,0,0,0);  font-size: 17px;</string>
+      </property>
+      <property name="text">
+       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:10pt; font-weight:600;&quot;&gt;Message&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      </property>
+     </widget>
+     <widget class="QTextEdit" name="client_email_text_2">
+      <property name="geometry">
+       <rect>
+        <x>180</x>
+        <y>190</y>
+        <width>811</width>
+        <height>301</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QTextEdit {
+    background-color: #FFFFFF;
+    border: 1px solid #BBBBBB;
+    border-radius: 5px;
+    padding: 3px;
+    font-size: 15px;
+    font-family: &quot;Arial&quot;;
+}
+
+QTextEdit:focus {
+    border: 2px solid #0000FF;
+    background-color: #F0F0F0;
+}</string>
       </property>
      </widget>
     </widget>

@@ -7,6 +7,9 @@
 #include<QMessageBox>
 #include <QSqlError>
 #include <QDebug>
+#include <QtCharts>
+#include <QChartView>
+#include <QLineSeries>
 Equipement::Equipement()
 {
 
@@ -115,3 +118,53 @@ bool Equipement::checkIfIdExists(QString id)
         return false;
     }
 }
+QSqlQueryModel* Equipement::rechercher(QString a)
+{
+    QSqlQueryModel * query=new QSqlQueryModel();
+    query->setQuery("select * from Equipement where (id_equipement like '%"+a+"%' or id_equipement like '"+a+"%' or  id_equipement like '%"+a+"' or type like '%"+a+"%' or type like '"+a+"%' or  type like '%"+a+"'or etat like '%"+a+"%' or etat like '"+a+"%' or  etat like '%"+a+"') ");
+
+    query->setHeaderData(0,Qt::Horizontal,QObject::tr("id_equipement"));
+    query->setHeaderData(1,Qt::Horizontal,QObject::tr("type"));
+    query->setHeaderData(2,Qt::Horizontal,QObject::tr("etat"));
+    query->setHeaderData(3,Qt::Horizontal,QObject::tr("prix"));
+    query->setHeaderData(4,Qt::Horizontal,QObject::tr("niveau_remplissage"));
+    query->setHeaderData(5,Qt::Horizontal,QObject::tr("date_acquisation"));
+    query->setHeaderData(6,Qt::Horizontal,QObject::tr("idZ"));
+
+    return    query;
+}
+QSqlQueryModel *Equipement::trier(QString x)
+{
+    QSqlQueryModel * model= new QSqlQueryModel();
+    qDebug()<<x<<endl;
+
+    if(x=="Type (A->Z)")
+        model->setQuery("select *  from Equipement order by type");
+    else if(x=="Prix (Des)")
+        model->setQuery("select *  from Equipement order by prix desc");
+    else if (x=="Niveau Remplissage (Asc)")
+        model->setQuery("select *  from Equipement order by niveau_remplissage");
+    else if (x=="Default")
+            model->setQuery("select * from Equipement");
+    model->setHeaderData(0,Qt::Horizontal,QObject::tr("id_equipement"));
+    model->setHeaderData(1,Qt::Horizontal,QObject::tr("type"));
+    model->setHeaderData(2,Qt::Horizontal,QObject::tr("etat"));
+    model->setHeaderData(3,Qt::Horizontal,QObject::tr("prix"));
+    model->setHeaderData(4,Qt::Horizontal,QObject::tr("niveau_remplissage"));
+    model->setHeaderData(5,Qt::Horizontal,QObject::tr("date_acquisation"));
+    model->setHeaderData(6,Qt::Horizontal,QObject::tr("idZ"));
+
+        return model;
+}
+
+//-------------------- checks mail validation done
+bool Equipement::isValidEmail(QString email) {
+    QRegularExpression regex("[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}");
+
+       // We use QRegularExpressionMatch to test if the email matches the regex pattern
+       QRegularExpressionMatch match = regex.match(email);
+
+       // If the match is valid, return true. Otherwise, return false.
+       return match.hasMatch();
+}
+

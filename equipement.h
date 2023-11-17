@@ -6,6 +6,18 @@
 #include <QSqlQuery>
 #include <QSqlQueryModel>
 #include <QDate>
+//mail
+#include <QByteArray>
+#include <QDebug>
+#include <QNetworkAccessManager>
+#include <QNetworkReply>
+#include <QNetworkRequest>
+#include <QSslSocket>
+
+#include <QtCore/QTextStream>
+
+#include <QtNetwork/QAbstractSocket>
+#include <QtNetwork/QSslSocket>
 class Equipement
 {
 public:
@@ -34,6 +46,10 @@ public:
     bool modifier();
 
     bool checkIfIdExists(QString);
+    QSqlQueryModel *rechercher(QString);
+    QSqlQueryModel *trier(QString);
+    bool isValidEmail(QString email);
+
 
 private:
     QString id_equipement,type,etat,idZ;
