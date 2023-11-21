@@ -2,89 +2,100 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
-#include "equipement.h"
-#include <QDebug>
-#include <QDialog>
-#include <QMainWindow>
-#include <QMediaPlayer>
-#include <QSound>
-#include <QMainWindow>
-#include <QPainter>
-#include <QPrinter>
-#include <QPrintPreviewDialog>
-#include <QTextEdit>
-#include "smtp.h"
+#include <QWidget>
+#include <QMovie>
+#include <QVBoxLayout>
+#include <QSqlDatabase>
+#include <QButtonGroup>
+#include <QIntValidator>
+#include <QtWidgets/QMainWindow>
+#include <QtWidgets/QStatusBar>
 #include <QtCharts/QChartView>
-#include <QtCharts/QBarSeries>
+#include "donutbreakdownchart.h"
+#include "trash.h"
 #include <QtCharts/QBarSet>
 #include <QtCharts/QLegend>
-#include <QtCharts/QBarCategoryAxis>
-#include <QtCharts/QHorizontalStackedBarSeries>
-#include <QtCharts/QLineSeries>
-#include <QtCharts/QCategoryAxis>
-#include <QtCharts/QPieSeries>
-#include <QtCharts/QPieSlice>
-#include <QtNetwork/QAbstractSocket>
-#include <QtNetwork/QSslSocket>
-#include <QString>
-#include <QTextStream>
-#include <QDebug>
-#include <QtWidgets/QMessageBox>
-#include <QByteArray>
-#include <QFile>
-#include "smtp.h"
+#include "drilldownseries.h"
+#include "drilldownchart.h"
 
+
+QT_CHARTS_USE_NAMESPACE
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
-QT_END_NAMESPACE
+
 
 class MainWindow : public QMainWindow
 {
     Q_OBJECT
 
 public:
-    MainWindow(QWidget *parent = nullptr);
+    explicit MainWindow(QWidget *parent = nullptr);    
     ~MainWindow();
+    void initializeChart();
+    void playGif(const QString &gifPath);
+
+
+public slots:
+    void updateview(const QString &text);
+    void executeQuery(QString queryStr);
+
+
+
+protected:
+    bool eventFilter(QObject *obj, QEvent *event);
+
 
 private slots:
-    void on_pb_ajouter_clicked();
+    void on_Generat_Button_clicked();
+    void on_add_clicked();
+    void setupButtonGroup();
+    void resetInputs();
+    void resetFields();
+    void checkCodeInDatabase();
+    void on_modify_clicked();
+    void goToTab1();
+    void goToTab2();
+    void goToTab3();
+    void goToTab4();
+    void deleteRow();
+    void exportall();
+    void exportdisplayed();
+    void updateTypeCheckBox(int state);
+    void updateDateCheckBox(int state);
+    void updateView_2();
+    void sortAscending();
+    void sortDescending();
+    void on_stats_1_clicked();
+    void on_stats_2_clicked();
+    void on_stats_3_clicked();
+    void on_stats_4_clicked();
+    void prepareChart(const QString& materialType, const QString& title, const QColor& color1, const QColor& color2, const QColor& color3);
+    QPieSeries* createRecyclableSeries(const QMap<QString, double>& amounts, double totalAmount);
+    QPieSeries* createBiodegradableSeries(const QMap<QString, double>& amounts, double totalAmount);
+    QPieSeries* createReusableSeries(const QMap<QString, double>& amounts, double totalAmount);
+    void on_stack_clicked();
 
-    void on_pb_afficher_clicked();
-
-    void on_pb_supprimer_2_clicked();
-
-    void on_modifier_2_clicked();
-
-    void on_pb_afficher_3_clicked();
-
-    void on_pb_afficher_4_clicked();
-
-    void on_valider1_2_clicked();
-
-    void on_reset_clicked();
-
-    void on_lineEdit_recherche_textChanged(const QString &arg1);
-   void on_comboBox_tri_activated(const QString &arg1);
-
-   void on_statistique_clicked();
-
-   void on_PDF_clicked();
-
-   void on_qrcodegen_clicked();
-
-
-
-   void on_send_mail_2_clicked();
 
 private:
     Ui::MainWindow *ui;
-    Equipement E;
+    QButtonGroup *group;
+    trash h;
+    void showPieChart(int chartType);
+    QMainWindow *chartWindow;  // Add this line
+    QMainWindow *chartWindow1;
+    QMainWindow *chartWindow2;
+    QMainWindow *chartWindow3;
+    QMainWindow *chartWindow4;
+    DrilldownChart *drilldownChart;
+    QChartView *chartView;
+    QMovie *movie;
 
 
-    QStringList files;
-
-      QString mnomemp="localhost";
-      quint16 mport=3333;
-      QTcpSocket *mSocket;
 };
-#endif // MAINWINDOW_H
+
+
+
+
+#endif
+
+
