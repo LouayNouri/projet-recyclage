@@ -1,5 +1,5 @@
-#ifndef CONNECTION_H
-#define CONNECTION_H
+#ifndef CONNCETION_H
+#define CONNCETION_H
 #include <QSqlDatabase>
 #include <QSqlError>
 #include <QSqlQuery>
@@ -11,5 +11,4 @@ public:
     bool createconnect();
 };
 
-#endif // CONNECTION_H
-
+#endif // CONNCETION_H
