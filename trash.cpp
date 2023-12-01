@@ -13,12 +13,13 @@
 #include <QSqlDatabase>
 using namespace std;
 
-
-///constructeurs
 trash::trash()
 {
 
 }
+
+///constructeurs
+
 trash::~trash()
 {
     //destructeur

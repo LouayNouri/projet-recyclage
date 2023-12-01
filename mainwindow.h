@@ -17,6 +17,7 @@
 #include <QtCharts/QLegend>
 #include "drilldownseries.h"
 #include "drilldownchart.h"
+#include <QItemSelectionModel>
 
 
 QT_CHARTS_USE_NAMESPACE
@@ -73,7 +74,10 @@ private slots:
     QPieSeries* createRecyclableSeries(const QMap<QString, double>& amounts, double totalAmount);
     QPieSeries* createBiodegradableSeries(const QMap<QString, double>& amounts, double totalAmount);
     QPieSeries* createReusableSeries(const QMap<QString, double>& amounts, double totalAmount);
+
     void on_stack_clicked();
+    void onPlusKeyPressed();
+    void onSelectionChanged();
 
 
 private:
@@ -89,7 +93,7 @@ private:
     DrilldownChart *drilldownChart;
     QChartView *chartView;
     QMovie *movie;
-
+    QItemSelectionModel *select;
 
 };
 

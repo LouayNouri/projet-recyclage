@@ -6,52 +6,48 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1292</width>
-    <height>760</height>
+    <width>1326</width>
+    <height>775</height>
    </rect>
+  </property>
+  <property name="sizePolicy">
+   <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+    <horstretch>0</horstretch>
+    <verstretch>0</verstretch>
+   </sizepolicy>
   </property>
   <property name="windowTitle">
    <string>MainWindow</string>
   </property>
   <widget class="QWidget" name="centralwidget">
+   <property name="sizePolicy">
+    <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+     <horstretch>0</horstretch>
+     <verstretch>0</verstretch>
+    </sizepolicy>
+   </property>
    <widget class="QTabWidget" name="tabWidget">
     <property name="geometry">
      <rect>
-      <x>-10</x>
-      <y>-20</y>
-      <width>1321</width>
-      <height>1031</height>
+      <x>1</x>
+      <y>-29</y>
+      <width>1341</width>
+      <height>781</height>
      </rect>
     </property>
     <property name="currentIndex">
      <number>2</number>
     </property>
     <widget class="QWidget" name="tab">
+     <property name="sizePolicy">
+      <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+       <horstretch>0</horstretch>
+       <verstretch>0</verstretch>
+      </sizepolicy>
+     </property>
      <attribute name="title">
       <string>Tab 1</string>
      </attribute>
-     <widget class="QLabel" name="label_6">
-      <property name="geometry">
-       <rect>
-        <x>680</x>
-        <y>30</y>
-        <width>271</width>
-        <height>71</height>
-       </rect>
-      </property>
-      <property name="font">
-       <font>
-        <family>Poor Richard</family>
-        <pointsize>36</pointsize>
-       </font>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">color: rgb(0, 170, 0,0.7);</string>
-      </property>
-      <property name="text">
-       <string>ADD - Modify</string>
-      </property>
-     </widget>
      <widget class="QLabel" name="label_4">
       <property name="geometry">
        <rect>
@@ -60,6 +56,12 @@
         <width>101</width>
         <height>41</height>
        </rect>
+      </property>
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
       </property>
       <property name="font">
        <font>
@@ -84,6 +86,12 @@
         <height>51</height>
        </rect>
       </property>
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
       <property name="styleSheet">
        <string notr="true">gridline-color: rgb(255, 85, 0);</string>
       </property>
@@ -100,6 +108,12 @@
         <height>190</height>
        </rect>
       </property>
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
      </widget>
      <widget class="QPushButton" name="Generat_Button">
       <property name="geometry">
@@ -109,6 +123,12 @@
         <width>141</width>
         <height>51</height>
        </rect>
+      </property>
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
       </property>
       <property name="font">
        <font>
@@ -132,6 +152,12 @@ QPushButton:hover { background-color: rgb(85, 170, 255);}</string>
         <height>80</height>
        </rect>
       </property>
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
       <property name="styleSheet">
        <string notr="true">border:none</string>
       </property>
@@ -146,6 +172,12 @@ QPushButton:hover { background-color: rgb(85, 170, 255);}</string>
          <width>151</width>
          <height>41</height>
         </rect>
+       </property>
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
        </property>
        <property name="font">
         <font>
@@ -168,6 +200,12 @@ QPushButton:hover { background-color: rgb(85, 170, 255);}</string>
          <height>41</height>
         </rect>
        </property>
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
        <property name="font">
         <font>
          <pointsize>12</pointsize>
@@ -188,6 +226,12 @@ QPushButton:hover { background-color: rgb(85, 170, 255);}</string>
          <width>151</width>
          <height>41</height>
         </rect>
+       </property>
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
        </property>
        <property name="font">
         <font>
@@ -220,6 +264,12 @@ QPushButton:hover { background-color: rgb(85, 170, 255);}</string>
         <height>41</height>
        </rect>
       </property>
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
       <property name="font">
        <font>
         <family>MS Shell Dlg 2</family>
@@ -238,24 +288,6 @@ color: rgb(255, 127, 84);
        <string>Properties :</string>
       </property>
      </widget>
-     <widget class="QLabel" name="label_2">
-      <property name="geometry">
-       <rect>
-        <x>340</x>
-        <y>120</y>
-        <width>221</width>
-        <height>41</height>
-       </rect>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">font: 75 20pt &quot;MS Shell Dlg 2&quot;;
-color:  #ED8E4A    ;
-</string>
-      </property>
-      <property name="text">
-       <string>Material Type :</string>
-      </property>
-     </widget>
      <widget class="QPushButton" name="reset">
       <property name="geometry">
        <rect>
@@ -264,6 +296,12 @@ color:  #ED8E4A    ;
         <width>141</width>
         <height>71</height>
        </rect>
+      </property>
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
       </property>
       <property name="font">
        <font>
@@ -295,6 +333,12 @@ QPushButton:hover {
         <height>51</height>
        </rect>
       </property>
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
       <property name="font">
        <font>
         <pointsize>14</pointsize>
@@ -319,11 +363,17 @@ QPushButton:hover {
         <x>0</x>
         <y>0</y>
         <width>331</width>
-        <height>1011</height>
+        <height>761</height>
        </rect>
       </property>
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
       <property name="styleSheet">
-       <string notr="true">background-color: rgb(0, 0, 0);</string>
+       <string notr="true"/>
       </property>
       <property name="title">
        <string/>
@@ -336,6 +386,12 @@ QPushButton:hover {
          <width>331</width>
          <height>131</height>
         </rect>
+       </property>
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
        </property>
        <property name="font">
         <font>
@@ -369,6 +425,12 @@ QPushButton:hover {
          <height>131</height>
         </rect>
        </property>
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
        <property name="font">
         <font>
          <family>Mongolian Baiti</family>
@@ -400,6 +462,12 @@ QPushButton:hover {
          <width>331</width>
          <height>131</height>
         </rect>
+       </property>
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
        </property>
        <property name="font">
         <font>
@@ -433,6 +501,12 @@ QPushButton:hover {
          <height>131</height>
         </rect>
        </property>
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
        <property name="font">
         <font>
          <family>Mongolian Baiti</family>
@@ -465,6 +539,12 @@ QPushButton:hover {
          <height>761</height>
         </rect>
        </property>
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
        <property name="text">
         <string/>
        </property>
@@ -490,6 +570,12 @@ QPushButton:hover {
         <height>761</height>
        </rect>
       </property>
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Expanding" vsizetype="Ignored">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
       <property name="styleSheet">
        <string notr="true">background-color: rgb(11, 11, 11);</string>
       </property>
@@ -511,6 +597,12 @@ QPushButton:hover {
         <width>211</width>
         <height>41</height>
        </rect>
+      </property>
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
       </property>
       <property name="styleSheet">
        <string notr="true">selection-background-color: rgb(27, 150, 0);
@@ -559,6 +651,12 @@ selection-color: rgb(146, 255, 162);</string>
         <height>51</height>
        </rect>
       </property>
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
       <property name="font">
        <font>
         <pointsize>14</pointsize>
@@ -580,6 +678,12 @@ QPushButton:hover { background-color: rgb(85, 170, 255);}</string>
         <width>141</width>
         <height>71</height>
        </rect>
+      </property>
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
       </property>
       <property name="font">
        <font>
@@ -611,6 +715,12 @@ QPushButton:hover {
         <height>71</height>
        </rect>
       </property>
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Minimum" vsizetype="Expanding">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
       <property name="font">
        <font>
         <pointsize>14</pointsize>
@@ -637,9 +747,15 @@ QPushButton:hover {
        <rect>
         <x>330</x>
         <y>170</y>
-        <width>991</width>
-        <height>121</height>
+        <width>981</width>
+        <height>128</height>
        </rect>
+      </property>
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
       </property>
       <property name="styleSheet">
        <string notr="true">border:none;</string>
@@ -653,134 +769,136 @@ QPushButton:hover {
       <property name="checked">
        <bool>true</bool>
       </property>
-      <widget class="QRadioButton" name="metal">
-       <property name="geometry">
-        <rect>
-         <x>30</x>
-         <y>0</y>
-         <width>231</width>
-         <height>111</height>
-        </rect>
-       </property>
-       <property name="font">
-        <font>
-         <family>Impact</family>
-         <pointsize>14</pointsize>
-        </font>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">color: rgb(170, 0, 0);</string>
-       </property>
-       <property name="text">
-        <string>Metal</string>
-       </property>
-       <property name="icon">
-        <iconset resource="imgs.qrc">
-         <normaloff>:/new/prefix1/me.png</normaloff>:/new/prefix1/me.png</iconset>
-       </property>
-       <property name="iconSize">
-        <size>
-         <width>110</width>
-         <height>110</height>
-        </size>
-       </property>
-      </widget>
-      <widget class="QRadioButton" name="plastic">
-       <property name="geometry">
-        <rect>
-         <x>280</x>
-         <y>0</y>
-         <width>231</width>
-         <height>111</height>
-        </rect>
-       </property>
-       <property name="font">
-        <font>
-         <family>Impact</family>
-         <pointsize>14</pointsize>
-        </font>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">color: rgb(248, 165, 45);</string>
-       </property>
-       <property name="text">
-        <string>Plastic</string>
-       </property>
-       <property name="icon">
-        <iconset resource="imgs.qrc">
-         <normaloff>:/new/prefix1/pl.png</normaloff>:/new/prefix1/pl.png</iconset>
-       </property>
-       <property name="iconSize">
-        <size>
-         <width>110</width>
-         <height>110</height>
-        </size>
-       </property>
-      </widget>
-      <widget class="QRadioButton" name="glass">
-       <property name="geometry">
-        <rect>
-         <x>530</x>
-         <y>0</y>
-         <width>231</width>
-         <height>111</height>
-        </rect>
-       </property>
-       <property name="font">
-        <font>
-         <family>Impact</family>
-         <pointsize>14</pointsize>
-        </font>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">color: rgb(90, 161, 86);</string>
-       </property>
-       <property name="text">
-        <string>Glass</string>
-       </property>
-       <property name="icon">
-        <iconset resource="imgs.qrc">
-         <normaloff>:/new/prefix1/gl.png</normaloff>:/new/prefix1/gl.png</iconset>
-       </property>
-       <property name="iconSize">
-        <size>
-         <width>110</width>
-         <height>110</height>
-        </size>
-       </property>
-      </widget>
-      <widget class="QRadioButton" name="paper">
-       <property name="geometry">
-        <rect>
-         <x>780</x>
-         <y>0</y>
-         <width>231</width>
-         <height>111</height>
-        </rect>
-       </property>
-       <property name="font">
-        <font>
-         <family>Impact</family>
-         <pointsize>14</pointsize>
-        </font>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">color: rgb(74, 141, 198);</string>
-       </property>
-       <property name="text">
-        <string>Paper</string>
-       </property>
-       <property name="icon">
-        <iconset resource="imgs.qrc">
-         <normaloff>:/new/prefix1/p.png</normaloff>:/new/prefix1/p.png</iconset>
-       </property>
-       <property name="iconSize">
-        <size>
-         <width>110</width>
-         <height>110</height>
-        </size>
-       </property>
-      </widget>
+      <layout class="QHBoxLayout" name="horizontalLayout">
+       <item>
+        <widget class="QRadioButton" name="metal">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="font">
+          <font>
+           <family>Impact</family>
+           <pointsize>14</pointsize>
+          </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">color: rgb(170, 0, 0);</string>
+         </property>
+         <property name="text">
+          <string>Metal</string>
+         </property>
+         <property name="icon">
+          <iconset resource="imgs.qrc">
+           <normaloff>:/new/prefix1/me.png</normaloff>:/new/prefix1/me.png</iconset>
+         </property>
+         <property name="iconSize">
+          <size>
+           <width>110</width>
+           <height>110</height>
+          </size>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QRadioButton" name="plastic">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="font">
+          <font>
+           <family>Impact</family>
+           <pointsize>14</pointsize>
+          </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">color: rgb(248, 165, 45);</string>
+         </property>
+         <property name="text">
+          <string>Plastic</string>
+         </property>
+         <property name="icon">
+          <iconset resource="imgs.qrc">
+           <normaloff>:/new/prefix1/pl.png</normaloff>:/new/prefix1/pl.png</iconset>
+         </property>
+         <property name="iconSize">
+          <size>
+           <width>110</width>
+           <height>110</height>
+          </size>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QRadioButton" name="glass">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="font">
+          <font>
+           <family>Impact</family>
+           <pointsize>14</pointsize>
+          </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">color: rgb(90, 161, 86);</string>
+         </property>
+         <property name="text">
+          <string>Glass</string>
+         </property>
+         <property name="icon">
+          <iconset resource="imgs.qrc">
+           <normaloff>:/new/prefix1/gl.png</normaloff>:/new/prefix1/gl.png</iconset>
+         </property>
+         <property name="iconSize">
+          <size>
+           <width>110</width>
+           <height>110</height>
+          </size>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QRadioButton" name="paper">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="font">
+          <font>
+           <family>Impact</family>
+           <pointsize>14</pointsize>
+          </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">color: rgb(74, 141, 198);</string>
+         </property>
+         <property name="text">
+          <string>Paper</string>
+         </property>
+         <property name="icon">
+          <iconset resource="imgs.qrc">
+           <normaloff>:/new/prefix1/p.png</normaloff>:/new/prefix1/p.png</iconset>
+         </property>
+         <property name="iconSize">
+          <size>
+           <width>110</width>
+           <height>110</height>
+          </size>
+         </property>
+        </widget>
+       </item>
+      </layout>
      </widget>
      <widget class="QLabel" name="label_12">
       <property name="geometry">
@@ -790,6 +908,12 @@ QPushButton:hover {
         <width>151</width>
         <height>41</height>
        </rect>
+      </property>
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
       </property>
       <property name="font">
        <font>
@@ -805,15 +929,65 @@ QPushButton:hover {
        <string>       CODE</string>
       </property>
      </widget>
+     <widget class="QLabel" name="label_6">
+      <property name="geometry">
+       <rect>
+        <x>340</x>
+        <y>10</y>
+        <width>969</width>
+        <height>62</height>
+       </rect>
+      </property>
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="font">
+       <font>
+        <family>Poor Richard</family>
+        <pointsize>36</pointsize>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: rgb(0, 170, 0,0.7);</string>
+      </property>
+      <property name="text">
+       <string>                                            ADD - Modify</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_2">
+      <property name="geometry">
+       <rect>
+        <x>330</x>
+        <y>60</y>
+        <width>969</width>
+        <height>129</height>
+       </rect>
+      </property>
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">font: 75 20pt &quot;MS Shell Dlg 2&quot;;
+color:  #ED8E4A    ;
+</string>
+      </property>
+      <property name="text">
+       <string>Material Type :</string>
+      </property>
+     </widget>
      <zorder>label</zorder>
-     <zorder>label_6</zorder>
      <zorder>label_4</zorder>
      <zorder>amount</zorder>
      <zorder>date</zorder>
      <zorder>Generat_Button</zorder>
      <zorder>properties</zorder>
      <zorder>label_5</zorder>
-     <zorder>label_2</zorder>
      <zorder>reset</zorder>
      <zorder>Generated_code</zorder>
      <zorder>groupBox</zorder>
@@ -823,6 +997,8 @@ QPushButton:hover {
      <zorder>add</zorder>
      <zorder>type</zorder>
      <zorder>label_12</zorder>
+     <zorder>label_6</zorder>
+     <zorder>label_2</zorder>
     </widget>
     <widget class="QWidget" name="tab_2">
      <attribute name="title">
@@ -1073,13 +1249,36 @@ color:rgb(121, 121, 121)</string>
        </font>
       </property>
       <property name="styleSheet">
-       <string notr="true">QPushButton { background-color: rgb(211, 211, 211); }
+       <string notr="true">QPushButton {
+    background-color: #FFA500; /* Neon Orange */
+    color: #000000; /* Black */
+    border: 2px solid transparent; /* Invisible border */
+    border-radius: 10px;
+    padding: 5px;
+    min-width: 70px;
+}
 
-QPushButton:hover { background-color: rgb(85, 170, 255);}
+QPushButton:hover {
+    border: 2px solid #ffffff; /* White border becomes visible when hovered over */
+}
+
+QPushButton:pressed {
+    background-color: #FF4500; /* Darker Orange */
+}
 </string>
       </property>
       <property name="text">
        <string>Delete</string>
+      </property>
+      <property name="icon">
+       <iconset resource="imgs.qrc">
+        <normaloff>:/new/prefix1/delete-127.png</normaloff>:/new/prefix1/delete-127.png</iconset>
+      </property>
+      <property name="iconSize">
+       <size>
+        <width>30</width>
+        <height>30</height>
+       </size>
       </property>
      </widget>
      <widget class="QLineEdit" name="Delete_zone">
@@ -1135,13 +1334,37 @@ QPushButton:hover { background-color: rgb(85, 170, 255);}
        </font>
       </property>
       <property name="styleSheet">
-       <string notr="true">QPushButton { background-color: rgb(211, 211, 211); }
+       <string notr="true">QPushButton {
+    
+	background-color: rgb(0, 100, 0);
+    color: #000000; /* Black */
+    border: 2px solid transparent; /* Invisible border */
+    border-radius: 10px;
+    padding: 5px;
+    min-width: 70px;
+}
 
-QPushButton:hover { background-color: rgb(85, 170, 255);}
+QPushButton:hover {
+    border: 2px solid #ffffff; /* White border becomes visible when hovered over */
+}
+
+QPushButton:pressed {
+    background-color: #FF4500; /* Darker Orange */
+}
 </string>
       </property>
       <property name="text">
        <string>Export ALL</string>
+      </property>
+      <property name="icon">
+       <iconset resource="imgs.qrc">
+        <normaloff>:/new/prefix1/pngtree-pdf-file-icon-png-png-image_7965915.png</normaloff>:/new/prefix1/pngtree-pdf-file-icon-png-png-image_7965915.png</iconset>
+      </property>
+      <property name="iconSize">
+       <size>
+        <width>25</width>
+        <height>25</height>
+       </size>
       </property>
      </widget>
      <widget class="QPushButton" name="exportdisplayed">
@@ -1155,19 +1378,44 @@ QPushButton:hover { background-color: rgb(85, 170, 255);}
       </property>
       <property name="font">
        <font>
-        <pointsize>10</pointsize>
+        <pointsize>12</pointsize>
         <weight>50</weight>
         <bold>false</bold>
        </font>
       </property>
       <property name="styleSheet">
-       <string notr="true">QPushButton { background-color: rgb(211, 211, 211); }
+       <string notr="true">QPushButton {
+    
+	background-color: rgb(0, 100, 0);
+    color: #000000; /* Black */
+    border: 2px solid transparent; /* Invisible border */
+    border-radius: 10px;
+    padding: 5px;
+    min-width: 70px;
+}
 
-QPushButton:hover { background-color: rgb(85, 170, 255);}
+QPushButton:hover {
+    border: 2px solid #ffffff; /* White border becomes visible when hovered over */
+}
+
+QPushButton:pressed {
+    background-color: #FF4500; /* Darker Orange */
+}
 </string>
       </property>
       <property name="text">
-       <string>Export Displayed</string>
+       <string>Export
+Displayed</string>
+      </property>
+      <property name="icon">
+       <iconset resource="imgs.qrc">
+        <normaloff>:/new/prefix1/pngtree-pdf-file-icon-png-png-image_7965915.png</normaloff>:/new/prefix1/pngtree-pdf-file-icon-png-png-image_7965915.png</iconset>
+      </property>
+      <property name="iconSize">
+       <size>
+        <width>20</width>
+        <height>20</height>
+       </size>
       </property>
      </widget>
      <widget class="QPushButton" name="reset_2">
@@ -1187,13 +1435,36 @@ QPushButton:hover { background-color: rgb(85, 170, 255);}
        </font>
       </property>
       <property name="styleSheet">
-       <string notr="true">QPushButton { background-color: rgb(211, 211, 211); }
+       <string notr="true">QPushButton {
+    background-color: #FFA500; /* Neon Orange */
+    color: #000000; /* Black */
+    border: 2px solid transparent; /* Invisible border */
+    border-radius: 10px;
+    padding: 5px;
+    min-width: 70px;
+}
 
-QPushButton:hover { background-color: rgb(124, 34, 46);}
+QPushButton:hover {
+    border: 2px solid #ffffff; /* White border becomes visible when hovered over */
+}
+
+QPushButton:pressed {
+    background-color: #FF4500; /* Darker Orange */
+}
 </string>
       </property>
       <property name="text">
        <string>Reset</string>
+      </property>
+      <property name="icon">
+       <iconset resource="imgs.qrc">
+        <normaloff>:/new/prefix1/5632370.png</normaloff>:/new/prefix1/5632370.png</iconset>
+      </property>
+      <property name="iconSize">
+       <size>
+        <width>30</width>
+        <height>30</height>
+       </size>
       </property>
      </widget>
      <zorder>label_7</zorder>
@@ -1785,6 +2056,16 @@ QPushButton:hover {
        <property name="text">
         <string>Ascending</string>
        </property>
+       <property name="icon">
+        <iconset resource="imgs.qrc">
+         <normaloff>:/new/prefix1/ascending-order.png</normaloff>:/new/prefix1/ascending-order.png</iconset>
+       </property>
+       <property name="iconSize">
+        <size>
+         <width>30</width>
+         <height>30</height>
+        </size>
+       </property>
        <property name="checkable">
         <bool>false</bool>
        </property>
@@ -1812,6 +2093,16 @@ QPushButton:hover {
        </property>
        <property name="text">
         <string>Descending</string>
+       </property>
+       <property name="icon">
+        <iconset resource="imgs.qrc">
+         <normaloff>:/new/prefix1/59216.png</normaloff>:/new/prefix1/59216.png</iconset>
+       </property>
+       <property name="iconSize">
+        <size>
+         <width>25</width>
+         <height>25</height>
+        </size>
        </property>
        <property name="checkable">
         <bool>false</bool>
@@ -2114,13 +2405,14 @@ QPushButton:hover {
       </property>
       <property name="styleSheet">
        <string notr="true">QPushButton {
-    background-color: transparent;
-    border: none;
-color: rgb(170, 0, 0);
+    color: #FF0000; /* Red */
+    border: 2px solid transparent; /* Invisible border */
+    border-radius: 10px;
+    padding: 5px;
+    min-width: 70px;
 }
-
 QPushButton:hover {
-    background-color: rgba(255, 255, 255, 0.1);  
+    border: 2px solid #FF0000; /* Red border becomes visible when hovered over */
 }
 </string>
       </property>
@@ -2145,13 +2437,14 @@ QPushButton:hover {
       </property>
       <property name="styleSheet">
        <string notr="true">QPushButton {
-    background-color: transparent;
-    border: none;
-color: rgb(248, 165, 45);
+    color: #FFA500; /* Orange */
+    border: 2px solid transparent; /* Invisible border */
+    border-radius: 10px;
+    padding: 5px;
+    min-width: 70px;
 }
-
 QPushButton:hover {
-    background-color: rgba(255, 255, 255, 0.1);  
+    border: 2px solid #FFA500; /* Orange border becomes visible when hovered over */
 }
 </string>
       </property>
@@ -2176,13 +2469,14 @@ QPushButton:hover {
       </property>
       <property name="styleSheet">
        <string notr="true">QPushButton {
-    background-color: transparent;
-    border: none;
-color: rgb(90, 161, 86);
+    color: #00FF00; /* Green */
+    border: 2px solid transparent; /* Invisible border */
+    border-radius: 10px;
+    padding: 5px;
+    min-width: 70px;
 }
-
 QPushButton:hover {
-    background-color: rgba(255, 255, 255, 0.1);  
+    border: 2px solid #00FF00; /* Green border becomes visible when hovered over */
 }
 </string>
       </property>
@@ -2207,13 +2501,14 @@ QPushButton:hover {
       </property>
       <property name="styleSheet">
        <string notr="true">QPushButton {
-    background-color: transparent;
-    border: none;
-	color: rgb(74, 141, 198);
+   color: rgb(74, 141, 198);
+    border: 2px solid transparent; /* Invisible border */
+    border-radius: 10px;
+    padding: 5px;
+    min-width: 70px;
 }
-
 QPushButton:hover {
-    background-color: rgba(255, 255, 255, 0.1);  
+    border: 2px solid rgb(74, 141, 198);; /* Blue border becomes visible when hovered over */
 }
 </string>
       </property>
@@ -2224,9 +2519,9 @@ QPushButton:hover {
      <widget class="QPushButton" name="stack">
       <property name="geometry">
        <rect>
-        <x>1130</x>
+        <x>1120</x>
         <y>0</y>
-        <width>191</width>
+        <width>181</width>
         <height>111</height>
        </rect>
       </property>
@@ -2238,13 +2533,14 @@ QPushButton:hover {
       </property>
       <property name="styleSheet">
        <string notr="true">QPushButton {
-    background-color: transparent;
-    border: none;
 	color: rgb(170, 85, 255);
+    border: 2px solid transparent; /* Invisible border */
+    border-radius: 10px;
+    padding: 5px;
+    min-width: 70px;
 }
-
 QPushButton:hover {
-    background-color: rgba(255, 255, 255, 0.1);  
+    border: 2px solid rgb(170, 85, 255);; /* Blue border becomes visible when hovered over */
 }
 </string>
       </property>
@@ -2408,7 +2704,7 @@ color: rgb(0, 170, 0);
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>1292</width>
+     <width>1326</width>
      <height>22</height>
     </rect>
    </property>

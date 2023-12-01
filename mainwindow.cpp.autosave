@@ -546,15 +546,14 @@ void MainWindow::executeQuery(QString queryStr) {
 
 void MainWindow::updateView_2() {
     QString queryStr = "SELECT * FROM trash WHERE 1=1 ";
-    queryStr = "SELECT * FROM trash";
     select = ui->view_2->selectionModel();
     qDebug() << "Set up selection model";
 
     // Connect the selectionChanged signal to the onSelectionChanged slot
     connect(select, &QItemSelectionModel::selectionChanged, this, &MainWindow::onSelectionChanged);
     qDebug() << "Connected selectionChanged signal to onSelectionChanged slot";
-
-
+    
+    
     if (ui->typeCheckBox->isChecked()) {
         if (ui->metal_2->isChecked()) {
             queryStr += "AND MATERIAL_TYPE LIKE 'Metal%' ";
