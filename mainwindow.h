@@ -18,6 +18,7 @@
 #include "drilldownseries.h"
 #include "drilldownchart.h"
 #include <QItemSelectionModel>
+#include <QKeyEvent>
 
 
 QT_CHARTS_USE_NAMESPACE
@@ -36,6 +37,8 @@ public:
     void playGif(const QString &gifPath);
 
 
+
+
 public slots:
     void updateview(const QString &text);
     void executeQuery(QString queryStr);
@@ -44,6 +47,7 @@ public slots:
 
 protected:
     bool eventFilter(QObject *obj, QEvent *event);
+
 
 
 private slots:
@@ -74,11 +78,9 @@ private slots:
     QPieSeries* createRecyclableSeries(const QMap<QString, double>& amounts, double totalAmount);
     QPieSeries* createBiodegradableSeries(const QMap<QString, double>& amounts, double totalAmount);
     QPieSeries* createReusableSeries(const QMap<QString, double>& amounts, double totalAmount);
-
     void on_stack_clicked();
     void onPlusKeyPressed();
-    void onSelectionChanged();
-
+    void onSelectionChanged(const QItemSelection &selected, const QItemSelection &deselected);
 
 private:
     Ui::MainWindow *ui;

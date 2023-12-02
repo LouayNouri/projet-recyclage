@@ -1,5 +1,6 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
+#include "connection.h"
 #include <cstdlib>
 #include "QString"
 #include "QMessageBox"
@@ -18,6 +19,7 @@
 #include <QApplication>
 #include <QMovie>
 #include <QItemSelectionModel>
+#include <QKeyEvent>
 
 
 
@@ -97,70 +99,56 @@ MainWindow::MainWindow(QWidget *parent)
     ui->glacha->hide();
     ui->stacha->hide();
     playGif("C:/Users/MEGA-PC/Desktop/QT-test/Project_2/FF.gif");
-    this->installEventFilter(this);
-    ui->view_2->selectionModel();
-    ui->view_2->selectionModel(); // Add this line
-    connect(select, &QItemSelectionModel::selectionChanged, this, &MainWindow::onSelectionChanged);
-    ui->view_2->installEventFilter(this);
     ui->view_2->setSelectionBehavior(QAbstractItemView::SelectItems);
-    connect(select, &QItemSelectionModel::selectionChanged, this, &MainWindow::onSelectionChanged);
-    qDebug() << "Connected selectionChanged signal to onSelectionChanged slot";
-    select = ui->view_2->selectionModel();
-    qDebug() << "Set up selection model";
+    this->installEventFilter(this);
     ui->view_2->installEventFilter(this);
-    qDebug() << "Installed event filter on ui->view_2";
-    updateView_2();
-
-
-
+    connect(ui->view_2->selectionModel(), &QItemSelectionModel::selectionChanged, this, &MainWindow::onSelectionChanged);
 
 
 
 
 }
 
-void MainWindow::onSelectionChanged() {
-    double sum = 0;
+void MainWindow::onSelectionChanged(const QItemSelection &selected, const QItemSelection &deselected) {
+    // Update select
+    select = ui->view_2->selectionModel();
 
-    // Get the selected cells
-    QModelIndexList selectedCells = select->selectedIndexes();
-
-    qDebug() << "Selection changed. Number of selected cells: " << selectedCells.count();
-
-    // Iterate over the selected cells
-    for (int i = 0; i < selectedCells.count(); ++i) {
-        QModelIndex index = selectedCells.at(i);
-
-        // Get the data in the cell
-        double cellData = index.data().toDouble();
-
-        qDebug() << "Cell data: " << cellData;
-
-        // Add the cell data to the sum
-        sum += cellData;
-    }
-
-    qDebug() << "Sum: " << sum;
+    // Calculate and display the sum
+    onPlusKeyPressed();
 }
-
 
 
 void MainWindow::onPlusKeyPressed() {
     double sum = 0;
-    qDebug() << "indeed";
+
     // Get the selected cells
     QModelIndexList selectedCells = select->selectedIndexes();
 
     qDebug() << "Number of selected cells: " << selectedCells.count();
 
+    // Check if the number of selected cells is even
+    if (selectedCells.count() % 2 != 0) {
+        QMessageBox::information(this, "Error", "Please select both a unit cell and its corresponding value cell.");
+        return;
+    }
+
     // Iterate over the selected cells
-    for (int i = 0; i < selectedCells.count(); ++i) {
-        QModelIndex index = selectedCells.at(i);
+    for (int i = 0; i < selectedCells.count(); i += 2) { // Assuming every two cells form a pair
+        QModelIndex indexUnit = selectedCells.at(i);
+        QModelIndex indexValue = selectedCells.at(i+1);
 
         // Get the data in the cell
-        double cellData = index.data().toDouble();
+        QString unit = indexUnit.data().toString();
+        double cellData = indexValue.data().toDouble();
 
-        qDebug() << "Cell data: " << cellData;
+        // Convert the cell data to kilograms based on the unit
+        if (unit == "Gram (g)") {
+            cellData /= 1000; // convert grams to kilograms
+        } else if (unit == "Tonne (t)") {
+            cellData *= 1000; // convert tonnes to kilograms
+        }
+
+        qDebug() << "Cell data: " << cellData << " " << unit;
 
         // Add the cell data to the sum
         sum += cellData;
@@ -169,8 +157,7 @@ void MainWindow::onPlusKeyPressed() {
     qDebug() << "Sum: " << sum;
 
     // Display the sum in a QMessageBox
-    QMessageBox::information(this, "Sum", "The sum is: " + QString::number(sum));
-
+    QMessageBox::information(this, "Sum", "The sum is: " + QString::number(sum) + " kg");
 }
 
 
@@ -178,7 +165,53 @@ void MainWindow::onPlusKeyPressed() {
 
 
 
+void MainWindow::updateView_2() {
+    QString queryStr = "SELECT * FROM trash WHERE 1=1 ";
+    select = ui->view_2->selectionModel();
 
+    if (ui->typeCheckBox->isChecked()) {
+        if (ui->metal_2->isChecked()) {
+            queryStr += "AND MATERIAL_TYPE LIKE 'Metal%' ";
+        } else if (ui->glass_2->isChecked()) {
+            queryStr += "AND MATERIAL_TYPE LIKE 'Glass%' ";
+        } else if (ui->paper_2->isChecked()) {
+            queryStr += "AND MATERIAL_TYPE LIKE 'Paper%' ";
+        } else if (ui->plastic_2->isChecked()) {
+            queryStr += "AND MATERIAL_TYPE LIKE 'Plastic%' ";
+        }
+    }
+
+    if (ui->dateCheckBox->isChecked()) {
+        QDate date = ui->date_2->date();
+        QString dateStr = date.toString("yyyy-MM-dd");
+        queryStr += QString("AND TO_DATE(TO_CHAR(DATE_ADDED, 'YYYY-MM-DD'), 'YYYY-MM-DD') = TO_DATE('%1', 'YYYY-MM-DD') ").arg(dateStr);
+    }
+
+    if (ui->recyclableCheckBox->isChecked() && ui->reusableCheckBox->isChecked() && ui->biodegradableCheckBox->isChecked()) {
+        queryStr += "ORDER BY CASE WHEN properties LIKE '%Recyclable%' AND properties LIKE '%Reusable%' AND properties LIKE '%Biodegradable%' THEN 0 ELSE 1 END, properties";
+    } else if (ui->recyclableCheckBox->isChecked() && ui->reusableCheckBox->isChecked()) {
+        queryStr += "ORDER BY CASE WHEN properties LIKE '%Recyclable%' AND properties LIKE '%Reusable%' THEN 0 ELSE 1 END, properties";
+    } else if (ui->recyclableCheckBox->isChecked() && ui->biodegradableCheckBox->isChecked()) {
+        queryStr += "ORDER BY CASE WHEN properties LIKE '%Recyclable%' AND properties LIKE '%Biodegradable%' THEN 0 ELSE 1 END, properties";
+    } else if (ui->reusableCheckBox->isChecked() && ui->biodegradableCheckBox->isChecked()) {
+        queryStr += "ORDER BY CASE WHEN properties LIKE '%Biodegradable%' AND properties LIKE '%Reusable%' THEN 0 ELSE 1 END, properties";
+    } else if (ui->recyclableCheckBox->isChecked()) {
+        queryStr += "ORDER BY CASE WHEN properties LIKE '%Recyclable%' THEN 0 ELSE 1 END, properties";
+    } else if (ui->biodegradableCheckBox->isChecked()) {
+        queryStr += "ORDER BY CASE WHEN properties LIKE '%Biodegradable%' THEN 0 ELSE 1 END, properties";
+    } else if (ui->reusableCheckBox->isChecked()) {
+        queryStr += "ORDER BY CASE WHEN properties LIKE '%Reusable%' THEN 0 ELSE 1 END, properties";
+    }
+
+    QSqlQueryModel *model = new QSqlQueryModel();
+    QSqlQuery query;
+    query.prepare(queryStr);
+    query.exec();
+    model->setQuery(query);
+    ui->view_2->setModel(model);
+    ui->view_2->resizeColumnsToContents();
+    ui->view_2->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
+}
 
 void MainWindow::playGif(const QString &gifPath)
 {
@@ -284,16 +317,17 @@ bool MainWindow::eventFilter(QObject *obj, QEvent *event)
                         }
                         return true;
                     }
-                    if (obj == ui->view_2 && event->type() == QEvent::KeyPress) {
-                        QKeyEvent *keyEvent = static_cast<QKeyEvent *>(event);
-                        if (keyEvent->key() == Qt::Key_A) {
-                            qDebug() << "'A' key pressed";
-                            onPlusKeyPressed();
-                            return true;
-                        }
-                    }
-
                 }
+                if (obj == ui->view_2 && event->type() == QEvent::KeyPress) {
+                    QKeyEvent *keyEvent = static_cast<QKeyEvent *>(event);
+                    if (keyEvent->key() == Qt::Key_A) {
+                        qDebug() << "'A' key pressed";
+                        updateView_2();
+                        onPlusKeyPressed();
+                        return true;
+                    }
+                }
+
 
 
 
@@ -543,65 +577,6 @@ void MainWindow::executeQuery(QString queryStr) {
 
     ui->view_2->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
 }
-
-void MainWindow::updateView_2() {
-    QString queryStr = "SELECT * FROM trash WHERE 1=1 ";
-    queryStr = "SELECT * FROM trash";
-    select = ui->view_2->selectionModel();
-    qDebug() << "Set up selection model";
-
-    // Connect the selectionChanged signal to the onSelectionChanged slot
-    connect(select, &QItemSelectionModel::selectionChanged, this, &MainWindow::onSelectionChanged);
-    qDebug() << "Connected selectionChanged signal to onSelectionChanged slot";
-
-
-    if (ui->typeCheckBox->isChecked()) {
-        if (ui->metal_2->isChecked()) {
-            queryStr += "AND MATERIAL_TYPE LIKE 'Metal%' ";
-        } else if (ui->glass_2->isChecked()) {
-            queryStr += "AND MATERIAL_TYPE LIKE 'Glass%' ";
-        } else if (ui->paper_2->isChecked()) {
-            queryStr += "AND MATERIAL_TYPE LIKE 'Paper%' ";
-        } else if (ui->plastic_2->isChecked()) {
-            queryStr += "AND MATERIAL_TYPE LIKE 'Plastic%' ";
-        }
-    }
-
-    if (ui->dateCheckBox->isChecked()) {
-        QDate date = ui->date_2->date();
-        QString dateStr = date.toString("yyyy-MM-dd");
-        queryStr += QString("AND TO_DATE(TO_CHAR(DATE_ADDED, 'YYYY-MM-DD'), 'YYYY-MM-DD') = TO_DATE('%1', 'YYYY-MM-DD') ").arg(dateStr);
-    }
-
-    if (ui->recyclableCheckBox->isChecked() && ui->reusableCheckBox->isChecked() && ui->biodegradableCheckBox->isChecked()) {
-        queryStr += "ORDER BY CASE WHEN properties LIKE '%Recyclable%' AND properties LIKE '%Reusable%' AND properties LIKE '%Biodegradable%' THEN 0 ELSE 1 END, properties";
-    } else if (ui->recyclableCheckBox->isChecked() && ui->reusableCheckBox->isChecked()) {
-        queryStr += "ORDER BY CASE WHEN properties LIKE '%Recyclable%' AND properties LIKE '%Reusable%' THEN 0 ELSE 1 END, properties";
-    } else if (ui->recyclableCheckBox->isChecked() && ui->biodegradableCheckBox->isChecked()) {
-        queryStr += "ORDER BY CASE WHEN properties LIKE '%Recyclable%' AND properties LIKE '%Biodegradable%' THEN 0 ELSE 1 END, properties";
-    } else if (ui->reusableCheckBox->isChecked() && ui->biodegradableCheckBox->isChecked()) {
-        queryStr += "ORDER BY CASE WHEN properties LIKE '%Biodegradable%' AND properties LIKE '%Reusable%' THEN 0 ELSE 1 END, properties";
-    } else if (ui->recyclableCheckBox->isChecked()) {
-        queryStr += "ORDER BY CASE WHEN properties LIKE '%Recyclable%' THEN 0 ELSE 1 END, properties";
-    } else if (ui->biodegradableCheckBox->isChecked()) {
-        queryStr += "ORDER BY CASE WHEN properties LIKE '%Biodegradable%' THEN 0 ELSE 1 END, properties";
-    } else if (ui->reusableCheckBox->isChecked()) {
-        queryStr += "ORDER BY CASE WHEN properties LIKE '%Reusable%' THEN 0 ELSE 1 END, properties";
-    }
-
-    QSqlQueryModel *model = new QSqlQueryModel();
-    QSqlQuery query;
-    query.prepare(queryStr);
-    query.exec();
-    model->setQuery(query);
-    ui->view_2->setModel(model);
-    ui->view_2->resizeColumnsToContents();
-    ui->view_2->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
-}
-
-
-
-
 
 
 

@@ -628,8 +628,8 @@ selection-color: rgb(146, 255, 162);</string>
         <string>Kilogram (kg)</string>
        </property>
        <property name="icon">
-        <iconset>
-         <normaloff>:/new/prefix1/2312723.png</normaloff>:/new/prefix1/2312723.png</iconset>
+        <iconset resource="imgs.qrc">
+         <normaloff>:/new/prefix1/kilogram.png</normaloff>:/new/prefix1/kilogram.png</iconset>
        </property>
       </item>
       <item>
@@ -1918,6 +1918,15 @@ color:  #ED8E4A    ;
       <property name="styleSheet">
        <string notr="true">background-color: transparent; border: none;
 color: rgb(105, 172, 62);</string>
+      </property>
+      <property name="alternatingRowColors">
+       <bool>false</bool>
+      </property>
+      <property name="gridStyle">
+       <enum>Qt::DashLine</enum>
+      </property>
+      <property name="sortingEnabled">
+       <bool>false</bool>
       </property>
      </widget>
      <widget class="Line" name="line">
