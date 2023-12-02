@@ -24,7 +24,7 @@
      </rect>
     </property>
     <property name="currentIndex">
-     <number>1</number>
+     <number>0</number>
     </property>
     <property name="tabBarAutoHide">
      <bool>false</bool>
@@ -339,6 +339,48 @@ border-radius: 3px;
       </property>
       <property name="text">
        <string/>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pb_ajouter_2">
+      <property name="geometry">
+       <rect>
+        <x>490</x>
+        <y>480</y>
+        <width>281</width>
+        <height>30</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Calibri Light</family>
+        <pointsize>11</pointsize>
+        <weight>75</weight>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="cursor">
+       <cursorShape>PointingHandCursor</cursorShape>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(255, 255, 255);
+border-radius: 3px;
+</string>
+      </property>
+      <property name="text">
+       <string>arduino</string>
+      </property>
+      <property name="icon">
+       <iconset>
+        <normaloff>../../Gestion_voiture/Gestion_voiture/ressources/+.png</normaloff>../../Gestion_voiture/Gestion_voiture/ressources/+.png</iconset>
+      </property>
+      <property name="iconSize">
+       <size>
+        <width>20</width>
+        <height>20</height>
+       </size>
+      </property>
+      <property name="flat">
+       <bool>false</bool>
       </property>
      </widget>
     </widget>
@@ -1083,7 +1125,7 @@ QTextEdit:focus {
      <x>0</x>
      <y>0</y>
      <width>1635</width>
-     <height>26</height>
+     <height>22</height>
     </rect>
    </property>
   </widget>

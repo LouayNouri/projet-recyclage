@@ -33,7 +33,7 @@
 #include <QByteArray>
 #include <QFile>
 #include "smtp.h"
-
+#include"arduino.h"
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
 QT_END_NAMESPACE
@@ -72,9 +72,11 @@ private slots:
 
    void on_qrcodegen_clicked();
 
-
+   void update_label();
 
    void on_send_mail_2_clicked();
+
+   void on_pb_ajouter_2_clicked();
 
 private:
     Ui::MainWindow *ui;
@@ -86,5 +88,8 @@ private:
       QString mnomemp="localhost";
       quint16 mport=3333;
       QTcpSocket *mSocket;
+
+      Arduino Ar;
+      QByteArray data;
 };
 #endif // MAINWINDOW_H

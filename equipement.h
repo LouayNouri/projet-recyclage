@@ -18,6 +18,7 @@
 
 #include <QtNetwork/QAbstractSocket>
 #include <QtNetwork/QSslSocket>
+
 class Equipement
 {
 public:

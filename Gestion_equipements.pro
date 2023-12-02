@@ -3,6 +3,7 @@ QT       += sql
 QT       += multimedia
 QT       += multimediawidgets charts printsupport widgets axcontainer network
 QT       +=network
+QT += serialport
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
 CONFIG += c++11
@@ -20,6 +21,7 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
     QrCode.cpp \
+    arduino.cpp \
     connection.cpp \
     equipement.cpp \
     main.cpp \
@@ -28,6 +30,7 @@ SOURCES += \
 
 HEADERS += \
     QrCode.hpp \
+    arduino.h \
     connection.h \
     equipement.h \
     mainwindow.h \

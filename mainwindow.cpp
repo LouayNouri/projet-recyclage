@@ -372,8 +372,93 @@ MainWindow::MainWindow(QWidget *parent)
     ui->setupUi(this);
     ui->tab_equipement->setModel(E.afficher());//refresh
 
+     int ret=Ar.connect_arduino(); // lancer la connexion à arduino
+
+     switch(ret){
+     case(0):qDebug()<< "arduino is available and connected to : "<< Ar.getarduino_port_name();
+         break;
+     case(1):qDebug() << "arduino is available but not connected to :" <<Ar.getarduino_port_name();
+        break;
+     case(-1):qDebug() << "arduino is not available";
+     }
+      QObject::connect(Ar.getserial(),SIGNAL(readyRead()),this,SLOT(update_label())); // permet de lancer
+      //le slot update_label suite à la reception du signal readyRead (reception des données).
+
 
 }
+void MainWindow::update_label()
+{
+    data = "";
+    data = Ar.read_from_arduino();
+
+    qDebug() << data;
+    if (data == "1") // Assuming "1" indicates the condition to prompt the user
+    {
+        // Display a window to get user input
+        bool ok;
+        QString dechetID = QInputDialog::getText(this, tr("Enter Dechet ID"), tr("Dechet ID:"), QLineEdit::Normal, "", &ok);
+        if (!ok) {
+            // User pressed Cancel
+            return;
+        }
+
+        QString equipementID = QInputDialog::getText(this, tr("Enter Equipement ID"), tr("Equipement ID:"), QLineEdit::Normal, "", &ok);
+        if (!ok) {
+            // User pressed Cancel
+            return;
+        }
+
+        QString quantitee = QInputDialog::getText(this, tr("Enter QUANTITEE"), tr("QUANTITEE:"), QLineEdit::Normal, "", &ok);
+        if (!ok) {
+            // User pressed Cancel
+            return;
+        }
+
+        // Convert strings to integers
+        bool conversionSuccess;
+        int dechetIDInt = dechetID.toInt(&conversionSuccess);
+        if (!conversionSuccess) {
+            qDebug() << "Invalid Dechet ID. Please enter a valid number.";
+            return;
+        }
+
+        int equipementIDInt = equipementID.toInt(&conversionSuccess);
+        if (!conversionSuccess) {
+            qDebug() << "Invalid Equipement ID. Please enter a valid number.";
+            return;
+        }
+
+        int quantiteeInt = quantitee.toInt(&conversionSuccess);
+        if (!conversionSuccess) {
+            qDebug() << "Invalid QUANTITEE. Please enter a valid number.";
+            return;
+        }
+
+        // Call a function to verify existence and update quantity
+        // This function should return the id_equipement and new quantity
+        QString result = Ar.updateDechetQuantity(dechetIDInt, equipementIDInt, quantiteeInt);
+
+        // Parse the result
+        QStringList parts = result.split(",");
+        if (parts.size() == 2) {
+            int idEquipement = parts[0].toInt();
+            int newQuantity = parts[1].toInt();
+ qDebug() << "result: " << result;
+ qDebug() << result ;
+ QByteArray x=result.toUtf8();
+ qDebug() << x ;
+ Ar.write_to_arduino(x);
+ qDebug()<<"valdie";
+            // Display the result using qDebug()
+            qDebug() << "ID Equipement: " << idEquipement;
+            qDebug() << "New Quantity: " << newQuantity;
+        } else {
+            qDebug() << "Invalid result format.";
+        }
+    }
+}
+
+
 
 MainWindow::~MainWindow()
 {
@@ -806,3 +891,75 @@ void MainWindow::on_send_mail_2_clicked()
                    }
    }
 
+
+void MainWindow::on_pb_ajouter_2_clicked()
+{
+    data = "1";
+  //  data = Ar.read_from_arduino();
+
+    qDebug() << data;
+    if (data == "1") // Assuming "1" indicates the condition to prompt the user
+    {
+        // Display a window to get user input
+        bool ok;
+        QString dechetID = QInputDialog::getText(this, tr("Enter Dechet ID"), tr("Dechet ID:"), QLineEdit::Normal, "", &ok);
+        if (!ok) {
+            // User pressed Cancel
+            return;
+        }
+
+        QString equipementID = QInputDialog::getText(this, tr("Enter Equipement ID"), tr("Equipement ID:"), QLineEdit::Normal, "", &ok);
+        if (!ok) {
+            // User pressed Cancel
+            return;
+        }
+
+        QString quantitee = QInputDialog::getText(this, tr("Enter QUANTITEE"), tr("QUANTITEE:"), QLineEdit::Normal, "", &ok);
+        if (!ok) {
+            // User pressed Cancel
+            return;
+        }
+
+        // Convert strings to integers
+        bool conversionSuccess;
+        int dechetIDInt = dechetID.toInt(&conversionSuccess);
+        if (!conversionSuccess) {
+            qDebug() << "Invalid Dechet ID. Please enter a valid number.";
+            return;
+        }
+
+        int equipementIDInt = equipementID.toInt(&conversionSuccess);
+        if (!conversionSuccess) {
+            qDebug() << "Invalid Equipement ID. Please enter a valid number.";
+            return;
+        }
+
+        int quantiteeInt = quantitee.toInt(&conversionSuccess);
+        if (!conversionSuccess) {
+            qDebug() << "Invalid QUANTITEE. Please enter a valid number.";
+            return;
+        }
+
+        // Call a function to verify existence and update quantity
+        // This function should return the id_equipement and new quantity
+        QString result = Ar.updateDechetQuantity(dechetIDInt, equipementIDInt, quantiteeInt);
+
+        // Parse the result
+        QStringList parts = result.split(",");
+        if (parts.size() == 2) {
+            int idEquipement = parts[0].toInt();
+            int newQuantity = parts[1].toInt();
+ qDebug() << "result: " << result;
+ qDebug() << result ;
+ QByteArray x=result.toUtf8();
+ qDebug() << x ;
+ Ar.write_to_arduino(x);
+ qDebug()<<"valdie";
+            // Display the result using qDebug()
+            qDebug() << "ID Equipement: " << idEquipement;
+            qDebug() << "New Quantity: " << newQuantity;
+        } else {
+            qDebug() << "Invalid result format.";
+        }
+    }
+}
