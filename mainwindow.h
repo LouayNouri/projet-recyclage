@@ -1,6 +1,10 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
-
+#include "drilldownseries.h"
+#include "drilldownchart.h"
+#include "donutbreakdownchart.h"
+#include "TTP.h"
+#include "trash.h"
 #include <QMainWindow>
 #include <QWidget>
 #include <QMovie>
@@ -11,12 +15,8 @@
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QStatusBar>
 #include <QtCharts/QChartView>
-#include "donutbreakdownchart.h"
-#include "trash.h"
 #include <QtCharts/QBarSet>
 #include <QtCharts/QLegend>
-#include "drilldownseries.h"
-#include "drilldownchart.h"
 #include <QItemSelectionModel>
 #include <QKeyEvent>
 
@@ -81,9 +81,13 @@ private slots:
     void on_stack_clicked();
     void onPlusKeyPressed();
     void onSelectionChanged(const QItemSelection &selected, const QItemSelection &deselected);
+    void openTextToSpeechWindow();
 
 private:
     Ui::MainWindow *ui;
+    QWidget *secondWindow;  // Declare the second window
+    Ui::MainWindow*ui2;
+
     QButtonGroup *group;
     trash h;
     void showPieChart(int chartType);
@@ -96,6 +100,7 @@ private:
     QChartView *chartView;
     QMovie *movie;
     QItemSelectionModel *select;
+    //TextToSpeechWindow *ttsWindow;
 
 };
 

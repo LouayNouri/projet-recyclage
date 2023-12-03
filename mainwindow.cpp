@@ -1,6 +1,7 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 #include "connection.h"
+#include "TTP.h"
 #include <cstdlib>
 #include "QString"
 #include "QMessageBox"
@@ -103,11 +104,22 @@ MainWindow::MainWindow(QWidget *parent)
     this->installEventFilter(this);
     ui->view_2->installEventFilter(this);
     connect(ui->view_2->selectionModel(), &QItemSelectionModel::selectionChanged, this, &MainWindow::onSelectionChanged);
-
+    connect(ui->TTP, &QPushButton::clicked, this, &MainWindow::openTextToSpeechWindow);
 
 
 
 }
+
+void MainWindow::openTextToSpeechWindow()
+{
+    qDebug() << "Opening TextToSpeechWindow";
+    TextToSpeechWindow *ttsWindow = new TextToSpeechWindow(this);
+    ttsWindow->show();
+    qDebug() << "TextToSpeechWindow opened";
+}
+
+
+
 
 void MainWindow::onSelectionChanged(const QItemSelection &selected, const QItemSelection &deselected) {
     // Update select
