@@ -30,6 +30,7 @@ MainWindow::MainWindow(QWidget *parent)
 
 {
     ui->setupUi(this);
+    this->move(0,0);
     movie = new QMovie(this);
     QSqlDatabase db = QSqlDatabase::addDatabase("QSQLITE");
     db.setDatabaseName("trash.db");
@@ -104,21 +105,10 @@ MainWindow::MainWindow(QWidget *parent)
     this->installEventFilter(this);
     ui->view_2->installEventFilter(this);
     connect(ui->view_2->selectionModel(), &QItemSelectionModel::selectionChanged, this, &MainWindow::onSelectionChanged);
-    connect(ui->TTP, &QPushButton::clicked, this, &MainWindow::openTextToSpeechWindow);
 
 
 
 }
-
-void MainWindow::openTextToSpeechWindow()
-{
-    qDebug() << "Opening TextToSpeechWindow";
-    TextToSpeechWindow *ttsWindow = new TextToSpeechWindow(this);
-    ttsWindow->show();
-    qDebug() << "TextToSpeechWindow opened";
-}
-
-
 
 
 void MainWindow::onSelectionChanged(const QItemSelection &selected, const QItemSelection &deselected) {
@@ -223,6 +213,18 @@ void MainWindow::updateView_2() {
     ui->view_2->setModel(model);
     ui->view_2->resizeColumnsToContents();
     ui->view_2->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
+
+    QString data;
+    for(int row = 0; row < model->rowCount(); ++row) {
+        for(int col = 0; col < model->columnCount(); ++col) {
+            data += model->data(model->index(row, col)).toString() + "\t";
+        }
+        data += "\n";
+    }
+    emit viewUpdated(data);
+
+
+
 }
 
 void MainWindow::playGif(const QString &gifPath)

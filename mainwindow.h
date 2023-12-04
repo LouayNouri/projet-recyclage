@@ -81,11 +81,10 @@ private slots:
     void on_stack_clicked();
     void onPlusKeyPressed();
     void onSelectionChanged(const QItemSelection &selected, const QItemSelection &deselected);
-    void openTextToSpeechWindow();
+
 
 private:
     Ui::MainWindow *ui;
-    QWidget *secondWindow;  // Declare the second window
     Ui::MainWindow*ui2;
 
     QButtonGroup *group;
@@ -100,7 +99,13 @@ private:
     QChartView *chartView;
     QMovie *movie;
     QItemSelectionModel *select;
-    //TextToSpeechWindow *ttsWindow;
+    TextToSpeechWindow *ttsWindow = nullptr;
+
+
+
+signals:
+    void viewUpdated(const QString &data);
+
 
 };
 

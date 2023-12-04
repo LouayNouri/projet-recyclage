@@ -15,7 +15,7 @@ class TextToSpeechWindow : public QMainWindow
 {
     Q_OBJECT
 public:
-    TextToSpeechWindow(QWidget *parent = 0);
+    TextToSpeechWindow(QWidget *parent = 0, const QString &data = QString());
 
     void queryLocales();
 
@@ -33,6 +33,7 @@ public slots:
     void voiceSelected(int index);
 
     void localeChanged(const QLocale &locale);
+    void updatePlainText(const QString &data);
 
 private:
 private:
@@ -43,3 +44,5 @@ private:
 };
 
 #endif
+
+

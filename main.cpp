@@ -17,5 +17,7 @@ int main(int argc, char *argv[])
     {
         w.show();
     }
+    QObject::connect(&w, &MainWindow::viewUpdated, &ttsWindow, &TextToSpeechWindow::updatePlainText);
+
     return a.exec();
 }

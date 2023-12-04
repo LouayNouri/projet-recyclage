@@ -1,12 +1,14 @@
 #include "TTP.h"
 #include <QLoggingCategory>
 
-TextToSpeechWindow::TextToSpeechWindow(QWidget *parent)
+TextToSpeechWindow::TextToSpeechWindow(QWidget *parent, const QString &data)
     : QMainWindow(parent),
     m_speech(nullptr)
 {
     qDebug() << "Constructing TextToSpeechWindow";
     ui->setupUi(this);
+    this->move(1330,0);
+    ui->plainTextEdit->setPlainText(data);
     QLoggingCategory::setFilterRules(QStringLiteral("qt.speech.tts=true \n qt.speech.tts.*=true"));
 
     // Populate engine selection list
@@ -22,7 +24,48 @@ TextToSpeechWindow::TextToSpeechWindow(QWidget *parent)
     connect(ui->rate, &QSlider::valueChanged, this, &TextToSpeechWindow::setRate);
     connect(ui->volume, &QSlider::valueChanged, this, &TextToSpeechWindow::setVolume);
     connect(ui->engine, static_cast<void (QComboBox::*)(int)>(&QComboBox::currentIndexChanged), this, &TextToSpeechWindow::engineSelected);
+
     qDebug() << "TextToSpeechWindow constructed";
+
+    ui->speakButton->setStyleSheet("QPushButton {font: 14pt bold;color: #319515;border: 2px solid transparent; border-radius: 10px;padding: 5px;min-width: 70px;}QPushButton:hover {border: 2px solid #319515;; }");
+    ui->resumeButton->setStyleSheet("QPushButton {font: 14pt bold;color: #319515;border: 2px solid transparent; border-radius: 10px;padding: 5px;min-width: 70px;}QPushButton:hover {border: 2px solid #319515;; }");
+    ui->pauseButton->setStyleSheet("QPushButton {font: 14pt bold;color: #319515;border: 2px solid transparent; border-radius: 10px;padding: 5px;min-width: 70px;}QPushButton:hover {border: 2px solid #319515;; }");
+    ui->stopButton->setStyleSheet("QPushButton {font: 14pt bold;color: red;border: 2px solid transparent; border-radius: 10px;padding: 5px;min-width: 70px;}QPushButton:hover {border: 2px solid red;; }");
+    ui->plainTextEdit->setStyleSheet("color: white;");
+    ui->label_2->setStyleSheet("font: 10pt bold;color: white;");
+    ui->label_3->setStyleSheet("color: white;font: 10pt bold");
+    ui->label_4->setStyleSheet("color: white;font: 10pt bold");
+    ui->label_5->setStyleSheet("color: white;font: 10pt bold");
+    ui->label_6->setStyleSheet("color: white;font: 10pt bold");
+    ui->label->setStyleSheet("color: white;font: 10pt bold");
+    ui->voice->setObjectName("comboBox1");
+    ui->engine->setObjectName("comboBox2");
+    ui->language->setObjectName("comboBox3");
+
+    ui->centralwidget->setStyleSheet("background-image: url(C:/Users/MEGA-PC/Desktop/QT-test/Project_2/download.jpeg);");
+//                                     "#comboBox1 {"
+//                                     "background-color: white;" /* Change this to your desired color */
+//                                     "}"
+//                                     "#comboBox1::item {"
+//                                     "background-color: white;" /* Change this to your desired color */
+//                                     "}"
+//                                     "#comboBox2 {"
+//                                     "background-color: yellow;" /* Change this to your desired color */
+//                                     "}"
+//                                     "#comboBox2::item {"
+//                                     "background-color: yellow;" /* Change this to your desired color */
+//                                     "}"
+//                                     "#comboBox3 {"
+//                                     "background-color: green;" /* Change this to your desired color */
+//                                     "}"
+//                                     "#comboBox3::item {"
+//                                     "background-color: green;" /* Change this to your desired color */
+//                                     "}");
+}
+
+void TextToSpeechWindow::updatePlainText(const QString &data)
+{
+    ui->plainTextEdit->setPlainText(data);
 }
 
 

@@ -36,7 +36,7 @@
      </rect>
     </property>
     <property name="currentIndex">
-     <number>2</number>
+     <number>0</number>
     </property>
     <widget class="QWidget" name="tab">
      <property name="sizePolicy">
@@ -136,8 +136,23 @@
        </font>
       </property>
       <property name="styleSheet">
-       <string notr="true">QPushButton { background-color: rgb(211, 211, 211); }
-QPushButton:hover { background-color: rgb(85, 170, 255);}</string>
+       <string notr="true">QPushButton {
+    background-color: #FFA500; /* Neon Orange */
+    color: #000000; /* Black */
+    border: 2px solid transparent; /* Invisible border */
+    border-radius: 10px;
+    padding: 5px;
+    min-width: 70px;
+}
+
+QPushButton:hover {
+    border: 2px solid #ffffff; /* White border becomes visible when hovered over */
+}
+
+QPushButton:pressed {
+    background-color: #FF4500; /* Darker Orange */
+}
+</string>
       </property>
       <property name="text">
        <string>Generate</string>
@@ -355,6 +370,9 @@ QPushButton:hover {
     background-color: rgba(255, 255, 255, 0.1);  
 }
 </string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
       </property>
      </widget>
      <widget class="QGroupBox" name="groupBox">
@@ -659,12 +677,29 @@ selection-color: rgb(146, 255, 162);</string>
       </property>
       <property name="font">
        <font>
-        <pointsize>14</pointsize>
+        <pointsize>16</pointsize>
        </font>
       </property>
       <property name="styleSheet">
-       <string notr="true">QPushButton { background-color: rgb(211, 211, 211); }
-QPushButton:hover { background-color: rgb(85, 170, 255);}</string>
+       <string notr="true">QPushButton {
+    
+	background-color: rgb(0, 100, 0);
+    
+	color: rgb(255, 255, 255);
+    border: 2px solid transparent; /* Invisible border */
+    border-radius: 10px;
+    padding: 5px;
+    min-width: 70px;
+}
+
+QPushButton:hover {
+    border: 2px solid #ffffff; /* White border becomes visible when hovered over */
+}
+
+QPushButton:pressed {
+    background-color: #FF4500; /* Darker Orange */
+}
+</string>
       </property>
       <property name="text">
        <string>Check</string>
@@ -903,7 +938,7 @@ QPushButton:hover {
      <widget class="QLabel" name="label_12">
       <property name="geometry">
        <rect>
-        <x>770</x>
+        <x>780</x>
         <y>570</y>
         <width>151</width>
         <height>41</height>
@@ -1328,16 +1363,16 @@ QPushButton:pressed {
       </property>
       <property name="font">
        <font>
-        <pointsize>12</pointsize>
-        <weight>50</weight>
-        <bold>false</bold>
+        <pointsize>11</pointsize>
+        <weight>75</weight>
+        <bold>true</bold>
        </font>
       </property>
       <property name="styleSheet">
        <string notr="true">QPushButton {
     
 	background-color: rgb(0, 100, 0);
-    color: #000000; /* Black */
+	color: rgb(255, 255, 255);
     border: 2px solid transparent; /* Invisible border */
     border-radius: 10px;
     padding: 5px;
@@ -1379,15 +1414,15 @@ QPushButton:pressed {
       <property name="font">
        <font>
         <pointsize>12</pointsize>
-        <weight>50</weight>
-        <bold>false</bold>
+        <weight>75</weight>
+        <bold>true</bold>
        </font>
       </property>
       <property name="styleSheet">
        <string notr="true">QPushButton {
     
 	background-color: rgb(0, 100, 0);
-    color: #000000; /* Black */
+	color: rgb(255, 255, 255);
     border: 2px solid transparent; /* Invisible border */
     border-radius: 10px;
     padding: 5px;
@@ -1925,7 +1960,7 @@ color:  #ED8E4A    ;
          <colorrole role="Button">
           <brush brushstyle="SolidPattern">
            <color alpha="0">
-            <red>170</red>
+            <red>0</red>
             <green>0</green>
             <blue>0</blue>
            </color>
@@ -1943,9 +1978,9 @@ color:  #ED8E4A    ;
          <colorrole role="ButtonText">
           <brush brushstyle="SolidPattern">
            <color alpha="255">
-            <red>255</red>
-            <green>255</green>
-            <blue>255</blue>
+            <red>105</red>
+            <green>172</green>
+            <blue>62</blue>
            </color>
           </brush>
          </colorrole>
@@ -1990,7 +2025,7 @@ color:  #ED8E4A    ;
          <colorrole role="Button">
           <brush brushstyle="SolidPattern">
            <color alpha="0">
-            <red>170</red>
+            <red>0</red>
             <green>0</green>
             <blue>0</blue>
            </color>
@@ -2008,9 +2043,9 @@ color:  #ED8E4A    ;
          <colorrole role="ButtonText">
           <brush brushstyle="SolidPattern">
            <color alpha="255">
-            <red>255</red>
-            <green>255</green>
-            <blue>255</blue>
+            <red>105</red>
+            <green>172</green>
+            <blue>62</blue>
            </color>
           </brush>
          </colorrole>
@@ -2055,7 +2090,7 @@ color:  #ED8E4A    ;
          <colorrole role="Button">
           <brush brushstyle="SolidPattern">
            <color alpha="0">
-            <red>170</red>
+            <red>0</red>
             <green>0</green>
             <blue>0</blue>
            </color>
@@ -2249,15 +2284,25 @@ color: rgb(105, 172, 62);</string>
        </property>
        <property name="font">
         <font>
-         <pointsize>12</pointsize>
+         <pointsize>14</pointsize>
         </font>
        </property>
        <property name="styleSheet">
-        <string notr="true">
+        <string notr="true">QPushButton {
+    background-color: #FFA500; /* Neon Orange */
+    color: #000000; /* Black */
+    border: 2px solid transparent; /* Invisible border */
+    border-radius: 10px;
+    padding: 5px;
+    min-width: 70px;
+}
 
 QPushButton:hover {
-    background-color: rgba(255, 255, 255, 0.1); 
-    color:  rgb(0, 170, 0);; 
+    border: 2px solid #ffffff; /* White border becomes visible when hovered over */
+}
+
+QPushButton:pressed {
+    background-color: #FF4500; /* Darker Orange */
 }
 </string>
        </property>
@@ -2289,13 +2334,26 @@ QPushButton:hover {
        </property>
        <property name="font">
         <font>
-         <pointsize>12</pointsize>
+         <pointsize>14</pointsize>
         </font>
        </property>
        <property name="styleSheet">
-        <string notr="true">QPushButton:hover {
-    background-color: rgba(255, 255, 255, 0.1); 
-    color:#ED8E4A;
+        <string notr="true">QPushButton {
+    
+	background-color: rgb(0, 100, 0);
+	color: rgb(255, 255, 255);
+    border: 2px solid transparent; /* Invisible border */
+    border-radius: 10px;
+    padding: 5px;
+    min-width: 70px;
+}
+
+QPushButton:hover {
+    border: 2px solid #ffffff; /* White border becomes visible when hovered over */
+}
+
+QPushButton:pressed {
+    background-color: #FF4500; /* Darker Orange */
 }
 </string>
        </property>
@@ -2393,19 +2451,6 @@ color:  #ED8E4A    ;
        <string>Sort</string>
       </property>
      </widget>
-     <widget class="QPushButton" name="TTP">
-      <property name="geometry">
-       <rect>
-        <x>750</x>
-        <y>350</y>
-        <width>111</width>
-        <height>51</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>TTP</string>
-      </property>
-     </widget>
      <zorder>label_10</zorder>
      <zorder>groupBox_4</zorder>
      <zorder>groupBox_3</zorder>
@@ -2414,7 +2459,6 @@ color:  #ED8E4A    ;
      <zorder>label_9</zorder>
      <zorder>groupBox_6</zorder>
      <zorder>label_14</zorder>
-     <zorder>TTP</zorder>
     </widget>
     <widget class="QWidget" name="tab_4">
      <attribute name="title">
@@ -2620,9 +2664,9 @@ QPushButton:hover {
        <font>
         <family>Microsoft Uighur</family>
         <pointsize>24</pointsize>
-        <weight>50</weight>
+        <weight>75</weight>
         <italic>false</italic>
-        <bold>false</bold>
+        <bold>true</bold>
        </font>
       </property>
       <property name="styleSheet">
@@ -2655,6 +2699,8 @@ QPushButton:hover {
        <font>
         <family>Microsoft Uighur</family>
         <pointsize>24</pointsize>
+        <weight>75</weight>
+        <bold>true</bold>
        </font>
       </property>
       <property name="styleSheet">
@@ -2687,6 +2733,8 @@ QPushButton:hover {
        <font>
         <family>Microsoft Uighur</family>
         <pointsize>24</pointsize>
+        <weight>75</weight>
+        <bold>true</bold>
        </font>
       </property>
       <property name="styleSheet">
@@ -2719,6 +2767,8 @@ QPushButton:hover {
        <font>
         <family>Microsoft Uighur</family>
         <pointsize>24</pointsize>
+        <weight>75</weight>
+        <bold>true</bold>
        </font>
       </property>
       <property name="styleSheet">
@@ -2743,7 +2793,7 @@ QPushButton:hover {
        <rect>
         <x>1120</x>
         <y>0</y>
-        <width>181</width>
+        <width>201</width>
         <height>111</height>
        </rect>
       </property>
@@ -2751,6 +2801,8 @@ QPushButton:hover {
        <font>
         <family>Microsoft Uighur</family>
         <pointsize>20</pointsize>
+        <weight>75</weight>
+        <bold>true</bold>
        </font>
       </property>
       <property name="styleSheet">
