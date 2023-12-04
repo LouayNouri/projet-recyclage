@@ -98,6 +98,7 @@ using namespace qrcodegen;
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
+
 {
     ui->setupUi(this);
     ui->tab_equipement->setModel(e.afficher());//refresh
@@ -136,7 +137,10 @@ MainWindow::~MainWindow()
 {
     delete ui;
 }
-void MainWindow::on_pb_ajouter_clicked()
+
+
+
+void MainWindow::initializeChart()
 {
 
     // Réinitialisez les étiquettes d'erreur à vide
@@ -156,8 +160,8 @@ void MainWindow::on_pb_ajouter_clicked()
     QString password = ui->niveauremplissage->text();
     QDate date_naissance = ui->date->date();  // Correction du nom de la variable
 
-    // Validez les champs d'entrée
-    bool isValid = true;
+    // Each month in season series has drilldown series for weekly data
+    for (int month = 0; month < months.count(); month++) {
 
     if (id.isEmpty()) {
         ui->lblErreurId->setText("<font color='red'>ID ne peut pas être vide!!!!</font>");
@@ -198,12 +202,246 @@ void MainWindow::on_pb_ajouter_clicked()
                 QObject::tr("Erreur lors de l'ajout de l'employe.\n"
                             "Cliquez sur Annuler pour quitter."), QMessageBox::Cancel);
         }
-    } else {
-        // Gérez l'erreur d'entrée invalide ou d'ID existant
+
+        // Use clicked signal to implement drilldown
+        QObject::connect(weeklySeries, &DrilldownBarSeries::clicked,
+                         drilldownChart, &DrilldownChart::handleClicked);
+    }
+
+    // Enable drilldown from season series using clicked signal
+    QObject::connect(seasonSeries, &DrilldownBarSeries::clicked,
+                     drilldownChart, &DrilldownChart::handleClicked);
+
+    // Fill monthly and weekly series with data
+    for (const QString &plant : plants) {
+        QSqlQuery query;
+        query.exec(QString("SELECT MATERIAL_TYPE, TO_CHAR(DATE_ADDED, 'MM-YYYY') AS MONTH_YEAR, SUM(CASE WHEN UNIT = 'Tonne (t)' THEN AMOUNT * 1000 WHEN UNIT = 'Gram (g)' THEN AMOUNT / 1000 ELSE AMOUNT END) AS TOTAL_AMOUNT_KG FROM trash WHERE MATERIAL_TYPE = '%1' GROUP BY MATERIAL_TYPE, TO_CHAR(DATE_ADDED, 'MM-YYYY') ORDER BY TOTAL_AMOUNT_KG ASC").arg(plant));
+
+        QBarSet *monthlyCrop = new QBarSet(plant);
+        for (int month = 0; month < months.count(); month++) {
+            QBarSet *weeklyCrop = new QBarSet(plant);
+            for (int week = 0; week < weeks.count(); week++)
+                *weeklyCrop << (qrand() % 20);
+            // Get the drilldown series from season series and add crop to it.
+            seasonSeries->drilldownSeries(month)->append(weeklyCrop);
+            *monthlyCrop << weeklyCrop->sum();
+        }
+        seasonSeries->append(monthlyCrop);
+    }
+
+    // Show season series in initial view
+    drilldownChart->changeSeries(seasonSeries);
+    drilldownChart->setTitle(seasonSeries->name());
+
+    drilldownChart->axisX()->setGridLineVisible(false);
+    drilldownChart->legend()->setVisible(true);
+    drilldownChart->legend()->setAlignment(Qt::AlignBottom);
+    QMainWindow *chartWindow = new QMainWindow(this);
+    QChartView *chartView = new QChartView(drilldownChart);
+    chartView->setRenderHint(QPainter::Antialiasing);
+    chartWindow->setCentralWidget(chartView);
+    chartWindow->resize(1200, 700);
+    chartWindow->show();
+    chartWindow->installEventFilter(this);
+    chartWindow->show();
+}
+
+
+
+
+
+void MainWindow::on_stack_clicked()
+{
+    initializeChart();
+}
+
+
+
+QPieSeries* MainWindow::createRecyclableSeries(const QMap<QString, double>& amounts, double totalAmount) {
+    QPieSeries *series = new QPieSeries();
+    series->setName("Recyclable");
+    series->append("Recyclable Only", amounts["Recyclable "] / totalAmount * 100.0);
+    series->append("Recyclable & Bio", (amounts["Recyclable Biodegradable"] + amounts["Biodegradable Recyclable"])  / totalAmount * 100.0);
+    return series;
+}
+
+QPieSeries* MainWindow::createBiodegradableSeries(const QMap<QString, double>& amounts, double totalAmount) {
+    QPieSeries *series = new QPieSeries();
+    series->setName("Biodegradable");
+    series->append("Bio Only", amounts["Biodegradable "] / totalAmount * 100.0);
+    series->append("Biodegradable & Reusable", (amounts["Biodegradable Reusable "] + amounts["Reusable Biodegradable "]) / totalAmount * 100.0);
+    return series;
+}
+
+QPieSeries* MainWindow::createReusableSeries(const QMap<QString, double>& amounts, double totalAmount) {
+    QPieSeries *series = new QPieSeries();
+    series->setName("Reusable");
+    series->append("Reusable Only", amounts["Reusable "] / totalAmount * 100.0);
+    series->append("Reusa & Recy", (amounts["Reusable Recyclable "] + amounts["Recyclable Reusable "]) / totalAmount * 100.0);
+    series->append("Reusa & Bio & Recy", (amounts["Reusable Biodegradable Recyclable "] + amounts["Reusable Recyclable Reusable "]+amounts["Biodegradable Reusable Recyclable "] + amounts["Biodegradable Recyclable Reusable "]+amounts["Recyclable Biodegradable Reusable "] + amounts["Recyclable Reusable Biodegradable "]) / totalAmount * 100.0);
+    return series;
+}
+
+
+
+void MainWindow::prepareChart(const QString& materialType, const QString& title, const QColor& color1, const QColor& color2, const QColor& color3) {
+    QSqlQuery query;
+    double totalAmount = 0.0;
+    QMap<QString, double> amounts;
+
+    query.prepare("SELECT PROPERTIES, COUNT(*) as total_count FROM Trash WHERE MATERIAL_TYPE = :materialType GROUP BY PROPERTIES");
+
+    query.bindValue(":materialType", materialType);
+
+    if (query.exec()) {
+        // Calculate the total amount and store the amounts for each property type
+        while (query.next()) {
+            QString properties = query.value(0).toString();
+            double amount = query.value(1).toDouble();
+            amounts[properties] = amount;
+            totalAmount += amount;
+        }
+
+
+        // Calculate the percentages and append them to the series
+        QPieSeries *series1 = createRecyclableSeries(amounts, totalAmount);
+        QPieSeries *series2 = createBiodegradableSeries(amounts, totalAmount);
+        QPieSeries *series3 = createReusableSeries(amounts, totalAmount);
+
+        DonutBreakdownChart *donutBreakdown = new DonutBreakdownChart();
+        donutBreakdown->setAnimationOptions(QChart::AllAnimations);
+        donutBreakdown->setTitle(title);
+        donutBreakdown->legend()->setAlignment(Qt::AlignRight);
+        donutBreakdown->addBreakdownSeries(series1, color1);
+        donutBreakdown->addBreakdownSeries(series2, color2);
+        donutBreakdown->addBreakdownSeries(series3, color3);
+
+        QMainWindow *chartWindow = new QMainWindow(this);
+        QChartView *chartView = new QChartView(donutBreakdown);
+        chartView->setRenderHint(QPainter::Antialiasing);
+        chartWindow->setCentralWidget(chartView);
+        chartWindow->resize(1200, 700);
+        chartWindow->show();
+        chartWindow->installEventFilter(this);
+        chartWindow->show();
+
     }
 }
 
-void MainWindow::on_pb_afficher_clicked()
+
+
+void MainWindow::showPieChart(int chartType)
+{
+
+
+    switch(chartType) {
+        case 1:
+            prepareChart("Metal", "Metal", QColor("#63666A"), QColor("#b2967d"), QColor("#bfc0c0"));
+            break;
+        case 2:
+            prepareChart("Glass", "Glass", QColor("#004b23"), QColor("#80b918"), QColor("#008000"));
+            break;
+        case 3:
+            prepareChart("Paper", "Paper", QColor("#644234"), QColor("#815f51"), QColor("#cba48b"));
+            break;
+        case 4:
+            prepareChart("Plastic", "Plastic", QColor("#53599a"), QColor("#0077b6"), QColor("#5bc0be"));
+            break;
+
+    }
+
+}
+
+
+
+void MainWindow::on_stats_1_clicked()
+{
+    showPieChart(1);
+}
+
+void MainWindow::on_stats_2_clicked()
+{
+    showPieChart(2);
+}
+
+void MainWindow::on_stats_3_clicked()
+{
+    showPieChart(3);
+}
+
+void MainWindow::on_stats_4_clicked()
+{
+    showPieChart(4);
+}
+
+
+
+
+
+
+void MainWindow::sortAscending() {
+    QString queryStr = "SELECT * FROM trash ORDER BY CASE WHEN unit = 'Tonne (t)' THEN amount * 1000 WHEN unit = 'Gram (g)' THEN amount / 1000 ELSE amount END ASC";
+    executeQuery(queryStr);
+}
+
+void MainWindow::sortDescending() {
+    QString queryStr = "SELECT * FROM trash ORDER BY CASE WHEN unit = 'Tonne (t)' THEN amount * 1000 WHEN unit = 'Gram (g)' THEN amount / 1000 ELSE amount END DESC";
+    executeQuery(queryStr);
+}
+
+void MainWindow::executeQuery(QString queryStr) {
+    QSqlQueryModel *model = new QSqlQueryModel();
+    QSqlQuery query;
+    query.prepare(queryStr);
+    query.exec();
+    model->setQuery(query);
+    ui->view_2->setModel(model);
+
+    ui->view_2->resizeColumnsToContents();
+
+    ui->view_2->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
+}
+
+
+
+void MainWindow::updateTypeCheckBox(int state) {
+    // If the checkbox is checked (state == Qt::Checked), enable the radio buttons. Otherwise, disable them.
+    bool enable = (state == Qt::Checked);
+    ui->metal_2->setEnabled(enable);
+    ui->plastic_2->setEnabled(enable);
+    ui->glass_2->setEnabled(enable);
+    ui->paper_2->setEnabled(enable);
+}
+
+void MainWindow::updateDateCheckBox(int state) {
+    ui->date_2->setEnabled(state == Qt::Checked);
+}
+
+
+void MainWindow::updateview(const QString &text) {
+    if (text == "ALL") {
+        // Display all data
+        QSqlQueryModel *model = new QSqlQueryModel();
+        QSqlQuery query;
+        query.prepare("SELECT * FROM trash");
+        query.exec();
+        model->setQuery(query);
+        ui->view->setModel(model);
+    } else {
+        // Display data based on the code
+        QSqlQueryModel *model = new QSqlQueryModel();
+        QSqlQuery query;
+        query.prepare("SELECT * FROM trash WHERE code LIKE :code");
+        query.bindValue(":code", text + "%");
+        query.exec();
+        model->setQuery(query);
+        ui->view->setModel(model);
+        ui->view->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
+
+    }
+}
+
+void MainWindow::deleteRow()
 {
     ui->tab_equipement->setModel(e.afficher());//refresh
     ui->tab_equipement_2->setModel(e.afficher());//refresh

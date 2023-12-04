@@ -23,3 +23,5 @@ bool Connection::createconnect()
         test=true;
     return  test;
 }
+
+void connection::closeconnection(){db.close();}

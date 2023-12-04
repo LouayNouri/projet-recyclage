@@ -35,9 +35,7 @@ int main(int argc, char *argv[])
         }
     }
     else
-        QMessageBox::critical(nullptr, QObject::tr("database is not open"),
-                    QObject::tr("connection failed.\n"
-                                "Click Cancel to exit."), QMessageBox::Cancel);
+        QQuickStyle::setStyle(settings.value("style").toString());
 
     QGuiApplication::setApplicationName("Gallery");
     QGuiApplication::setOrganizationName("QtProject");
