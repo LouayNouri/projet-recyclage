@@ -3,7 +3,7 @@
 #include <QSqlQuery>
 #include <QtDebug>
 #include <QObject>
-#include "mainwindow.h"
+#include "Main_trash.h"
 #include <QDebug>
 #include <QSqlError>
 #include <QMessageBox>

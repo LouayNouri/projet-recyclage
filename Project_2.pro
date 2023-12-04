@@ -7,11 +7,11 @@ CONFIG+=console
 DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
+    Main_trash.cpp \
     TTP.cpp \
     connection.cpp \
     gallery.cpp \
     main.cpp \
-    mainwindow.cpp \
     donutbreakdownchart.cpp \
     mainslice.cpp\
     drilldownchart.cpp \
@@ -20,9 +20,9 @@ SOURCES += \
     gallery.cpp
 
 HEADERS += \
+    Main_trash.h \
     TTP.h \
     connection.h \
-    mainwindow.h \
     donutbreakdownchart.h\
     mainslice.h\
     trash.h\
@@ -31,7 +31,7 @@ HEADERS += \
 
 FORMS += \
     TTP.ui \
-    mainwindow.ui
+    Trash.ui
 
 RESOURCES += \
     imgs.qrc \
