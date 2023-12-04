@@ -1,27 +1,44 @@
 #include "mainwindow.h"
-#include "connection.h"
-#include "QMessageBox"
-
 #include <QApplication>
-
+#include <QMessageBox>
+#include "connection.h"
+#include"login.h"
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
-      Connection c;
-       bool test=c.createconnect();
-       MainWindow w;
+    double largeNumber = 544115000.0;
 
-       if (test){
-            w.show();
-           QMessageBox::information(nullptr, QObject::tr("database is open"),
-                             QObject::tr("connection successful.\n"
-                                         "Click Cancel to exit."), QMessageBox::Cancel);
+    QString formattedNumber = QString::number(largeNumber, 'f', 0); // 'f' pour spécifier le format décimal sans décimales
+    qDebug() << formattedNumber;
 
-         }
-             else
-                 QMessageBox::critical(nullptr, QObject::tr("database is not open"),
-                             QObject::tr("connection failed.\n"
-                                         "Click Cancel to exit."), QMessageBox::Cancel);
+    Connection c;
+    bool test=c.createconnect();
+    MainWindow w;
+    login l;
+
+
+
+
+
+
+    if(test)
+    {
+        QMessageBox::information(nullptr, QObject::tr("database is open"),
+                    QObject::tr("connection successful.\n"
+                                "Click Cancel to exit."), QMessageBox::Cancel);
+
+        l.exec();
+
+        if (l.result() == QDialog::Accepted) {
+          //  w.show();
+            return a.exec();
+        }
+}
+    else
+        QMessageBox::critical(nullptr, QObject::tr("database is not open"),
+                    QObject::tr("connection failed.\n"
+                                "Click Cancel to exit."), QMessageBox::Cancel);
+
 
 
     return a.exec();
