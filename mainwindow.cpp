@@ -1,808 +1,244 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
-#include "equipement.h"
-#include <QMessageBox>
-#include <QtCharts>
-#include <QChartView>
-#include <QLineSeries>
-#include "QrCode.hpp"
-#include <QtNetwork/QAbstractSocket>
-#include <QtNetwork/QSslSocket>
-#include"smtp.h"
+#include "entreprise.h"
 
-#include <QMessageBox>
-#include<QIntValidator>
-#include <QApplication>
-#include<QSound>
-#include<QDebug>
-#include<QMediaPlayer>
-#include <QPrinter>
-#include <QTextStream>
-#include <QTextDocument>
-#include <QDataStream>
-#include <QPrintDialog>
-#include <QSqlQuery>
-#include<QComboBox>
-#include<QSaveFile>
-#include<QBuffer>
-#include<QFileDialog>
-#include<QFile>
-#include <QMessageBox>
-#include <QDebug>
-#include <QIntValidator>
-#include <QSqlQueryModel>
-#include <QtCharts>
-#include <QChartView>
-#include <QLineSeries>
-#include<QDesktopServices>
-#include<QUrl>
-#include <QTextStream>
-#include <QTextDocument>
-#include <QtPrintSupport/QPrintDialog>
-#include <QtPrintSupport/QPrinter>
-#include <QtWidgets>
-#include<QFileDialog>
-#include<QGraphicsView>
-#include<QPdfWriter>
-#include<QSqlQuery>
-#include<QSystemTrayIcon>
-#include <QtNetwork/QAbstractSocket>
-#include <QtNetwork/QSslSocket>
-#include<QUrlQuery>
-#include<QJsonDocument>
-#include<QJsonObject>
-#include<QJsonArray>
-#include <QDate>
-#include <QTime>
-#include<QSqlTableModel>
-#include<QItemSelectionModel>
-#include<QTableWidgetItem>
-#include <QDesktopWidget>
-#include <QCoreApplication>
-#include <QDateEdit>
-#include <QComboBox>
-#include"smtp.h"
-#include <QPixmap>
-#include <QMediaPlayer>
-#include <QTabWidget>
-#include <QObject>
-#include <QDialog>
-#include <QValidator>
-#include <QPropertyAnimation>
-#include <QEasingCurve>
-#include <QSequentialAnimationGroup>
-#include <QState>
-#include <QStateMachine>
-#include <QSignalTransition>
-#include <QPainter>
-#include<QString>
-#include<QStatusBar>
-#include <QSound>
-#include<QTimer>
-#include<QDateTime>
- #include <QApplication>
-#include<QMessageBox>
-#include <QApplication>
-#include<QIntValidator>
-//#include<QIntValidator>
-#include <QtWidgets>
-#include <QtCore>
-#include <QtGui>
-#include <QtSql>
-#include <QPdfWriter>
-#include <QPainter>
-#include <QFont>
-#include <QFileDialog>
-#include <QMessageBox>
-#include <QDesktopServices>
-#include<QMessageBox>
-#include<QComboBox>
-#include<QtCharts>
-#include<QtCharts>
-#include <QPrinter>
-#include <QPainter>
-#include <QPrintDialog>
-#include <QTextDocument>
-#include <QDialog>
-#include <QSqlQuery>
-#include <QSqlQueryModel>
-#include <QSortFilterProxyModel>
-#include <QTextTableFormat>
-#include <QStandardItemModel>
-#include <QSortFilterProxyModel>
-#include <QTextTableFormat>
-#include <QStandardItemModel>
-#include <QDialog>
-#include <QFileDialog>
-//#include <QMediaPlayer>
-//#include <QVideoWidget>
-#include <QDialog>
-#include <QDesktopWidget>
-#include <QSettings>
-#include <QPrinter>
-#include <QTextStream>
-#include <QFile>
-#include <QDataStream>
-#include <QTextDocument>
-#include<QRegExpValidator>
-#include "mainwindow.h"
-#include <QMessageBox>
-#include<QIntValidator>
-#include <QApplication>
-#include<QSound>
-#include<QDebug>
-#include<QMediaPlayer>
-#include <QPrinter>
-#include <QTextStream>
-#include <QTextDocument>
-#include <QDataStream>
-#include <QPrintDialog>
-#include <QSqlQuery>
-#include<QComboBox>
-#include<QSaveFile>
-#include<QBuffer>
-#include<QFileDialog>
-#include<QFile>
-#include <QMessageBox>
-#include <QDebug>
-#include <QIntValidator>
-#include <QSqlQueryModel>
-#include <QtCharts>
-#include <QChartView>
-#include <QLineSeries>
-#include<QDesktopServices>
-#include<QUrl>
-#include <QTextStream>
-#include <QTextDocument>
-#include <QtPrintSupport/QPrintDialog>
-#include <QtPrintSupport/QPrinter>
-#include <QtWidgets>
-#include<QFileDialog>
-#include<QGraphicsView>
-#include<QPdfWriter>
-#include<QSqlQuery>
-#include<QSystemTrayIcon>
-#include <QtNetwork/QAbstractSocket>
-#include <QtNetwork/QSslSocket>
-#include<QUrlQuery>
-#include<QJsonDocument>
-#include<QJsonObject>
-#include<QJsonArray>
-#include <QDate>
-#include <QTime>
-#include<QSqlTableModel>
-#include<QItemSelectionModel>
-#include<QTableWidgetItem>
-#include <QDesktopWidget>
-#include <QCoreApplication>
-#include <QDateEdit>
-#include <QComboBox>
-#include"smtp.h"
-#include <QPixmap>
-#include <QMediaPlayer>
-#include <QTabWidget>
-#include <QObject>
-#include <QDialog>
-#include <QValidator>
-#include <QPropertyAnimation>
-#include <QEasingCurve>
-#include <QSequentialAnimationGroup>
-#include <QState>
-#include <QStateMachine>
-#include <QSignalTransition>
-#include <QPainter>
-#include<QString>
-#include<QStatusBar>
-#include <QSound>
-#include<QTimer>
-#include<QDateTime>
- #include <QApplication>
-#include <QSqlQuery>
-#include <QSqlError>
-#include <QDebug>
-#include <QSqlQuery>
+#include"QIntValidator"
+#include"QObject"
+#include<QSqlQueryModel>
+#include"QMessageBox"
 
-
-#include <QMessageBox>
-#include<QIntValidator>
-#include <QApplication>
-#include<QSound>
-#include<QDebug>
-#include<QMediaPlayer>
-#include <QPrinter>
-#include <QTextStream>
-#include <QTextDocument>
-#include <QDataStream>
-#include <QPrintDialog>
-#include <QSqlQuery>
-#include<QComboBox>
-#include<QSaveFile>
-#include<QBuffer>
-#include<QFileDialog>
-#include<QFile>
-#include <QMessageBox>
-#include <QDebug>
-#include <QIntValidator>
-#include <QSqlQueryModel>
-#include <QtCharts>
-#include <QChartView>
-#include <QLineSeries>
-#include<QDesktopServices>
-#include<QUrl>
-#include <QTextStream>
-#include <QTextDocument>
-#include <QtPrintSupport/QPrintDialog>
-#include <QtPrintSupport/QPrinter>
-#include <QtWidgets>
-#include<QFileDialog>
-#include "mainwindow.h"
-#include<QGraphicsView>
-#include<QPdfWriter>
-#include<QSqlQuery>
-#include<QSystemTrayIcon>
-#include <QtNetwork/QAbstractSocket>
-#include <QtNetwork/QSslSocket>
-#include<QUrlQuery>
-#include<QJsonDocument>
-#include<QJsonObject>
-#include<QJsonArray>
-#include <QDate>
-#include <QTime>
-#include<QSqlTableModel>
-#include<QItemSelectionModel>
-#include<QTableWidgetItem>
-#include <QDesktopWidget>
-#include <QCoreApplication>
-#include <QDateEdit>
-#include <QComboBox>
-#include"smtp.h"
-#include <QPixmap>
-#include <QMediaPlayer>
-#include <QTabWidget>
-#include <QObject>
-#include <QDialog>
-#include <QValidator>
-#include <QPropertyAnimation>
-#include <QEasingCurve>
-#include <QSequentialAnimationGroup>
-#include <QState>
-#include <QStateMachine>
-#include <QSignalTransition>
-#include <QPainter>
-#include<QString>
-#include<QStatusBar>
-#include <QSound>
-#include<QTimer>
-#include<QDateTime>
- #include <QApplication>
-#include <QSqlQuery>
-#include <QSqlError>
-#include <QDebug>
-#include <QSqlQuery>
-#include"smtp.h"
-
-#include<QSqlQuery>
-#include<QSystemTrayIcon>
-#include <QtNetwork/QAbstractSocket>
-#include <QtNetwork/QSslSocket>
-#include<QUrlQuery>
-#include<QJsonDocument>
-#include<QJsonObject>
-#include<QJsonArray>
-#include "mainwindow.h"
-#include <QMessageBox>
-#include<QIntValidator>
-#include <QApplication>
-#include<QSound>
-#include<QDebug>
-#include<QMediaPlayer>
-#include <QPrinter>
-#include <QTextStream>
-#include <QTextDocument>
-#include <QDataStream>
-#include <QPrintDialog>
-#include <QSqlQuery>
-#include<QComboBox>
-#include<QSaveFile>
-#include<QBuffer>
-#include<QFileDialog>
-#include<QFile>
-#include <QMessageBox>
-#include <QDebug>
-#include <QIntValidator>
-#include <QSqlQueryModel>
-#include <QtCharts>
-#include <QChartView>
-#include <QLineSeries>
-#include<QDesktopServices>
-#include<QUrl>
-#include <QTextStream>
-#include <QTextDocument>
-#include <QtPrintSupport/QPrintDialog>
-#include <QtPrintSupport/QPrinter>
-#include <QtWidgets>
-#include<QFileDialog>
-#include "mainwindow.h"
-#include "ui_mainwindow.h"
-#include<QGraphicsView>
-#include<QPdfWriter>
-#include<QSqlQuery>
-#include<QSystemTrayIcon>
-#include <QtNetwork/QAbstractSocket>
-#include <QtNetwork/QSslSocket>
-#include<QUrlQuery>
-#include<QJsonDocument>
-#include<QJsonObject>
-#include<QJsonArray>
-#include <QDate>
-#include <QTime>
-#include<QSqlTableModel>
-#include<QItemSelectionModel>
-#include<QTableWidgetItem>
-#include <QDesktopWidget>
-#include <QCoreApplication>
-#include <QDateEdit>
-#include <QComboBox>
-#include"smtp.h"
-#include <QPixmap>
-#include <QMediaPlayer>
-#include <QTabWidget>
-#include <QObject>
-#include <QDialog>
-#include <QValidator>
-#include <QPropertyAnimation>
-#include <QEasingCurve>
-#include <QSequentialAnimationGroup>
-#include <QState>
-#include <QStateMachine>
-#include <QSignalTransition>
-#include <QPainter>
-#include<QString>
-#include<QStatusBar>
-#include <QSound>
-#include<QTimer>
-#include<QDateTime>
- #include <QApplication>
-using namespace qrcodegen;
 
 MainWindow::MainWindow(QWidget *parent)
-    : QMainWindow(parent)
-    , ui(new Ui::MainWindow)
+    :QMainWindow(parent),
+    ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-    ui->tab_equipement->setModel(E.afficher());//refresh
-
+   /*ui->le_id->setValidator( new QIntValidator(100, 9999999, this));*/
+    ui->tab_entre->setModel(E.afficher());
 
 }
+
+
 
 MainWindow::~MainWindow()
 {
     delete ui;
 }
+
 void MainWindow::on_pb_ajouter_clicked()
-{
-    // Réinitialisez les étiquettes d'erreur à vide
-    ui->lblErreurId->setText("");
-    ui->lblErreurType->setText("");
-    ui->lblErreurEtat->setText("");
-    ui->lblErreurPrix->setText("");
-    ui->lblErreurNiveauremplissage->setText("");
-    ui->lblErreurDate_acquisation->setText("");  // Correction du nom de la variable
-    ui->lblErreuridZ->setText("");  // Correction du nom de la variable
+{   /*int ID=ui->le_id->text().toInt();
+    int NOMBRE_DAUDIT_EFFECTUE=ui->le_nb->text().toInt();*/
+    QString ID=ui->le_id->text();
 
-    // Récupérez les valeurs d'entrée
-    QString id_equipement = ui->le_idequipement->text();
-    QString type = ui->type->currentText();
-    QString etat = ui->etat->currentText();
-    int prix = ui->prix->text().toInt();
-    float niveau_remplissage = ui->niveauremplissage->text().toFloat();
-    QDate date_acquisition = ui->date->date();  // Correction du nom de la variable
 
-    QString idZ = ui->idZone->text();
+    QString NOM=ui->le_nom->text();
+    QString DOMAINE=ui->le_domaine->text();
 
-    // Validez les champs d'entrée
-    bool isValid = true;
+      QString NOMBRE_DAUDIT_EFFECTUE=ui->le_nb->text();
 
-    if (id_equipement.isEmpty()) {
-        ui->lblErreurId->setText("<font color='red'>ID Equipement ne peut pas être vide!!!!</font>");
-        isValid = false;
-    }
+    Entreprise E(ID,NOM,DOMAINE,NOMBRE_DAUDIT_EFFECTUE);
+    bool test=E.ajouter();
 
-    // Validation pour le titre (exemplaire, assurez-vous qu'il n'est pas vide)
-    if (type.isEmpty()) {
-        ui->lblErreurType->setText("<font color='red'>Choisir un Type!!!</font>");
-        isValid = false;
-    }
 
-    if (etat.isEmpty()) {
-        ui->lblErreurEtat->setText("<font color='red'>Choisir un etat!!!</font>");
-        isValid = false;
-    }
-    if (prix < 0) {
-        ui->lblErreurPrix->setText("<font color='red'>Prix doit être positif !!!</font>");
-        isValid = false;
-    }
-    if (niveau_remplissage < 0) {
-        ui->lblErreurNiveauremplissage->setText("<font color='red'>Niveau remplissage doit être positif!!!</font>");
-        isValid = false;
-    }
 
-    // Ajouter une vérification de l'existence de l'ID dans la base de données
-    QSqlQuery checkQuery;
-    checkQuery.prepare("SELECT id_equipement from equipement  WHERE id_equipement = :id_equipement");
-    checkQuery.bindValue(":id_equipement", id_equipement);
-    if (checkQuery.exec() && checkQuery.next()) {
-        ui->lblErreurId->setText("<font color='red'>ID Equipement existe déjà!!!!</font>");
-        isValid = false;
-    }
-
-    if (isValid) {
-        // Si l'entrée est valide et que l'ID n'existe pas, procédez à l'ajout de l'activité
-        Equipement E(id_equipement, type, etat, prix, niveau_remplissage, date_acquisition, idZ);  // Correction de la création de l'objet Equipement
-
-        QSqlQuery query;
-        bool test = E.ajouter();
-        if (test) {
-            ui->tab_equipement->setModel(E.afficher());  // Refresh
-ui->comboSupp->setModel(E.afficher());
-ui->ComboModif->setModel(E.afficher());
-
-            QMessageBox::information(nullptr, QObject::tr("Ajout Equipement"),
-                QObject::tr("Equipement ajouté avec succès.\n"
-                            "Cliquez sur Annuler pour quitter."), QMessageBox::Cancel);
-        } else {
-            QMessageBox::critical(nullptr, QObject::tr("Ajout Equipement"),
-                QObject::tr("Erreur lors de l'ajout de l'Equipement.\n"
-                            "Cliquez sur Annuler pour quitter."), QMessageBox::Cancel);
-        }
+    QMessageBox msgBox;
+    if (test) {
+        QMessageBox::information(nullptr,QObject::tr("OK"),
+                QObject::tr("ajout effectue\n" "clicke cancel to exit." ),QMessageBox::Cancel);
+        msgBox.setText("ajout avec succes");
+        msgBox.exec();
     } else {
-        // Gérez l'erreur d'entrée invalide ou d'ID existant
+        msgBox.setText("echec");
+        msgBox.exec();
+        QMessageBox::critical(nullptr,QObject::tr("not ok"),
+                              QObject::tr("ajout non effectue.\n" "clicke cancel to exit."),QMessageBox::Cancel);
     }
-}
 
-void MainWindow::on_pb_afficher_clicked()
-{
-    ui->tab_equipement->setModel(E.afficher());//refresh
 
 
 
 }
 
-void MainWindow::on_pb_supprimer_2_clicked()
+void MainWindow::on_pb_supp_clicked()
 {
-    QString id_equipement=ui->comboSupp->currentText();
+    Entreprise E1;E1.setID(ui->le_id_supp->text());
+    bool test=E1.supprimer(E1.getID());
+    QMessageBox msgBox;
 
-    bool test=E.supprimer(id_equipement);
-    if(test)
+    if (test) {
+        msgBox.setText("suppression avec succes");
+        msgBox.exec();
+    } else {
+        msgBox.setText("echec de suppression");
+        msgBox.exec(); }
+
+}
+
+/*void MainWindow::on_pb_modifier_clicked()
+{
+    QString idd = ui->le_idmodif->text();
+            Entreprise C;
+            C.setID(idd);
+            QString newNom = ui->le_nom->text();
+            QString newdomaine = ui->le_domaine->text();
+            QString newemaile = ui->le_email->text();
+            QString newnb = ui->le_nb->text();
+            QString newetat= ui->le_etat->text();
+            // Check if the newId already exists in the database.
+                                if (idd==C.getID)) {
+                                    QMessageBox::critical(nullptr, QObject::tr("Error"),
+                                        QObject::tr("ID not exists in the database. Please choose a unique ID."), QMessageBox::Ok);
+                                    return; // ID already exists, so don't proceed with modification.
+                                }
+                                // If the ID is unique and changes are made, update the clients's information.
+                                                   C.setID(idd);
+                                                   C.setNOM(newNom);
+                                                   C.setDOMAINE( newdomaine);
+                                                   C.setEMAIL(newemaile);
+                                                   C.setnb(newnb);
+                                                   C.setETAT(newetat);
+
+                                                   bool test = C.modifier();
+
+                                                   if (test) {
+                                                   QMessageBox::information(nullptr, QObject::tr("OK"),
+                                                   QObject::tr("Modification successful.\nClick Cancel to exit."), QMessageBox::Cancel);
+                                                                   ui->tab_entre->setModel(C.afficher()); // Mise à jour
+                                                               } else {
+                                                                   QMessageBox::critical(nullptr, QObject::tr("Not OK"),
+                                                                       QObject::tr("Modification failed.\nClick Cancel to exit."), QMessageBox::Cancel);
+                                                               }
+
+                               }*/
+
+
+/*void MainWindow::on_pb_modifier_clicked()
+{
+    // Get the data that you want to modify from your UI elements (e.g., QLineEdit, QComboBox, etc.)
+    QString newNom = ui->le_nom_2->text(); // Replace with the actual name of your UI element
+    QString newDomaine = ui->le_domaine_2->text(); // Replace with the actual name of your UI element
+    QString newEmail = ui->le_email_2->text(); // Replace with the actual name of your UI element
+    QString newNbaudit = ui->le_nb->text(); // Replace with the actual name of your UI element
+    QString newEtat = ui->le_etat_2->text(); // Replace with the actual name of your UI element
+    QString entrepriseID = ui->le_idmodif->text(); // Replace with the actual name of your UI element
+
+    // Create an instance of the Entreprise class and set the new values
+    Entreprise entreprise;
+    entreprise.setID(entrepriseID);
+    entreprise.setNOM(newNom);
+    entreprise.setDOMAINE(newDomaine);
+    entreprise.setEMAIL(newEmail);
+    entreprise.setnb(newNbaudit);
+    entreprise.setETAT(newEtat);
+
+     QMessageBox msgBox;
+    // Call the modifier function to update the database
+    if (entreprise.modifier())
     {
-        ui->tab_equipement->setModel(E.afficher());//refresh
-
-        ui->comboSupp->setModel(E.afficher());
-        QMessageBox::information(nullptr, QObject::tr("Supprimer Equipement"),
-                    QObject::tr("Equipement supprimé.\n"
-                                "Click Cancel to exit."), QMessageBox::Cancel);
-
-
-        ui->comboSupp->setModel(E.afficher());
-        ui->ComboModif->setModel(E.afficher());
+        msgBox.setText("modifier avec succes");
+        msgBox.exec();
     }
     else
-        QMessageBox::critical(nullptr, QObject::tr("Supprimer Equipement"),
-                    QObject::tr("Erreur !.\n"
-                                "Click Cancel to exit."), QMessageBox::Cancel);
-}
-void MainWindow::on_modifier_2_clicked()
-{
-    // Récupérez les valeurs d'entrée
-    QString id_equipement = ui->ComboModif->currentText();
-    QString type = ui->type2->currentText();
-    QString etat = ui->etat2->currentText();
-    int prix = ui->prix2->text().toInt();
-    float niveau_remplissage = ui->niveauremplissage2->text().toFloat();
-    QDate date_acquisation = ui->date2->date();
-    QString idZ = ui->idZone2->text();
-
-    // Créez un objet Equipement en utilisant le constructeur
-    Equipement E(id_equipement, type, etat, prix, niveau_remplissage, date_acquisation, idZ);
-
-    QSqlQuery query;
-
-    bool test = E.modifier();
-    if (test)
     {
-        ui->tab_equipement->setModel(E.afficher());  // Refresh
-
-        QMessageBox::information(nullptr, QObject::tr("Modifier Equipement"),
-            QObject::tr("Equipement modifié avec succès.\n"
-                        "Cliquez sur Annuler pour quitter."), QMessageBox::Cancel);
-
-        // Mettez à jour les modèles pour les combobox
-        ui->comboSupp->setModel(E.afficher());
-        ui->ComboModif->setModel(E.afficher());
+        msgBox.setText("echec de modification ");
+        msgBox.exec();
     }
-    else
-    {
-        QMessageBox::critical(nullptr, QObject::tr("Modifier Equipement"),
-            QObject::tr("Erreur lors de la modification de l'Equipement.\n"
-                        "Cliquez sur Annuler pour quitter."), QMessageBox::Cancel);
+}*/
+void MainWindow::on_pb_modifier_clicked()
+{
+    QString newID = ui->le_idmodif->text();
+    QString newNom = ui->le_nom_2->text();
+    QString newDomaine = ui->le_domaine_2->text();
+
+    QString newNbAudit = ui->le_nb_2->text();
+
+
+
+    Entreprise entreprise;
+    entreprise.setID(newID);
+    entreprise.setNOM(newNom);
+    entreprise.setDESTINATION(newDomaine);
+
+    entreprise.setMATRICULE(newNbAudit);
+
+
+
+    bool test = entreprise.modifier();
+
+    QMessageBox msgBox;
+
+    if (test) {
+        msgBox.setText("Modification avec succès");
+        msgBox.exec();
+    } else {
+        msgBox.setText("Échec de la modification");
+        msgBox.exec();
     }
-
-    ui->ComboModif->clear();  // Effacez le contenu du combobox
 }
-
-void MainWindow::on_pb_afficher_3_clicked()
+/*void MainWindow::on_TricomboBoxReglement_currentTextChanged(const QString)
 {
-    ui->tab_equipement->setModel(E.afficher());//refresh
+    QString trieOption=ui->comboBox_2->currentText();
+     ui->tab_entre->setModel(E.trierReglement(trieOption));
+}*/
 
-
-}
-
-void MainWindow::on_pb_afficher_4_clicked()
+/*void MainWindow::on_input_Rechercher_textChanged(const QString )
 {
-    ui->tab_equipement->setModel(E.afficher());//refresh
-}
+    QString chaine_c=ui->lineEdit_2->text();
 
-void MainWindow::on_valider1_2_clicked()
+
+       if(chaine_c !="")
+       {
+       ui->tab_entre->setModel(E.rechercher(chaine_c));
+       }
+       else
+       {
+           QString trieOption=ui->comboBox_2->currentText();
+            //ui->tab_entre->setModel(E.trierReglement(trieOption));
+
+       }
+}*/
+
+void MainWindow::on_tier_clicked()
 {
-    {
-        QString id_equipement=ui->ComboModif->currentText();
-                  QSqlQuery query;
-                  query.prepare("select * from equipement where id_equipement='"+id_equipement+"'");
-                  if (query.exec())
-                  {
-                   while (query.next())
-                   {
-
-
-                       ui->type2->setCurrentText(query.value(1).toString());
-                       ui->etat2->setCurrentText(query.value(2).toString());
-                       ui->prix2->setText(query.value(3).toString());
-                       ui->niveauremplissage2->setText(query.value(4).toString());
-
-                       ui->date2->setDate(query.value(5).toDate());
-                       ui->idZone2->setText(query.value(6).toString());
-
-
-
-
-
-
-                   }
-                  }
-
-
-}}
-
-void MainWindow::on_reset_clicked()
-{
-    ui->ComboModif->clear();
-
-        ui->type2->clear();
-        ui->etat2->clear();
-
-        ui->prix2->clear();
-        ui->niveauremplissage2->clear();
-        ui->date2->clear();
-        ui->idZone2->clear();
-}
-
-
-void MainWindow::on_lineEdit_recherche_textChanged(const QString &arg1) //recherche dynamique
-{
-        QString NOM=ui->lineEdit_recherche->text();
-       ui->tab_equipement->setModel(E.rechercher(NOM));
-      ui->tab_equipement->clearSelection();
-}
-void MainWindow::on_comboBox_tri_activated(const QString &arg1)
-{
-
-
-    QString NOM=ui->comboBox_tri->currentText();
-    ui->tab_equipement->setModel(E.trier(NOM));
-  ui->tab_equipement->clearSelection();
-}
-
-void MainWindow::on_statistique_clicked()
-{
-    QSqlQueryModel * model= new QSqlQueryModel();
-    model->setQuery("select * from Equipement where type='Presse'");
-     float dispo=model->rowCount();
-
-           model->setQuery("select * from Equipement where type='Broyeur'");
-           float dispo1=model->rowCount();
-
-
-
-
-           model->setQuery("select * from Equipement where type='Concasseur'");
-           float dispo2=model->rowCount();
-
-           float total=dispo1+dispo+dispo2;
-               QString a=QString("Type Broyeur" +QString::number((dispo1*100)/total,'f',2)+"%" );
-               QString b=QString("Type Presse"+QString::number((dispo*100)/total,'f',2)+"%" );
-               QString c=QString("Type Concasseur"+QString::number((dispo2*100)/total,'f',2)+"%" );
-
-               QPieSeries *series = new QPieSeries();
-               series->append(a,dispo1);
-               series->append(b,dispo);
-               series->append(c,dispo2);
-
-           if (dispo1!=0)
-           {QPieSlice *slice = series->slices().at(0);
-               slice->setLabelVisible();
-               slice->setPen(QPen());}
-           if ( dispo!=0)
-           {
-               QPieSlice *slice1 = series->slices().at(1);
-               slice1->setLabelVisible();
-           }
-           if ( dispo2!=0)
-           {
-               QPieSlice *slice2 = series->slices().at(2);
-               slice2->setLabelVisible();
-           }
-
-           QChart *chart = new QChart();
-
-
-           chart->addSeries(series);
-           chart->setTitle("statistique par type      "+ QString::number(total));
-
-
-
-           QChartView *chartView = new QChartView(chart);
-           chartView->setRenderHint(QPainter::Antialiasing);
-           chartView->resize(1000,500);
-           chartView->show();
-}
-
-void MainWindow::on_PDF_clicked()
-{
-    QPdfWriter pdf("C:/Users/GENERAL/Desktop/Gestion_equipements/Gestion_equipements/list_des_equipement.pdf");
-
-            QPainter painter(&pdf);
-
-
-                   int i = 4000;
-                   painter.setPen(Qt::black);
-                   painter.setFont(QFont("Book Script",20));
-                   painter.drawText(2500, 1400, "LISTE DES EQUIPEMENT");
-                   painter.setPen(Qt::red);
-                   painter.setFont(QFont("Time New Roman", 10));
-                   painter.drawRect(100, 100, 9200, 2700); // dimension ta3 rectangle
-                   painter.drawRect(100, 3000, 9200, 500);
-
-
-                   painter.drawText(300,3300,"ID EQUIPEMENT");
-                   painter.drawText(1800,3300,"TYPE");
-                   painter.drawText(2800,3300,"ETAT");
-                   painter.drawText(3500,3300,"PRIX");
-                   painter.drawText(4000,3300,"NIVEAU REMPLISSAGE");
-                   painter.drawText(6000,3300,"DATE ACQUISATION");
-                   painter.drawText(8000,3300,"IDZ");
-
-
-
-
-
-                   QImage image("C:/Users/GENERAL/Desktop/Gestion_equipements/Gestion_equipements/image/logo_esprit.png");
-                   painter.drawImage(QRectF(200, 200, 2000, 2000), image);
-
-                   QImage image1("C:/Users/GENERAL/Desktop/Gestion_equipements/Gestion_equipements/image/logo_rec.png");
-                   painter.drawImage(QRectF(7000, 200, 2000, 2000), image1);
-
-                   painter.drawRect(100, 3700, 9200, 9000);
-
-                   QSqlQuery query;
-                   query.prepare("select * from Equipement");
-                   query.exec();
-                   while (query.next())
-                   {
-                       painter.drawText(700, i, query.value(0).toString());
-                       painter.drawText(1800, i, query.value(1).toString());
-                       painter.drawText(2800, i, query.value(2).toString());
-                       painter.drawText(3500, i, query.value(3).toString());
-                       painter.drawText(4800, i, query.value(4).toString());
-                       painter.drawText(6000, i, query.value(5).toString());
-                       painter.drawText(8000, i, query.value(6).toString());
-
-                       i = i + 350;
-                   }
-
-                   QMessageBox::information(this, QObject::tr("PDF Enregistré!"),
-                       QObject::tr("PDF Enregistré!.\n" "Click Cancel to exit."), QMessageBox::Cancel);
+    ui->tab_trier->setModel(E.triernom());
 
 }
 
-void MainWindow::on_qrcodegen_clicked()
+void MainWindow::on_chercher_clicked()
 {
-    QString value = ui->lineEdit_qrcode->text();
+    QString searchName = ui->searchLineEdit->text();
+        QSqlQueryModel* searchResults = E.rechercheParNom(searchName);
 
-        QSqlQuery qry;
-        qry.prepare("SELECT * FROM Equipement WHERE id_equipement = :id_equipement");
-        qry.bindValue(":id_equipement", value);
-        qry.exec();
-
-        if (qry.next()) {
-            // ID exists in the database
-            QString id_equipement = qry.value(0).toString();
-            QString type = qry.value(1).toString();
-            QString etat = qry.value(2).toString();
-            QString prix = qry.value(3).toString();
-            QString niveau_remplissage = qry.value(4).toString();
-            QString date_acquisation = qry.value(5).toString();
-            QString idZ = qry.value(6).toString();
-
-
-
-
-
-
-
-
-            QString text = "ID Equipement :" + id_equipement + "\n" + "Type :" + type + "\n" + "Etat :" + etat + "\n" +
-                           "Prix :" + prix + "\n" + "Niveau Remplissage :" + niveau_remplissage + "\n" + "Date Acquisation :" + date_acquisation + "\n" + "Id Zone :" + idZ  ;
-
-            // Create the QR Code object
-            QrCode qr = QrCode::encodeText(text.toUtf8().data(), QrCode::Ecc::MEDIUM);
-
-            qint32 sz = qr.getSize();
-            QImage im(sz, sz, QImage::Format_RGB32);
-            QRgb black = qRgb(191, 112, 105);
-            QRgb white = qRgb(255, 255, 255);
-
-            for (int y = 0; y < sz; y++) {
-                for (int x = 0; x < sz; x++) {
-                    im.setPixel(x, y, qr.getModule(x, y) ? black : white);
-                }
-            }
-
-            ui->qrcodecommande->setPixmap(QPixmap::fromImage(im.scaled(200, 200, Qt::KeepAspectRatio, Qt::FastTransformation), Qt::MonoOnly));
+        if (searchResults->rowCount() > 0) {
+            ui->tab_cherche->setModel(searchResults);
+            QMessageBox::information(this, "Search Result", "Search successful. Results found.");
         } else {
-            // ID does not exist in the database
-            QMessageBox::critical(nullptr, QObject::tr("ID Equipement introuvable"),
-                QObject::tr("L'ID Equipement que vous avez saisi n'existe pas.\n"
-                            "Click Cancel to exit."), QMessageBox::Cancel);
+            // Optionally display all entries if no results found
+            // ui->tab_entre_3->setModel(E.afficher());
+            QMessageBox::information(this, "Search Result", "No results found for the specified ID.");
         }
+
 }
-
-
-
-void MainWindow::on_send_mail_2_clicked()
+void MainWindow::on_pb_stats_clicked()
 {
-    Equipement c;
+    QString mostVisitedDestination = E.destinationPlusVisite();
+    QMessageBox::information(this, "Statistics", "Most visited destination: " + mostVisitedDestination);
+}
+void MainWindow::on_exportButton_clicked()
+{
+    QString destination = ui->destinationLineEdit->text();
+    QString exportResult = E.exportChauffeursByDestination(destination);
 
-       smtp* ssmtp = new smtp("nouri.louay@esprit.tn", "azertyqwerty123", "smtp.gmail.com", 465);
+    QMessageBox::information(this, "Export Result", exportResult);
+}
+void MainWindow::on_findNearestZoneButton_clicked()
+{
+    double userLatitude = ui->userLatitudeLineEdit->text().toDouble();
+    double userLongitude = ui->userLongitudeLineEdit->text().toDouble();
 
-               connect(ssmtp, SIGNAL(status(QString)), this, SLOT(mailSent(QString)));
+    QPointF userLocation(userLatitude, userLongitude);
 
-               QString email=ui->client_email_to_send_2->text();
+    QString result = E.findNearestCollectionZone(userLocation);
 
-               QString b=ui->client_email_subject_2->text();
-
-               QString ob=ui->client_email_text_2->toPlainText();
-
-                if(email!="" && b!="" && ob!="" )
-                   {
-                                 if(c.isValidEmail(email))
-                                 {
-                                     ssmtp->sendMail("nouri.louay@esprit.tn", email , b,ob);
-                                     QMessageBox::information(nullptr, QObject::tr("EMAIL"),
-                                     QObject::tr("Email Envoyé avec succees.\n"
-                                     "click Cancel to exit"),QMessageBox::Cancel);
-                                 }
-                                 else
-                                 {
-                                     QMessageBox::critical(nullptr, QObject::tr("EMAIL"),
-                                     QObject::tr("Email is wrong in.\n"
-                                     "click Cancel to exit."),QMessageBox::Cancel);
-                                 }
-                   }
-                else
-                   {
-                           QMessageBox::critical(nullptr, QObject::tr("EMAIL"),
-                           QObject::tr("something is empty.\n"
-                           "click Cancel to exit."),QMessageBox::Cancel);
-                   }
-   }
-
+    QMessageBox::information(this, "Nearest Collection Zone", result);
+}
