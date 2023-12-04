@@ -1,5 +1,6 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
+#include"fournisseur.h"
 
 #include <QMainWindow>
 #include "employe.h"
@@ -33,7 +34,9 @@
 #include <QtWidgets/QMessageBox>
 #include <QByteArray>
 #include <QFile>
+#include "zone.h"
 
+#include "entreprise.h"
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
 QT_END_NAMESPACE
@@ -112,6 +115,92 @@ private slots:
     void on_pushButton_12_clicked();
 
     void on_pushButton_11_clicked();
+    //------------------------
+
+    void on_pb_supp_clicked();
+
+    void on_pb_modifier_clicked();
+
+    //------------------------
+
+    void on_pushButton_13_clicked();
+
+    void on_pushButton_14_clicked();
+
+
+    void on_pb_ajouter_7_n_clicked();
+
+    //------------------
+
+    void on_pushButton_add_clicked();
+
+    void on_pushButton_modifier_clicked();
+
+    void on_pushButton_del_clicked();
+
+    void on_tableView_clicked(const QModelIndex &index);
+
+    void on_lineEdit_recherche_textChanged();
+
+    void on_comboBox_trie_activated();
+
+
+    void on_pushButton_afficher_clicked();
+
+
+
+    //----------------
+
+    void on_pushButton_5_clicked();
+
+    void on_lineEdit_recherche_2_cursorPositionChanged(int arg1, int arg2);
+    //--------------------------------------
+
+    //---------------------
+    void on_pushButton_ajouter_clicked();
+
+    void on_pb_supprimer_clicked();
+
+
+
+    void on_entrer_clicked();
+
+
+
+   // void on_pushButton_2_clicked();
+    void on_trie_clicked();
+
+
+    void on_trie_2_clicked();
+
+    void on_trie_3_clicked();
+
+  //  void on_pushButton_clicked();
+
+
+
+    void on_le_chercher_textChanged(const QString &text);
+
+    void on_pb_stat_clicked();
+
+    void loadHistoryToTableView();
+
+
+    //void on_pushButton_3_clicked();
+ void on_pb_valider_pdf_clicked();
+void on_pushButton_15_clicked();
+
+void on_pushButton_16_clicked();
+
+void on_pushButton_20_clicked();
+
+void on_pushButton_21_clicked();
+
+void on_pushButton_7_clicked();
+
+void on_pushButton_6_clicked();
+
+void on_pushButton_8_clicked();
 
 private:
     Ui::MainWindow *ui;
@@ -127,6 +216,9 @@ private:
 
       Arduino Ar;
       QByteArray data;
+      Entreprise En;
+        Zone tmp;
+   fournisseur F;
 
 };
 #endif // MAINWINDOW_H

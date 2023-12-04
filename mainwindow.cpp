@@ -24,7 +24,6 @@
 #include <QIntValidator>
 #include <QApplication>
 #include <QSound>
-#include <QDebug>
 #include <QMediaPlayer>
 #include <QPrinter>
 #include <QTextStream>
@@ -79,6 +78,21 @@
 #include <QStatusBar>
 #include <QTimer>
 #include <QDateTime>
+#include"dialog.h"
+#include "TTP.h"
+#include <cstdlib>
+#include <QtSql>
+#include <QButtonGroup>
+#include <QAbstractButton>
+#include <QIntValidator>
+#include <QFileDialog>
+#include <QMovie>
+#include <QKeyEvent>
+#include <QGuiApplication>
+#include <QQmlApplicationEngine>
+#include <QQmlContext>
+#include <QSettings>
+#include <QQuickStyle>
 using namespace qrcodegen;
 
 MainWindow::MainWindow(QWidget *parent)
@@ -91,7 +105,16 @@ MainWindow::MainWindow(QWidget *parent)
     ui->tab_equipement_5->setModel(e.afficher());//refresh
     connect(ui->exporter, &QPushButton::clicked, this, &MainWindow::on_exporter_clicked);
     ui->tab_equipement_3->setModel(E.afficher());//refresh
+    ui->tab_entre->setModel(En.afficher());
+    ui->lineEdit_id->setValidator(new QIntValidator(0,99999999,this));
+    ui->lineEdit_nbmax->setValidator(new QIntValidator(0,99,this));
+    QStringList sexeList = {"femme", "homme"};
+    QCompleter *sexeCompleter = new QCompleter(sexeList, this);
+    sexeCompleter->setCaseSensitivity(Qt::CaseInsensitive);
+    ui->lineEdit_sexe->setCompleter(sexeCompleter);
 
+    ui->tableaufournisseur->setModel(F.afficher());
+    ui->lineEdit_motp->setEchoMode(QLineEdit::Password);
     int ret=Ar.connect_arduino(); // lancer la connexion à arduino
 
     switch(ret){
@@ -103,6 +126,7 @@ MainWindow::MainWindow(QWidget *parent)
     }
      QObject::connect(Ar.getserial(),SIGNAL(readyRead()),this,SLOT(update_label_equipement())); // permet de lancer
      //le slot update_label suite à la reception du signal readyRead (reception des données).
+     ui->tableView->setModel(tmp.afficher());
 
 }
 
@@ -926,7 +950,26 @@ void MainWindow::on_pushButton_9_clicked()
     ui->stackedWidget->setCurrentIndex(prevIndex);
 }
 
+void MainWindow::on_pushButton_13_clicked()
+{
+    int currentIndex = ui->stackedWidget->currentIndex();
+    int maxIndex = ui->stackedWidget->count() - 1;
 
+    // Go to the next index without reaching the limit
+    int nextIndex = (currentIndex < maxIndex) ? currentIndex + 1 : currentIndex;
+
+    ui->stackedWidget->setCurrentIndex(nextIndex);
+}
+
+void MainWindow::on_pushButton_14_clicked()
+{
+    int currentIndex = ui->stackedWidget->currentIndex();
+
+    // Go to the previous index without going below 0
+    int prevIndex = (currentIndex > 0) ? currentIndex - 1 : 0;
+
+    ui->stackedWidget->setCurrentIndex(prevIndex);
+}
 
 void MainWindow::on_pushButton_12_clicked()
 {
@@ -948,3 +991,936 @@ void MainWindow::on_pushButton_11_clicked()
 
     ui->stackedWidget->setCurrentIndex(prevIndex);
 }
+
+void MainWindow::on_pushButton_15_clicked()
+{
+    int currentIndex = ui->stackedWidget->currentIndex();
+    int maxIndex = ui->stackedWidget->count() - 1;
+
+    // Go to the next index without reaching the limit
+    int nextIndex = (currentIndex < maxIndex) ? currentIndex + 1 : currentIndex;
+
+    ui->stackedWidget->setCurrentIndex(nextIndex);
+}
+
+void MainWindow::on_pushButton_16_clicked()
+{
+    int currentIndex = ui->stackedWidget->currentIndex();
+
+    // Go to the previous index without going below 0
+    int prevIndex = (currentIndex > 0) ? currentIndex - 1 : 0;
+
+    ui->stackedWidget->setCurrentIndex(prevIndex);
+}
+
+
+void MainWindow::on_pushButton_20_clicked()
+{
+    int currentIndex = ui->stackedWidget->currentIndex();
+    int maxIndex = ui->stackedWidget->count() - 1;
+
+    // Go to the next index without reaching the limit
+    int nextIndex = (currentIndex < maxIndex) ? currentIndex + 1 : currentIndex;
+
+    ui->stackedWidget->setCurrentIndex(nextIndex);
+}
+
+void MainWindow::on_pushButton_21_clicked()
+{
+    int currentIndex = ui->stackedWidget->currentIndex();
+
+    // Go to the previous index without going below 0
+    int prevIndex = (currentIndex > 0) ? currentIndex - 1 : 0;
+
+    ui->stackedWidget->setCurrentIndex(prevIndex);
+}
+
+
+//-------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//-------------------------------------------
+
+
+void MainWindow::on_pb_ajouter_7_n_clicked()
+{   /*int ID=ui->le_id->text().toInt();
+    int NOMBRE_DAUDIT_EFFECTUE=ui->le_nb->text().toInt();*/
+    QString ID=ui->le_id->text();
+
+
+    QString NOM=ui->le_nom->text();
+    QString DOMAINE=ui->le_domaine->text();
+    QString EMAIL=ui->le_email->text();
+      QString NOMBRE_DAUDIT_EFFECTUE=ui->le_nb->text();
+    QString ETAT=ui->le_etat->text();
+    Entreprise E(ID,NOM,DOMAINE,EMAIL,NOMBRE_DAUDIT_EFFECTUE,ETAT);
+    bool test=E.ajouter();
+
+
+
+    QMessageBox msgBox;
+    if (test) {
+        QMessageBox::information(nullptr,QObject::tr("OK"),
+                QObject::tr("ajout effectue\n" "clicke cancel to exit." ),QMessageBox::Cancel);
+        msgBox.setText("ajout avec succes");
+        msgBox.exec();
+    } else {
+        msgBox.setText("echec");
+        msgBox.exec();
+        QMessageBox::critical(nullptr,QObject::tr("not ok"),
+                              QObject::tr("ajout non effectue.\n" "clicke cancel to exit."),QMessageBox::Cancel);
+    }
+
+
+    ui->tab_entre->setModel(En.afficher());
+
+
+}
+
+void MainWindow::on_pb_supp_clicked()
+{
+    Entreprise E1;E1.setID(ui->le_id_supp->text());
+    bool test=E1.supprimer(E1.getID());
+    QMessageBox msgBox;
+
+    if (test) {
+        msgBox.setText("suppression avec succes");
+        msgBox.exec();
+    } else {
+        msgBox.setText("echec de suppression");
+        msgBox.exec(); }
+    ui->tab_entre->setModel(En.afficher());
+}
+
+/*void MainWindow::on_pb_modifier_clicked()
+{
+    QString idd = ui->le_idmodif->text();
+            Entreprise C;
+            C.setID(idd);
+            QString newNom = ui->le_nom->text();
+            QString newdomaine = ui->le_domaine->text();
+            QString newemaile = ui->le_email->text();
+            QString newnb = ui->le_nb->text();
+            QString newetat= ui->le_etat->text();
+            // Check if the newId already exists in the database.
+                                if (idd==C.getID)) {
+                                    QMessageBox::critical(nullptr, QObject::tr("Error"),
+                                        QObject::tr("ID not exists in the database. Please choose a unique ID."), QMessageBox::Ok);
+                                    return; // ID already exists, so don't proceed with modification.
+                                }
+                                // If the ID is unique and changes are made, update the clients's information.
+                                                   C.setID(idd);
+                                                   C.setNOM(newNom);
+                                                   C.setDOMAINE( newdomaine);
+                                                   C.setEMAIL(newemaile);
+                                                   C.setnb(newnb);
+                                                   C.setETAT(newetat);
+
+                                                   bool test = C.modifier();
+
+                                                   if (test) {
+                                                   QMessageBox::information(nullptr, QObject::tr("OK"),
+                                                   QObject::tr("Modification successful.\nClick Cancel to exit."), QMessageBox::Cancel);
+                                                                   ui->tab_entre->setModel(C.afficher()); // Mise à jour
+                                                               } else {
+                                                                   QMessageBox::critical(nullptr, QObject::tr("Not OK"),
+                                                                       QObject::tr("Modification failed.\nClick Cancel to exit."), QMessageBox::Cancel);
+                                                               }
+
+                               }*/
+
+
+/*void MainWindow::on_pb_modifier_clicked()
+{
+    // Get the data that you want to modify from your UI elements (e.g., QLineEdit, QComboBox, etc.)
+    QString newNom = ui->le_nom_2->text(); // Replace with the actual name of your UI element
+    QString newDomaine = ui->le_domaine_2->text(); // Replace with the actual name of your UI element
+    QString newEmail = ui->le_email_2->text(); // Replace with the actual name of your UI element
+    QString newNbaudit = ui->le_nb->text(); // Replace with the actual name of your UI element
+    QString newEtat = ui->le_etat_2->text(); // Replace with the actual name of your UI element
+    QString entrepriseID = ui->le_idmodif->text(); // Replace with the actual name of your UI element
+
+    // Create an instance of the Entreprise class and set the new values
+    Entreprise entreprise;
+    entreprise.setID(entrepriseID);
+    entreprise.setNOM(newNom);
+    entreprise.setDOMAINE(newDomaine);
+    entreprise.setEMAIL(newEmail);
+    entreprise.setnb(newNbaudit);
+    entreprise.setETAT(newEtat);
+
+     QMessageBox msgBox;
+    // Call the modifier function to update the database
+    if (entreprise.modifier())
+    {
+        msgBox.setText("modifier avec succes");
+        msgBox.exec();
+    }
+    else
+    {
+        msgBox.setText("echec de modification ");
+        msgBox.exec();
+    }
+}*/
+void MainWindow::on_pb_modifier_clicked()
+{
+    QString newID = ui->le_idmodif->text();
+    QString newNom = ui->le_nom_2->text();
+    QString newDomaine = ui->le_domaine_2->text();
+    QString newEmail = ui->le_email_2->text();
+    QString newNbAudit = ui->le_nb_2->text();
+    QString newEtat = ui->le_etat_2->text();
+
+
+    Entreprise entreprise;
+    entreprise.setID(newID);
+    entreprise.setNOM(newNom);
+    entreprise.setDOMAINE(newDomaine);
+    entreprise.setEMAIL(newEmail);
+    entreprise.setnb(newNbAudit);
+    entreprise.setETAT(newEtat);
+
+
+    bool test = entreprise.modifier();
+
+    QMessageBox msgBox;
+
+    if (test) {
+        msgBox.setText("Modification avec succès");
+        msgBox.exec();
+    } else {
+        msgBox.setText("Échec de la modification");
+        msgBox.exec();
+    }
+    ui->tab_entre->setModel(En.afficher());
+
+}
+
+
+//----------------------------------------------------
+
+void MainWindow::on_pushButton_add_clicked()
+{
+    int id=ui->lineEdit_id->text().toInt();
+    QString type=ui->lineEdit_type->text();
+    QString localisation=ui->lineEdit_localisation->text();
+   int nbmax=ui->lineEdit_nbmax->text().toInt();
+   float prix=ui->lineEdit_prix->text().toFloat();
+    Zone z(id,type,localisation,nbmax,prix);
+bool test=z.ajouter();
+if (test)
+{
+    ui->tableView->setModel(tmp.afficher());
+
+    QMessageBox::information(nullptr, QObject::tr("modification"),
+                      QObject::tr(" successful.\n"
+                                  "Click Cancel to exit."), QMessageBox::Cancel);
+
+  }
+      else
+          QMessageBox::critical(nullptr, QObject::tr("modification"),
+                      QObject::tr("failed.\n"
+                                  "Click Cancel to exit."), QMessageBox::Cancel);
+
+}
+
+void MainWindow::on_pushButton_modifier_clicked()
+{
+    int id=ui->lineEdit_id->text().toInt();
+    QString type=ui->lineEdit_type->text();
+    QString localisation=ui->lineEdit_localisation->text();
+   int nbmax=ui->lineEdit_nbmax->text().toInt();
+   float prix=ui->lineEdit_prix->text().toFloat();
+    Zone z(id,type,localisation,nbmax,prix);
+    bool test=z.modifier(id);
+    ui->tableView->setModel(tmp.afficher());
+ if(test){
+     QMessageBox::information(nullptr, QObject::tr("modification"),
+                       QObject::tr(" successful.\n"
+                                   "Click Cancel to exit."), QMessageBox::Cancel);
+
+   }
+       else
+           QMessageBox::critical(nullptr, QObject::tr("modification"),
+                       QObject::tr("failed.\n"
+                                   "Click Cancel to exit."), QMessageBox::Cancel);
+
+
+ }
+
+
+
+void MainWindow::on_pushButton_del_clicked()
+{
+    int i;
+    QModelIndex index=ui->tableView->currentIndex();
+i=index.row();
+QModelIndex in=index.sibling(i,0);
+
+int val=ui->tableView->model()->data(in).toInt();
+
+    bool test=tmp.supprimer(val);
+    if (test)
+    {
+        QMessageBox::information(nullptr, QObject::tr("modification"),
+                          QObject::tr(" successful.\n"
+                                      "Click Cancel to exit."), QMessageBox::Cancel);
+
+      }
+          else
+              QMessageBox::critical(nullptr, QObject::tr("modification"),
+                          QObject::tr("failed.\n"
+                                      "Click Cancel to exit."), QMessageBox::Cancel);
+
+}
+
+void MainWindow::on_tableView_clicked(const QModelIndex &index)
+{
+    int i;
+    i=index.row();
+    QModelIndex in=index.sibling(i,0);
+    QString val=ui->tableView->model()->data(in).toString();
+
+
+        QSqlQuery qry;
+        qry.prepare("select IDZ,TYPE,LOCALISATION,NBMAX,PRIX from zonedecollection where IDZ='"+val+"' " );
+
+
+        if(qry.exec())
+        {
+            while(qry.next())
+            {
+                ui->lineEdit_id->setText(qry.value(0).toString());
+                ui->lineEdit_type->setText(qry.value(1).toString());
+                ui->lineEdit_localisation->setText(qry.value(2).toString());
+                ui->lineEdit_prix->setText(qry.value(4).toString());
+                ui->lineEdit_nbmax->setText(qry.value(3).toString());
+}}}
+
+void MainWindow::on_lineEdit_recherche_textChanged()
+{
+    QString rech=ui->lineEdit_recherche->text();
+    ui->tableView->setModel(tmp.RechercheZone(rech));
+}
+
+void MainWindow::on_comboBox_trie_activated()
+{
+    if(ui->comboBox_trie->currentText()=="Tri par idz")
+    {
+        ui->tableView->setModel(tmp.trierZoneparidz());
+
+    }else if(ui->comboBox_trie->currentText()=="Tri par nbmax")
+    {
+        ui->tableView->setModel(tmp.trierZoneparnbmax());
+
+    }else if(ui->comboBox_trie->currentText()=="Tri par Prix")
+    {
+        ui->tableView->setModel(tmp.trierZoneparprix());
+    }
+}
+
+
+
+void MainWindow::on_pushButton_afficher_clicked()
+{
+        ui->tableView->setModel(tmp.afficher());
+}
+
+
+
+void MainWindow::on_pushButton_5_clicked()
+{
+    QSqlQueryModel * model= new QSqlQueryModel();
+                         model->setQuery("select * from zonedecollection where prix < 10 ");
+                         float prix=model->rowCount();
+                         model->setQuery("select * from zonedecollection where prix  between 10 and 50 ");
+                         float prixx=model->rowCount();
+                         model->setQuery("select * from zonedecollection where prix >50  ");
+                         float prixxx=model->rowCount();
+                         float total=prix+prixx+prixxx;
+                         QString a=QString("moins de 10 DT "+QString::number((prix*100)/total,'f',2)+"%" );
+                         QString b=QString("between 10DT and 50 DT "+QString::number((prixx*100)/total,'f',2)+"%" );
+                         QString c=QString("+50 DT"+QString::number((prixxx*100)/total,'f',2)+"%" );
+                         QPieSeries *series = new QPieSeries();
+                         series->append(a,prix);
+                         series->append(b,prixx);
+                         series->append(c,prixxx);
+                 if (prix!=0)
+                 {QPieSlice *slice = series->slices().at(0);
+                  slice->setLabelVisible();
+                  slice->setPen(QPen());}
+                 if ( prixx!=0)
+                 {
+                          // Add label, explode and define brush for 2nd slice
+                          QPieSlice *slice1 = series->slices().at(1);
+                          //slice1->setExploded();
+                          slice1->setLabelVisible();
+                 }
+                 if(prixxx!=0)
+                 {
+                          // Add labels to rest of slices
+                          QPieSlice *slice2 = series->slices().at(2);
+                          //slice1->setExploded();
+                          slice2->setLabelVisible();
+                 }
+                         // Create the chart widget
+                         QChart *chart = new QChart();
+                         // Add data to chart with title and hide legend
+                         chart->addSeries(series);
+                         chart->setTitle("Pourcentage Par Prix :Nombre Des Zone "+ QString::number(total));
+                         chart->legend()->hide();
+                         // Used to display the chart
+                         QChartView *chartView = new QChartView(chart);
+                         chartView->setRenderHint(QPainter::Antialiasing);
+                         chartView->resize(1000,500);
+                         chartView->show();
+}
+
+void MainWindow::on_lineEdit_recherche_2_cursorPositionChanged(int arg1, int arg2)
+{
+    QString rech=ui->lineEdit_recherche_2->text();
+    ui->tableView->setModel(tmp.RechercheZone(rech));
+}
+//------------------------------
+
+
+void MainWindow::on_pushButton_ajouter_clicked()
+{
+
+QString nom=ui->lineEdit_nom->text();
+QString prenom=ui->lineEdit_prenom->text();
+QString email=ui->lineEdit_email->text();
+int cin = ui->lineEdit_cin->text().toInt();
+int nbrp = ui->lineEdit_nbrp->text().toInt();
+QString sexe=ui->lineEdit_sexe->text();
+QString motp=ui->lineEdit_motp->text();
+fournisseur F(nom,prenom,email,cin,nbrp,sexe,motp);
+if (ui->lineEdit_cin->text().length() != 6 || cin <= 0) {
+    QMessageBox::critical(this, "Erreur", "Le champ CIN doit contenir exactement 6 chiffres.");
+    return;
+}
+QStringList sexeList = {"femme", "homme"};
+if (!sexeList.contains(sexe)) {
+    QMessageBox::critical(nullptr, QObject::tr("Erreur"), QObject::tr("Le sexe est invalide.\nCliquez sur Annuler pour quitter."), QMessageBox::Cancel);
+    return;
+}
+QRegularExpression regex("^[A-Za-z ]+$");
+
+       QRegularExpressionMatch match = regex.match(nom);
+
+
+
+       if (!match.hasMatch()) {
+
+
+
+           QMessageBox::critical(nullptr, QObject::tr("Erreur"), QObject::tr("Nom ne doit contenir que des lettres et non vide.\nCliquez sur Annuler pour quitter."), QMessageBox::Cancel);
+
+           ui->lineEdit_nom->setStyleSheet("QLineEdit { border: 2px solid red; }");
+
+           return;
+
+
+
+       }
+       QRegularExpressionMatch match1 = regex.match(prenom);
+
+
+
+       if (!match.hasMatch()) {
+
+
+
+           QMessageBox::critical(nullptr, QObject::tr("Erreur"), QObject::tr("Nom ne doit contenir que des lettres et non vide.\nCliquez sur Annuler pour quitter."), QMessageBox::Cancel);
+
+           ui->lineEdit_prenom->setStyleSheet("QLineEdit { border: 2px solid red; }");
+
+           return;
+
+
+
+       }
+       QSqlQuery query;
+       query.prepare("SELECT * FROM FOURNISSEUR WHERE CIN=:CIN");
+       query.bindValue(":CIN", cin);
+       query.exec();
+       int nbr2 = 0;
+       while(query.next()) {
+           nbr2++;
+       }
+
+       if (nbr2 != 0) {
+           QMessageBox::critical(nullptr, QObject::tr("Erreur"), QObject::tr("Le CIN existe déjà.\nCliquez sur Annuler pour quitter."), QMessageBox::Cancel);
+           ui->lineEdit_cin->setStyleSheet("QLineEdit { border: 2px solid red; }");
+           return;
+       }
+
+  bool test =F.ajouter();
+  if (test)
+
+  {
+      QMessageBox::information(nullptr, QObject::tr("OK"),
+                  QObject::tr("ajout effectué.\n"
+                              "Click Cancel to exit."), QMessageBox::Cancel);
+      ui->tableaufournisseur->setModel(F.afficher());
+}
+  else
+      QMessageBox::critical(nullptr, QObject::tr("NOT OK"),
+                  QObject::tr("Ajout non effectué.\n"
+                              "Click Cancel to exit."), QMessageBox::Cancel);}
+
+
+
+void MainWindow::on_pb_supprimer_clicked()
+{
+  fournisseur F1;F1.setcin(ui->lineEdit_idsupp->text().toInt());
+ bool test=F1.supprimer(F1.get_cin());
+ if (test)
+ {
+     QMessageBox::information(nullptr, QObject::tr("OK"),
+                 QObject::tr("Suppression effectué avec succés.\n"
+                             "Click Cancel to exit."), QMessageBox::Cancel);
+     ui->tableaufournisseur->setModel(F.afficher());
+}
+ else
+     QMessageBox::critical(nullptr, QObject::tr("NOT OK"),
+                 QObject::tr("Suppression non effectué.\n"
+                             "Click Cancel to exit."), QMessageBox::Cancel);}
+
+
+
+
+
+
+
+
+
+
+void MainWindow::on_entrer_clicked()
+{
+    {
+
+        int cin = ui->lineEdit_cin_2->text().toInt();
+
+
+
+            QSqlQuery query;
+
+            query.prepare("SELECT COUNT(*) FROM FOURNISSEUR WHERE CIN=:CIN");
+
+            query.bindValue(":CIN", cin);
+
+            query.exec();
+
+
+
+            if (query.next()) {
+
+                int count = query.value(0).toInt();
+
+                if (count > 0) {
+
+
+
+
+
+                            Dialog d(cin);
+
+                                         d.setModal(true);
+
+                                         d.exec();
+
+                            ui->tableaufournisseur->setModel(F.afficher());;
+
+
+
+                } else {
+
+
+
+                    QMessageBox::critical(nullptr, QObject::tr("NOT OK"),
+
+                        QObject::tr("CIN N'EXISTE PAS.\n"
+
+                                    "Click Cancel to exit."), QMessageBox::Cancel);
+
+                }
+
+            }
+
+    }
+
+
+
+ }
+
+
+
+
+
+
+
+
+
+
+
+
+
+void MainWindow::on_trie_clicked()
+{
+
+    fournisseur F;
+
+    ui->tableaufournisseur->setModel(F.tri());
+
+    bool test=F.tri();
+    if(test){
+        QMessageBox::information(nullptr,QObject::tr("OK"),
+                                 QObject::tr("tri effectué. \n"
+                                             "click Cancel to exist."),QMessageBox::Cancel);
+
+    }
+    else
+    {
+        QMessageBox::critical(nullptr, QObject::tr("not OK"),
+                    QObject::tr("tri non effectué.\n"
+                                "Click Cancel to exit."), QMessageBox::Cancel);
+    }
+}
+
+
+
+
+
+
+void MainWindow::on_trie_2_clicked()
+{fournisseur F;
+
+    ui->tableaufournisseur->setModel(F.triprenom());
+
+    bool test=F.tri();
+    if(test){
+        QMessageBox::information(nullptr,QObject::tr("OK"),
+                                 QObject::tr("tri effectué. \n"
+                                             "click Cancel to exist."),QMessageBox::Cancel);
+
+    }
+    else
+    {
+        QMessageBox::critical(nullptr, QObject::tr("not OK"),
+                    QObject::tr("tri non effectué.\n"
+                                "Click Cancel to exit."), QMessageBox::Cancel);
+    }
+
+}
+
+void MainWindow::on_trie_3_clicked()
+{ fournisseur F;
+
+    ui->tableaufournisseur->setModel(F.trisexe());
+
+    bool test=F.tri();
+    if(test){
+        QMessageBox::information(nullptr,QObject::tr("OK"),
+                                 QObject::tr("tri effectué. \n"
+                                             "click Cancel to exist."),QMessageBox::Cancel);
+
+    }
+    else
+    {
+        QMessageBox::critical(nullptr, QObject::tr("not OK"),
+                    QObject::tr("tri non effectué.\n"
+                                "Click Cancel to exit."), QMessageBox::Cancel);
+    }
+
+}
+
+
+
+
+void MainWindow::on_le_chercher_textChanged(const QString &text)
+{ QString critere = ui->critere_rech_acc->currentText();
+
+    if (text.isEmpty()) {
+        ui->tableaufournisseur->setModel(F.afficher()); // Affiche tous les enregistrements si le champ de recherche est vide.
+    } else {
+        QString rech;
+        if (critere == "CIN" || critere == "NOM" || critere == "PRENOM")
+        {
+            rech = text + "%"; // Recherche des enregistrements dont le critère commence par la lettre tapée.
+        } /*else {
+            rech = "%" + text + "%"; // Recherche des enregistrements contenant la lettre tapée.
+        }*/
+
+        ui->tableaufournisseur->setModel(F.chercher(critere, rech)); // Applique le filtre de recherche en temps réel.
+    }
+
+}
+
+void MainWindow::on_pb_stat_clicked()
+{
+    QtCharts::QPieSeries *series = new QtCharts::QPieSeries();
+
+    // Statistiques basées sur le statut
+    QSqlQueryModel model;
+    model.setQuery("SELECT * FROM FOURNISSEUR WHERE SEXE='homme'");
+    int number6 = model.rowCount();
+    series->append("homme", number6);
+
+    // Statistiques basées sur le sexe
+    model.setQuery("SELECT * FROM FOURNISSEUR WHERE SEXE='femme'");
+    int number7 = model.rowCount();
+    series->append("Femme", number7);
+
+
+
+    int total = number6 + number7;
+
+    QString a = QString("homme " + QString::number((number6 * 100) / total, 'f', 2) + "%");
+    QString b = QString("femme " + QString::number((number7 * 100) / total, 'f', 2) + "%");
+
+
+    // ... Ajoutez d'autres statistiques selon vos besoins
+
+    QChart *chart = new QChart();
+    chart->addSeries(series);
+    chart->setTitle("Pourcentage des    fournisseurs selon le sexe");
+    chart->legend()->setFont(QFont("Arial", 10));
+
+    // Set a background brush for the chart (e.g., light gray)
+    chart->setBackgroundBrush(QColor("#E8DCCA"));
+
+    QChart::AnimationOptions options = QChart::AllAnimations;
+    chart->setAnimationOptions(options);
+
+    QChartView *chartView = new QChartView(chart);
+    chartView->setRenderHint(QPainter::Antialiasing);
+    chartView->chart()->setTitleFont(QFont("Arial", 25));
+    chartView->resize(1000, 500);
+    chartView->chart()->legend()->setAlignment(Qt::AlignBottom);
+
+    chartView->show();
+}
+void MainWindow::loadHistoryToTableView() {
+    QFile historyFile("historique.txt");
+
+    if (!historyFile.open(QIODevice::ReadOnly | QIODevice::Text)) {
+        qDebug() << "Could not open the history file";
+        return;
+    }
+
+    QTextStream in(&historyFile);
+
+    QStandardItemModel *model = new QStandardItemModel();
+
+    // Lire la première ligne du fichier pour obtenir les noms de colonnes
+    if (!in.atEnd()) {
+        QString headerLine = in.readLine();
+        QStringList headers = headerLine.split(',');
+
+        // Ajouter les noms de colonnes au modèle
+        for (const QString &header : headers) {
+            model->setHorizontalHeaderItem(model->columnCount(), new QStandardItem(header));
+        }
+    }
+
+    // Ajouter les données au modèle
+    while (!in.atEnd()) {
+        QString line = in.readLine();
+        QStringList parts = line.split(',');
+
+        QList<QStandardItem *> rowItems;
+
+        for (const QString &part : parts) {
+            rowItems.append(new QStandardItem(part));
+        }
+
+        model->appendRow(rowItems);
+    }
+
+    historyFile.close();
+
+    ui->historique->setModel(model);
+}
+
+
+void MainWindow::on_pb_valider_pdf_clicked()
+{
+    QString pdf_name = ui->le_pdf_name->text();
+          QString name = "C:/Users/eemmn/Desktop/Atelier_Connexion1/Atelier_Connexion" + pdf_name + ".pdf";
+
+
+          QPrinter printer;
+          printer.setOutputFormat(QPrinter::PdfFormat);
+          printer.setOutputFileName(name);
+
+
+          printer.setOrientation(QPrinter::Landscape);
+
+          QPainter painter;
+
+          if (!printer.isValid()) {
+              qWarning("Failed to create PDF printer. Check the output file path.");
+              return;
+          }
+
+          if (!painter.begin(&printer)) {
+              qWarning("Failed to open file. Is it writable?");
+              return;
+          }
+
+
+
+
+          QFont titleFont("Arial", 20, QFont::Bold);
+          QPen titlePen(Qt::black);
+          painter.setFont(titleFont);
+          painter.setPen(titlePen);
+          painter.drawText(0, 30, printer.width(), 50, Qt::AlignCenter, "Liste des FOURNISSEUR");
+
+          // Société "GlowJewl"
+          QFont companyFont("Arial", 16, QFont::Bold);
+          QPen companyPen(Qt::black);
+          painter.setFont(companyFont);
+          painter.setPen(companyPen);
+          painter.drawText(0, 70, printer.width(), 50, Qt::AlignCenter, "Application : Earthbridge");
+
+          // Date et heure d'exportation
+          QDateTime currentDateTime = QDateTime::currentDateTime();
+          QString dateTimeString = "Exporté le " + currentDateTime.toString("dd/MM/yyyy à hh:mm:ss");
+          QFont dateTimeFont("Arial", 12);
+          QPen dateTimePen(Qt::black);
+          painter.setFont(dateTimeFont);
+          painter.setPen(dateTimePen);
+          painter.drawText(0, 110, printer.width(), 30, Qt::AlignCenter, dateTimeString);
+
+          QSqlQuery query;
+          qDebug() << query.exec("SELECT * FROM FOURNISSEUR");
+
+          if (query.isActive()) {
+              const int tableStartX = 50;
+              const int tableStartY = 150;
+              const int columnWidth = 120;
+              const int columnSpacing = 10;
+              const int additionalWidthForFournisseur = 80;
+              int currentX = tableStartX;
+              int currentY = tableStartY;
+
+              QFont headerFont("Arial", 14, QFont::Bold);
+              QFont cellFont("Arial", 12);
+              QPen headerPen(Qt::black);
+              QPen cellPen(Qt::black);
+
+              painter.setFont(headerFont);
+              painter.setPen(headerPen);
+
+              // Lignes horizontales entre les rangées
+              painter.drawLine(tableStartX, tableStartY, 10 * (columnWidth + columnSpacing) + tableStartX, tableStartY);
+              currentY += 30;
+
+              // Draw table headers avec un fond coloré
+              painter.setBrush(QColor(200, 200, 200));
+              painter.drawRect(tableStartX, tableStartY, 10 * (columnWidth + columnSpacing), 30);
+              QStringList headers = {"NOM", "PRENOM", "EMAIL", "CIN","NBRP","SEXE","MOTP"};
+
+              currentX = tableStartX;
+              currentY += 30;
+              painter.setFont(cellFont);
+              painter.setPen(cellPen);
+
+              while (query.next()) {
+                  // Lignes horizontales entre les rangées
+                  painter.drawLine(tableStartX, currentY, 10 * (columnWidth + columnSpacing) + tableStartX, currentY);
+                  for (int column = 0; column < 9; ++column) {
+                      int columnWidthWithSpacing = (column == 8) ? columnWidth + columnSpacing + additionalWidthForFournisseur : columnWidth + columnSpacing;
+                      painter.drawText(currentX, currentY, columnWidthWithSpacing, 20, Qt::AlignCenter, query.value(column).toString());
+                      currentX += columnWidthWithSpacing;
+                  }
+                  currentY += 20;
+                  currentX = tableStartX;
+              }
+          } else {
+              qWarning("Failed to execute SQL query.");
+          }
+
+          painter.end();
+          QMessageBox::information(nullptr, QObject::tr("Exportation_PDF"),
+           QObject::tr("Exportation PDF avec succès\n"
+                "Click Cancel to exit."), QMessageBox::Ok);
+
+          ;
+
+
+}
+
+void MainWindow::on_pushButton_7_clicked()
+{
+    QString critere=ui->critere_rech_acc->currentText();
+    QString rech= ui->le_chercher->text();
+
+    if(ui->le_chercher->text() == "")
+        {
+            ui->tableaufournisseur->setModel(F.afficher());
+        }
+        else
+        {
+
+              ui->tableaufournisseur->setModel(F.chercher(critere,rech));
+        }
+}
+
+void MainWindow::on_pushButton_6_clicked()
+{
+       ui->tableaufournisseur->setModel(F.afficher());
+}
+
+void MainWindow::on_pushButton_8_clicked()
+
+{
+    // Afficher seulement CIN et NBRP depuis la base de données
+    QSqlQueryModel* afficherModel = F.afficher();
+
+    QStandardItemModel* model = new QStandardItemModel();
+
+    // Ajouter les noms de colonnes
+    model->setHorizontalHeaderItem(0, new QStandardItem("CIN"));
+    model->setHorizontalHeaderItem(1, new QStandardItem("NBRP"));
+
+    for (int i = 0; i < afficherModel->rowCount(); ++i) {
+        QList<QStandardItem *> rowItems;
+
+        QModelIndex cinIndex = afficherModel->index(i, 3); // Colonne CIN (index 3)
+        QModelIndex nbrpIndex = afficherModel->index(i, 4); // Colonne NBRP (index 4)
+
+        QStandardItem *cinItem = new QStandardItem(afficherModel->data(cinIndex).toString());
+        QStandardItem *nbrpItem = new QStandardItem(afficherModel->data(nbrpIndex).toString());
+
+        rowItems.append(cinItem);
+        rowItems.append(nbrpItem);
+
+        model->appendRow(rowItems);
+    }
+
+    ui->historique->setModel(model);
+}
+// Dans votre MainWindow.cpp, connectez le bouton à une fonction pour ajouter des points
