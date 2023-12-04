@@ -3,7 +3,6 @@
 #include "randomstringgenerator.h"
 #include <QDebug>
 #include <QMessageBox>
-
 recaptcha::recaptcha(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::recaptcha)

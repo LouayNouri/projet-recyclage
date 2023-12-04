@@ -18,6 +18,7 @@
 #include <QPrintPreviewDialog>
 #include <QTextEdit>
 #include <QtCharts/QChartView>
+#include <QtCharts/QBarSeries>
 #include <QtCharts/QBarSet>
 #include <QtCharts/QLegend>
 #include <QtCharts/QBarCategoryAxis>
@@ -38,48 +39,19 @@
 #include "entreprise.h"
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
-
+QT_END_NAMESPACE
 
 class MainWindow : public QMainWindow
 {
     Q_OBJECT
 
 public:
-    explicit MainWindow(QWidget *parent = nullptr);    
+    MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
     QSqlDatabase db;
 
 private slots:
-    void on_Generat_Button_clicked();
-    void on_add_clicked();
-    void setupButtonGroup();
-    void resetInputs();
-    void resetFields();
-    void checkCodeInDatabase();
-    void on_modify_clicked();
-    void goToTab1();
-    void goToTab2();
-    void goToTab3();
-    void goToTab4();
-    void deleteRow();
-    void exportall();
-    void exportdisplayed();
-    void updateTypeCheckBox(int state);
-    void updateDateCheckBox(int state);
-    void updateView_2();
-    void sortAscending();
-    void sortDescending();
-    void on_stats_1_clicked();
-    void on_stats_2_clicked();
-    void on_stats_3_clicked();
-    void on_stats_4_clicked();
-    void prepareChart(const QString& materialType, const QString& title, const QColor& color1, const QColor& color2, const QColor& color3);
-    QPieSeries* createRecyclableSeries(const QMap<QString, double>& amounts, double totalAmount);
-    QPieSeries* createBiodegradableSeries(const QMap<QString, double>& amounts, double totalAmount);
-    QPieSeries* createReusableSeries(const QMap<QString, double>& amounts, double totalAmount);
-    void on_stack_clicked();
-    void onPlusKeyPressed();
-    void onSelectionChanged(const QItemSelection &selected, const QItemSelection &deselected);
+    void on_pb_ajouter_clicked();
 
     void on_pb_afficher_clicked();
 
@@ -236,6 +208,7 @@ private:
     Equipement E;
 
 
+    QStringList files;
 
       QString mnomemp="localhost";
       quint16 mport=3333;
@@ -248,10 +221,4 @@ private:
    fournisseur F;
 
 };
-
-
-
-
-#endif
-
-
+#endif // MAINWINDOW_H

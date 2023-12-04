@@ -3,12 +3,6 @@
 #include <QMessageBox>
 #include "connection.h"
 #include"login.h"
-#include <QGuiApplication>
-#include <QQmlApplicationEngine>
-#include <QQmlContext>
-#include <QSettings>
-#include <QQuickStyle>
-
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
@@ -22,6 +16,11 @@ int main(int argc, char *argv[])
     MainWindow w;
     login l;
 
+
+
+
+
+
     if(test)
     {
         QMessageBox::information(nullptr, QObject::tr("database is open"),
@@ -31,31 +30,16 @@ int main(int argc, char *argv[])
         l.exec();
 
         if (l.result() == QDialog::Accepted) {
+          //  w.show();
             return a.exec();
         }
-    }
+}
     else
-        QQuickStyle::setStyle(settings.value("style").toString());
+        QMessageBox::critical(nullptr, QObject::tr("database is not open"),
+                    QObject::tr("connection failed.\n"
+                                "Click Cancel to exit."), QMessageBox::Cancel);
 
-    QGuiApplication::setApplicationName("Gallery");
-    QGuiApplication::setOrganizationName("QtProject");
-    QGuiApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
 
-    QSettings settings;
-    QString style = QQuickStyle::name();
-    if (!style.isEmpty())
-        settings.setValue("style", style);
-    else
-        QQuickStyle::setStyle(settings.value("style").toString());
-
-    QQmlApplicationEngine engine;
-    engine.rootContext()->setContextProperty("availableStyles", QQuickStyle::availableStyles());
-    engine.load(QUrl("qrc:/gallery.qml"));
-    if (engine.rootObjects().isEmpty())
-        return -1;
-
-    QObject *rootObject = engine.rootObjects().first();
-    QObject::connect(rootObject, SIGNAL(openWindow()), &w, SLOT(show()));
 
     return a.exec();
 }
