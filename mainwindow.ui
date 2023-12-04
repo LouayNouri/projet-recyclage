@@ -624,7 +624,8 @@ QPushButton:hover {
       </property>
       <property name="styleSheet">
        <string notr="true">selection-background-color: rgb(27, 150, 0);
-selection-color: rgb(146, 255, 162);</string>
+selection-color: rgb(146, 255, 162);
+</string>
       </property>
       <property name="iconSize">
        <size>
@@ -1264,7 +1265,7 @@ QPushButton:hover {
       </property>
       <property name="styleSheet">
        <string notr="true">background-color: transparent; border: none;
-color:rgb(121, 121, 121)</string>
+color:white</string>
       </property>
      </widget>
      <widget class="QPushButton" name="delete_2">

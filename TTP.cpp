@@ -38,31 +38,12 @@ TextToSpeechWindow::TextToSpeechWindow(QWidget *parent, const QString &data)
     ui->label_5->setStyleSheet("color: white;font: 10pt bold");
     ui->label_6->setStyleSheet("color: white;font: 10pt bold");
     ui->label->setStyleSheet("color: white;font: 10pt bold");
-    ui->voice->setObjectName("comboBox1");
-    ui->engine->setObjectName("comboBox2");
-    ui->language->setObjectName("comboBox3");
+    ui->centralwidget->setStyleSheet("background-image: url(C:/Users/MEGA-PC/Desktop/QT-test/Project_2/dark-green-wall-backdrop-grunge-background-texture.jpg);");
+    ui->engine->view()->setStyleSheet("color: white;");
+    ui->language->view()->setStyleSheet("color: white;");
+    ui->voice->view()->setStyleSheet("color: white;");
 
-    ui->centralwidget->setStyleSheet("background-image: url(C:/Users/MEGA-PC/Desktop/QT-test/Project_2/download.jpeg);");
-//                                     "#comboBox1 {"
-//                                     "background-color: white;" /* Change this to your desired color */
-//                                     "}"
-//                                     "#comboBox1::item {"
-//                                     "background-color: white;" /* Change this to your desired color */
-//                                     "}"
-//                                     "#comboBox2 {"
-//                                     "background-color: yellow;" /* Change this to your desired color */
-//                                     "}"
-//                                     "#comboBox2::item {"
-//                                     "background-color: yellow;" /* Change this to your desired color */
-//                                     "}"
-//                                     "#comboBox3 {"
-//                                     "background-color: green;" /* Change this to your desired color */
-//                                     "}"
-//                                     "#comboBox3::item {"
-//                                     "background-color: green;" /* Change this to your desired color */
-//                                     "}");
 }
-
 void TextToSpeechWindow::updatePlainText(const QString &data)
 {
     ui->plainTextEdit->setPlainText(data);

@@ -1,6 +1,4 @@
-
-
-QT       += core gui widgets texttospeech sql charts
+QT       += core gui widgets texttospeech sql charts quick quickcontrols2
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
 CONFIG += c++11
@@ -11,13 +9,15 @@ DEFINES += QT_DEPRECATED_WARNINGS
 SOURCES += \
     TTP.cpp \
     connection.cpp \
+    gallery.cpp \
     main.cpp \
     mainwindow.cpp \
     donutbreakdownchart.cpp \
     mainslice.cpp\
     drilldownchart.cpp \
     drilldownseries.cpp \
-    trash.cpp
+    trash.cpp \
+    gallery.cpp
 
 HEADERS += \
     TTP.h \
@@ -33,16 +33,16 @@ FORMS += \
     TTP.ui \
     mainwindow.ui
 
-qnx: target.path = /tmp/$${TARGET}/bin
-else: unix:!android: target.path = /opt/$${TARGET}/bin
-!isEmpty(target.path): INSTALLS += target
-
 RESOURCES += \
-    imgs.qrc
+    imgs.qrc \
+    gallery.qml \
+    qtquickcontrols2.conf \
+    $$files(images/*.png) \
+    $$files(images/+material/*.png) \
+    $$files(pages/*.qml)
 
 # install
-target.path = target.path = C:/Users/MEGA-PC/Desktop/QT-test/Project_2
-
+target.path = C:/Users/MEGA-PC/Desktop/QT-test/Project_2
 INSTALLS += target
 
 DISTFILES +=

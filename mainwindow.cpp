@@ -22,6 +22,11 @@
 #include <QItemSelectionModel>
 #include <QKeyEvent>
 
+#include <QGuiApplication>
+#include <QQmlApplicationEngine>
+#include <QQmlContext>
+#include <QSettings>
+#include <QQuickStyle>
 
 
 MainWindow::MainWindow(QWidget *parent)
@@ -105,8 +110,9 @@ MainWindow::MainWindow(QWidget *parent)
     this->installEventFilter(this);
     ui->view_2->installEventFilter(this);
     connect(ui->view_2->selectionModel(), &QItemSelectionModel::selectionChanged, this, &MainWindow::onSelectionChanged);
-
-
+    ui->bio->setStyleSheet("QCheckBox::indicator { width: 30px; height: 30px; }"
+                            "QCheckBox::indicator:checked { image: url(C:/Users/MEGA-PC/Desktop/QT-test/Project_2/vecteezy_cheque_1200261.png); }"
+                            );
 
 }
 

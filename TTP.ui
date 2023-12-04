@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>486</width>
+    <width>584</width>
     <height>775</height>
    </rect>
   </property>
@@ -79,6 +79,10 @@ Done, over and out.</string>
           <horstretch>0</horstretch>
           <verstretch>0</verstretch>
          </sizepolicy>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background-color: rgb(170, 0, 0);
+color: rgb(255, 255, 255);</string>
         </property>
        </widget>
       </item>
