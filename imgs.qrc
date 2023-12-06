@@ -1,0 +1,27 @@
+<RCC>
+    <qresource prefix="/new/prefix1">
+        <file>gl.png</file>
+        <file>me.png</file>
+        <file>p.png</file>
+        <file>pl.png</file>
+        <file>weight_gram_icon_138015.png</file>
+        <file>weight-1-tonne.png</file>
+        <file>Glasspng.png</file>
+        <file>Metalpng.png</file>
+        <file>pap.png</file>
+        <file>Pla.png</file>
+        <file>stack.png</file>
+        <file>pxfuel.jpg</file>
+        <file>wallpaperflare.com_wallpaper.jpg</file>
+        <file>dark-green-wall-backdrop-grunge-background-texture.jpg</file>
+        <file>5632370.png</file>
+        <file>delete-127.png</file>
+        <file>pngtree-pdf-file-icon-png-png-image_7965915.png</file>
+        <file>59216.png</file>
+        <file>ascending-order.png</file>
+        <file>kilogram.png</file>
+        <file>im1.png</file>
+        <file>1.png</file>
+        <file>2.png</file>
+    </qresource>
+</RCC>
