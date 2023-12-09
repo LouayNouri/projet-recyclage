@@ -19,36 +19,30 @@
 #include <QtCharts/QLegend>
 #include <QItemSelectionModel>
 #include <QKeyEvent>
+#include "connection.h"
 
 
 QT_CHARTS_USE_NAMESPACE
 QT_BEGIN_NAMESPACE
-namespace Ui { class MainWindow; }
+namespace Ui { class Main_trash; }
 
 
-class MainWindow : public QMainWindow
+class Main_trash : public QMainWindow
 {
     Q_OBJECT
 
 public:
-    explicit MainWindow(QWidget *parent = nullptr);    
-    ~MainWindow();
+    explicit Main_trash(QWidget *parent = nullptr);
+    ~Main_trash();
     void initializeChart();
     void playGif(const QString &gifPath);
-
-
-
 
 public slots:
     void updateview(const QString &text);
     void executeQuery(QString queryStr);
 
-
-
 protected:
     bool eventFilter(QObject *obj, QEvent *event);
-
-
 
 private slots:
     void on_Generat_Button_clicked();
@@ -82,11 +76,9 @@ private slots:
     void onPlusKeyPressed();
     void onSelectionChanged(const QItemSelection &selected, const QItemSelection &deselected);
 
-
 private:
-    Ui::MainWindow *ui;
-    Ui::MainWindow*ui2;
-
+    Ui::Main_trash*ui;
+    Ui::Main_trash*ui2;
     QButtonGroup *group;
     trash h;
     void showPieChart(int chartType);
@@ -99,19 +91,11 @@ private:
     QChartView *chartView;
     QMovie *movie;
     QItemSelectionModel *select;
-    TextToSpeechWindow *ttsWindow = nullptr;
-
-
+    TextToSpeechWindow *ttsWindow; // Add this line
+    connection *c;
 
 signals:
     void viewUpdated(const QString &data);
-
-
 };
 
-
-
-
 #endif
-
-

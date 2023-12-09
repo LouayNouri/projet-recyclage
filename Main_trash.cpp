@@ -1,5 +1,5 @@
 #include "Main_trash.h"
-#include "ui_mainwindow.h"
+#include "ui_Main_trash.h"
 #include "connection.h"
 #include "TTP.h"
 #include <cstdlib>
@@ -27,21 +27,27 @@
 #include <QQmlContext>
 #include <QSettings>
 #include <QQuickStyle>
+#include <iostream>
 
 
-MainWindow::MainWindow(QWidget *parent)
+
+Main_trash::Main_trash(QWidget *parent)
     : QMainWindow(parent)
-    , ui(new Ui::MainWindow)
+    , ui(new Ui::Main_trash)
 
 {
+    qDebug("Main_Trash Launched");
     ui->setupUi(this);
+    c = new connection();
+    bool test = c->createconnect();
+    if (!test) {
+        qDebug() << "Database connection failed";
+    }
+
+//    ttsWindow = new TextToSpeechWindow(this); // Add this line
+//    ttsWindow->show();
     this->move(0,0);
     movie = new QMovie(this);
-    QSqlDatabase db = QSqlDatabase::addDatabase("QSQLITE");
-    db.setDatabaseName("trash.db");
-    QSqlQueryModel *model = new QSqlQueryModel;
-    model->setQuery("SELECT * FROM trash");
-    ui->view_2->setModel(model);
     setupButtonGroup();
     QList<QPushButton*> addButtons = {ui->add1, ui->add2, ui->add3, ui->add4};
     for(QPushButton* button : addButtons) {
@@ -84,17 +90,17 @@ MainWindow::MainWindow(QWidget *parent)
     updateView_2();
     connect(ui->ascendingButton, SIGNAL(clicked()), this, SLOT(sortAscending()));
     connect(ui->descendingButton, SIGNAL(clicked()), this, SLOT(sortDescending()));
-    connect(ui->stats_1, &QPushButton::clicked, this, &MainWindow::on_stats_1_clicked);
-    disconnect(ui->stats_1, &QPushButton::clicked, this, &MainWindow::on_stats_1_clicked);
-    connect(ui->stats_2, &QPushButton::clicked, this, &MainWindow::on_stats_2_clicked);
-    disconnect(ui->stats_2, &QPushButton::clicked, this, &MainWindow::on_stats_2_clicked);
-    connect(ui->stats_3, &QPushButton::clicked, this, &MainWindow::on_stats_3_clicked);
-    disconnect(ui->stats_3, &QPushButton::clicked, this, &MainWindow::on_stats_3_clicked);
-    connect(ui->stats_4, &QPushButton::clicked, this, &MainWindow::on_stats_4_clicked);
-    disconnect(ui->stats_4, &QPushButton::clicked, this, &MainWindow::on_stats_4_clicked);
+    connect(ui->stats_1, &QPushButton::clicked, this, &Main_trash::on_stats_1_clicked);
+    disconnect(ui->stats_1, &QPushButton::clicked, this, &Main_trash::on_stats_1_clicked);
+    connect(ui->stats_2, &QPushButton::clicked, this, &Main_trash::on_stats_2_clicked);
+    disconnect(ui->stats_2, &QPushButton::clicked, this, &Main_trash::on_stats_2_clicked);
+    connect(ui->stats_3, &QPushButton::clicked, this, &Main_trash::on_stats_3_clicked);
+    disconnect(ui->stats_3, &QPushButton::clicked, this, &Main_trash::on_stats_3_clicked);
+    connect(ui->stats_4, &QPushButton::clicked, this, &Main_trash::on_stats_4_clicked);
+    disconnect(ui->stats_4, &QPushButton::clicked, this, &Main_trash::on_stats_4_clicked);
 
-    connect(ui->stack, &QPushButton::clicked, this, &MainWindow::on_stack_clicked);
-    disconnect(ui->stack, &QPushButton::clicked, this, &MainWindow::on_stack_clicked);
+    connect(ui->stack, &QPushButton::clicked, this, &Main_trash::on_stack_clicked);
+    disconnect(ui->stack, &QPushButton::clicked, this, &Main_trash::on_stack_clicked);
     ui->stats_1->installEventFilter(this);
     ui->stats_2->installEventFilter(this);
     ui->stats_3->installEventFilter(this);
@@ -109,7 +115,7 @@ MainWindow::MainWindow(QWidget *parent)
     ui->view_2->setSelectionBehavior(QAbstractItemView::SelectItems);
     this->installEventFilter(this);
     ui->view_2->installEventFilter(this);
-    connect(ui->view_2->selectionModel(), &QItemSelectionModel::selectionChanged, this, &MainWindow::onSelectionChanged);
+    connect(ui->view_2->selectionModel(), &QItemSelectionModel::selectionChanged, this, &Main_trash::onSelectionChanged);
     ui->bio->setStyleSheet("QCheckBox { color: white; }"
                             "QCheckBox::indicator { width: 30px; height: 30px; }"
                             "QCheckBox::indicator:checked { image: url(C:/Users/MEGA-PC/Desktop/QT-test/Project_2/vecteezy_cheque_1200261.png); }"
@@ -135,19 +141,20 @@ MainWindow::MainWindow(QWidget *parent)
                                         "QCheckBox { color: white; }"
                             );
 
+       ui->dock->hide();
+
 }
 
 
-void MainWindow::onSelectionChanged(const QItemSelection &selected, const QItemSelection &deselected) {
-    // Update select
+
+void Main_trash::onSelectionChanged(const QItemSelection &selected, const QItemSelection &deselected) {
     select = ui->view_2->selectionModel();
-
-    // Calculate and display the sum
     onPlusKeyPressed();
+
 }
 
 
-void MainWindow::onPlusKeyPressed() {
+void Main_trash::onPlusKeyPressed() {
     double sum = 0;
 
     // Get the selected cells
@@ -194,7 +201,7 @@ void MainWindow::onPlusKeyPressed() {
 
 
 
-void MainWindow::updateView_2() {
+void Main_trash::updateView_2() {
     QString queryStr = "SELECT * FROM trash WHERE 1=1 ";
     select = ui->view_2->selectionModel();
 
@@ -254,7 +261,7 @@ void MainWindow::updateView_2() {
 
 }
 
-void MainWindow::playGif(const QString &gifPath)
+void Main_trash::playGif(const QString &gifPath)
 {
     movie->setFileName(gifPath);
     ui->GIF->setMovie(movie);
@@ -265,7 +272,7 @@ void MainWindow::playGif(const QString &gifPath)
 }
 
 
-bool MainWindow::eventFilter(QObject *obj, QEvent *event)
+bool Main_trash::eventFilter(QObject *obj, QEvent *event)
 {
     if (obj == ui->stats_1) {
         if (event->type() == QEvent::HoverEnter) {
@@ -372,6 +379,28 @@ bool MainWindow::eventFilter(QObject *obj, QEvent *event)
 
 
 
+                    if (event->type() == QEvent::HoverMove) {
+                        QHoverEvent *hoverEvent = static_cast<QHoverEvent *>(event);
+                        int x = hoverEvent->pos().x();
+                        int y = hoverEvent->pos().y();
+
+                        // Check if the mouse is in the desired area
+                        if (x >= 0 && x <= 1350 && y >= 0 && y <= 30) {
+                            // The mouse is in the top side of the screen.
+                            // Show the dock widget here.
+                            ui->dock->show();
+                        } else {
+                            // The mouse is not in the top side of the screen.
+                            // Hide the dock widget here.
+                            ui->dock->hide();
+                        }
+                        return true;
+                    }
+
+
+
+
+
     // Standard event processing
     return QObject::eventFilter(obj, event);
 }
@@ -379,14 +408,14 @@ bool MainWindow::eventFilter(QObject *obj, QEvent *event)
 
 
 
-MainWindow::~MainWindow()
+Main_trash::~Main_trash()
 {
     delete ui;
 }
 
 
 
-void MainWindow::initializeChart()
+void Main_trash::initializeChart()
 {
     // Define categories
     const QStringList months = {
@@ -467,14 +496,14 @@ void MainWindow::initializeChart()
 
 
 
-void MainWindow::on_stack_clicked()
+void Main_trash::on_stack_clicked()
 {
     initializeChart();
 }
 
 
 
-QPieSeries* MainWindow::createRecyclableSeries(const QMap<QString, double>& amounts, double totalAmount) {
+QPieSeries* Main_trash::createRecyclableSeries(const QMap<QString, double>& amounts, double totalAmount) {
     QPieSeries *series = new QPieSeries();
     series->setName("Recyclable");
     series->append("Recyclable Only", amounts["Recyclable "] / totalAmount * 100.0);
@@ -482,7 +511,7 @@ QPieSeries* MainWindow::createRecyclableSeries(const QMap<QString, double>& amou
     return series;
 }
 
-QPieSeries* MainWindow::createBiodegradableSeries(const QMap<QString, double>& amounts, double totalAmount) {
+QPieSeries* Main_trash::createBiodegradableSeries(const QMap<QString, double>& amounts, double totalAmount) {
     QPieSeries *series = new QPieSeries();
     series->setName("Biodegradable");
     series->append("Bio Only", amounts["Biodegradable "] / totalAmount * 100.0);
@@ -490,7 +519,7 @@ QPieSeries* MainWindow::createBiodegradableSeries(const QMap<QString, double>& a
     return series;
 }
 
-QPieSeries* MainWindow::createReusableSeries(const QMap<QString, double>& amounts, double totalAmount) {
+QPieSeries* Main_trash::createReusableSeries(const QMap<QString, double>& amounts, double totalAmount) {
     QPieSeries *series = new QPieSeries();
     series->setName("Reusable");
     series->append("Reusable Only", amounts["Reusable "] / totalAmount * 100.0);
@@ -501,7 +530,7 @@ QPieSeries* MainWindow::createReusableSeries(const QMap<QString, double>& amount
 
 
 
-void MainWindow::prepareChart(const QString& materialType, const QString& title, const QColor& color1, const QColor& color2, const QColor& color3) {
+void Main_trash::prepareChart(const QString& materialType, const QString& title, const QColor& color1, const QColor& color2, const QColor& color3) {
     QSqlQuery query;
     double totalAmount = 0.0;
     QMap<QString, double> amounts;
@@ -547,7 +576,7 @@ void MainWindow::prepareChart(const QString& materialType, const QString& title,
 
 
 
-void MainWindow::showPieChart(int chartType)
+void Main_trash::showPieChart(int chartType)
 {
 
 
@@ -571,22 +600,22 @@ void MainWindow::showPieChart(int chartType)
 
 
 
-void MainWindow::on_stats_1_clicked()
+void Main_trash::on_stats_1_clicked()
 {
     showPieChart(1);
 }
 
-void MainWindow::on_stats_2_clicked()
+void Main_trash::on_stats_2_clicked()
 {
     showPieChart(2);
 }
 
-void MainWindow::on_stats_3_clicked()
+void Main_trash::on_stats_3_clicked()
 {
     showPieChart(3);
 }
 
-void MainWindow::on_stats_4_clicked()
+void Main_trash::on_stats_4_clicked()
 {
     showPieChart(4);
 }
@@ -596,17 +625,17 @@ void MainWindow::on_stats_4_clicked()
 
 
 
-void MainWindow::sortAscending() {
+void Main_trash::sortAscending() {
     QString queryStr = "SELECT * FROM trash ORDER BY CASE WHEN unit = 'Tonne (t)' THEN amount * 1000 WHEN unit = 'Gram (g)' THEN amount / 1000 ELSE amount END ASC";
     executeQuery(queryStr);
 }
 
-void MainWindow::sortDescending() {
+void Main_trash::sortDescending() {
     QString queryStr = "SELECT * FROM trash ORDER BY CASE WHEN unit = 'Tonne (t)' THEN amount * 1000 WHEN unit = 'Gram (g)' THEN amount / 1000 ELSE amount END DESC";
     executeQuery(queryStr);
 }
 
-void MainWindow::executeQuery(QString queryStr) {
+void Main_trash::executeQuery(QString queryStr) {
     QSqlQueryModel *model = new QSqlQueryModel();
     QSqlQuery query;
     query.prepare(queryStr);
@@ -621,8 +650,7 @@ void MainWindow::executeQuery(QString queryStr) {
 
 
 
-void MainWindow::updateTypeCheckBox(int state) {
-    // If the checkbox is checked (state == Qt::Checked), enable the radio buttons. Otherwise, disable them.
+void Main_trash::updateTypeCheckBox(int state) {
     bool enable = (state == Qt::Checked);
     ui->metal_2->setEnabled(enable);
     ui->plastic_2->setEnabled(enable);
@@ -630,12 +658,12 @@ void MainWindow::updateTypeCheckBox(int state) {
     ui->paper_2->setEnabled(enable);
 }
 
-void MainWindow::updateDateCheckBox(int state) {
+void Main_trash::updateDateCheckBox(int state) {
     ui->date_2->setEnabled(state == Qt::Checked);
 }
 
 
-void MainWindow::updateview(const QString &text) {
+void Main_trash::updateview(const QString &text) {
     if (text == "ALL") {
         // Display all data
         QSqlQueryModel *model = new QSqlQueryModel();
@@ -658,7 +686,7 @@ void MainWindow::updateview(const QString &text) {
     }
 }
 
-void MainWindow::deleteRow()
+void Main_trash::deleteRow()
 {
     int code = ui->Delete_zone->text().toInt();
     bool success = h.supprimer(code);
@@ -669,29 +697,29 @@ void MainWindow::deleteRow()
     }
 }
 
-void MainWindow::goToTab1()
+void Main_trash::goToTab1()
 {
     ui->tabWidget->setCurrentIndex(0);
 }
 
-void MainWindow::goToTab2()
+void Main_trash::goToTab2()
 {
     ui->tabWidget->setCurrentIndex(1);
 }
 
-void MainWindow::goToTab3()
+void Main_trash::goToTab3()
 {
     ui->tabWidget->setCurrentIndex(2);
 }
 
-void MainWindow::goToTab4()
+void Main_trash::goToTab4()
 {
     ui->tabWidget->setCurrentIndex(3);
 }
 
 
 
-void MainWindow::on_Generat_Button_clicked()
+void Main_trash::on_Generat_Button_clicked()
 {
     QString randomCode;
 
@@ -705,7 +733,7 @@ void MainWindow::on_Generat_Button_clicked()
 
 }
 
-void MainWindow::setupButtonGroup() {
+void Main_trash::setupButtonGroup() {
     group = new QButtonGroup(this);
     group->addButton(ui->glass);
     group->addButton(ui->paper);
@@ -714,7 +742,7 @@ void MainWindow::setupButtonGroup() {
 }
 
 
-void MainWindow::on_add_clicked()
+void Main_trash::on_add_clicked()
 {
     QString codeeString = ui->Generated_code->text();
     if (codeeString.length() != 5) {
@@ -760,7 +788,7 @@ void MainWindow::on_add_clicked()
     }
 }
 
-void MainWindow::checkCodeInDatabase() {
+void Main_trash::checkCodeInDatabase() {
     QString codeString = ui->Generated_code->text();
     if (codeString.length() != 5) {
         QMessageBox::information(nullptr, QObject::tr("Error"),
@@ -814,7 +842,7 @@ void MainWindow::checkCodeInDatabase() {
     ui->date->setSelectedDate(date);
 }
 
-void MainWindow::exportall() {
+void Main_trash::exportall() {
     QString fileName = QFileDialog::getSaveFileName(this, "Export PDF", "", "*.pdf");
     if (fileName.isEmpty()) return; // User canceled the dialog
 
@@ -822,16 +850,16 @@ void MainWindow::exportall() {
     QPainter painter(&pdf);
 
     painter.setPen(Qt::red);
-    painter.setFont(QFont("Arial", 25));
-    painter.drawText(2500,1700,"List of Trash");
+    painter.setFont(QFont("Arial", 40));
+    painter.drawText(2500,2700,"-List of Submits-");
 
-    painter.setPen(Qt::gray);
-    painter.drawRect(100,100,7300,2600);
+    painter.drawPixmap(QRect(2900,80,4000,1800),QPixmap("C:/Users/MEGA-PC/Desktop/QT-test/Project_2/im1.png"));
+    painter.drawPixmap(QRect(7500,-200,2300,2000),QPixmap("C:/Users/MEGA-PC/Desktop/QT-test/Project_2/6430960.jpg"));
+    painter.drawPixmap(QRect(0,-200,2300,2000),QPixmap("C:/Users/MEGA-PC/Desktop/QT-test/Project_2/6430960.jpg"));
 
-    painter.drawPixmap(QRect(7600,70,2000,2600),QPixmap("C:/Users/MEGA-PC/Desktop/QT-test/Project_2/im2.jpg"));
 
     painter.setPen(Qt::green);
-    painter.setFont(QFont("Arial", 12));
+    painter.setFont(QFont("Arial bold", 15));
     painter.drawText(200,3300,"Material");
     painter.drawText(1300,3300,"Unit");
     painter.drawText(2200,3300,"Amount");
@@ -862,7 +890,7 @@ void MainWindow::exportall() {
 }
 
 
-void MainWindow::exportdisplayed() {
+void Main_trash::exportdisplayed() {
     QString fileName = QFileDialog::getSaveFileName(this, "Export PDF", "", "*.pdf");
     if (fileName.isEmpty()) return; // User canceled the dialog
 
@@ -870,16 +898,15 @@ void MainWindow::exportdisplayed() {
     QPainter painter(&pdf);
 
     painter.setPen(Qt::red);
-    painter.setFont(QFont("Arial", 25));
-    painter.drawText(2500,1700,"List of Trash");
+    painter.setFont(QFont("Arial", 40));
+    painter.drawText(2300,2700,"-Filtered Submits-");
 
-    painter.setPen(Qt::gray);
-    painter.drawRect(100,100,7300,2600);
-
-    painter.drawPixmap(QRect(7600,70,2000,2600),QPixmap("C:/Users/MEGA-PC/Desktop/QT-test/Project_2/im1.png"));
+    painter.drawPixmap(QRect(2900,80,4000,1800),QPixmap("C:/Users/MEGA-PC/Desktop/QT-test/Project_2/im1.png"));
+    painter.drawPixmap(QRect(7500,-100,2300,2000),QPixmap("C:/Users/MEGA-PC/Desktop/QT-test/Project_2/6356816.jpg"));
+    painter.drawPixmap(QRect(0,-100,2300,2000),QPixmap("C:/Users/MEGA-PC/Desktop/QT-test/Project_2/6356816.jpg"));
 
     painter.setPen(Qt::green);
-    painter.setFont(QFont("Arial", 12));
+    painter.setFont(QFont("Arial bold", 15));
     painter.drawText(200,3300,"Material");
     painter.drawText(1300,3300,"Unit");
     painter.drawText(2200,3300,"Amount");
@@ -892,7 +919,7 @@ void MainWindow::exportdisplayed() {
 
     int i = 4000;
     painter.setPen(Qt::black);
-    painter.setFont(QFont("Arial", 8));
+    painter.setFont(QFont("Arial", 12));
     for (int r = 0; r < rows; ++r) {
         painter.drawText(200,i,model->data(model->index(r, 0)).toString());
         painter.drawText(1000,i,model->data(model->index(r, 1)).toString());
@@ -911,7 +938,7 @@ void MainWindow::exportdisplayed() {
 }
 
 
-void MainWindow::resetInputs() {
+void Main_trash::resetInputs() {
 
     ui->glass->setChecked(false);
     ui->paper->setChecked(false);
@@ -927,13 +954,13 @@ void MainWindow::resetInputs() {
 }
 
 
-void MainWindow::resetFields() {
+void Main_trash::resetFields() {
     ui->Delete_zone->clear();
     ui->view->setModel(NULL);
 }
 
 
-void MainWindow::on_modify_clicked()
+void Main_trash::on_modify_clicked()
 {
     // Get the values from the form fields.
     QRadioButton *selectedButton = qobject_cast<QRadioButton*>(group->checkedButton());

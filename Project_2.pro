@@ -7,6 +7,7 @@ CONFIG+=console
 DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
+    Home.cpp \
     Main_trash.cpp \
     TTP.cpp \
     connection.cpp \
@@ -20,6 +21,7 @@ SOURCES += \
     gallery.cpp
 
 HEADERS += \
+    Home.h \
     Main_trash.h \
     TTP.h \
     connection.h \
@@ -30,8 +32,9 @@ HEADERS += \
     drilldownseries.h
 
 FORMS += \
-    TTP.ui \
-    Trash.ui
+    Home.ui \
+    Main_trash.ui \
+    TTP.ui
 
 RESOURCES += \
     imgs.qrc \

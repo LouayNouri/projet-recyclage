@@ -36,8 +36,7 @@ public slots:
     void updatePlainText(const QString &data);
 
 private:
-private:
-    Ui::TextToSpeechWindow *ui;
+    Ui::TextToSpeechWindow *ui3;
     QTextToSpeech *m_speech;
     QVector<QVoice> m_voices;
     bool m_localesQueried;
