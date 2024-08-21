@@ -1,0 +1,270 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Home</class>
+ <widget class="QMainWindow" name="Home">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>520</width>
+    <height>840</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true"/>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QPushButton" name="Hamza">
+    <property name="geometry">
+     <rect>
+      <x>100</x>
+      <y>50</y>
+      <width>321</width>
+      <height>121</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>24</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton {
+color: rgb(255, 127, 84);
+    background-color: transparent;
+    border: none;
+
+}
+
+QPushButton:hover {
+    background-color: rgba(255, 255, 255, 0.1);  
+	color: rgb(0, 170, 0);
+}
+</string>
+    </property>
+    <property name="text">
+     <string>ham</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>-40</y>
+      <width>521</width>
+      <height>891</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(85, 170, 0);</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="pixmap">
+     <pixmap resource="imgs.qrc">:/new/prefix1/pexels-kaique-rocha-775201.jpg</pixmap>
+    </property>
+    <property name="scaledContents">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="Hamza_2">
+    <property name="geometry">
+     <rect>
+      <x>100</x>
+      <y>170</y>
+      <width>321</width>
+      <height>121</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>24</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton {
+color: rgb(255, 127, 84);
+    background-color: transparent;
+    border: none;
+
+}
+
+QPushButton:hover {
+    background-color: rgba(255, 255, 255, 0.1);  
+	color: rgb(0, 170, 0);
+}
+</string>
+    </property>
+    <property name="text">
+     <string>Nour</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="Hamza_3">
+    <property name="geometry">
+     <rect>
+      <x>100</x>
+      <y>290</y>
+      <width>321</width>
+      <height>121</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>24</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton {
+color: rgb(255, 127, 84);
+    background-color: transparent;
+    border: none;
+
+}
+
+QPushButton:hover {
+    background-color: rgba(255, 255, 255, 0.1);  
+	color: rgb(0, 170, 0);
+}
+</string>
+    </property>
+    <property name="text">
+     <string>Louay</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="Hamza_4">
+    <property name="geometry">
+     <rect>
+      <x>100</x>
+      <y>410</y>
+      <width>321</width>
+      <height>121</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>24</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton {
+color: rgb(255, 127, 84);
+    background-color: transparent;
+    border: none;
+
+}
+
+QPushButton:hover {
+    background-color: rgba(255, 255, 255, 0.1);  
+	color: rgb(0, 170, 0);
+}
+</string>
+    </property>
+    <property name="text">
+     <string>Aymen</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="Hamza_5">
+    <property name="geometry">
+     <rect>
+      <x>100</x>
+      <y>530</y>
+      <width>321</width>
+      <height>121</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>24</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton {
+color: rgb(255, 127, 84);
+    background-color: transparent;
+    border: none;
+
+}
+
+QPushButton:hover {
+    background-color: rgba(255, 255, 255, 0.1);  
+	color: rgb(0, 170, 0);
+}
+</string>
+    </property>
+    <property name="text">
+     <string>Roua</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="Hamza_6">
+    <property name="geometry">
+     <rect>
+      <x>100</x>
+      <y>650</y>
+      <width>321</width>
+      <height>121</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>24</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton {
+color: rgb(255, 127, 84);
+    background-color: transparent;
+    border: none;
+
+}
+
+QPushButton:hover {
+    background-color: rgba(255, 255, 255, 0.1);  
+	color: rgb(0, 170, 0);
+}
+</string>
+    </property>
+    <property name="text">
+     <string>Emna</string>
+    </property>
+   </widget>
+   <zorder>label</zorder>
+   <zorder>Hamza</zorder>
+   <zorder>Hamza_2</zorder>
+   <zorder>Hamza_3</zorder>
+   <zorder>Hamza_4</zorder>
+   <zorder>Hamza_5</zorder>
+   <zorder>Hamza_6</zorder>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>520</width>
+     <height>22</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+ </widget>
+ <resources>
+  <include location="imgs.qrc"/>
+ </resources>
+ <connections/>
+</ui>
