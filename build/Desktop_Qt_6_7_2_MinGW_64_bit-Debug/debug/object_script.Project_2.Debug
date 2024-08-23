@@ -1,0 +1,17 @@
+debug/Home.o
+debug/Main_trash.o
+debug/TTP.o
+debug/connection.o
+debug/gallery.o
+debug/main.o
+debug/donutbreakdownchart.o
+debug/mainslice.o
+debug/drilldownchart.o
+debug/drilldownseries.o
+debug/trash.o
+debug/gallery.o
+debug/qrc_imgs.o
+debug/qrc_qmake_qmake_immediate.o
+debug/moc_Home.o
+debug/moc_Main_trash.o
+debug/moc_TTP.o

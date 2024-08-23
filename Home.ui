@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>520</width>
-    <height>840</height>
+    <width>514</width>
+    <height>474</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -17,13 +17,13 @@
    <string notr="true"/>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <widget class="QPushButton" name="Hamza">
+   <widget class="QPushButton" name="Formation_home">
     <property name="geometry">
      <rect>
-      <x>100</x>
-      <y>50</y>
-      <width>321</width>
-      <height>121</height>
+      <x>0</x>
+      <y>0</y>
+      <width>511</width>
+      <height>211</height>
      </rect>
     </property>
     <property name="font">
@@ -48,7 +48,7 @@ QPushButton:hover {
 </string>
     </property>
     <property name="text">
-     <string>ham</string>
+     <string>Formation</string>
     </property>
    </widget>
    <widget class="QLabel" name="label">
@@ -73,13 +73,13 @@ QPushButton:hover {
      <bool>true</bool>
     </property>
    </widget>
-   <widget class="QPushButton" name="Hamza_2">
+   <widget class="QPushButton" name="Employee_home">
     <property name="geometry">
      <rect>
-      <x>100</x>
-      <y>170</y>
-      <width>321</width>
-      <height>121</height>
+      <x>0</x>
+      <y>220</y>
+      <width>521</width>
+      <height>211</height>
      </rect>
     </property>
     <property name="font">
@@ -104,159 +104,19 @@ QPushButton:hover {
 </string>
     </property>
     <property name="text">
-     <string>Nour</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="Hamza_3">
-    <property name="geometry">
-     <rect>
-      <x>100</x>
-      <y>290</y>
-      <width>321</width>
-      <height>121</height>
-     </rect>
-    </property>
-    <property name="font">
-     <font>
-      <pointsize>24</pointsize>
-      <weight>75</weight>
-      <bold>true</bold>
-     </font>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">QPushButton {
-color: rgb(255, 127, 84);
-    background-color: transparent;
-    border: none;
-
-}
-
-QPushButton:hover {
-    background-color: rgba(255, 255, 255, 0.1);  
-	color: rgb(0, 170, 0);
-}
-</string>
-    </property>
-    <property name="text">
-     <string>Louay</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="Hamza_4">
-    <property name="geometry">
-     <rect>
-      <x>100</x>
-      <y>410</y>
-      <width>321</width>
-      <height>121</height>
-     </rect>
-    </property>
-    <property name="font">
-     <font>
-      <pointsize>24</pointsize>
-      <weight>75</weight>
-      <bold>true</bold>
-     </font>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">QPushButton {
-color: rgb(255, 127, 84);
-    background-color: transparent;
-    border: none;
-
-}
-
-QPushButton:hover {
-    background-color: rgba(255, 255, 255, 0.1);  
-	color: rgb(0, 170, 0);
-}
-</string>
-    </property>
-    <property name="text">
-     <string>Aymen</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="Hamza_5">
-    <property name="geometry">
-     <rect>
-      <x>100</x>
-      <y>530</y>
-      <width>321</width>
-      <height>121</height>
-     </rect>
-    </property>
-    <property name="font">
-     <font>
-      <pointsize>24</pointsize>
-      <weight>75</weight>
-      <bold>true</bold>
-     </font>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">QPushButton {
-color: rgb(255, 127, 84);
-    background-color: transparent;
-    border: none;
-
-}
-
-QPushButton:hover {
-    background-color: rgba(255, 255, 255, 0.1);  
-	color: rgb(0, 170, 0);
-}
-</string>
-    </property>
-    <property name="text">
-     <string>Roua</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="Hamza_6">
-    <property name="geometry">
-     <rect>
-      <x>100</x>
-      <y>650</y>
-      <width>321</width>
-      <height>121</height>
-     </rect>
-    </property>
-    <property name="font">
-     <font>
-      <pointsize>24</pointsize>
-      <weight>75</weight>
-      <bold>true</bold>
-     </font>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">QPushButton {
-color: rgb(255, 127, 84);
-    background-color: transparent;
-    border: none;
-
-}
-
-QPushButton:hover {
-    background-color: rgba(255, 255, 255, 0.1);  
-	color: rgb(0, 170, 0);
-}
-</string>
-    </property>
-    <property name="text">
-     <string>Emna</string>
+     <string>Employee</string>
     </property>
    </widget>
    <zorder>label</zorder>
-   <zorder>Hamza</zorder>
-   <zorder>Hamza_2</zorder>
-   <zorder>Hamza_3</zorder>
-   <zorder>Hamza_4</zorder>
-   <zorder>Hamza_5</zorder>
-   <zorder>Hamza_6</zorder>
+   <zorder>Formation_home</zorder>
+   <zorder>Employee_home</zorder>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>520</width>
+     <width>514</width>
      <height>22</height>
     </rect>
    </property>

@@ -47,4 +47,7 @@ private:
    int code;
 };
 
+
+
+
 #endif // TRASH_H

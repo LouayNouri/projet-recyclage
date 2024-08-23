@@ -1,11 +1,12 @@
 #ifndef DRILLDOWNSERIES_H
 #define DRILLDOWNSERIES_H
+
 #include <QtCharts/QStackedBarSeries>
 #include <QtCore/QMap>
 
+// Use the QtCharts namespace explicitly
 QT_CHARTS_USE_NAMESPACE
 
-//! [1]
 class DrilldownBarSeries : public QStackedBarSeries
 {
     Q_OBJECT
@@ -22,6 +23,5 @@ private:
     QMap<int, DrilldownBarSeries *> m_DrilldownSeries;
     QStringList m_categories;
 };
-//! [1]
 
 #endif // DRILLDOWNSERIES_H

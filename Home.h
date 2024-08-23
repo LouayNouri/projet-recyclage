@@ -2,9 +2,12 @@
 #define HOME_H
 
 #include <QMainWindow>
-#include "Main_trash.h"
+#include "Formation.h"
+#include "Main_Employee.h"
 #include "TTP.h"
 
+// Forward declaration of MainWindow class
+class MainWindow;
 
 namespace Ui {
 class Home;
@@ -22,6 +25,8 @@ private:
     Ui::Home *ui;
     Main_trash *w;
     TextToSpeechWindow *ttsWindow;
+    Main_Employee *mw; // Add this line
+
 };
 
 #endif // HOME_H

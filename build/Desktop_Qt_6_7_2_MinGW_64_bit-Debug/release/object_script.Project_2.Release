@@ -1,0 +1,17 @@
+release/Home.o
+release/Main_trash.o
+release/TTP.o
+release/connection.o
+release/gallery.o
+release/main.o
+release/donutbreakdownchart.o
+release/mainslice.o
+release/drilldownchart.o
+release/drilldownseries.o
+release/trash.o
+release/gallery.o
+release/qrc_imgs.o
+release/qrc_qmake_qmake_immediate.o
+release/moc_Home.o
+release/moc_Main_trash.o
+release/moc_TTP.o

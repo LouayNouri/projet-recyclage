@@ -1,5 +1,5 @@
 #include "Home.h"
-#include "Main_trash.h"
+#include "Formation.h"
 #include <QApplication>
 #include <QMessageBox>
 #include "connection.h"
