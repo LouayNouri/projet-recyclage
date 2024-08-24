@@ -22,8 +22,11 @@
 #include "connection.h"
 
 
+
+
 QT_CHARTS_USE_NAMESPACE
 QT_BEGIN_NAMESPACE
+class Main_Employee;
 namespace Ui { class Main_trash; }
 
 
@@ -43,6 +46,7 @@ public slots:
 
 protected:
     bool eventFilter(QObject *obj, QEvent *event);
+    void closeEvent(QCloseEvent *event) ; // Ensure this matches the base class
 
 private slots:
     void on_Generat_Button_clicked();
@@ -77,6 +81,10 @@ private slots:
     void onPlusKeyPressed();
     void onSelectionChanged(const QItemSelection &selected, const QItemSelection &deselected);
 
+
+    void switchToEmployee();
+
+
 private:
     Ui::Main_trash*ui;
     Ui::Main_trash*ui2;
@@ -94,6 +102,8 @@ private:
     QItemSelectionModel *select;
     TextToSpeechWindow *ttsWindow; // Add this line
     connection *c;
+    Main_Employee *employeeWindow;
+
 
 signals:
     void viewUpdated(const QString &data);

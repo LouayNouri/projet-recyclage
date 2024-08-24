@@ -3078,7 +3078,7 @@ color: rgb(246, 166, 37);</string>
       <set>Qt::AlignCenter</set>
      </property>
     </widget>
-    <widget class="QPushButton" name="Employee_button">
+    <widget class="QPushButton" name="switchToEmployee">
      <property name="geometry">
       <rect>
        <x>310</x>
@@ -3125,7 +3125,7 @@ QPushButton:pressed {
       <string>Employee</string>
      </property>
     </widget>
-    <widget class="QPushButton" name="Formation_button">
+    <widget class="QPushButton" name="switchToTrash">
      <property name="geometry">
       <rect>
        <x>800</x>
@@ -3172,9 +3172,9 @@ QPushButton:pressed {
       <string>Formation</string>
      </property>
     </widget>
-    <zorder>Employee_button</zorder>
+    <zorder>switchToEmployee</zorder>
     <zorder>label_3</zorder>
-    <zorder>Formation_button</zorder>
+    <zorder>switchToTrash</zorder>
    </widget>
   </widget>
  </widget>

@@ -6,6 +6,8 @@
 #include "forget.h"
 #include <QStackedWidget>
 
+class Main_trash;
+
 namespace Ui {
 class Main_Employee;
 }
@@ -18,6 +20,9 @@ public:
     explicit Main_Employee(QWidget *parent = nullptr);
     ~Main_Employee();
     QSqlDatabase db;
+
+protected:
+    void closeEvent(QCloseEvent *event) override; // Ensure this matches the base class
 
 
 private slots:
@@ -52,10 +57,14 @@ private slots:
 
     void on_exporter_clicked();
 
+    void switchToTrash();
 
 private:
     Ui::Main_Employee *ui;
     employe e;
+    Main_trash *trashWindow;
+
+
 };
 
 #endif // Main_Employee_H

@@ -2,6 +2,7 @@
 #include "ui_Formation.h"
 #include "connection.h"
 #include "TTP.h"
+#include "Main_Employee.h"
 #include <cstdlib>
 #include "QString"
 #include "QMessageBox"
@@ -34,15 +35,25 @@
 Main_trash::Main_trash(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::Main_trash)
+    , employeeWindow(nullptr)
 
 {
     qDebug("Main_Trash Launched");
-    ui->setupUi(this);
-    c = new connection();
-    bool test = c->createconnect();
-    if (!test) {
-        qDebug() << "Database connection failed";
+        ui->setupUi(this);
+
+        // Use Singleton pattern to get the database connection
+        connection& c = connection::getInstance();
+
+        bool test = c.createconnect();
+        if (!test) {
+            qDebug() << "Database connection failed";
+
     }
+
+    QPushButton *switchToEmployeeButton = ui->dock->findChild<QPushButton *>("switchToEmployeeButton");
+        if (switchToEmployeeButton) {
+            connect(switchToEmployeeButton, &QPushButton::clicked, this, &Main_trash::switchToEmployee);
+        }
 
 //    ttsWindow = new TextToSpeechWindow(this); // Add this line
 //    ttsWindow->show();
@@ -65,6 +76,10 @@ Main_trash::Main_trash(QWidget *parent)
     for(QPushButton* button : statButtons) {
         connect(button, SIGNAL(clicked()), this, SLOT(goToTab4()));
     }
+
+    connect(ui->switchToEmployee, &QPushButton::clicked, this, &Main_trash::switchToEmployee);
+
+
 
     connect(ui->delete_2, SIGNAL(clicked()), this, SLOT(deleteRow()));
     ui->Generated_code->setValidator(new QIntValidator(this));
@@ -116,6 +131,9 @@ Main_trash::Main_trash(QWidget *parent)
     this->installEventFilter(this);
     ui->view_2->installEventFilter(this);
     connect(ui->view_2->selectionModel(), &QItemSelectionModel::selectionChanged, this, &Main_trash::onSelectionChanged);
+
+
+
     ui->bio->setStyleSheet("QCheckBox { color: white; }"
                             "QCheckBox::indicator { width: 30px; height: 30px; }"
                             "QCheckBox::indicator:checked { image: url(C:/Users/MEGA-PC/Desktop/QT-test/Project_2/vecteezy_cheque_1200261.png); }"
@@ -143,15 +161,52 @@ Main_trash::Main_trash(QWidget *parent)
 
        ui->dock->hide();
 
+
+
+}
+Main_trash::~Main_trash()
+{
+    delete ui;
+
 }
 
 
 
-void Main_trash::onSelectionChanged(const QItemSelection &selected, const QItemSelection &deselected) {
+
+void Main_trash::switchToEmployee()
+{
+    if (employeeWindow == nullptr) {
+        employeeWindow = new Main_Employee(this);
+    }
+
+    employeeWindow->show(); // Show the employee window
+    employeeWindow->raise(); // Bring it to the front
+}
+
+
+
+void Main_trash::onSelectionChanged(const QItemSelection &, const QItemSelection &) {
     select = ui->view_2->selectionModel();
     onPlusKeyPressed();
 
 }
+
+
+void Main_trash::closeEvent(QCloseEvent *event)
+{
+    if (employeeWindow) {
+        employeeWindow->close();  // Close the employee window if it is open
+        delete employeeWindow;
+        employeeWindow = nullptr;  // Reset the pointer
+    }
+    event->accept();
+}
+
+
+
+
+
+
 
 
 void Main_trash::onPlusKeyPressed() {
@@ -414,10 +469,6 @@ bool Main_trash::eventFilter(QObject *obj, QEvent *event)
 
 
 
-Main_trash::~Main_trash()
-{
-    delete ui;
-}
 
 
 

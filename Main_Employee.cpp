@@ -1,6 +1,7 @@
 #include "Main_Employee.h"
 #include "ui_Main_Employee.h"
 #include "Employee.h"
+#include "Formation.h"
 #include "forget.h"
 #include "stats.h"
 #include "recaptcha.h"
@@ -16,15 +17,24 @@
 #include<QSqlQuery>
 #include<QSqlQueryModel>
 
+
 Main_Employee::Main_Employee(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::Main_Employee)
+   , trashWindow(nullptr)
 {
     ui->setupUi(this);
+    trashWindow = new Main_trash();  // Initialize Main_trash
     ui->tab_equipement->setModel(e.afficher());//refresh
     ui->tab_equipement_2->setModel(e.afficher());//refresh
     ui->tab_equipement_5->setModel(e.afficher());//refresh
     connect(ui->exporter, &QPushButton::clicked, this, &Main_Employee::on_exporter_clicked);
+    connect(ui->switchToTrash, &QPushButton::clicked, this, &Main_Employee::switchToTrash);
+
+    QPushButton *switchToTrashButton = ui->dock->findChild<QPushButton *>("switchToTrashButton");
+        if (switchToTrashButton) {
+            connect(switchToTrashButton, &QPushButton::clicked, this, &Main_Employee::switchToTrash);
+        }
 
 
 }
@@ -38,8 +48,25 @@ Main_Employee::~Main_Employee()
 
 
 
+void Main_Employee::switchToTrash()
+{
+    if (!trashWindow) {
+        trashWindow = new Main_trash(this);
+    }
+    trashWindow->show();
+    trashWindow->raise();  // Bring the window to the front
+    trashWindow->activateWindow();  // Activate the window
+}
 
-
+void Main_Employee::closeEvent(QCloseEvent *event)
+{
+    if (trashWindow) {
+        trashWindow->close();  // Close the trash window if it is open
+        delete trashWindow;
+        trashWindow = nullptr;  // Reset the pointer
+    }
+    event->accept();
+}
 
 
 void Main_Employee::on_pb_ajouter_clicked()
