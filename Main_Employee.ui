@@ -254,24 +254,6 @@ color: #996515;
         <bool>true</bool>
        </property>
       </widget>
-      <widget class="QCheckBox" name="checkBox">
-       <property name="geometry">
-        <rect>
-         <x>170</x>
-         <y>190</y>
-         <width>131</width>
-         <height>20</height>
-        </rect>
-       </property>
-       <property name="font">
-        <font>
-         <pointsize>11</pointsize>
-        </font>
-       </property>
-       <property name="text">
-        <string>I'm not a robot</string>
-       </property>
-      </widget>
      </widget>
      <widget class="QLabel" name="label_17">
       <property name="geometry">
@@ -1059,7 +1041,7 @@ QComboBox::item {
       <property name="font">
        <font>
         <family>MS Shell Dlg 2</family>
-        <pointsize>11</pointsize>
+        <pointsize>15</pointsize>
         <weight>50</weight>
         <bold>false</bold>
        </font>
@@ -1426,7 +1408,7 @@ QComboBox::item {
       <property name="font">
        <font>
         <family>MS Shell Dlg 2</family>
-        <pointsize>11</pointsize>
+        <pointsize>15</pointsize>
         <weight>50</weight>
         <bold>false</bold>
        </font>

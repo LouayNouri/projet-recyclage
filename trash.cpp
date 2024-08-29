@@ -25,7 +25,7 @@ trash::~trash()
     //destructeur
 }
 
-trash::trash( QString type, QString unit, double amount, QString properties, QDate date, int code)
+trash::trash( QString type, QString unit, double amount, QString properties, QDate date, int code,QString employeesID)
 {
     this->amount=amount;
     this->properties=properties;
@@ -33,6 +33,7 @@ trash::trash( QString type, QString unit, double amount, QString properties, QDa
     this->unit=unit;
     this->type=type;
     this->code=code;
+    this->employeesID=employeesID;
 }
 
 ///////////////Les fonctions////////////////////
@@ -42,17 +43,22 @@ trash::trash( QString type, QString unit, double amount, QString properties, QDa
 
 bool trash::ajouter()
 {
-    QSqlQuery q;
-    q.prepare("INSERT INTO trash (MATERIAL_TYPE, UNIT, AMOUNT, PROPERTIES, DATE_ADDED, CODE) "
-              "VALUES (:ty, :un, :am, :pr, :da, :co)");
-    q.bindValue(":ty", type);
-    q.bindValue(":un", unit);
-    q.bindValue(":am", amount);
-    q.bindValue(":pr", properties); // properties now holds the text of the checked checkboxes
-    q.bindValue(":da", date);
-    q.bindValue(":co", code);
-    return q.exec();
+    QSqlQuery query;
+    query.prepare("INSERT INTO trash (MATERIAL_TYPE, UNIT, AMOUNT, PROPERTIES, DATE_ADDED, CODE, EmployeesID) "
+                  "VALUES (:type, :unit, :amount, :properties, :dateAdded, :code, :employeesID)");
+
+    query.bindValue(":type", this->type);
+    query.bindValue(":unit", this->unit);
+    query.bindValue(":amount", this->amount);
+    query.bindValue(":properties", this->properties);
+    query.bindValue(":dateAdded", this->date);
+    query.bindValue(":code", this->code);
+    query.bindValue(":employeesID", this->employeesID); // Using QString for EmployeesID
+
+    return query.exec();
 }
+
+
 
 
 
@@ -66,8 +72,10 @@ QSqlQueryModel * trash::afficher()
     model->setHeaderData(3, Qt::Horizontal, QObject::tr("PROPERTIES"));
     model->setHeaderData(4, Qt::Horizontal, QObject::tr("DATE_ADDED"));
     model->setHeaderData(5, Qt::Horizontal, QObject::tr("CODE"));
+    model->setHeaderData(6, Qt::Horizontal, QObject::tr("EmployeesID")); // New column for EmployeesID as a QString
     return model;
 }
+
 
 bool trash::supprimer(int code)
 {

@@ -59,7 +59,7 @@ Main_trash::Main_trash(QWidget *parent)
 //                connect(switchToEmployeeButton2, &QPushButton::clicked, this, &Main_trash::switchToEmployee);
 //            }
 
-
+    populateEmployeeComboBox();
 //    ttsWindow = new TextToSpeechWindow(this); // Add this line
 //    ttsWindow->show();
     this->move(0,0);
@@ -179,6 +179,22 @@ Main_trash::~Main_trash()
 {
     delete ui;
 
+}
+
+
+void Main_trash::populateEmployeeComboBox()
+{
+    QSqlQuery query;
+    query.prepare("SELECT ID FROM EMPLOYE"); // Adjust the column name if different
+
+    if (query.exec()) {
+        while (query.next()) {
+            QString employeeID = query.value(0).toString();
+            ui->employeeComboBox->addItem(employeeID);
+        }
+    } else {
+        qDebug() << "Error retrieving employee IDs:" << query.lastError().text();
+    }
 }
 
 
@@ -838,7 +854,9 @@ void Main_trash::on_add_clicked()
     if (codeeString.length() != 5) {
         QMessageBox::information(nullptr, QObject::tr("Error"),
                                  QObject::tr("Please enter a 5-digit code."), QMessageBox::Ok);
-        return;}
+        return;
+    }
+
     QRadioButton *selectedButton = qobject_cast<QRadioButton*>(group->checkedButton());
     QString ty = selectedButton->text();
 
@@ -858,17 +876,16 @@ void Main_trash::on_add_clicked()
         pr.append(ui->reusable->text() + " ");
     }
 
-
     QDate da = ui->date->selectedDate();
     QString codeString = ui->Generated_code->text().trimmed();
     int co = codeString.toInt();
 
+    QString employeeID = ui->employeeComboBox->currentText(); // Assuming you have a combo box for EmployeesID
 
-    trash h(ty, un, am, pr, da, co);
+    trash h(ty, un, am, pr, da, co, employeeID); // Pass 7 arguments to the constructor, including employeeID
 
     bool test = h.ajouter();
     if (test) {
-
         QMessageBox::information(nullptr, QObject::tr("Success"),
                                  QObject::tr("Record added successfully."), QMessageBox::Ok);
     } else {
@@ -877,6 +894,7 @@ void Main_trash::on_add_clicked()
                               QMessageBox::Ok);
     }
 }
+
 
 void Main_trash::checkCodeInDatabase() {
     QString codeString = ui->Generated_code->text();
@@ -1076,8 +1094,9 @@ void Main_trash::on_modify_clicked()
     QString codeString = ui->Generated_code->text().trimmed();
     int co = codeString.toInt();
 
+    QString employeeID = ui->employeeComboBox->currentText();
     // Create a new trash object with the form values.
-    trash h(ty, un, am, pr, da, co);
+    trash h(ty, un, am, pr, da, co,employeeID);
 
     // Call the modifier function.
     bool test = h.modifier();

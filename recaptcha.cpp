@@ -15,7 +15,7 @@ recaptcha::recaptcha(QWidget *parent) :
     ui->captcha->setText(generatedString);
 
     // Connect the clicked signal of the pushButton to the on_pushButton_clicked() slot
-    connect(ui->pushButton, &QPushButton::clicked, this, &recaptcha::on_pushButton_clicked);
+    connect(ui->done, &QPushButton::clicked, this, &recaptcha::on_pushButton_clicked);
 }
 
 recaptcha::~recaptcha()

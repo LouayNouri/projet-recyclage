@@ -12,7 +12,7 @@ public:
 
 
     trash();//constructeur
-   trash(QString,QString,double,QString,QDate,int);// constructeur
+   trash(QString,QString,double,QString,QDate,int,QString);// constructeur
    ~trash();
 
     /// Getters And setters
@@ -23,6 +23,7 @@ public:
    QString getproperties(){return properties;}
    QDate getdate(){return date;}
    int getcode(){return code;}
+   QString getemployeesID(){return employeesID;}
 
    void setdate(QDate);
    void setamount(double);
@@ -30,6 +31,7 @@ public:
    void settype(QString);
    void setproperties(QString);
    void setcode(int);
+   void setemployeesID(QString);
 
     /// Fonctions
    bool ajouter();
@@ -45,6 +47,7 @@ private:
    QString properties;
    QDate date;
    int code;
+   QString employeesID;
 };
 
 

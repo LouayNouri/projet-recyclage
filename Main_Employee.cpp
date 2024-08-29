@@ -59,11 +59,7 @@ Main_Employee::~Main_Employee()
 }
 
 
-void Main_Employee::onCaptchaVerified(bool isValid)
-{
-    captchaSolved = isValid;
-    ui->pushButton->setEnabled(captchaSolved); // Enable the login button only if CAPTCHA is solved
-}
+
 
 
 void Main_Employee::switchToTrash()
@@ -251,43 +247,84 @@ void Main_Employee::on_reset_clicked()
     ui->date2->clear();
     ui->idZone2->clear();
 }
+
+
+
+
+
+
+
+
+
+
 void Main_Employee::on_pushButton_clicked()
 {
     if (!captchaSolved) {
         // Show CAPTCHA dialog if not already solved
         recaptcha recaptchaDialog(this);
-        recaptchaDialog.exec();
+
+        // Connect the CAPTCHA verification signal to the slot
+        connect(&recaptchaDialog, &recaptcha::captchaVerified, this, &Main_Employee::onCaptchaVerified);
+
+        recaptchaDialog.exec();  // This will block until the dialog is closed
     }
 
     if (captchaSolved) {
-        QString enteredmail = ui->mail_lineEdit->text();
-        QString enteredPassword = ui->password_lineEdit->text();
-
-        QSqlQuery query;
-        query.prepare("SELECT * FROM employe WHERE mail = :mail AND password = :password");
-        query.bindValue(":mail", enteredmail);
-        query.bindValue(":password", enteredPassword);
-
-        if (!query.exec()) {
-            qDebug() << "Error executing query:" << query.lastError().text();
-            return;
-        }
-
-        if (query.next()) {
-            // Valid email and password
-            QMessageBox::information(this, "Login Successful", "Login successful!");
-            // Enable the other three tabs after successful login
-            ui->tabWidget->setTabEnabled(1, true);
-            ui->tabWidget->setTabEnabled(2, true);
-            ui->tabWidget->setTabEnabled(3, true);
-            ui->tabWidget->setCurrentIndex(1);
-        } else {
-            // Invalid email or password
-            qDebug() << "Invalid mail or password. Please try again.";
-            QMessageBox::information(this, "Try Again", "Wrong mail or password!");
-        }
+        performLogin();  // Call a separate function to handle the login process
     }
 }
+
+void Main_Employee::onCaptchaVerified(bool isValid)
+{
+    captchaSolved = isValid;
+    if (captchaSolved) {
+        // If CAPTCHA is solved, try to log in automatically
+        performLogin();
+    } else {
+        // Optionally handle what happens if CAPTCHA is incorrect
+        ui->pushButton->setEnabled(false); // Disable login button if CAPTCHA fails
+    }
+}
+
+void Main_Employee::performLogin()
+{
+    QString enteredmail = ui->mail_lineEdit->text();
+    QString enteredPassword = ui->password_lineEdit->text();
+
+    QSqlQuery query;
+    query.prepare("SELECT * FROM employe WHERE mail = :mail AND password = :password");
+    query.bindValue(":mail", enteredmail);
+    query.bindValue(":password", enteredPassword);
+
+    if (!query.exec()) {
+        qDebug() << "Error executing query:" << query.lastError().text();
+        return;
+    }
+
+    if (query.next()) {
+        // Valid email and password
+        QMessageBox::information(this, "Login Successful", "Login successful!");
+        // Enable the other three tabs after successful login
+        ui->tabWidget->setTabEnabled(1, true);
+        ui->tabWidget->setTabEnabled(2, true);
+        ui->tabWidget->setTabEnabled(3, true);
+        ui->tabWidget->setCurrentIndex(1);
+    } else {
+        // Invalid email or password
+        qDebug() << "Invalid mail or password. Please try again.";
+        QMessageBox::information(this, "Try Again", "Wrong mail or password!");
+    }
+}
+
+
+
+
+
+
+
+
+
+
 
 
 void Main_Employee::on_pushButton_2_clicked()

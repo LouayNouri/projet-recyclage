@@ -83,7 +83,7 @@ private slots:
 
 
     void switchToEmployee();
-
+    void populateEmployeeComboBox();
 
 private:
     Ui::Main_trash*ui;

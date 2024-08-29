@@ -64,6 +64,10 @@ private slots:
 
     void onCaptchaVerified(bool isValid);
 
+    void performLogin();
+
+
+
 private:
     Ui::Main_Employee *ui;
     employe e;
