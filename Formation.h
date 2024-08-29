@@ -72,7 +72,7 @@ private slots:
     void on_stats_2_clicked();
     void on_stats_3_clicked();
     void on_stats_4_clicked();
-    void prepareChart(const QString& materialType, const QString& title, const QColor& color1, const QColor& color2, const QColor& color3);
+    void prepareChart(const QString& materialType, const QString& title, const QColor& color1, const QColor& color2, const QColor& color3, const QColor& color4);
     QPieSeries* createRecyclableSeries(const QMap<QString, double>& amounts, double totalAmount);
     QPieSeries* createBiodegradableSeries(const QMap<QString, double>& amounts, double totalAmount);
     QPieSeries* createReusableSeries(const QMap<QString, double>& amounts, double totalAmount);

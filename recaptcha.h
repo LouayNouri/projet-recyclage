@@ -20,6 +20,12 @@ public:
 
     QString generateRandomString(int length);
 
+public: signals:
+    void captchaVerified(bool isValid);
+
+
+
+
 private slots:
     void on_pushButton_clicked();
 

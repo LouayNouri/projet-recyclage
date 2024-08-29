@@ -142,10 +142,10 @@ QSqlQueryModel* employe::rechercher(const QString& searchText)
 
     model->setHeaderData(0, Qt::Horizontal, QObject::tr("id"));
     model->setHeaderData(1, Qt::Horizontal, QObject::tr("poste"));
-    model->setHeaderData(2, Qt::Horizontal, QObject::tr("etat"));
-    model->setHeaderData(3, Qt::Horizontal, QObject::tr("mail"));
-    model->setHeaderData(4, Qt::Horizontal, QObject::tr("password"));
-    model->setHeaderData(5, Qt::Horizontal, QObject::tr("date_naissance"));
+    model->setHeaderData(2, Qt::Horizontal, QObject::tr("mail"));
+    model->setHeaderData(3, Qt::Horizontal, QObject::tr("password"));
+    model->setHeaderData(4, Qt::Horizontal, QObject::tr("date_naissance"));
+    model->setHeaderData(5, Qt::Horizontal, QObject::tr("etat"));
 
     return model;
 }

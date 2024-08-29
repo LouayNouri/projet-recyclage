@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1324</width>
-    <height>855</height>
+    <width>1308</width>
+    <height>784</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -29,14 +29,14 @@
    <widget class="QTabWidget" name="tabWidget">
     <property name="geometry">
      <rect>
-      <x>1</x>
-      <y>-29</y>
+      <x>-30</x>
+      <y>-20</y>
       <width>1341</width>
-      <height>841</height>
+      <height>941</height>
      </rect>
     </property>
     <property name="currentIndex">
-     <number>2</number>
+     <number>3</number>
     </property>
     <widget class="QWidget" name="tab">
      <property name="sizePolicy">
@@ -51,7 +51,7 @@
      <widget class="QLabel" name="label_4">
       <property name="geometry">
        <rect>
-        <x>440</x>
+        <x>410</x>
         <y>320</y>
         <width>281</width>
         <height>41</height>
@@ -65,23 +65,26 @@
       </property>
       <property name="font">
        <font>
-        <pointsize>15</pointsize>
-        <weight>75</weight>
-        <bold>true</bold>
+        <family>Monotype Corsiva</family>
+        <pointsize>25</pointsize>
+        <weight>50</weight>
+        <bold>false</bold>
        </font>
       </property>
       <property name="styleSheet">
-       <string notr="true">color: rgb(255, 255, 255);</string>
+       <string notr="true">
+color: #DAA520;
+</string>
       </property>
       <property name="text">
-       <string>Responsible Department</string>
+       <string>Department:</string>
       </property>
      </widget>
      <widget class="QDoubleSpinBox" name="amount">
       <property name="geometry">
        <rect>
-        <x>740</x>
-        <y>390</y>
+        <x>670</x>
+        <y>420</y>
         <width>131</width>
         <height>51</height>
        </rect>
@@ -99,189 +102,12 @@
        <double>100000.000000000000000</double>
       </property>
      </widget>
-     <widget class="QCalendarWidget" name="date">
-      <property name="geometry">
-       <rect>
-        <x>360</x>
-        <y>550</y>
-        <width>281</width>
-        <height>190</height>
-       </rect>
-      </property>
-      <property name="sizePolicy">
-       <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
-        <horstretch>0</horstretch>
-        <verstretch>0</verstretch>
-       </sizepolicy>
-      </property>
-      <property name="cursor">
-       <cursorShape>CrossCursor</cursorShape>
-      </property>
-     </widget>
      <widget class="QPushButton" name="Generat_Button">
       <property name="geometry">
        <rect>
-        <x>670</x>
-        <y>680</y>
-        <width>141</width>
-        <height>51</height>
-       </rect>
-      </property>
-      <property name="sizePolicy">
-       <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
-        <horstretch>0</horstretch>
-        <verstretch>0</verstretch>
-       </sizepolicy>
-      </property>
-      <property name="font">
-       <font>
-        <pointsize>14</pointsize>
-       </font>
-      </property>
-      <property name="cursor">
-       <cursorShape>PointingHandCursor</cursorShape>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">QPushButton {
-    background-color: #FFA500; /* Neon Orange */
-    color: #000000; /* Black */
-    border: 2px solid transparent; /* Invisible border */
-    border-radius: 10px;
-    padding: 5px;
-    min-width: 70px;
-}
-
-QPushButton:hover {
-    border: 2px solid #ffffff; /* White border becomes visible when hovered over */
-}
-
-QPushButton:pressed {
-    background-color: #FF4500; /* Darker Orange */
-}
-</string>
-      </property>
-      <property name="text">
-       <string>Generate</string>
-      </property>
-     </widget>
-     <widget class="QGroupBox" name="properties">
-      <property name="geometry">
-       <rect>
-        <x>330</x>
-        <y>450</y>
-        <width>991</width>
-        <height>80</height>
-       </rect>
-      </property>
-      <property name="sizePolicy">
-       <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
-        <horstretch>0</horstretch>
-        <verstretch>0</verstretch>
-       </sizepolicy>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">border:none</string>
-      </property>
-      <property name="title">
-       <string/>
-      </property>
-      <widget class="QCheckBox" name="recyclable">
-       <property name="geometry">
-        <rect>
-         <x>250</x>
-         <y>20</y>
-         <width>151</width>
-         <height>41</height>
-        </rect>
-       </property>
-       <property name="sizePolicy">
-        <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
-         <horstretch>0</horstretch>
-         <verstretch>0</verstretch>
-        </sizepolicy>
-       </property>
-       <property name="font">
-        <font>
-         <pointsize>12</pointsize>
-        </font>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">color: rgb(255, 255, 255);</string>
-       </property>
-       <property name="text">
-        <string>Mandatory</string>
-       </property>
-      </widget>
-      <widget class="QCheckBox" name="bio">
-       <property name="geometry">
-        <rect>
-         <x>420</x>
-         <y>20</y>
-         <width>151</width>
-         <height>41</height>
-        </rect>
-       </property>
-       <property name="sizePolicy">
-        <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
-         <horstretch>0</horstretch>
-         <verstretch>0</verstretch>
-        </sizepolicy>
-       </property>
-       <property name="font">
-        <font>
-         <pointsize>12</pointsize>
-        </font>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">color: rgb(255, 255, 255);</string>
-       </property>
-       <property name="text">
-        <string>Optional</string>
-       </property>
-      </widget>
-      <widget class="QCheckBox" name="reusable">
-       <property name="geometry">
-        <rect>
-         <x>600</x>
-         <y>20</y>
-         <width>151</width>
-         <height>41</height>
-        </rect>
-       </property>
-       <property name="sizePolicy">
-        <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
-         <horstretch>0</horstretch>
-         <verstretch>0</verstretch>
-        </sizepolicy>
-       </property>
-       <property name="font">
-        <font>
-         <pointsize>12</pointsize>
-        </font>
-       </property>
-       <property name="autoFillBackground">
-        <bool>false</bool>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">color: rgb(255, 255, 255);</string>
-       </property>
-       <property name="text">
-        <string>Certified</string>
-       </property>
-       <property name="iconSize">
-        <size>
-         <width>500</width>
-         <height>500</height>
-        </size>
-       </property>
-      </widget>
-     </widget>
-     <widget class="QLabel" name="label_5">
-      <property name="geometry">
-       <rect>
-        <x>350</x>
-        <y>470</y>
-        <width>150</width>
+        <x>910</x>
+        <y>610</y>
+        <width>131</width>
         <height>41</height>
        </rect>
       </property>
@@ -293,29 +119,48 @@ QPushButton:pressed {
       </property>
       <property name="font">
        <font>
-        <family>MS Shell Dlg 2</family>
-        <pointsize>20</pointsize>
-        <weight>9</weight>
-        <italic>false</italic>
+        <family>Segoe UI</family>
+        <pointsize>14</pointsize>
+        <weight>50</weight>
         <bold>false</bold>
        </font>
       </property>
+      <property name="cursor">
+       <cursorShape>PointingHandCursor</cursorShape>
+      </property>
       <property name="styleSheet">
-       <string notr="true">font: 75 20pt &quot;MS Shell Dlg 2&quot;;
-color: rgb(255, 127, 84);
+       <string notr="true">QPushButton {
+    outline: 0;
+    text-align: center;
+    border: 2px solid transparent; /* Invisible border */
+    border-radius: 10px;
+    padding: 5px;
+    min-width: 70px;
+    color: #000;
+    font-size: 17.5px;
+    background: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0 #b8b8b8, stop:0.05 #b8b8b8, stop:0.5 #ebf5ff, stop:0.95 #b8b8b8, stop:1 #b8b8b8);
+
+}
+
+QPushButton:hover {
+    background: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0 #848484, stop:0.05 #848484, stop:0.5 #ebf5ff, stop:0.95 #848484, stop:1 #848484); /* Dark orange gradient when hovering */
+    color: #000;
+}
+
+
 </string>
       </property>
       <property name="text">
-       <string>Properties :</string>
+       <string>Generate</string>
       </property>
      </widget>
      <widget class="QPushButton" name="reset">
       <property name="geometry">
        <rect>
-        <x>1150</x>
-        <y>680</y>
-        <width>141</width>
-        <height>71</height>
+        <x>1160</x>
+        <y>710</y>
+        <width>121</width>
+        <height>51</height>
        </rect>
       </property>
       <property name="sizePolicy">
@@ -326,7 +171,10 @@ color: rgb(255, 127, 84);
       </property>
       <property name="font">
        <font>
-        <pointsize>14</pointsize>
+        <family>Poor Richard</family>
+        <pointsize>20</pointsize>
+        <weight>75</weight>
+        <bold>true</bold>
        </font>
       </property>
       <property name="cursor">
@@ -336,13 +184,26 @@ color: rgb(255, 127, 84);
        <string notr="true">QPushButton {
     background-color: transparent;
     border: none;
-    color: white;  
+ outline: 0;
+    text-align: center;
+    border: 2px solid transparent; /* Invisible border */
+    border-radius: 10px;
+    padding: 5px;
+    min-width: 70px;
+    color: #000;  
 }
 
 QPushButton:hover {
     background-color: rgba(255, 255, 255, 0.1);  
+	    background: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0 rgb(170, 0, 0), stop:0.05 rgb(170, 0, 0), stop:0.5 #000, stop:0.95 rgb(170, 0, 0), stop:1 rgb(170, 0, 0));
+	color: rgb(255, 0, 0);
 }
-</string>
+
+
+QPushButton:pressed {
+    background: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0 rgb(170, 0, 0), stop:0.05 rgb(170, 0, 0), stop:0.5 #000, stop:0.95 rgb(170, 0, 0), stop:1 rgb(170, 0, 0));
+	color: rgb(255, 0, 0);
+}</string>
       </property>
       <property name="text">
        <string>Reset</string>
@@ -351,9 +212,9 @@ QPushButton:hover {
      <widget class="QLineEdit" name="Generated_code">
       <property name="geometry">
        <rect>
-        <x>710</x>
-        <y>620</y>
-        <width>281</width>
+        <x>670</x>
+        <y>640</y>
+        <width>221</width>
         <height>51</height>
        </rect>
       </property>
@@ -387,7 +248,7 @@ QPushButton:hover {
      <widget class="QGroupBox" name="groupBox">
       <property name="geometry">
        <rect>
-        <x>0</x>
+        <x>20</x>
         <y>0</y>
         <width>331</width>
         <height>821</height>
@@ -422,25 +283,28 @@ QPushButton:hover {
        </property>
        <property name="font">
         <font>
-         <family>Mongolian Baiti</family>
-         <pointsize>20</pointsize>
+         <family>Monotype Corsiva</family>
+         <pointsize>25</pointsize>
+         <weight>75</weight>
+         <italic>true</italic>
+         <bold>true</bold>
         </font>
        </property>
        <property name="styleSheet">
         <string notr="true">QPushButton {
     background-color: transparent;
     border: none;
-	color: rgb(105, 172, 62);
+	color:#DAA520;
 }
 
 QPushButton:hover {
     background-color: rgba(255, 255, 255, 0.1); 
-    color:  #ED8E4A; 
+color: #996515;
 }
 </string>
        </property>
        <property name="text">
-        <string>ADD / Modify</string>
+        <string>Manage Programs</string>
        </property>
       </widget>
       <widget class="QPushButton" name="display1">
@@ -460,25 +324,31 @@ QPushButton:hover {
        </property>
        <property name="font">
         <font>
-         <family>Mongolian Baiti</family>
-         <pointsize>19</pointsize>
+         <family>Monotype Corsiva</family>
+         <pointsize>25</pointsize>
+         <weight>75</weight>
+         <italic>false</italic>
+         <bold>true</bold>
+         <underline>false</underline>
+         <strikeout>false</strikeout>
+         <kerning>true</kerning>
         </font>
        </property>
        <property name="styleSheet">
         <string notr="true">QPushButton {
     background-color: transparent;
     border: none;
-	color: rgb(105, 172, 62);
+	color:#DAA520;
 }
 
 QPushButton:hover {
     background-color: rgba(255, 255, 255, 0.1); 
-    color:  #ED8E4A; 
+color: #996515;
 }
 </string>
        </property>
        <property name="text">
-        <string>Display / Delete / PDF</string>
+        <string>View / Export Programs</string>
        </property>
       </widget>
       <widget class="QPushButton" name="rech1">
@@ -498,25 +368,27 @@ QPushButton:hover {
        </property>
        <property name="font">
         <font>
-         <family>Mongolian Baiti</family>
-         <pointsize>20</pointsize>
+         <family>Monotype Corsiva</family>
+         <pointsize>25</pointsize>
+         <weight>75</weight>
+         <bold>true</bold>
         </font>
        </property>
        <property name="styleSheet">
         <string notr="true">QPushButton {
     background-color: transparent;
     border: none;
-	color: rgb(105, 172, 62);
+	color:#DAA520;
 }
 
 QPushButton:hover {
     background-color: rgba(255, 255, 255, 0.1); 
-    color:  #ED8E4A; 
+color: #996515;
 }
 </string>
        </property>
        <property name="text">
-        <string>Search / Sort</string>
+        <string>Search / Filter</string>
        </property>
       </widget>
       <widget class="QPushButton" name="stat1">
@@ -536,65 +408,113 @@ QPushButton:hover {
        </property>
        <property name="font">
         <font>
-         <family>Mongolian Baiti</family>
-         <pointsize>20</pointsize>
+         <family>Monotype Corsiva</family>
+         <pointsize>25</pointsize>
+         <weight>75</weight>
+         <bold>true</bold>
         </font>
        </property>
        <property name="styleSheet">
         <string notr="true">QPushButton {
     background-color: transparent;
     border: none;
-	color: rgb(105, 172, 62);
+	color:#DAA520;
 }
 
 QPushButton:hover {
     background-color: rgba(255, 255, 255, 0.1); 
-    color:  #ED8E4A; 
+color: #996515;
 }
 </string>
        </property>
        <property name="text">
-        <string>Statistic</string>
+        <string>Analytics </string>
        </property>
       </widget>
-      <widget class="QLabel" name="label_17">
+      <widget class="QLabel" name="label_22">
        <property name="geometry">
         <rect>
          <x>0</x>
-         <y>0</y>
+         <y>40</y>
          <width>331</width>
-         <height>821</height>
+         <height>741</height>
         </rect>
        </property>
        <property name="sizePolicy">
-        <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+        <sizepolicy hsizetype="Expanding" vsizetype="Ignored">
          <horstretch>0</horstretch>
          <verstretch>0</verstretch>
         </sizepolicy>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color: rgb(11, 11, 11);</string>
        </property>
        <property name="text">
         <string/>
        </property>
        <property name="pixmap">
-        <pixmap resource="imgs.qrc">:/new/prefix1/pxfuel.jpg</pixmap>
+        <pixmap>../../../Downloads/14546151_rm125-penny-06-frame.jpg</pixmap>
        </property>
        <property name="scaledContents">
         <bool>true</bool>
        </property>
+       <property name="alignment">
+        <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+       </property>
+       <property name="wordWrap">
+        <bool>false</bool>
+       </property>
+       <property name="margin">
+        <number>0</number>
+       </property>
       </widget>
-      <zorder>label_17</zorder>
+      <widget class="QLabel" name="label_3">
+       <property name="geometry">
+        <rect>
+         <x>0</x>
+         <y>0</y>
+         <width>331</width>
+         <height>41</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>Script MT Bold</family>
+         <pointsize>22</pointsize>
+         <weight>75</weight>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="cursor">
+        <cursorShape>ForbiddenCursor</cursorShape>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">color: rgb(255, 255, 0);
+color: rgb(163, 163, 163);
+color: rgb(108, 108, 108);
+
+    background: qlineargradient(spread:pad, x1:1, y1:0, x2:0, y2:1, stop:0 #b8b8b8, stop:0.05 #b8b8b8, stop:0.5 #ebf5ff, stop:0.95 #b8b8b8, stop:1 #b8b8b8);
+
+</string>
+       </property>
+       <property name="text">
+        <string>                   Yuma</string>
+       </property>
+      </widget>
+      <zorder>label_22</zorder>
       <zorder>display1</zorder>
       <zorder>rech1</zorder>
       <zorder>stat1</zorder>
       <zorder>add1</zorder>
+      <zorder>label_3</zorder>
      </widget>
      <widget class="QLabel" name="label">
       <property name="geometry">
        <rect>
-        <x>330</x>
-        <y>0</y>
-        <width>991</width>
-        <height>821</height>
+        <x>350</x>
+        <y>-620</y>
+        <width>2171</width>
+        <height>1401</height>
        </rect>
       </property>
       <property name="sizePolicy">
@@ -604,22 +524,32 @@ QPushButton:hover {
        </sizepolicy>
       </property>
       <property name="styleSheet">
-       <string notr="true">background-color: rgb(11, 11, 11);</string>
+       <string notr="true">background-color: rgb(163, 163, 163);
+background-color: rgb(195, 195, 195);</string>
       </property>
       <property name="text">
        <string/>
       </property>
       <property name="pixmap">
-       <pixmap resource="imgs.qrc">:/new/prefix1/wallpaperflare.com_wallpaper.jpg</pixmap>
+       <pixmap resource="imgs.qrc">:/new/prefix1/beige-soft-gradient-background-vintage-style.jpg</pixmap>
       </property>
       <property name="scaledContents">
        <bool>true</bool>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+      </property>
+      <property name="wordWrap">
+       <bool>false</bool>
+      </property>
+      <property name="margin">
+       <number>0</number>
       </property>
      </widget>
      <widget class="QComboBox" name="unit">
       <property name="geometry">
        <rect>
-        <x>710</x>
+        <x>670</x>
         <y>320</y>
         <width>211</width>
         <height>41</height>
@@ -632,9 +562,7 @@ QPushButton:hover {
        </sizepolicy>
       </property>
       <property name="styleSheet">
-       <string notr="true">selection-background-color: rgb(27, 150, 0);
-selection-color: rgb(146, 255, 162);
-</string>
+       <string notr="true"/>
       </property>
       <property name="iconSize">
        <size>
@@ -649,8 +577,7 @@ selection-color: rgb(146, 255, 162);
       </item>
       <item>
        <property name="text">
-        <string>Human Resources
-</string>
+        <string>Human Resources</string>
        </property>
       </item>
       <item>
@@ -662,9 +589,61 @@ selection-color: rgb(146, 255, 162);
      <widget class="QPushButton" name="check_button">
       <property name="geometry">
        <rect>
-        <x>900</x>
+        <x>910</x>
         <y>680</y>
-        <width>141</width>
+        <width>131</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="font">
+       <font>
+        <family>Segoe UI</family>
+        <pointsize>16</pointsize>
+        <weight>50</weight>
+        <bold>false</bold>
+       </font>
+      </property>
+      <property name="cursor">
+       <cursorShape>PointingHandCursor</cursorShape>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton {
+    outline: 0;
+    text-align: center;
+    border: 2px solid transparent; /* Invisible border */
+    border-radius: 10px;
+    padding: 5px;
+    min-width: 70px;
+    color: #000;
+    font-size: 17.5px;
+    background: qlineargradient(spread:pad, x1:1, y1:0, x2:0, y2:1, stop:0 #b8b8b8, stop:0.05 #b8b8b8, stop:0.5 #ebf5ff, stop:0.95 #b8b8b8, stop:1 #b8b8b8);
+
+}
+
+QPushButton:hover {
+    background: qlineargradient(spread:pad, x1:1, y1:0, x2:0, y2:1, stop:0 #848484, stop:0.05 #848484, stop:0.5 #ebf5ff, stop:0.95 #848484, stop:1 #848484); /* Dark orange gradient when hovering */
+    color: #000;
+}
+
+
+</string>
+      </property>
+      <property name="text">
+       <string>Check</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="modify">
+      <property name="geometry">
+       <rect>
+        <x>1160</x>
+        <y>640</y>
+        <width>121</width>
         <height>51</height>
        </rect>
       </property>
@@ -676,55 +655,10 @@ selection-color: rgb(146, 255, 162);
       </property>
       <property name="font">
        <font>
-        <pointsize>16</pointsize>
-       </font>
-      </property>
-      <property name="cursor">
-       <cursorShape>PointingHandCursor</cursorShape>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">QPushButton {
-    
-	background-color: rgb(0, 100, 0);
-    
-	color: rgb(255, 255, 255);
-    border: 2px solid transparent; /* Invisible border */
-    border-radius: 10px;
-    padding: 5px;
-    min-width: 70px;
-}
-
-QPushButton:hover {
-    border: 2px solid #ffffff; /* White border becomes visible when hovered over */
-}
-
-QPushButton:pressed {
-    background-color: #FF4500; /* Darker Orange */
-}
-</string>
-      </property>
-      <property name="text">
-       <string>Check</string>
-      </property>
-     </widget>
-     <widget class="QPushButton" name="modify">
-      <property name="geometry">
-       <rect>
-        <x>1150</x>
-        <y>610</y>
-        <width>141</width>
-        <height>71</height>
-       </rect>
-      </property>
-      <property name="sizePolicy">
-       <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
-        <horstretch>0</horstretch>
-        <verstretch>0</verstretch>
-       </sizepolicy>
-      </property>
-      <property name="font">
-       <font>
-        <pointsize>14</pointsize>
+        <family>Poor Richard</family>
+        <pointsize>19</pointsize>
+        <weight>75</weight>
+        <bold>true</bold>
        </font>
       </property>
       <property name="cursor">
@@ -734,12 +668,22 @@ QPushButton:pressed {
        <string notr="true">QPushButton {
     background-color: transparent;
     border: none;
-    color: white;  
+ outline: 0;
+    text-align: center;
+    border: 2px solid transparent; /* Invisible border */
+    border-radius: 10px;
+    padding: 5px;
+    min-width: 70px;
+    color: #000;  
 }
 
 QPushButton:hover {
-    background-color: rgba(255, 255, 255, 0.1);  
+ 
+    background: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0 rgb(90, 161, 86), stop:0.05 rgb(90, 161, 86), stop:0.5 #fff, stop:0.95 rgb(90, 161, 86), stop:1 rgb(90, 161, 86));
+	
+	color: rgb(90, 161, 86);
 }
+
 </string>
       </property>
       <property name="text">
@@ -749,10 +693,10 @@ QPushButton:hover {
      <widget class="QPushButton" name="add">
       <property name="geometry">
        <rect>
-        <x>1150</x>
-        <y>540</y>
-        <width>141</width>
-        <height>71</height>
+        <x>1160</x>
+        <y>570</y>
+        <width>121</width>
+        <height>51</height>
        </rect>
       </property>
       <property name="sizePolicy">
@@ -763,7 +707,10 @@ QPushButton:hover {
       </property>
       <property name="font">
        <font>
-        <pointsize>14</pointsize>
+        <family>Poor Richard</family>
+        <pointsize>16</pointsize>
+        <weight>75</weight>
+        <bold>true</bold>
        </font>
       </property>
       <property name="cursor">
@@ -773,25 +720,37 @@ QPushButton:hover {
        <string notr="true">QPushButton {
     background-color: transparent;
     border: none;
-    color: white;  
+ outline: 0;
+    text-align: center;
+    border: 2px solid transparent; /* Invisible border */
+    border-radius: 10px;
+    padding: 5px;
+    min-width: 70px;
+    color: #000;  
 }
 
 QPushButton:hover {
     background-color: rgba(255, 255, 255, 0.1);  
+    background: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0 #DAA520, stop:0.05 #DAA520, stop:0.5 #fff, stop:0.95 #DAA520, stop:1 #DAA520);
+	color: rgb(218, 165, 32);
 }
-</string>
+
+
+QPushButton:pressed {
+    background: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0 #DAA520, stop:0.05 #DAA520, stop:0.5 #fff, stop:0.95 #DAA520, stop:1 #DAA520);
+}</string>
       </property>
       <property name="text">
        <string>ADD</string>
       </property>
      </widget>
-     <widget class="QGroupBox" name="type">
+     <widget class="QLabel" name="label_12">
       <property name="geometry">
        <rect>
-        <x>330</x>
-        <y>170</y>
-        <width>981</width>
-        <height>128</height>
+        <x>410</x>
+        <y>650</y>
+        <width>191</width>
+        <height>41</height>
        </rect>
       </property>
       <property name="sizePolicy">
@@ -800,150 +759,403 @@ QPushButton:hover {
         <verstretch>0</verstretch>
        </sizepolicy>
       </property>
+      <property name="font">
+       <font>
+        <family>Monotype Corsiva</family>
+        <pointsize>24</pointsize>
+        <weight>50</weight>
+        <bold>false</bold>
+       </font>
+      </property>
       <property name="styleSheet">
-       <string notr="true">border:none;</string>
+       <string notr="true">
+color: #DAA520;
+</string>
       </property>
-      <property name="title">
-       <string/>
+      <property name="text">
+       <string>Program Code:</string>
       </property>
-      <property name="checkable">
-       <bool>true</bool>
-      </property>
-      <property name="checked">
-       <bool>true</bool>
-      </property>
-      <layout class="QHBoxLayout" name="horizontalLayout">
-       <item>
-        <widget class="QRadioButton" name="glass">
-         <property name="sizePolicy">
-          <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
-           <horstretch>0</horstretch>
-           <verstretch>0</verstretch>
-          </sizepolicy>
-         </property>
-         <property name="font">
-          <font>
-           <family>Impact</family>
-           <pointsize>14</pointsize>
-          </font>
-         </property>
-         <property name="cursor">
-          <cursorShape>PointingHandCursor</cursorShape>
-         </property>
-         <property name="styleSheet">
-          <string notr="true">color: rgb(90, 161, 86);</string>
-         </property>
-         <property name="text">
-          <string>Customer Service</string>
-         </property>
-         <property name="iconSize">
-          <size>
-           <width>110</width>
-           <height>110</height>
-          </size>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QRadioButton" name="paper">
-         <property name="sizePolicy">
-          <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
-           <horstretch>0</horstretch>
-           <verstretch>0</verstretch>
-          </sizepolicy>
-         </property>
-         <property name="font">
-          <font>
-           <family>Impact</family>
-           <pointsize>14</pointsize>
-          </font>
-         </property>
-         <property name="cursor">
-          <cursorShape>PointingHandCursor</cursorShape>
-         </property>
-         <property name="styleSheet">
-          <string notr="true">color: rgb(74, 141, 198);</string>
-         </property>
-         <property name="text">
-          <string>Project Management</string>
-         </property>
-         <property name="iconSize">
-          <size>
-           <width>110</width>
-           <height>110</height>
-          </size>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QRadioButton" name="metal">
-         <property name="sizePolicy">
-          <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
-           <horstretch>0</horstretch>
-           <verstretch>0</verstretch>
-          </sizepolicy>
-         </property>
-         <property name="font">
-          <font>
-           <family>Impact</family>
-           <pointsize>16</pointsize>
-          </font>
-         </property>
-         <property name="cursor">
-          <cursorShape>PointingHandCursor</cursorShape>
-         </property>
-         <property name="styleSheet">
-          <string notr="true">color: rgb(170, 0, 0);</string>
-         </property>
-         <property name="text">
-          <string>Leadership</string>
-         </property>
-         <property name="iconSize">
-          <size>
-           <width>110</width>
-           <height>110</height>
-          </size>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QRadioButton" name="plastic">
-         <property name="sizePolicy">
-          <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
-           <horstretch>0</horstretch>
-           <verstretch>0</verstretch>
-          </sizepolicy>
-         </property>
-         <property name="font">
-          <font>
-           <family>Impact</family>
-           <pointsize>14</pointsize>
-          </font>
-         </property>
-         <property name="cursor">
-          <cursorShape>PointingHandCursor</cursorShape>
-         </property>
-         <property name="styleSheet">
-          <string notr="true">color: rgb(248, 165, 45);</string>
-         </property>
-         <property name="text">
-          <string>Health &amp; Safety</string>
-         </property>
-         <property name="iconSize">
-          <size>
-           <width>110</width>
-           <height>110</height>
-          </size>
-         </property>
-        </widget>
-       </item>
-      </layout>
      </widget>
-     <widget class="QLabel" name="label_12">
+     <widget class="QLabel" name="label_6">
       <property name="geometry">
        <rect>
-        <x>780</x>
-        <y>570</y>
+        <x>410</x>
+        <y>430</y>
+        <width>231</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="font">
+       <font>
+        <family>Monotype Corsiva</family>
+        <pointsize>25</pointsize>
+        <weight>50</weight>
+        <bold>false</bold>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">
+color: #DAA520;
+</string>
+      </property>
+      <property name="text">
+       <string>Formation Period:</string>
+      </property>
+     </widget>
+     <widget class="QDockWidget" name="dock">
+      <property name="geometry">
+       <rect>
+        <x>-10</x>
+        <y>0</y>
+        <width>1351</width>
+        <height>42</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: rgb(0, 170, 0);
+background-color: rgb(45, 45, 43);</string>
+      </property>
+      <property name="features">
+       <set>QDockWidget::DockWidgetMovable|QDockWidget::DockWidgetVerticalTitleBar</set>
+      </property>
+      <widget class="QWidget" name="dockWidgetContents_9">
+       <property name="cursor">
+        <cursorShape>PointingHandCursor</cursorShape>
+       </property>
+       <property name="mouseTracking">
+        <bool>true</bool>
+       </property>
+       <widget class="QPushButton" name="switchToTrash">
+        <property name="geometry">
+         <rect>
+          <x>820</x>
+          <y>-10</y>
+          <width>501</width>
+          <height>61</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <family>Monotype Corsiva</family>
+          <pointsize>23</pointsize>
+          <weight>99</weight>
+          <bold>true</bold>
+         </font>
+        </property>
+        <property name="cursor">
+         <cursorShape>PointingHandCursor</cursorShape>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QPushButton {
+    outline: 0;
+    text-align: center;
+    padding: 17px 30px;
+    border: 0;
+    color: #DAA520;
+    font-size: 17.5px;
+    background: qlineargradient(spread:pad, x1:1, y1:0, x2:0, y2:1, stop:0 #b8b8b8, stop:0.05 #b8b8b8, stop:0.5 #ebf5ff, stop:0.95 #b8b8b8, stop:1 #b8b8b8);
+    line-height: 30px;
+    font-weight: 800;
+}
+
+QPushButton:hover {
+    background: qlineargradient(spread:pad, x1:1, y1:0, x2:0, y2:1, stop:0 #848484, stop:0.05 #848484, stop:0.5 #ebf5ff, stop:0.95 #848484, stop:1 #848484); /* Dark orange gradient when hovering */
+    color: #996515;
+}
+
+QPushButton:pressed {
+    background: #808080; /* Dark grey background when pressed */
+    color: #000;
+}
+</string>
+        </property>
+        <property name="text">
+         <string>Formation</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_24">
+        <property name="geometry">
+         <rect>
+          <x>0</x>
+          <y>-10</y>
+          <width>331</width>
+          <height>61</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <family>Script MT Bold</family>
+          <pointsize>22</pointsize>
+          <weight>75</weight>
+          <bold>true</bold>
+         </font>
+        </property>
+        <property name="cursor">
+         <cursorShape>BlankCursor</cursorShape>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">color: rgb(255, 255, 0);
+color: rgb(163, 163, 163);
+color: rgb(108, 108, 108);
+
+    background: qlineargradient(spread:pad, x1:1, y1:0, x2:0, y2:1, stop:0 #b8b8b8, stop:0.05 #b8b8b8, stop:0.5 #ebf5ff, stop:0.95 #b8b8b8, stop:1 #b8b8b8);
+
+</string>
+        </property>
+        <property name="text">
+         <string>Yuma</string>
+        </property>
+        <property name="scaledContents">
+         <bool>true</bool>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+        <property name="wordWrap">
+         <bool>false</bool>
+        </property>
+        <property name="margin">
+         <number>-90</number>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="switchToEmployee">
+        <property name="geometry">
+         <rect>
+          <x>330</x>
+          <y>-10</y>
+          <width>491</width>
+          <height>71</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <family>Monotype Corsiva</family>
+          <pointsize>23</pointsize>
+          <weight>99</weight>
+          <italic>true</italic>
+          <bold>true</bold>
+         </font>
+        </property>
+        <property name="cursor">
+         <cursorShape>PointingHandCursor</cursorShape>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QPushButton {
+    outline: 0;
+    text-align: center;
+    padding: 17px 30px;
+    border: 0;
+    color: #DAA520;
+    font-size: 17.5px;
+    background: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0 #b8b8b8, stop:0.05 #b8b8b8, stop:0.5 #ebf5ff, stop:0.95 #b8b8b8, stop:1 #b8b8b8);
+    line-height: 30px;
+    font-weight: 800;
+}
+
+QPushButton:hover {
+    background: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0 #848484, stop:0.05 #848484, stop:0.5 #ebf5ff, stop:0.95 #848484, stop:1 #848484); /* Dark orange gradient when hovering */
+    color: #996515;
+}
+
+QPushButton:pressed {
+    background: #ebf5ff; /* Dark grey background when pressed */
+    color: #000;
+}
+</string>
+        </property>
+        <property name="text">
+         <string>Employee</string>
+        </property>
+       </widget>
+       <zorder>switchToTrash</zorder>
+       <zorder>switchToEmployee</zorder>
+       <zorder>label_24</zorder>
+      </widget>
+     </widget>
+     <widget class="QLabel" name="label_2">
+      <property name="geometry">
+       <rect>
+        <x>410</x>
+        <y>180</y>
+        <width>341</width>
+        <height>61</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Monotype Corsiva</family>
+        <pointsize>25</pointsize>
+        <italic>true</italic>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">
+color: #DAA520;
+</string>
+      </property>
+      <property name="text">
+       <string>Program Type:</string>
+      </property>
+     </widget>
+     <widget class="QRadioButton" name="glass">
+      <property name="geometry">
+       <rect>
+        <x>670</x>
+        <y>230</y>
+        <width>171</width>
+        <height>51</height>
+       </rect>
+      </property>
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="font">
+       <font>
+        <family>MS Shell Dlg 2</family>
+        <pointsize>14</pointsize>
+       </font>
+      </property>
+      <property name="cursor">
+       <cursorShape>PointingHandCursor</cursorShape>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: rgb(90, 161, 86);</string>
+      </property>
+      <property name="text">
+       <string>Customer Service</string>
+      </property>
+      <property name="iconSize">
+       <size>
+        <width>110</width>
+        <height>110</height>
+       </size>
+      </property>
+     </widget>
+     <widget class="QRadioButton" name="plastic">
+      <property name="geometry">
+       <rect>
+        <x>1000</x>
+        <y>150</y>
+        <width>171</width>
+        <height>61</height>
+       </rect>
+      </property>
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="font">
+       <font>
+        <family>MS Shell Dlg 2</family>
+        <pointsize>14</pointsize>
+       </font>
+      </property>
+      <property name="cursor">
+       <cursorShape>PointingHandCursor</cursorShape>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: rgb(248, 165, 45);</string>
+      </property>
+      <property name="text">
+       <string>Health And Safety</string>
+      </property>
+      <property name="iconSize">
+       <size>
+        <width>110</width>
+        <height>110</height>
+       </size>
+      </property>
+     </widget>
+     <widget class="QRadioButton" name="metal">
+      <property name="geometry">
+       <rect>
+        <x>1000</x>
+        <y>220</y>
+        <width>131</width>
+        <height>61</height>
+       </rect>
+      </property>
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="font">
+       <font>
+        <family>MS Shell Dlg 2</family>
+        <pointsize>16</pointsize>
+       </font>
+      </property>
+      <property name="cursor">
+       <cursorShape>PointingHandCursor</cursorShape>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: rgb(170, 0, 0);</string>
+      </property>
+      <property name="text">
+       <string>Leadership</string>
+      </property>
+      <property name="iconSize">
+       <size>
+        <width>110</width>
+        <height>110</height>
+       </size>
+      </property>
+     </widget>
+     <widget class="QRadioButton" name="paper">
+      <property name="geometry">
+       <rect>
+        <x>670</x>
+        <y>140</y>
+        <width>201</width>
+        <height>71</height>
+       </rect>
+      </property>
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="font">
+       <font>
+        <family>MS Shell Dlg 2</family>
+        <pointsize>14</pointsize>
+       </font>
+      </property>
+      <property name="cursor">
+       <cursorShape>PointingHandCursor</cursorShape>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: rgb(74, 141, 198);</string>
+      </property>
+      <property name="text">
+       <string>Project Management</string>
+      </property>
+      <property name="iconSize">
+       <size>
+        <width>110</width>
+        <height>110</height>
+       </size>
+      </property>
+     </widget>
+     <widget class="QCheckBox" name="recyclable">
+      <property name="geometry">
+       <rect>
+        <x>670</x>
+        <y>520</y>
         <width>151</width>
         <height>41</height>
        </rect>
@@ -956,48 +1168,22 @@ QPushButton:hover {
       </property>
       <property name="font">
        <font>
-        <pointsize>16</pointsize>
-        <weight>75</weight>
-        <bold>true</bold>
+        <pointsize>12</pointsize>
        </font>
       </property>
       <property name="styleSheet">
-       <string notr="true">color: rgb(255, 255, 255);</string>
+       <string notr="true">color: #000;</string>
       </property>
       <property name="text">
-       <string>       CODE</string>
+       <string>Mandatory</string>
       </property>
      </widget>
-     <widget class="QLabel" name="label_2">
+     <widget class="QCheckBox" name="reusable">
       <property name="geometry">
        <rect>
-        <x>700</x>
-        <y>60</y>
-        <width>969</width>
-        <height>129</height>
-       </rect>
-      </property>
-      <property name="sizePolicy">
-       <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
-        <horstretch>0</horstretch>
-        <verstretch>0</verstretch>
-       </sizepolicy>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">font: 75 20pt &quot;MS Shell Dlg 2&quot;;
-color:  #ED8E4A    ;
-</string>
-      </property>
-      <property name="text">
-       <string>Formation Type</string>
-      </property>
-     </widget>
-     <widget class="QLabel" name="label_6">
-      <property name="geometry">
-       <rect>
-        <x>440</x>
-        <y>390</y>
-        <width>181</width>
+        <x>970</x>
+        <y>520</y>
+        <width>151</width>
         <height>41</height>
        </rect>
       </property>
@@ -1009,25 +1195,133 @@ color:  #ED8E4A    ;
       </property>
       <property name="font">
        <font>
-        <pointsize>15</pointsize>
-        <weight>75</weight>
-        <bold>true</bold>
+        <pointsize>12</pointsize>
+       </font>
+      </property>
+      <property name="autoFillBackground">
+       <bool>false</bool>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: #000;</string>
+      </property>
+      <property name="text">
+       <string>Certified</string>
+      </property>
+      <property name="iconSize">
+       <size>
+        <width>500</width>
+        <height>500</height>
+       </size>
+      </property>
+     </widget>
+     <widget class="QCalendarWidget" name="date">
+      <property name="geometry">
+       <rect>
+        <x>1000</x>
+        <y>310</y>
+        <width>281</width>
+        <height>190</height>
+       </rect>
+      </property>
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="cursor">
+       <cursorShape>CrossCursor</cursorShape>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_5">
+      <property name="geometry">
+       <rect>
+        <x>410</x>
+        <y>520</y>
+        <width>150</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="font">
+       <font>
+        <family>Monotype Corsiva</family>
+        <pointsize>26</pointsize>
+        <weight>50</weight>
+        <italic>false</italic>
+        <bold>false</bold>
        </font>
       </property>
       <property name="styleSheet">
-       <string notr="true">color: rgb(255, 255, 255);</string>
+       <string notr="true">
+color: #DAA520;
+</string>
       </property>
       <property name="text">
-       <string>Duration In Hours</string>
+       <string>Properties :</string>
+      </property>
+     </widget>
+     <widget class="QCheckBox" name="bio">
+      <property name="geometry">
+       <rect>
+        <x>820</x>
+        <y>520</y>
+        <width>151</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>12</pointsize>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: rgb(255, 85, 0);</string>
+      </property>
+      <property name="text">
+       <string>Optional</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_17">
+      <property name="geometry">
+       <rect>
+        <x>650</x>
+        <y>60</y>
+        <width>371</width>
+        <height>61</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Monotype Corsiva</family>
+        <pointsize>25</pointsize>
+        <italic>true</italic>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">
+color: #DAA520;
+</string>
+      </property>
+      <property name="text">
+       <string>Creating Formation Interface</string>
       </property>
      </widget>
      <zorder>label</zorder>
      <zorder>label_4</zorder>
      <zorder>amount</zorder>
-     <zorder>date</zorder>
      <zorder>Generat_Button</zorder>
-     <zorder>properties</zorder>
-     <zorder>label_5</zorder>
      <zorder>reset</zorder>
      <zorder>Generated_code</zorder>
      <zorder>groupBox</zorder>
@@ -1035,189 +1329,31 @@ color:  #ED8E4A    ;
      <zorder>check_button</zorder>
      <zorder>modify</zorder>
      <zorder>add</zorder>
-     <zorder>type</zorder>
      <zorder>label_12</zorder>
-     <zorder>label_2</zorder>
      <zorder>label_6</zorder>
+     <zorder>dock</zorder>
+     <zorder>label_2</zorder>
+     <zorder>glass</zorder>
+     <zorder>plastic</zorder>
+     <zorder>metal</zorder>
+     <zorder>paper</zorder>
+     <zorder>recyclable</zorder>
+     <zorder>reusable</zorder>
+     <zorder>date</zorder>
+     <zorder>label_5</zorder>
+     <zorder>bio</zorder>
+     <zorder>label_17</zorder>
     </widget>
     <widget class="QWidget" name="tab_2">
      <attribute name="title">
       <string>Tab 2</string>
      </attribute>
-     <widget class="QGroupBox" name="groupBox_2">
-      <property name="geometry">
-       <rect>
-        <x>0</x>
-        <y>0</y>
-        <width>331</width>
-        <height>821</height>
-       </rect>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">background-color: rgb(170, 170, 255);</string>
-      </property>
-      <property name="title">
-       <string/>
-      </property>
-      <widget class="QPushButton" name="add2">
-       <property name="geometry">
-        <rect>
-         <x>0</x>
-         <y>140</y>
-         <width>331</width>
-         <height>131</height>
-        </rect>
-       </property>
-       <property name="font">
-        <font>
-         <family>Mongolian Baiti</family>
-         <pointsize>20</pointsize>
-        </font>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">QPushButton {
-    background-color: transparent;
-    border: none;
-	color: rgb(105, 172, 62);
-}
-
-QPushButton:hover {
-    background-color: rgba(255, 255, 255, 0.1); 
-    color:  #ED8E4A; 
-}
-</string>
-       </property>
-       <property name="text">
-        <string>ADD / Modify</string>
-       </property>
-      </widget>
-      <widget class="QPushButton" name="display2">
-       <property name="geometry">
-        <rect>
-         <x>0</x>
-         <y>270</y>
-         <width>331</width>
-         <height>131</height>
-        </rect>
-       </property>
-       <property name="font">
-        <font>
-         <family>Mongolian Baiti</family>
-         <pointsize>19</pointsize>
-        </font>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">QPushButton {
-    background-color: transparent;
-    border: none;
-	color: rgb(105, 172, 62);
-}
-
-QPushButton:hover {
-    background-color: rgba(255, 255, 255, 0.1); 
-    color:  #ED8E4A; 
-}
-</string>
-       </property>
-       <property name="text">
-        <string>Display / Delete / PDF</string>
-       </property>
-      </widget>
-      <widget class="QPushButton" name="rech2">
-       <property name="geometry">
-        <rect>
-         <x>0</x>
-         <y>400</y>
-         <width>331</width>
-         <height>131</height>
-        </rect>
-       </property>
-       <property name="font">
-        <font>
-         <family>Mongolian Baiti</family>
-         <pointsize>20</pointsize>
-        </font>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">QPushButton {
-    background-color: transparent;
-    border: none;
-	color: rgb(105, 172, 62);
-}
-
-QPushButton:hover {
-    background-color: rgba(255, 255, 255, 0.1); 
-    color:  #ED8E4A; 
-}
-</string>
-       </property>
-       <property name="text">
-        <string>Search / Sort</string>
-       </property>
-      </widget>
-      <widget class="QPushButton" name="stat2">
-       <property name="geometry">
-        <rect>
-         <x>0</x>
-         <y>530</y>
-         <width>331</width>
-         <height>131</height>
-        </rect>
-       </property>
-       <property name="font">
-        <font>
-         <family>Mongolian Baiti</family>
-         <pointsize>20</pointsize>
-        </font>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">QPushButton {
-    background-color: transparent;
-    border: none;
-	color: rgb(105, 172, 62);
-}
-
-QPushButton:hover {
-    background-color: rgba(255, 255, 255, 0.1); 
-    color:  #ED8E4A; 
-}
-</string>
-       </property>
-       <property name="text">
-        <string>Statistic</string>
-       </property>
-      </widget>
-      <widget class="QLabel" name="label_18">
-       <property name="geometry">
-        <rect>
-         <x>0</x>
-         <y>0</y>
-         <width>331</width>
-         <height>821</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string/>
-       </property>
-       <property name="pixmap">
-        <pixmap resource="imgs.qrc">:/new/prefix1/pxfuel.jpg</pixmap>
-       </property>
-       <property name="scaledContents">
-        <bool>true</bool>
-       </property>
-      </widget>
-      <zorder>label_18</zorder>
-      <zorder>add2</zorder>
-      <zorder>display2</zorder>
-      <zorder>rech2</zorder>
-      <zorder>stat2</zorder>
-     </widget>
      <widget class="QLabel" name="label_7">
       <property name="geometry">
        <rect>
         <x>330</x>
         <y>0</y>
-        <width>991</width>
+        <width>1001</width>
         <height>821</height>
        </rect>
       </property>
@@ -1228,38 +1364,16 @@ QPushButton:hover {
        <string/>
       </property>
       <property name="pixmap">
-       <pixmap resource="imgs.qrc">:/new/prefix1/dark-green-wall-backdrop-grunge-background-texture.jpg</pixmap>
-      </property>
-     </widget>
-     <widget class="QLabel" name="label_8">
-      <property name="geometry">
-       <rect>
-        <x>610</x>
-        <y>20</y>
-        <width>411</width>
-        <height>71</height>
-       </rect>
-      </property>
-      <property name="font">
-       <font>
-        <family>Poor Richard</family>
-        <pointsize>36</pointsize>
-       </font>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">color: rgb(0, 170, 0);</string>
-      </property>
-      <property name="text">
-       <string>Display - sort - delete</string>
+       <pixmap resource="imgs.qrc">:/new/prefix1/beige-soft-gradient-background-vintage-style.jpg</pixmap>
       </property>
      </widget>
      <widget class="QTableView" name="view">
       <property name="geometry">
        <rect>
-        <x>690</x>
-        <y>130</y>
+        <x>700</x>
+        <y>0</y>
         <width>631</width>
-        <height>681</height>
+        <height>771</height>
        </rect>
       </property>
       <property name="font">
@@ -1269,7 +1383,7 @@ QPushButton:hover {
       </property>
       <property name="styleSheet">
        <string notr="true">background-color: transparent; border: none;
-color:white</string>
+color:black</string>
       </property>
      </widget>
      <widget class="QPushButton" name="delete_2">
@@ -1293,22 +1407,27 @@ color:white</string>
       </property>
       <property name="styleSheet">
        <string notr="true">QPushButton {
-    background-color: #FFA500; /* Neon Orange */
-    color: #000000; /* Black */
+    outline: 0;
+    text-align: center;
     border: 2px solid transparent; /* Invisible border */
     border-radius: 10px;
     padding: 5px;
     min-width: 70px;
+    color: #000;
+    font-size: 17.5px;
+    background: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0 #b8b8b8, stop:0.05 #b8b8b8, stop:0.5 #ebf5ff, stop:0.95 #b8b8b8, stop:1 #b8b8b8);
+
 }
 
 QPushButton:hover {
-    border: 2px solid #ffffff; /* White border becomes visible when hovered over */
+    background: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0 rgb(170, 0, 0), stop:0.05 rgb(170, 0, 0), stop:0.5 #fff, stop:0.95 rgb(170, 0, 0), stop:1 rgb(170, 0, 0));
+    color: rgb(170, 0, 0);
 }
 
 QPushButton:pressed {
-    background-color: #FF4500; /* Darker Orange */
-}
-</string>
+    background: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0 rgb(170, 0, 0), stop:0.05 rgb(170, 0, 0), stop:0.5 #000, stop:0.95 rgb(170, 0, 0), stop:1 rgb(170, 0, 0));
+	color: rgb(255, 0, 0);
+}</string>
       </property>
       <property name="text">
        <string>Delete</string>
@@ -1354,7 +1473,7 @@ QPushButton:pressed {
        </font>
       </property>
       <property name="styleSheet">
-       <string notr="true">color: rgb(255, 255, 255);</string>
+       <string notr="true">color: #000;</string>
       </property>
       <property name="text">
        <string>       CODE</string>
@@ -1381,21 +1500,26 @@ QPushButton:pressed {
       </property>
       <property name="styleSheet">
        <string notr="true">QPushButton {
-    
-	background-color: rgb(0, 100, 0);
-	color: rgb(255, 255, 255);
+    outline: 0;
+    text-align: center;
     border: 2px solid transparent; /* Invisible border */
     border-radius: 10px;
     padding: 5px;
     min-width: 70px;
+    color: #000;
+    font-size: 17.5px;
+    background: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0 #b8b8b8, stop:0.05 #b8b8b8, stop:0.5 #ebf5ff, stop:0.95 #b8b8b8, stop:1 #b8b8b8);
+
 }
 
 QPushButton:hover {
-    border: 2px solid #ffffff; /* White border becomes visible when hovered over */
+    background: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0 #DAA520, stop:0.05 #DAA520, stop:0.5 #fff, stop:0.95 #DAA520, stop:1 #DAA520);
+    color: #DAA520;
 }
 
 QPushButton:pressed {
-    background-color: #FF4500; /* Darker Orange */
+    background: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0 #DAA520, stop:0.05 #DAA520, stop:0.5 #fff, stop:0.95 #DAA520, stop:1 #DAA520);
+color: #996515;
 }
 </string>
       </property>
@@ -1434,21 +1558,26 @@ QPushButton:pressed {
       </property>
       <property name="styleSheet">
        <string notr="true">QPushButton {
-    
-	background-color: rgb(0, 100, 0);
-	color: rgb(255, 255, 255);
+    outline: 0;
+    text-align: center;
     border: 2px solid transparent; /* Invisible border */
     border-radius: 10px;
     padding: 5px;
     min-width: 70px;
+    color: #000;
+    font-size: 17.5px;
+    background: qlineargradient(spread:pad, x1:1, y1:0, x2:0, y2:1, stop:0 #b8b8b8, stop:0.05 #b8b8b8, stop:0.5 #ebf5ff, stop:0.95 #b8b8b8, stop:1 #b8b8b8);
+
 }
 
 QPushButton:hover {
-    border: 2px solid #ffffff; /* White border becomes visible when hovered over */
+    background: qlineargradient(spread:pad, x1:1, y1:0, x2:0, y2:1, stop:0 #DAA520, stop:0.05 #DAA520, stop:0.5 #fff, stop:0.95 #DAA520, stop:1 #DAA520);
+    color: #DAA520;
 }
 
 QPushButton:pressed {
-    background-color: #FF4500; /* Darker Orange */
+    background: qlineargradient(spread:pad, x1:1, y1:0, x2:0, y2:1, stop:0 #DAA520, stop:0.05 #DAA520, stop:0.5 #fff, stop:0.95 #DAA520, stop:1 #DAA520);
+color: #996515;
 }
 </string>
       </property>
@@ -1488,20 +1617,26 @@ Displayed</string>
       </property>
       <property name="styleSheet">
        <string notr="true">QPushButton {
-    background-color: #FFA500; /* Neon Orange */
-    color: #000000; /* Black */
+    outline: 0;
+    text-align: center;
     border: 2px solid transparent; /* Invisible border */
     border-radius: 10px;
     padding: 5px;
     min-width: 70px;
+    color: #000;
+    font-size: 17.5px;
+    background: qlineargradient(spread:pad, x1:1, y1:0, x2:0, y2:1, stop:0 #b8b8b8, stop:0.05 #b8b8b8, stop:0.5 #ebf5ff, stop:0.95 #b8b8b8, stop:1 #b8b8b8);
+
 }
 
 QPushButton:hover {
-    border: 2px solid #ffffff; /* White border becomes visible when hovered over */
+    background: qlineargradient(spread:pad, x1:1, y1:0, x2:0, y2:1, stop:0 rgb(170, 0, 0), stop:0.05 rgb(170, 0, 0), stop:0.5 #fff, stop:0.95 rgb(170, 0, 0), stop:1 rgb(170, 0, 0));
+    color: rgb(170, 0, 0);
 }
 
 QPushButton:pressed {
-    background-color: #FF4500; /* Darker Orange */
+    background: qlineargradient(spread:pad, x1:1, y1:0, x2:0, y2:1, stop:0 rgb(170, 0, 0), stop:0.05 rgb(170, 0, 0), stop:0.5 #000, stop:0.95 rgb(170, 0, 0), stop:1 rgb(170, 0, 0));
+	color: rgb(255, 0, 0);
 }
 </string>
       </property>
@@ -1519,37 +1654,28 @@ QPushButton:pressed {
        </size>
       </property>
      </widget>
-     <zorder>label_7</zorder>
-     <zorder>groupBox_2</zorder>
-     <zorder>label_8</zorder>
-     <zorder>view</zorder>
-     <zorder>delete_2</zorder>
-     <zorder>Delete_zone</zorder>
-     <zorder>label_13</zorder>
-     <zorder>exportall</zorder>
-     <zorder>exportdisplayed</zorder>
-     <zorder>reset_2</zorder>
-    </widget>
-    <widget class="QWidget" name="tab_3">
-     <attribute name="title">
-      <string>Page</string>
-     </attribute>
-     <widget class="QGroupBox" name="groupBox_4">
+     <widget class="QGroupBox" name="groupBox_2">
       <property name="geometry">
        <rect>
-        <x>0</x>
+        <x>20</x>
         <y>0</y>
         <width>331</width>
         <height>821</height>
        </rect>
       </property>
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
       <property name="styleSheet">
-       <string notr="true">background-color: rgb(170, 170, 255);</string>
+       <string notr="true"/>
       </property>
       <property name="title">
        <string/>
       </property>
-      <widget class="QPushButton" name="add3">
+      <widget class="QPushButton" name="add2">
        <property name="geometry">
         <rect>
          <x>0</x>
@@ -1558,30 +1684,39 @@ QPushButton:pressed {
          <height>131</height>
         </rect>
        </property>
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
        <property name="font">
         <font>
-         <family>Mongolian Baiti</family>
-         <pointsize>20</pointsize>
+         <family>Monotype Corsiva</family>
+         <pointsize>25</pointsize>
+         <weight>75</weight>
+         <italic>true</italic>
+         <bold>true</bold>
         </font>
        </property>
        <property name="styleSheet">
         <string notr="true">QPushButton {
     background-color: transparent;
     border: none;
-	color: rgb(105, 172, 62);
+	color:#DAA520;
 }
 
 QPushButton:hover {
     background-color: rgba(255, 255, 255, 0.1); 
-    color:  #ED8E4A; 
+color: #996515;
 }
 </string>
        </property>
        <property name="text">
-        <string>ADD / Modify</string>
+        <string>Manage Programs</string>
        </property>
       </widget>
-      <widget class="QPushButton" name="display3">
+      <widget class="QPushButton" name="display2">
        <property name="geometry">
         <rect>
          <x>0</x>
@@ -1590,30 +1725,42 @@ QPushButton:hover {
          <height>131</height>
         </rect>
        </property>
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
        <property name="font">
         <font>
-         <family>Mongolian Baiti</family>
-         <pointsize>19</pointsize>
+         <family>Monotype Corsiva</family>
+         <pointsize>25</pointsize>
+         <weight>75</weight>
+         <italic>false</italic>
+         <bold>true</bold>
+         <underline>false</underline>
+         <strikeout>false</strikeout>
+         <kerning>true</kerning>
         </font>
        </property>
        <property name="styleSheet">
         <string notr="true">QPushButton {
     background-color: transparent;
     border: none;
-	color: rgb(105, 172, 62);
+	color:#DAA520;
 }
 
 QPushButton:hover {
     background-color: rgba(255, 255, 255, 0.1); 
-    color:  #ED8E4A; 
+color: #996515;
 }
 </string>
        </property>
        <property name="text">
-        <string>Display / Delete / PDF</string>
+        <string>View / Export Programs</string>
        </property>
       </widget>
-      <widget class="QPushButton" name="rech3">
+      <widget class="QPushButton" name="rech2">
        <property name="geometry">
         <rect>
          <x>0</x>
@@ -1622,30 +1769,38 @@ QPushButton:hover {
          <height>131</height>
         </rect>
        </property>
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
        <property name="font">
         <font>
-         <family>Mongolian Baiti</family>
-         <pointsize>20</pointsize>
+         <family>Monotype Corsiva</family>
+         <pointsize>25</pointsize>
+         <weight>75</weight>
+         <bold>true</bold>
         </font>
        </property>
        <property name="styleSheet">
         <string notr="true">QPushButton {
     background-color: transparent;
     border: none;
-	color: rgb(105, 172, 62);
+	color:#DAA520;
 }
 
 QPushButton:hover {
     background-color: rgba(255, 255, 255, 0.1); 
-    color:  #ED8E4A; 
+color: #996515;
 }
 </string>
        </property>
        <property name="text">
-        <string>Search / Sort</string>
+        <string>Search / Filter</string>
        </property>
       </widget>
-      <widget class="QPushButton" name="stat3">
+      <widget class="QPushButton" name="stat2">
        <property name="geometry">
         <rect>
          <x>0</x>
@@ -1654,60 +1809,292 @@ QPushButton:hover {
          <height>131</height>
         </rect>
        </property>
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
        <property name="font">
         <font>
-         <family>Mongolian Baiti</family>
-         <pointsize>20</pointsize>
+         <family>Monotype Corsiva</family>
+         <pointsize>25</pointsize>
+         <weight>75</weight>
+         <bold>true</bold>
         </font>
        </property>
        <property name="styleSheet">
         <string notr="true">QPushButton {
     background-color: transparent;
     border: none;
-	color: rgb(105, 172, 62);
+	color:#DAA520;
 }
 
 QPushButton:hover {
     background-color: rgba(255, 255, 255, 0.1); 
-    color:  #ED8E4A; 
+color: #996515;
 }
 </string>
        </property>
        <property name="text">
-        <string>Statistic</string>
+        <string>Analytics </string>
        </property>
       </widget>
-      <widget class="QLabel" name="label_19">
+      <widget class="QLabel" name="label_23">
        <property name="geometry">
         <rect>
          <x>0</x>
-         <y>0</y>
+         <y>40</y>
          <width>331</width>
-         <height>821</height>
+         <height>741</height>
         </rect>
+       </property>
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Expanding" vsizetype="Ignored">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color: rgb(11, 11, 11);</string>
        </property>
        <property name="text">
         <string/>
        </property>
        <property name="pixmap">
-        <pixmap resource="imgs.qrc">:/new/prefix1/pxfuel.jpg</pixmap>
+        <pixmap>../../../Downloads/14546151_rm125-penny-06-frame.jpg</pixmap>
        </property>
        <property name="scaledContents">
         <bool>true</bool>
        </property>
+       <property name="alignment">
+        <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+       </property>
+       <property name="wordWrap">
+        <bool>false</bool>
+       </property>
+       <property name="margin">
+        <number>0</number>
+       </property>
       </widget>
-      <zorder>label_19</zorder>
-      <zorder>add3</zorder>
-      <zorder>display3</zorder>
-      <zorder>rech3</zorder>
-      <zorder>stat3</zorder>
+      <widget class="QLabel" name="label_25">
+       <property name="geometry">
+        <rect>
+         <x>0</x>
+         <y>0</y>
+         <width>331</width>
+         <height>41</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>Script MT Bold</family>
+         <pointsize>22</pointsize>
+         <weight>75</weight>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="cursor">
+        <cursorShape>ForbiddenCursor</cursorShape>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">color: rgb(255, 255, 0);
+color: rgb(163, 163, 163);
+color: rgb(108, 108, 108);
+
+    background: qlineargradient(spread:pad, x1:1, y1:0, x2:0, y2:1, stop:0 #b8b8b8, stop:0.05 #b8b8b8, stop:0.5 #ebf5ff, stop:0.95 #b8b8b8, stop:1 #b8b8b8);
+
+</string>
+       </property>
+       <property name="text">
+        <string>                   Yuma</string>
+       </property>
+      </widget>
+      <zorder>label_23</zorder>
+      <zorder>add2</zorder>
+      <zorder>display2</zorder>
+      <zorder>rech2</zorder>
+      <zorder>stat2</zorder>
+      <zorder>label_25</zorder>
      </widget>
+     <widget class="QDockWidget" name="dock_3">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>0</y>
+        <width>1351</width>
+        <height>42</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: rgb(0, 170, 0);
+background-color: rgb(45, 45, 43);</string>
+      </property>
+      <property name="features">
+       <set>QDockWidget::DockWidgetMovable|QDockWidget::DockWidgetVerticalTitleBar</set>
+      </property>
+      <widget class="QWidget" name="dockWidgetContents_11">
+       <property name="cursor">
+        <cursorShape>PointingHandCursor</cursorShape>
+       </property>
+       <property name="mouseTracking">
+        <bool>true</bool>
+       </property>
+       <widget class="QPushButton" name="switchToTrash_3">
+        <property name="geometry">
+         <rect>
+          <x>810</x>
+          <y>-10</y>
+          <width>511</width>
+          <height>61</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <family>Monotype Corsiva</family>
+          <pointsize>23</pointsize>
+          <weight>99</weight>
+          <bold>true</bold>
+         </font>
+        </property>
+        <property name="cursor">
+         <cursorShape>PointingHandCursor</cursorShape>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QPushButton {
+    outline: 0;
+    text-align: center;
+    padding: 17px 30px;
+    border: 0;
+    color: #DAA520;
+    font-size: 17.5px;
+    background: qlineargradient(spread:pad, x1:1, y1:0, x2:0, y2:1, stop:0 #b8b8b8, stop:0.05 #b8b8b8, stop:0.5 #ebf5ff, stop:0.95 #b8b8b8, stop:1 #b8b8b8);
+    line-height: 30px;
+    font-weight: 800;
+}
+
+QPushButton:hover {
+    background: qlineargradient(spread:pad, x1:1, y1:0, x2:0, y2:1, stop:0 #848484, stop:0.05 #848484, stop:0.5 #ebf5ff, stop:0.95 #848484, stop:1 #848484); /* Dark orange gradient when hovering */
+    color: #996515;
+}
+
+QPushButton:pressed {
+    background: #808080; /* Dark grey background when pressed */
+    color: #000;
+}
+</string>
+        </property>
+        <property name="text">
+         <string>Formation</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_31">
+        <property name="geometry">
+         <rect>
+          <x>0</x>
+          <y>-10</y>
+          <width>321</width>
+          <height>61</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <family>Script MT Bold</family>
+          <pointsize>22</pointsize>
+          <weight>75</weight>
+          <bold>true</bold>
+         </font>
+        </property>
+        <property name="cursor">
+         <cursorShape>BlankCursor</cursorShape>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">color: rgb(255, 255, 0);
+color: rgb(163, 163, 163);
+color: rgb(108, 108, 108);
+
+    background: qlineargradient(spread:pad, x1:1, y1:0, x2:0, y2:1, stop:0 #b8b8b8, stop:0.05 #b8b8b8, stop:0.5 #ebf5ff, stop:0.95 #b8b8b8, stop:1 #b8b8b8);
+
+</string>
+        </property>
+        <property name="text">
+         <string>Yuma</string>
+        </property>
+        <property name="scaledContents">
+         <bool>true</bool>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+        <property name="wordWrap">
+         <bool>false</bool>
+        </property>
+        <property name="margin">
+         <number>-90</number>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="switchToEmployee_3">
+        <property name="geometry">
+         <rect>
+          <x>320</x>
+          <y>-10</y>
+          <width>491</width>
+          <height>71</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <family>Monotype Corsiva</family>
+          <pointsize>23</pointsize>
+          <weight>99</weight>
+          <italic>true</italic>
+          <bold>true</bold>
+         </font>
+        </property>
+        <property name="cursor">
+         <cursorShape>PointingHandCursor</cursorShape>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QPushButton {
+    outline: 0;
+    text-align: center;
+    padding: 17px 30px;
+    border: 0;
+    color: #DAA520;
+    font-size: 17.5px;
+    background: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0 #b8b8b8, stop:0.05 #b8b8b8, stop:0.5 #ebf5ff, stop:0.95 #b8b8b8, stop:1 #b8b8b8);
+    line-height: 30px;
+    font-weight: 800;
+}
+
+QPushButton:hover {
+    background: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0 #848484, stop:0.05 #848484, stop:0.5 #ebf5ff, stop:0.95 #848484, stop:1 #848484); /* Dark orange gradient when hovering */
+    color: #996515;
+}
+
+QPushButton:pressed {
+    background: #ebf5ff; /* Dark grey background when pressed */
+    color: #000;
+}
+</string>
+        </property>
+        <property name="text">
+         <string>Employee</string>
+        </property>
+       </widget>
+      </widget>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="tab_3">
+     <attribute name="title">
+      <string>Page</string>
+     </attribute>
      <widget class="QLabel" name="label_10">
       <property name="geometry">
        <rect>
         <x>320</x>
         <y>0</y>
-        <width>1001</width>
+        <width>1031</width>
         <height>821</height>
        </rect>
       </property>
@@ -1718,14 +2105,14 @@ QPushButton:hover {
        <string/>
       </property>
       <property name="pixmap">
-       <pixmap resource="imgs.qrc">:/new/prefix1/dark-green-wall-backdrop-grunge-background-texture.jpg</pixmap>
+       <pixmap resource="imgs.qrc">:/new/prefix1/beige-soft-gradient-background-vintage-style.jpg</pixmap>
       </property>
      </widget>
      <widget class="QGroupBox" name="groupBox_3">
       <property name="geometry">
        <rect>
-        <x>370</x>
-        <y>80</y>
+        <x>410</x>
+        <y>60</y>
         <width>331</width>
         <height>351</height>
        </rect>
@@ -1749,15 +2136,13 @@ QPushButton:hover {
         <font>
          <family>MS Shell Dlg 2</family>
          <pointsize>20</pointsize>
-         <weight>9</weight>
+         <weight>50</weight>
          <italic>false</italic>
          <bold>false</bold>
         </font>
        </property>
        <property name="styleSheet">
-        <string notr="true">font: 75 20pt &quot;MS Shell Dlg 2&quot;;
-color:  #ED8E4A    ;
-</string>
+        <string notr="true">color: #996515;</string>
        </property>
        <property name="text">
         <string> Type</string>
@@ -1779,15 +2164,13 @@ color:  #ED8E4A    ;
         <font>
          <family>MS Shell Dlg 2</family>
          <pointsize>20</pointsize>
-         <weight>9</weight>
+         <weight>50</weight>
          <italic>false</italic>
          <bold>false</bold>
         </font>
        </property>
        <property name="styleSheet">
-        <string notr="true">font: 75 20pt &quot;MS Shell Dlg 2&quot;;
-color:  #ED8E4A    ;
-</string>
+        <string notr="true">color: #996515;</string>
        </property>
        <property name="text">
         <string> Date</string>
@@ -1834,7 +2217,7 @@ color:  #ED8E4A    ;
         <cursorShape>PointingHandCursor</cursorShape>
        </property>
        <property name="styleSheet">
-        <string notr="true">color: rgb(255, 255, 255);</string>
+        <string notr="true">color:black;</string>
        </property>
        <property name="text">
         <string>Customer Service</string>
@@ -1868,7 +2251,7 @@ color:  #ED8E4A    ;
         <cursorShape>PointingHandCursor</cursorShape>
        </property>
        <property name="styleSheet">
-        <string notr="true">color: rgb(255, 255, 255);</string>
+        <string notr="true">color:black;</string>
        </property>
        <property name="text">
         <string>Project Management</string>
@@ -1902,7 +2285,7 @@ color:  #ED8E4A    ;
         <cursorShape>PointingHandCursor</cursorShape>
        </property>
        <property name="styleSheet">
-        <string notr="true">color: rgb(255, 255, 255);</string>
+        <string notr="true">color:black;</string>
        </property>
        <property name="text">
         <string>Leadership</string>
@@ -1936,7 +2319,7 @@ color:  #ED8E4A    ;
         <cursorShape>PointingHandCursor</cursorShape>
        </property>
        <property name="styleSheet">
-        <string notr="true">color: rgb(255, 255, 255);</string>
+        <string notr="true">color:black;</string>
        </property>
        <property name="text">
         <string>Health &amp; Safety</string>
@@ -1952,10 +2335,10 @@ color:  #ED8E4A    ;
      <widget class="QTableView" name="view_2">
       <property name="geometry">
        <rect>
-        <x>330</x>
-        <y>450</y>
-        <width>991</width>
-        <height>371</height>
+        <x>370</x>
+        <y>420</y>
+        <width>961</width>
+        <height>361</height>
        </rect>
       </property>
       <property name="palette">
@@ -1964,9 +2347,9 @@ color:  #ED8E4A    ;
          <colorrole role="WindowText">
           <brush brushstyle="SolidPattern">
            <color alpha="255">
-            <red>105</red>
-            <green>172</green>
-            <blue>62</blue>
+            <red>0</red>
+            <green>0</green>
+            <blue>0</blue>
            </color>
           </brush>
          </colorrole>
@@ -1982,18 +2365,18 @@ color:  #ED8E4A    ;
          <colorrole role="Text">
           <brush brushstyle="SolidPattern">
            <color alpha="255">
-            <red>105</red>
-            <green>172</green>
-            <blue>62</blue>
+            <red>0</red>
+            <green>0</green>
+            <blue>0</blue>
            </color>
           </brush>
          </colorrole>
          <colorrole role="ButtonText">
           <brush brushstyle="SolidPattern">
            <color alpha="255">
-            <red>105</red>
-            <green>172</green>
-            <blue>62</blue>
+            <red>0</red>
+            <green>0</green>
+            <blue>0</blue>
            </color>
           </brush>
          </colorrole>
@@ -2018,9 +2401,9 @@ color:  #ED8E4A    ;
          <colorrole role="PlaceholderText">
           <brush brushstyle="NoBrush">
            <color alpha="128">
-            <red>105</red>
-            <green>172</green>
-            <blue>62</blue>
+            <red>0</red>
+            <green>0</green>
+            <blue>0</blue>
            </color>
           </brush>
          </colorrole>
@@ -2029,9 +2412,9 @@ color:  #ED8E4A    ;
          <colorrole role="WindowText">
           <brush brushstyle="SolidPattern">
            <color alpha="255">
-            <red>105</red>
-            <green>172</green>
-            <blue>62</blue>
+            <red>0</red>
+            <green>0</green>
+            <blue>0</blue>
            </color>
           </brush>
          </colorrole>
@@ -2047,18 +2430,18 @@ color:  #ED8E4A    ;
          <colorrole role="Text">
           <brush brushstyle="SolidPattern">
            <color alpha="255">
-            <red>105</red>
-            <green>172</green>
-            <blue>62</blue>
+            <red>0</red>
+            <green>0</green>
+            <blue>0</blue>
            </color>
           </brush>
          </colorrole>
          <colorrole role="ButtonText">
           <brush brushstyle="SolidPattern">
            <color alpha="255">
-            <red>105</red>
-            <green>172</green>
-            <blue>62</blue>
+            <red>0</red>
+            <green>0</green>
+            <blue>0</blue>
            </color>
           </brush>
          </colorrole>
@@ -2083,9 +2466,9 @@ color:  #ED8E4A    ;
          <colorrole role="PlaceholderText">
           <brush brushstyle="NoBrush">
            <color alpha="128">
-            <red>105</red>
-            <green>172</green>
-            <blue>62</blue>
+            <red>0</red>
+            <green>0</green>
+            <blue>0</blue>
            </color>
           </brush>
          </colorrole>
@@ -2094,9 +2477,9 @@ color:  #ED8E4A    ;
          <colorrole role="WindowText">
           <brush brushstyle="SolidPattern">
            <color alpha="255">
-            <red>105</red>
-            <green>172</green>
-            <blue>62</blue>
+            <red>0</red>
+            <green>0</green>
+            <blue>0</blue>
            </color>
           </brush>
          </colorrole>
@@ -2112,18 +2495,18 @@ color:  #ED8E4A    ;
          <colorrole role="Text">
           <brush brushstyle="SolidPattern">
            <color alpha="255">
-            <red>105</red>
-            <green>172</green>
-            <blue>62</blue>
+            <red>0</red>
+            <green>0</green>
+            <blue>0</blue>
            </color>
           </brush>
          </colorrole>
          <colorrole role="ButtonText">
           <brush brushstyle="SolidPattern">
            <color alpha="255">
-            <red>105</red>
-            <green>172</green>
-            <blue>62</blue>
+            <red>0</red>
+            <green>0</green>
+            <blue>0</blue>
            </color>
           </brush>
          </colorrole>
@@ -2148,9 +2531,9 @@ color:  #ED8E4A    ;
          <colorrole role="PlaceholderText">
           <brush brushstyle="NoBrush">
            <color alpha="128">
-            <red>105</red>
-            <green>172</green>
-            <blue>62</blue>
+            <red>0</red>
+            <green>0</green>
+            <blue>0</blue>
            </color>
           </brush>
          </colorrole>
@@ -2164,7 +2547,7 @@ color:  #ED8E4A    ;
       </property>
       <property name="styleSheet">
        <string notr="true">background-color: transparent; border: none;
-color: rgb(105, 172, 62);</string>
+color: black;</string>
       </property>
       <property name="alternatingRowColors">
        <bool>false</bool>
@@ -2179,8 +2562,8 @@ color: rgb(105, 172, 62);</string>
      <widget class="Line" name="line">
       <property name="geometry">
        <rect>
-        <x>793</x>
-        <y>90</y>
+        <x>833</x>
+        <y>70</y>
         <width>20</width>
         <height>241</height>
        </rect>
@@ -2189,33 +2572,11 @@ color: rgb(105, 172, 62);</string>
        <enum>Qt::Vertical</enum>
       </property>
      </widget>
-     <widget class="QLabel" name="label_9">
-      <property name="geometry">
-       <rect>
-        <x>370</x>
-        <y>10</y>
-        <width>361</width>
-        <height>61</height>
-       </rect>
-      </property>
-      <property name="font">
-       <font>
-        <family>Poor Richard</family>
-        <pointsize>36</pointsize>
-       </font>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">color: rgb(0, 170, 0);</string>
-      </property>
-      <property name="text">
-       <string>Search Formations</string>
-      </property>
-     </widget>
      <widget class="QGroupBox" name="groupBox_6">
       <property name="geometry">
        <rect>
-        <x>910</x>
-        <y>80</y>
+        <x>950</x>
+        <y>60</y>
         <width>331</width>
         <height>351</height>
        </rect>
@@ -2238,7 +2599,7 @@ color: rgb(105, 172, 62);</string>
         </font>
        </property>
        <property name="styleSheet">
-        <string notr="true">color: rgb(255, 255, 255);</string>
+        <string notr="true">color:black;</string>
        </property>
        <property name="text">
         <string>Mandatory</string>
@@ -2259,7 +2620,7 @@ color: rgb(105, 172, 62);</string>
         </font>
        </property>
        <property name="styleSheet">
-        <string notr="true">color: rgb(255, 255, 255);</string>
+        <string notr="true">color:black;</string>
        </property>
        <property name="text">
         <string>Optional</string>
@@ -2280,7 +2641,7 @@ color: rgb(105, 172, 62);</string>
         </font>
        </property>
        <property name="styleSheet">
-        <string notr="true">color: rgb(255, 255, 255);</string>
+        <string notr="true">color:black;</string>
        </property>
        <property name="text">
         <string>Certified</string>
@@ -2289,10 +2650,10 @@ color: rgb(105, 172, 62);</string>
       <widget class="QPushButton" name="ascendingButton">
        <property name="geometry">
         <rect>
-         <x>10</x>
+         <x>20</x>
          <y>260</y>
-         <width>151</width>
-         <height>81</height>
+         <width>141</width>
+         <height>71</height>
         </rect>
        </property>
        <property name="font">
@@ -2305,20 +2666,26 @@ color: rgb(105, 172, 62);</string>
        </property>
        <property name="styleSheet">
         <string notr="true">QPushButton {
-    background-color: #FFA500; /* Neon Orange */
-    color: #000000; /* Black */
+    outline: 0;
+    text-align: center;
     border: 2px solid transparent; /* Invisible border */
     border-radius: 10px;
     padding: 5px;
     min-width: 70px;
+    color: #000;
+    font-size: 17.5px;
+    background: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0 #b8b8b8, stop:0.05 #b8b8b8, stop:0.5 #ebf5ff, stop:0.95 #b8b8b8, stop:1 #b8b8b8);
+
 }
 
 QPushButton:hover {
-    border: 2px solid #ffffff; /* White border becomes visible when hovered over */
+    background: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0 #DAA520, stop:0.05 #DAA520, stop:0.5 #fff, stop:0.95 #DAA520, stop:1 #DAA520);
+    color: #DAA520;
 }
 
 QPushButton:pressed {
-    background-color: #FF4500; /* Darker Orange */
+    background: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0 #DAA520, stop:0.05 #DAA520, stop:0.5 #fff, stop:0.95 #DAA520, stop:1 #DAA520);
+color: #996515;
 }
 </string>
        </property>
@@ -2342,10 +2709,10 @@ QPushButton:pressed {
       <widget class="QPushButton" name="descendingButton">
        <property name="geometry">
         <rect>
-         <x>160</x>
+         <x>170</x>
          <y>260</y>
-         <width>161</width>
-         <height>81</height>
+         <width>141</width>
+         <height>71</height>
         </rect>
        </property>
        <property name="font">
@@ -2358,21 +2725,26 @@ QPushButton:pressed {
        </property>
        <property name="styleSheet">
         <string notr="true">QPushButton {
-    
-	background-color: rgb(0, 100, 0);
-	color: rgb(255, 255, 255);
+    outline: 0;
+    text-align: center;
     border: 2px solid transparent; /* Invisible border */
     border-radius: 10px;
     padding: 5px;
     min-width: 70px;
+    color: #000;
+    font-size: 17.5px;
+    background: qlineargradient(spread:pad, x1:1, y1:0, x2:0, y2:1, stop:0 #b8b8b8, stop:0.05 #b8b8b8, stop:0.5 #ebf5ff, stop:0.95 #b8b8b8, stop:1 #b8b8b8);
+
 }
 
 QPushButton:hover {
-    border: 2px solid #ffffff; /* White border becomes visible when hovered over */
+    background: qlineargradient(spread:pad, x1:1, y1:0, x2:0, y2:1, stop:0 #DAA520, stop:0.05 #DAA520, stop:0.5 #fff, stop:0.95 #DAA520, stop:1 #DAA520);
+    color: #DAA520;
 }
 
 QPushButton:pressed {
-    background-color: #FF4500; /* Darker Orange */
+    background: qlineargradient(spread:pad, x1:1, y1:0, x2:0, y2:1, stop:0 #DAA520, stop:0.05 #DAA520, stop:0.5 #fff, stop:0.95 #DAA520, stop:1 #DAA520);
+color: #996515;
 }
 </string>
        </property>
@@ -2406,15 +2778,13 @@ QPushButton:pressed {
         <font>
          <family>MS Shell Dlg 2</family>
          <pointsize>20</pointsize>
-         <weight>9</weight>
+         <weight>50</weight>
          <italic>false</italic>
          <bold>false</bold>
         </font>
        </property>
        <property name="styleSheet">
-        <string notr="true">font: 75 20pt &quot;MS Shell Dlg 2&quot;;
-color:  #ED8E4A    ;
-</string>
+        <string notr="true">color: #996515;</string>
        </property>
        <property name="text">
         <string>Properties</string>
@@ -2433,87 +2803,639 @@ color:  #ED8E4A    ;
         <font>
          <family>MS Shell Dlg 2</family>
          <pointsize>20</pointsize>
-         <weight>9</weight>
+         <weight>50</weight>
          <italic>false</italic>
          <bold>false</bold>
         </font>
        </property>
        <property name="styleSheet">
-        <string notr="true">font: 75 20pt &quot;MS Shell Dlg 2&quot;;
-color:  #ED8E4A    ;
-</string>
+        <string notr="true">color: #996515;</string>
        </property>
        <property name="text">
         <string>Amount</string>
        </property>
       </widget>
      </widget>
-     <widget class="QLabel" name="label_14">
+     <widget class="QGroupBox" name="groupBox_4">
       <property name="geometry">
        <rect>
-        <x>1040</x>
-        <y>10</y>
-        <width>91</width>
-        <height>61</height>
-       </rect>
-      </property>
-      <property name="font">
-       <font>
-        <family>Poor Richard</family>
-        <pointsize>36</pointsize>
-       </font>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">color: rgb(0, 170, 0);</string>
-      </property>
-      <property name="text">
-       <string>Sort</string>
-      </property>
-     </widget>
-     <widget class="QLabel" name="label_21">
-      <property name="geometry">
-       <rect>
-        <x>740</x>
-        <y>340</y>
-        <width>131</width>
-        <height>91</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string/>
-      </property>
-      <property name="pixmap">
-       <pixmap>6430960.jpg</pixmap>
-      </property>
-      <property name="scaledContents">
-       <bool>true</bool>
-      </property>
-     </widget>
-     <zorder>label_10</zorder>
-     <zorder>groupBox_4</zorder>
-     <zorder>groupBox_3</zorder>
-     <zorder>view_2</zorder>
-     <zorder>line</zorder>
-     <zorder>label_9</zorder>
-     <zorder>groupBox_6</zorder>
-     <zorder>label_14</zorder>
-     <zorder>label_21</zorder>
-    </widget>
-    <widget class="QWidget" name="tab_4">
-     <attribute name="title">
-      <string>Page</string>
-     </attribute>
-     <widget class="QGroupBox" name="groupBox_5">
-      <property name="geometry">
-       <rect>
-        <x>0</x>
+        <x>20</x>
         <y>0</y>
         <width>331</width>
         <height>821</height>
        </rect>
       </property>
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
       <property name="styleSheet">
-       <string notr="true">background-color: rgb(170, 170, 255);</string>
+       <string notr="true"/>
+      </property>
+      <property name="title">
+       <string/>
+      </property>
+      <widget class="QPushButton" name="add3">
+       <property name="geometry">
+        <rect>
+         <x>0</x>
+         <y>140</y>
+         <width>331</width>
+         <height>131</height>
+        </rect>
+       </property>
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="font">
+        <font>
+         <family>Monotype Corsiva</family>
+         <pointsize>25</pointsize>
+         <weight>75</weight>
+         <italic>true</italic>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QPushButton {
+    background-color: transparent;
+    border: none;
+	color:#DAA520;
+}
+
+QPushButton:hover {
+    background-color: rgba(255, 255, 255, 0.1); 
+color: #996515;
+}
+</string>
+       </property>
+       <property name="text">
+        <string>Manage Programs</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="display3">
+       <property name="geometry">
+        <rect>
+         <x>0</x>
+         <y>270</y>
+         <width>331</width>
+         <height>131</height>
+        </rect>
+       </property>
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="font">
+        <font>
+         <family>Monotype Corsiva</family>
+         <pointsize>25</pointsize>
+         <weight>75</weight>
+         <italic>false</italic>
+         <bold>true</bold>
+         <underline>false</underline>
+         <strikeout>false</strikeout>
+         <kerning>true</kerning>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QPushButton {
+    background-color: transparent;
+    border: none;
+	color:#DAA520;
+}
+
+QPushButton:hover {
+    background-color: rgba(255, 255, 255, 0.1); 
+color: #996515;
+}
+</string>
+       </property>
+       <property name="text">
+        <string>View / Export Programs</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="rech3">
+       <property name="geometry">
+        <rect>
+         <x>0</x>
+         <y>400</y>
+         <width>331</width>
+         <height>131</height>
+        </rect>
+       </property>
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="font">
+        <font>
+         <family>Monotype Corsiva</family>
+         <pointsize>25</pointsize>
+         <weight>75</weight>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QPushButton {
+    background-color: transparent;
+    border: none;
+	color:#DAA520;
+}
+
+QPushButton:hover {
+    background-color: rgba(255, 255, 255, 0.1); 
+color: #996515;
+}
+</string>
+       </property>
+       <property name="text">
+        <string>Search / Filter</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="stat3">
+       <property name="geometry">
+        <rect>
+         <x>0</x>
+         <y>530</y>
+         <width>331</width>
+         <height>131</height>
+        </rect>
+       </property>
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="font">
+        <font>
+         <family>Monotype Corsiva</family>
+         <pointsize>25</pointsize>
+         <weight>75</weight>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QPushButton {
+    background-color: transparent;
+    border: none;
+	color:#DAA520;
+}
+
+QPushButton:hover {
+    background-color: rgba(255, 255, 255, 0.1); 
+color: #996515;
+}
+</string>
+       </property>
+       <property name="text">
+        <string>Analytics </string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_26">
+       <property name="geometry">
+        <rect>
+         <x>0</x>
+         <y>40</y>
+         <width>331</width>
+         <height>741</height>
+        </rect>
+       </property>
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Expanding" vsizetype="Ignored">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color: rgb(11, 11, 11);</string>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="pixmap">
+        <pixmap>../../../Downloads/14546151_rm125-penny-06-frame.jpg</pixmap>
+       </property>
+       <property name="scaledContents">
+        <bool>true</bool>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+       </property>
+       <property name="wordWrap">
+        <bool>false</bool>
+       </property>
+       <property name="margin">
+        <number>0</number>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_27">
+       <property name="geometry">
+        <rect>
+         <x>0</x>
+         <y>0</y>
+         <width>331</width>
+         <height>41</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>Script MT Bold</family>
+         <pointsize>22</pointsize>
+         <weight>75</weight>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="cursor">
+        <cursorShape>ForbiddenCursor</cursorShape>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">color: rgb(255, 255, 0);
+color: rgb(163, 163, 163);
+color: rgb(108, 108, 108);
+
+    background: qlineargradient(spread:pad, x1:1, y1:0, x2:0, y2:1, stop:0 #b8b8b8, stop:0.05 #b8b8b8, stop:0.5 #ebf5ff, stop:0.95 #b8b8b8, stop:1 #b8b8b8);
+
+</string>
+       </property>
+       <property name="text">
+        <string>                   Yuma</string>
+       </property>
+      </widget>
+      <zorder>label_26</zorder>
+      <zorder>add3</zorder>
+      <zorder>display3</zorder>
+      <zorder>rech3</zorder>
+      <zorder>stat3</zorder>
+      <zorder>label_27</zorder>
+     </widget>
+     <widget class="QDockWidget" name="dock_0">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>0</y>
+        <width>1351</width>
+        <height>42</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: rgb(0, 170, 0);
+background-color: rgb(45, 45, 43);</string>
+      </property>
+      <property name="features">
+       <set>QDockWidget::DockWidgetMovable|QDockWidget::DockWidgetVerticalTitleBar</set>
+      </property>
+      <widget class="QWidget" name="dockWidgetContents_12">
+       <property name="cursor">
+        <cursorShape>PointingHandCursor</cursorShape>
+       </property>
+       <property name="mouseTracking">
+        <bool>true</bool>
+       </property>
+       <widget class="QPushButton" name="switchToTrash_4">
+        <property name="geometry">
+         <rect>
+          <x>810</x>
+          <y>-10</y>
+          <width>511</width>
+          <height>61</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <family>Monotype Corsiva</family>
+          <pointsize>23</pointsize>
+          <weight>99</weight>
+          <bold>true</bold>
+         </font>
+        </property>
+        <property name="cursor">
+         <cursorShape>PointingHandCursor</cursorShape>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QPushButton {
+    outline: 0;
+    text-align: center;
+    padding: 17px 30px;
+    border: 0;
+    color: #DAA520;
+    font-size: 17.5px;
+    background: qlineargradient(spread:pad, x1:1, y1:0, x2:0, y2:1, stop:0 #b8b8b8, stop:0.05 #b8b8b8, stop:0.5 #ebf5ff, stop:0.95 #b8b8b8, stop:1 #b8b8b8);
+    line-height: 30px;
+    font-weight: 800;
+}
+
+QPushButton:hover {
+    background: qlineargradient(spread:pad, x1:1, y1:0, x2:0, y2:1, stop:0 #848484, stop:0.05 #848484, stop:0.5 #ebf5ff, stop:0.95 #848484, stop:1 #848484); /* Dark orange gradient when hovering */
+    color: #996515;
+}
+
+QPushButton:pressed {
+    background: #808080; /* Dark grey background when pressed */
+    color: #000;
+}
+</string>
+        </property>
+        <property name="text">
+         <string>Formation</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_32">
+        <property name="geometry">
+         <rect>
+          <x>0</x>
+          <y>-10</y>
+          <width>321</width>
+          <height>61</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <family>Script MT Bold</family>
+          <pointsize>22</pointsize>
+          <weight>75</weight>
+          <bold>true</bold>
+         </font>
+        </property>
+        <property name="cursor">
+         <cursorShape>BlankCursor</cursorShape>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">color: rgb(255, 255, 0);
+color: rgb(163, 163, 163);
+color: rgb(108, 108, 108);
+
+    background: qlineargradient(spread:pad, x1:1, y1:0, x2:0, y2:1, stop:0 #b8b8b8, stop:0.05 #b8b8b8, stop:0.5 #ebf5ff, stop:0.95 #b8b8b8, stop:1 #b8b8b8);
+
+</string>
+        </property>
+        <property name="text">
+         <string>Yuma</string>
+        </property>
+        <property name="scaledContents">
+         <bool>true</bool>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+        <property name="wordWrap">
+         <bool>false</bool>
+        </property>
+        <property name="margin">
+         <number>-90</number>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="switchToEmployee_4">
+        <property name="geometry">
+         <rect>
+          <x>320</x>
+          <y>-10</y>
+          <width>491</width>
+          <height>71</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <family>Monotype Corsiva</family>
+          <pointsize>23</pointsize>
+          <weight>99</weight>
+          <italic>true</italic>
+          <bold>true</bold>
+         </font>
+        </property>
+        <property name="cursor">
+         <cursorShape>PointingHandCursor</cursorShape>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QPushButton {
+    outline: 0;
+    text-align: center;
+    padding: 17px 30px;
+    border: 0;
+    color: #DAA520;
+    font-size: 17.5px;
+    background: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0 #b8b8b8, stop:0.05 #b8b8b8, stop:0.5 #ebf5ff, stop:0.95 #b8b8b8, stop:1 #b8b8b8);
+    line-height: 30px;
+    font-weight: 800;
+}
+
+QPushButton:hover {
+    background: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0 #848484, stop:0.05 #848484, stop:0.5 #ebf5ff, stop:0.95 #848484, stop:1 #848484); /* Dark orange gradient when hovering */
+    color: #996515;
+}
+
+QPushButton:pressed {
+    background: #ebf5ff; /* Dark grey background when pressed */
+    color: #000;
+}
+</string>
+        </property>
+        <property name="text">
+         <string>Employee</string>
+        </property>
+       </widget>
+      </widget>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="tab_4">
+     <attribute name="title">
+      <string>Page</string>
+     </attribute>
+     <widget class="QLabel" name="label_11">
+      <property name="geometry">
+       <rect>
+        <x>330</x>
+        <y>0</y>
+        <width>1011</width>
+        <height>821</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(245, 245, 245);</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="pixmap">
+       <pixmap resource="imgs.qrc">:/new/prefix1/beige-soft-gradient-background-vintage-style.jpg</pixmap>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="stats_1">
+      <property name="geometry">
+       <rect>
+        <x>350</x>
+        <y>410</y>
+        <width>490</width>
+        <height>370</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Microsoft Uighur</family>
+        <pointsize>35</pointsize>
+        <weight>75</weight>
+        <italic>false</italic>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="cursor">
+       <cursorShape>PointingHandCursor</cursorShape>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton {
+	color: rgb(200, 0, 0);
+    border: 2px solid transparent; /* Invisible border */
+    border-radius: 10px;
+    padding: 5px;
+    min-width: 70px;
+}
+QPushButton:hover {
+    border: 2px solid #FF0000; /* Red border becomes visible when hovered over */
+}
+</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="stats_2">
+      <property name="geometry">
+       <rect>
+        <x>350</x>
+        <y>40</y>
+        <width>490</width>
+        <height>370</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Microsoft Uighur</family>
+        <pointsize>33</pointsize>
+        <weight>75</weight>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="cursor">
+       <cursorShape>PointingHandCursor</cursorShape>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton {
+	color:#DAA520;
+    border: 2px solid transparent; /* Invisible border */
+    border-radius: 10px;
+    padding: 5px;
+    min-width: 70px;
+}
+QPushButton:hover {
+    border: 2px solid #FFA500; /* Orange border becomes visible when hovered over */
+}
+</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="stats_3">
+      <property name="geometry">
+       <rect>
+        <x>840</x>
+        <y>40</y>
+        <width>491</width>
+        <height>370</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Microsoft Uighur</family>
+        <pointsize>30</pointsize>
+        <weight>75</weight>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="cursor">
+       <cursorShape>PointingHandCursor</cursorShape>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton {
+	color: rgb(47, 197, 72);
+    border: 2px solid transparent; /* Invisible border */
+    border-radius: 10px;
+    padding: 5px;
+    min-width: 70px;
+}
+QPushButton:hover {
+    border: 2px solid #00FF00; /* Green border becomes visible when hovered over */
+}
+</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="stats_4">
+      <property name="geometry">
+       <rect>
+        <x>840</x>
+        <y>410</y>
+        <width>490</width>
+        <height>370</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Microsoft Uighur</family>
+        <pointsize>28</pointsize>
+        <weight>75</weight>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="cursor">
+       <cursorShape>PointingHandCursor</cursorShape>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton {
+	color: rgb(0, 0, 255);
+    border: 2px solid transparent; /* Invisible border */
+    border-radius: 10px;
+    padding: 5px;
+    min-width: 70px;
+}
+QPushButton:hover {
+    border: 2px solid rgb(74, 141, 198);; /* Blue border becomes visible when hovered over */
+}
+</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+     <widget class="QGroupBox" name="groupBox_5">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>0</y>
+        <width>331</width>
+        <height>821</height>
+       </rect>
+      </property>
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="styleSheet">
+       <string notr="true"/>
       </property>
       <property name="title">
        <string/>
@@ -2527,27 +3449,36 @@ color:  #ED8E4A    ;
          <height>131</height>
         </rect>
        </property>
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
        <property name="font">
         <font>
-         <family>Mongolian Baiti</family>
-         <pointsize>20</pointsize>
+         <family>Monotype Corsiva</family>
+         <pointsize>25</pointsize>
+         <weight>75</weight>
+         <italic>true</italic>
+         <bold>true</bold>
         </font>
        </property>
        <property name="styleSheet">
         <string notr="true">QPushButton {
     background-color: transparent;
     border: none;
-	color: rgb(105, 172, 62);
+	color:#DAA520;
 }
 
 QPushButton:hover {
     background-color: rgba(255, 255, 255, 0.1); 
-    color:  #ED8E4A; 
+color: #996515;
 }
 </string>
        </property>
        <property name="text">
-        <string>ADD / Modify</string>
+        <string>Manage Programs</string>
        </property>
       </widget>
       <widget class="QPushButton" name="display4">
@@ -2559,27 +3490,39 @@ QPushButton:hover {
          <height>131</height>
         </rect>
        </property>
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
        <property name="font">
         <font>
-         <family>Mongolian Baiti</family>
-         <pointsize>19</pointsize>
+         <family>Monotype Corsiva</family>
+         <pointsize>25</pointsize>
+         <weight>75</weight>
+         <italic>false</italic>
+         <bold>true</bold>
+         <underline>false</underline>
+         <strikeout>false</strikeout>
+         <kerning>true</kerning>
         </font>
        </property>
        <property name="styleSheet">
         <string notr="true">QPushButton {
     background-color: transparent;
     border: none;
-	color: rgb(105, 172, 62);
+	color:#DAA520;
 }
 
 QPushButton:hover {
     background-color: rgba(255, 255, 255, 0.1); 
-    color:  #ED8E4A; 
+color: #996515;
 }
 </string>
        </property>
        <property name="text">
-        <string>Display / Delete / PDF</string>
+        <string>View / Export Programs</string>
        </property>
       </widget>
       <widget class="QPushButton" name="rech4">
@@ -2591,27 +3534,35 @@ QPushButton:hover {
          <height>131</height>
         </rect>
        </property>
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
        <property name="font">
         <font>
-         <family>Mongolian Baiti</family>
-         <pointsize>20</pointsize>
+         <family>Monotype Corsiva</family>
+         <pointsize>25</pointsize>
+         <weight>75</weight>
+         <bold>true</bold>
         </font>
        </property>
        <property name="styleSheet">
         <string notr="true">QPushButton {
     background-color: transparent;
     border: none;
-	color: rgb(105, 172, 62);
+	color:#DAA520;
 }
 
 QPushButton:hover {
     background-color: rgba(255, 255, 255, 0.1); 
-    color:  #ED8E4A; 
+color: #996515;
 }
 </string>
        </property>
        <property name="text">
-        <string>Search / Sort</string>
+        <string>Search / Filter</string>
        </property>
       </widget>
       <widget class="QPushButton" name="stat4">
@@ -2623,229 +3574,121 @@ QPushButton:hover {
          <height>131</height>
         </rect>
        </property>
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
        <property name="font">
         <font>
-         <family>Mongolian Baiti</family>
-         <pointsize>20</pointsize>
+         <family>Monotype Corsiva</family>
+         <pointsize>25</pointsize>
+         <weight>75</weight>
+         <bold>true</bold>
         </font>
        </property>
        <property name="styleSheet">
         <string notr="true">QPushButton {
     background-color: transparent;
     border: none;
-	color: rgb(105, 172, 62);
+	color:#DAA520;
 }
 
 QPushButton:hover {
     background-color: rgba(255, 255, 255, 0.1); 
-    color:  #ED8E4A; 
+color: #996515;
 }
 </string>
        </property>
        <property name="text">
-        <string>Statistics</string>
+        <string>Analytics </string>
        </property>
       </widget>
-      <widget class="QLabel" name="label_20">
+      <widget class="QLabel" name="label_28">
        <property name="geometry">
         <rect>
          <x>0</x>
-         <y>0</y>
+         <y>40</y>
          <width>331</width>
-         <height>821</height>
+         <height>741</height>
         </rect>
+       </property>
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Expanding" vsizetype="Ignored">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color: rgb(11, 11, 11);</string>
        </property>
        <property name="text">
         <string/>
        </property>
        <property name="pixmap">
-        <pixmap resource="imgs.qrc">:/new/prefix1/pxfuel.jpg</pixmap>
+        <pixmap resource="imgs.qrc">:/new/prefix1/14546151_rm125-penny-06-frame.jpg</pixmap>
        </property>
        <property name="scaledContents">
         <bool>true</bool>
        </property>
+       <property name="alignment">
+        <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+       </property>
+       <property name="wordWrap">
+        <bool>false</bool>
+       </property>
+       <property name="margin">
+        <number>0</number>
+       </property>
       </widget>
-      <zorder>label_20</zorder>
+      <widget class="QLabel" name="label_29">
+       <property name="geometry">
+        <rect>
+         <x>0</x>
+         <y>0</y>
+         <width>331</width>
+         <height>41</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>Script MT Bold</family>
+         <pointsize>22</pointsize>
+         <weight>75</weight>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="cursor">
+        <cursorShape>ForbiddenCursor</cursorShape>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">color: rgb(255, 255, 0);
+color: rgb(163, 163, 163);
+color: rgb(108, 108, 108);
+
+    background: qlineargradient(spread:pad, x1:1, y1:0, x2:0, y2:1, stop:0 #b8b8b8, stop:0.05 #b8b8b8, stop:0.5 #ebf5ff, stop:0.95 #b8b8b8, stop:1 #b8b8b8);
+
+</string>
+       </property>
+       <property name="text">
+        <string>                   Yuma</string>
+       </property>
+      </widget>
+      <zorder>label_28</zorder>
       <zorder>add4</zorder>
       <zorder>display4</zorder>
       <zorder>rech4</zorder>
       <zorder>stat4</zorder>
-     </widget>
-     <widget class="QLabel" name="label_11">
-      <property name="geometry">
-       <rect>
-        <x>330</x>
-        <y>0</y>
-        <width>991</width>
-        <height>821</height>
-       </rect>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">background-color: rgb(245, 245, 245);</string>
-      </property>
-      <property name="text">
-       <string/>
-      </property>
-      <property name="pixmap">
-       <pixmap resource="imgs.qrc">:/new/prefix1/dark-green-wall-backdrop-grunge-background-texture.jpg</pixmap>
-      </property>
-     </widget>
-     <widget class="QPushButton" name="stats_1">
-      <property name="geometry">
-       <rect>
-        <x>730</x>
-        <y>0</y>
-        <width>201</width>
-        <height>111</height>
-       </rect>
-      </property>
-      <property name="font">
-       <font>
-        <family>Microsoft Uighur</family>
-        <pointsize>20</pointsize>
-        <weight>75</weight>
-        <italic>false</italic>
-        <bold>true</bold>
-       </font>
-      </property>
-      <property name="cursor">
-       <cursorShape>PointingHandCursor</cursorShape>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">QPushButton {
-    color: #FF0000; /* Red */
-    border: 2px solid transparent; /* Invisible border */
-    border-radius: 10px;
-    padding: 5px;
-    min-width: 70px;
-}
-QPushButton:hover {
-    border: 2px solid #FF0000; /* Red border becomes visible when hovered over */
-}
-</string>
-      </property>
-      <property name="text">
-       <string>Leadership</string>
-      </property>
-     </widget>
-     <widget class="QPushButton" name="stats_2">
-      <property name="geometry">
-       <rect>
-        <x>530</x>
-        <y>0</y>
-        <width>201</width>
-        <height>111</height>
-       </rect>
-      </property>
-      <property name="font">
-       <font>
-        <family>Microsoft Uighur</family>
-        <pointsize>24</pointsize>
-        <weight>75</weight>
-        <bold>true</bold>
-       </font>
-      </property>
-      <property name="cursor">
-       <cursorShape>PointingHandCursor</cursorShape>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">QPushButton {
-    color: #FFA500; /* Orange */
-    border: 2px solid transparent; /* Invisible border */
-    border-radius: 10px;
-    padding: 5px;
-    min-width: 70px;
-}
-QPushButton:hover {
-    border: 2px solid #FFA500; /* Orange border becomes visible when hovered over */
-}
-</string>
-      </property>
-      <property name="text">
-       <string>Health &amp; Safety</string>
-      </property>
-     </widget>
-     <widget class="QPushButton" name="stats_3">
-      <property name="geometry">
-       <rect>
-        <x>330</x>
-        <y>0</y>
-        <width>201</width>
-        <height>111</height>
-       </rect>
-      </property>
-      <property name="font">
-       <font>
-        <family>Microsoft Uighur</family>
-        <pointsize>24</pointsize>
-        <weight>75</weight>
-        <bold>true</bold>
-       </font>
-      </property>
-      <property name="cursor">
-       <cursorShape>PointingHandCursor</cursorShape>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">QPushButton {
-    color: #00FF00; /* Green */
-    border: 2px solid transparent; /* Invisible border */
-    border-radius: 10px;
-    padding: 5px;
-    min-width: 70px;
-}
-QPushButton:hover {
-    border: 2px solid #00FF00; /* Green border becomes visible when hovered over */
-}
-</string>
-      </property>
-      <property name="text">
-       <string>Customer Service</string>
-      </property>
-     </widget>
-     <widget class="QPushButton" name="stats_4">
-      <property name="geometry">
-       <rect>
-        <x>930</x>
-        <y>0</y>
-        <width>201</width>
-        <height>111</height>
-       </rect>
-      </property>
-      <property name="font">
-       <font>
-        <family>Microsoft Uighur</family>
-        <pointsize>22</pointsize>
-        <weight>75</weight>
-        <bold>true</bold>
-       </font>
-      </property>
-      <property name="cursor">
-       <cursorShape>PointingHandCursor</cursorShape>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">QPushButton {
-   color: rgb(74, 141, 198);
-    border: 2px solid transparent; /* Invisible border */
-    border-radius: 10px;
-    padding: 5px;
-    min-width: 70px;
-}
-QPushButton:hover {
-    border: 2px solid rgb(74, 141, 198);; /* Blue border becomes visible when hovered over */
-}
-</string>
-      </property>
-      <property name="text">
-       <string>Project Management</string>
-      </property>
+      <zorder>label_29</zorder>
      </widget>
      <widget class="QPushButton" name="stack">
       <property name="geometry">
        <rect>
-        <x>1130</x>
-        <y>0</y>
-        <width>191</width>
-        <height>111</height>
+        <x>1100</x>
+        <y>650</y>
+        <width>211</width>
+        <height>131</height>
        </rect>
       </property>
       <property name="font">
@@ -2876,305 +3719,262 @@ QPushButton:hover {
        <string>proportion Bar-Graph</string>
       </property>
      </widget>
-     <widget class="QLabel" name="mecha">
-      <property name="enabled">
-       <bool>true</bool>
-      </property>
+     <widget class="QLabel" name="label_8">
       <property name="geometry">
        <rect>
-        <x>330</x>
-        <y>110</y>
-        <width>991</width>
-        <height>701</height>
+        <x>350</x>
+        <y>40</y>
+        <width>490</width>
+        <height>370</height>
        </rect>
       </property>
-      <property name="sizePolicy">
-       <sizepolicy hsizetype="Ignored" vsizetype="Ignored">
-        <horstretch>0</horstretch>
-        <verstretch>0</verstretch>
-       </sizepolicy>
+      <property name="text">
+       <string/>
       </property>
-      <property name="cursor">
-       <cursorShape>CrossCursor</cursorShape>
+      <property name="pixmap">
+       <pixmap>../../../Downloads/2149919543.jpg</pixmap>
       </property>
-      <property name="mouseTracking">
-       <bool>false</bool>
+      <property name="scaledContents">
+       <bool>true</bool>
       </property>
-      <property name="focusPolicy">
-       <enum>Qt::NoFocus</enum>
+     </widget>
+     <widget class="QLabel" name="label_18">
+      <property name="geometry">
+       <rect>
+        <x>350</x>
+        <y>410</y>
+        <width>490</width>
+        <height>370</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="pixmap">
+       <pixmap>../../../Downloads/3198012_456307-PFNKMA-483.jpg</pixmap>
+      </property>
+      <property name="scaledContents">
+       <bool>true</bool>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_19">
+      <property name="geometry">
+       <rect>
+        <x>760</x>
+        <y>410</y>
+        <width>641</width>
+        <height>370</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="pixmap">
+       <pixmap>../../../Downloads/132316.jpg</pixmap>
+      </property>
+      <property name="scaledContents">
+       <bool>true</bool>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_20">
+      <property name="geometry">
+       <rect>
+        <x>840</x>
+        <y>40</y>
+        <width>501</width>
+        <height>370</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="pixmap">
+       <pixmap>../../../Downloads/asd.jpg</pixmap>
+      </property>
+      <property name="scaledContents">
+       <bool>true</bool>
+      </property>
+     </widget>
+     <widget class="QDockWidget" name="dock_2">
+      <property name="geometry">
+       <rect>
+        <x>-10</x>
+        <y>0</y>
+        <width>1351</width>
+        <height>42</height>
+       </rect>
       </property>
       <property name="styleSheet">
-       <string notr="true">background-color: transparent; border: none;
-color: rgb(0, 170, 0);
+       <string notr="true">color: rgb(0, 170, 0);
+background-color: rgb(45, 45, 43);</string>
+      </property>
+      <property name="features">
+       <set>QDockWidget::DockWidgetMovable|QDockWidget::DockWidgetVerticalTitleBar</set>
+      </property>
+      <widget class="QWidget" name="dockWidgetContents_10">
+       <property name="cursor">
+        <cursorShape>PointingHandCursor</cursorShape>
+       </property>
+       <property name="mouseTracking">
+        <bool>true</bool>
+       </property>
+       <widget class="QPushButton" name="switchToTrash_2">
+        <property name="geometry">
+         <rect>
+          <x>820</x>
+          <y>-10</y>
+          <width>501</width>
+          <height>61</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <family>Monotype Corsiva</family>
+          <pointsize>23</pointsize>
+          <weight>99</weight>
+          <bold>true</bold>
+         </font>
+        </property>
+        <property name="cursor">
+         <cursorShape>PointingHandCursor</cursorShape>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QPushButton {
+    outline: 0;
+    text-align: center;
+    padding: 17px 30px;
+    border: 0;
+    color: #DAA520;
+    font-size: 17.5px;
+    background: qlineargradient(spread:pad, x1:1, y1:0, x2:0, y2:1, stop:0 #b8b8b8, stop:0.05 #b8b8b8, stop:0.5 #ebf5ff, stop:0.95 #b8b8b8, stop:1 #b8b8b8);
+    line-height: 30px;
+    font-weight: 800;
+}
+
+QPushButton:hover {
+    background: qlineargradient(spread:pad, x1:1, y1:0, x2:0, y2:1, stop:0 #848484, stop:0.05 #848484, stop:0.5 #ebf5ff, stop:0.95 #848484, stop:1 #848484); /* Dark orange gradient when hovering */
+    color: #996515;
+}
+
+QPushButton:pressed {
+    background: #808080; /* Dark grey background when pressed */
+    color: #000;
+}
+</string>
+        </property>
+        <property name="text">
+         <string>Formation</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_30">
+        <property name="geometry">
+         <rect>
+          <x>0</x>
+          <y>-10</y>
+          <width>331</width>
+          <height>61</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <family>Script MT Bold</family>
+          <pointsize>22</pointsize>
+          <weight>75</weight>
+          <bold>true</bold>
+         </font>
+        </property>
+        <property name="cursor">
+         <cursorShape>BlankCursor</cursorShape>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">color: rgb(255, 255, 0);
+color: rgb(163, 163, 163);
+color: rgb(108, 108, 108);
+
+    background: qlineargradient(spread:pad, x1:1, y1:0, x2:0, y2:1, stop:0 #b8b8b8, stop:0.05 #b8b8b8, stop:0.5 #ebf5ff, stop:0.95 #b8b8b8, stop:1 #b8b8b8);
 
 </string>
-      </property>
-      <property name="text">
-       <string/>
-      </property>
-      <property name="pixmap">
-       <pixmap resource="imgs.qrc">:/new/prefix1/Metalpng.png</pixmap>
-      </property>
-      <property name="scaledContents">
-       <bool>true</bool>
-      </property>
-     </widget>
-     <widget class="QLabel" name="glacha">
-      <property name="geometry">
-       <rect>
-        <x>330</x>
-        <y>110</y>
-        <width>991</width>
-        <height>711</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string/>
-      </property>
-      <property name="pixmap">
-       <pixmap resource="imgs.qrc">:/new/prefix1/Glasspng.png</pixmap>
-      </property>
-      <property name="scaledContents">
-       <bool>true</bool>
-      </property>
-     </widget>
-     <widget class="QLabel" name="papcha">
-      <property name="geometry">
-       <rect>
-        <x>330</x>
-        <y>110</y>
-        <width>991</width>
-        <height>711</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string/>
-      </property>
-      <property name="pixmap">
-       <pixmap resource="imgs.qrc">:/new/prefix1/pap.png</pixmap>
-      </property>
-      <property name="scaledContents">
-       <bool>true</bool>
-      </property>
-     </widget>
-     <widget class="QLabel" name="placha">
-      <property name="geometry">
-       <rect>
-        <x>330</x>
-        <y>110</y>
-        <width>991</width>
-        <height>711</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string/>
-      </property>
-      <property name="pixmap">
-       <pixmap resource="imgs.qrc">:/new/prefix1/Pla.png</pixmap>
-      </property>
-      <property name="scaledContents">
-       <bool>true</bool>
-      </property>
-     </widget>
-     <widget class="QLabel" name="stacha">
-      <property name="geometry">
-       <rect>
-        <x>330</x>
-        <y>110</y>
-        <width>991</width>
-        <height>711</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string/>
-      </property>
-      <property name="pixmap">
-       <pixmap resource="imgs.qrc">:/new/prefix1/stack.png</pixmap>
-      </property>
-      <property name="scaledContents">
-       <bool>true</bool>
-      </property>
-     </widget>
-     <widget class="QLabel" name="GIF">
-      <property name="geometry">
-       <rect>
-        <x>480</x>
-        <y>230</y>
-        <width>691</width>
-        <height>421</height>
-       </rect>
-      </property>
-      <property name="cursor">
-       <cursorShape>BlankCursor</cursorShape>
-      </property>
-      <property name="text">
-       <string/>
-      </property>
-      <property name="scaledContents">
-       <bool>true</bool>
-      </property>
+        </property>
+        <property name="text">
+         <string>Yuma</string>
+        </property>
+        <property name="scaledContents">
+         <bool>true</bool>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+        <property name="wordWrap">
+         <bool>false</bool>
+        </property>
+        <property name="margin">
+         <number>-90</number>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="switchToEmployee_2">
+        <property name="geometry">
+         <rect>
+          <x>330</x>
+          <y>-10</y>
+          <width>491</width>
+          <height>71</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <family>Monotype Corsiva</family>
+          <pointsize>23</pointsize>
+          <weight>99</weight>
+          <italic>true</italic>
+          <bold>true</bold>
+         </font>
+        </property>
+        <property name="cursor">
+         <cursorShape>PointingHandCursor</cursorShape>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QPushButton {
+    outline: 0;
+    text-align: center;
+    padding: 17px 30px;
+    border: 0;
+    color: #DAA520;
+    font-size: 17.5px;
+    background: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0 #b8b8b8, stop:0.05 #b8b8b8, stop:0.5 #ebf5ff, stop:0.95 #b8b8b8, stop:1 #b8b8b8);
+    line-height: 30px;
+    font-weight: 800;
+}
+
+QPushButton:hover {
+    background: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0 #848484, stop:0.05 #848484, stop:0.5 #ebf5ff, stop:0.95 #848484, stop:1 #848484); /* Dark orange gradient when hovering */
+    color: #996515;
+}
+
+QPushButton:pressed {
+    background: #ebf5ff; /* Dark grey background when pressed */
+    color: #000;
+}
+</string>
+        </property>
+        <property name="text">
+         <string>Employee</string>
+        </property>
+       </widget>
+      </widget>
      </widget>
      <zorder>label_11</zorder>
-     <zorder>groupBox_5</zorder>
-     <zorder>stats_1</zorder>
-     <zorder>stats_2</zorder>
-     <zorder>stats_3</zorder>
-     <zorder>stats_4</zorder>
      <zorder>stack</zorder>
-     <zorder>GIF</zorder>
-     <zorder>mecha</zorder>
-     <zorder>glacha</zorder>
-     <zorder>papcha</zorder>
-     <zorder>placha</zorder>
-     <zorder>stacha</zorder>
+     <zorder>groupBox_5</zorder>
+     <zorder>label_8</zorder>
+     <zorder>stats_2</zorder>
+     <zorder>label_19</zorder>
+     <zorder>stats_4</zorder>
+     <zorder>label_18</zorder>
+     <zorder>stats_1</zorder>
+     <zorder>label_20</zorder>
+     <zorder>stats_3</zorder>
+     <zorder>dock_2</zorder>
     </widget>
-   </widget>
-  </widget>
-  <widget class="QDockWidget" name="dock">
-   <property name="styleSheet">
-    <string notr="true">color: rgb(0, 170, 0);
-background-color: rgb(45, 45, 43);</string>
-   </property>
-   <property name="features">
-    <set>QDockWidget::DockWidgetMovable|QDockWidget::DockWidgetVerticalTitleBar</set>
-   </property>
-   <attribute name="dockWidgetArea">
-    <number>4</number>
-   </attribute>
-   <widget class="QWidget" name="dockWidgetContents_6">
-    <property name="cursor">
-     <cursorShape>PointingHandCursor</cursorShape>
-    </property>
-    <property name="mouseTracking">
-     <bool>true</bool>
-    </property>
-    <widget class="QLabel" name="label_3">
-     <property name="geometry">
-      <rect>
-       <x>0</x>
-       <y>-10</y>
-       <width>311</width>
-       <height>61</height>
-      </rect>
-     </property>
-     <property name="font">
-      <font>
-       <pointsize>18</pointsize>
-       <weight>75</weight>
-       <bold>true</bold>
-      </font>
-     </property>
-     <property name="cursor">
-      <cursorShape>ForbiddenCursor</cursorShape>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">background-color: rgb(49, 44, 40);
-color: rgb(246, 166, 37);</string>
-     </property>
-     <property name="text">
-      <string>Earth Rebirth</string>
-     </property>
-     <property name="alignment">
-      <set>Qt::AlignCenter</set>
-     </property>
-    </widget>
-    <widget class="QPushButton" name="switchToEmployee">
-     <property name="geometry">
-      <rect>
-       <x>310</x>
-       <y>-10</y>
-       <width>491</width>
-       <height>61</height>
-      </rect>
-     </property>
-     <property name="font">
-      <font>
-       <pointsize>14</pointsize>
-       <weight>99</weight>
-       <bold>true</bold>
-      </font>
-     </property>
-     <property name="cursor">
-      <cursorShape>PointingHandCursor</cursorShape>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">QPushButton {
-    outline: 0;
-    text-align: center;
-    padding: 17px 30px;
-    border: 0;
-    color: #fff;
-    font-size: 17.5px;
-    background: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0 #808080, stop:0.05 #808080, stop:0.5 #36c275, stop:0.95 #808080, stop:1 #808080);
-    line-height: 30px;
-    font-weight: 800;
-}
-
-QPushButton:hover {
-    background: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0 #808080, stop:0.05 #808080, stop:0.5 #FF8C00, stop:0.95 #808080, stop:1 #808080); /* Dark orange gradient when hovering */
-    color: #000;
-}
-
-QPushButton:pressed {
-    background: #808080; /* Dark grey background when pressed */
-    color: #000;
-}
-</string>
-     </property>
-     <property name="text">
-      <string>Employee</string>
-     </property>
-    </widget>
-    <widget class="QPushButton" name="switchToTrash">
-     <property name="geometry">
-      <rect>
-       <x>800</x>
-       <y>-10</y>
-       <width>501</width>
-       <height>61</height>
-      </rect>
-     </property>
-     <property name="font">
-      <font>
-       <pointsize>14</pointsize>
-       <weight>99</weight>
-       <bold>true</bold>
-      </font>
-     </property>
-     <property name="cursor">
-      <cursorShape>PointingHandCursor</cursorShape>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">QPushButton {
-    outline: 0;
-    text-align: center;
-    padding: 17px 30px;
-    border: 0;
-    color: #fff;
-    font-size: 17.5px;
-    background: qlineargradient(spread:pad, x1:1, y1:0, x2:0, y2:1, stop:0 #808080, stop:0.05 #808080, stop:0.5 #36c275, stop:0.95 #808080, stop:1 #808080);
-    line-height: 30px;
-    font-weight: 800;
-}
-
-QPushButton:hover {
-    background: qlineargradient(spread:pad, x1:1, y1:0, x2:0, y2:1, stop:0 #808080, stop:0.05 #808080, stop:0.5 #FF8C00, stop:0.95 #808080, stop:1 #808080); /* Dark orange gradient when hovering */
-    color: #000;
-}
-
-QPushButton:pressed {
-    background: #808080; /* Dark grey background when pressed */
-    color: #000;
-}
-</string>
-     </property>
-     <property name="text">
-      <string>Formation</string>
-     </property>
-    </widget>
-    <zorder>switchToEmployee</zorder>
-    <zorder>label_3</zorder>
-    <zorder>switchToTrash</zorder>
    </widget>
   </widget>
  </widget>

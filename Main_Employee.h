@@ -4,6 +4,7 @@
 #include <QMainWindow>
 #include "Employee.h"
 #include "forget.h"
+#include "recaptcha.h"
 #include <QStackedWidget>
 
 class Main_trash;
@@ -20,6 +21,8 @@ public:
     explicit Main_Employee(QWidget *parent = nullptr);
     ~Main_Employee();
     QSqlDatabase db;
+
+
 
 protected:
     void closeEvent(QCloseEvent *event) override; // Ensure this matches the base class
@@ -59,10 +62,14 @@ private slots:
 
     void switchToTrash();
 
+    void onCaptchaVerified(bool isValid);
+
 private:
     Ui::Main_Employee *ui;
     employe e;
     Main_trash *trashWindow;
+    bool captchaSolved;
+    recaptcha* recaptchaDialog;
 
 
 };

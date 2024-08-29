@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>514</width>
-    <height>474</height>
+    <width>504</width>
+    <height>439</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -20,30 +20,33 @@
    <widget class="QPushButton" name="Formation_home">
     <property name="geometry">
      <rect>
-      <x>0</x>
-      <y>0</y>
-      <width>511</width>
+      <x>-10</x>
+      <y>-20</y>
+      <width>541</width>
       <height>211</height>
      </rect>
     </property>
     <property name="font">
      <font>
-      <pointsize>24</pointsize>
+      <family>Modern No. 20</family>
+      <pointsize>30</pointsize>
       <weight>75</weight>
       <bold>true</bold>
      </font>
     </property>
+    <property name="cursor">
+     <cursorShape>PointingHandCursor</cursorShape>
+    </property>
     <property name="styleSheet">
      <string notr="true">QPushButton {
-color: rgb(255, 127, 84);
     background-color: transparent;
     border: none;
-
+	color:#DAA520;
 }
 
 QPushButton:hover {
-    background-color: rgba(255, 255, 255, 0.1);  
-	color: rgb(0, 170, 0);
+    background-color: rgba(255, 255, 255, 0.1); 
+color: #996515;
 }
 </string>
     </property>
@@ -54,11 +57,14 @@ QPushButton:hover {
    <widget class="QLabel" name="label">
     <property name="geometry">
      <rect>
-      <x>0</x>
-      <y>-40</y>
-      <width>521</width>
-      <height>891</height>
+      <x>-20</x>
+      <y>-20</y>
+      <width>551</width>
+      <height>461</height>
      </rect>
+    </property>
+    <property name="cursor">
+     <cursorShape>ForbiddenCursor</cursorShape>
     </property>
     <property name="styleSheet">
      <string notr="true">background-color: rgb(85, 170, 0);</string>
@@ -67,7 +73,7 @@ QPushButton:hover {
      <string/>
     </property>
     <property name="pixmap">
-     <pixmap resource="imgs.qrc">:/new/prefix1/pexels-kaique-rocha-775201.jpg</pixmap>
+     <pixmap resource="imgs.qrc">:/new/prefix1/ASDASDUntitled design (1).png</pixmap>
     </property>
     <property name="scaledContents">
      <bool>true</bool>
@@ -77,29 +83,32 @@ QPushButton:hover {
     <property name="geometry">
      <rect>
       <x>0</x>
-      <y>220</y>
-      <width>521</width>
-      <height>211</height>
+      <y>200</y>
+      <width>511</width>
+      <height>251</height>
      </rect>
     </property>
     <property name="font">
      <font>
-      <pointsize>24</pointsize>
+      <family>Modern No. 20</family>
+      <pointsize>30</pointsize>
       <weight>75</weight>
       <bold>true</bold>
      </font>
     </property>
+    <property name="cursor">
+     <cursorShape>PointingHandCursor</cursorShape>
+    </property>
     <property name="styleSheet">
      <string notr="true">QPushButton {
-color: rgb(255, 127, 84);
     background-color: transparent;
     border: none;
-
+	color:#DAA520;
 }
 
 QPushButton:hover {
-    background-color: rgba(255, 255, 255, 0.1);  
-	color: rgb(0, 170, 0);
+    background-color: rgba(255, 255, 255, 0.1); 
+color: #996515;
 }
 </string>
     </property>
@@ -116,7 +125,7 @@ QPushButton:hover {
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>514</width>
+     <width>504</width>
      <height>22</height>
     </rect>
    </property>

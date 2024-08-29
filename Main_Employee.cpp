@@ -4,7 +4,7 @@
 #include "Formation.h"
 #include "forget.h"
 #include "stats.h"
-#include "recaptcha.h"
+//#include "recaptcha.h"
 #include <QDebug>
 #include <QSqlError>
 #include <QMessageBox>
@@ -21,7 +21,8 @@
 Main_Employee::Main_Employee(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::Main_Employee)
-   , trashWindow(nullptr)
+   , trashWindow(nullptr),
+    captchaSolved(false) // Initialize the flag to false
 {
     ui->setupUi(this);
     trashWindow = new Main_trash();  // Initialize Main_trash
@@ -36,6 +37,19 @@ Main_Employee::Main_Employee(QWidget *parent) :
             connect(switchToTrashButton, &QPushButton::clicked, this, &Main_Employee::switchToTrash);
         }
 
+        ui->comboSupp->setModel(e.afficher());
+        ui->ComboModif->setModel(e.afficher());
+        ui->tab_equipement->setModel(e.afficher());//refresh
+        ui->tab_equipement_2->setModel(e.afficher());//refresh
+        ui->tab_equipement_5->setModel(e.afficher());//refresh
+
+
+        ui->tabWidget->setTabEnabled(1, false); // Assuming tab index 1 is locked
+            ui->tabWidget->setTabEnabled(2, false); // Assuming tab index 2 is locked
+            ui->tabWidget->setTabEnabled(3, false); // Assuming tab index 3 is locked
+        recaptchaDialog = new recaptcha(this); // Initialize the recaptchaDialog
+           connect(recaptchaDialog, &recaptcha::captchaVerified, this, &Main_Employee::onCaptchaVerified);
+
 
 }
 
@@ -45,7 +59,11 @@ Main_Employee::~Main_Employee()
 }
 
 
-
+void Main_Employee::onCaptchaVerified(bool isValid)
+{
+    captchaSolved = isValid;
+    ui->pushButton->setEnabled(captchaSolved); // Enable the login button only if CAPTCHA is solved
+}
 
 
 void Main_Employee::switchToTrash()
@@ -178,6 +196,7 @@ void Main_Employee::on_modifier_2_clicked()
     QString password = ui->niveauremplissage2->text(); // Assuming this is the input field for password
     QDate date_naissance = ui->date2->date();
 
+
     // Create an employe object with the updated information
     employe e(id, poste, etat, mail, password, date_naissance);
 
@@ -188,6 +207,7 @@ void Main_Employee::on_modifier_2_clicked()
         // Update ComboBoxes after modification
         ui->comboSupp->setModel(e.afficher());
         ui->ComboModif->setModel(e.afficher());
+        QMessageBox::information(this, tr("Modifier employe"), tr("employe modifié!"), QMessageBox::Cancel);
 
     } else {
         // Show an error message in case of failure
@@ -204,7 +224,7 @@ void Main_Employee::on_pb_afficher_3_clicked()
     ui->tab_equipement_2->setModel(e.afficher());//refresh
     ui->tab_equipement_5->setModel(e.afficher());//refresh
 
-    QMessageBox::information(this, tr("Modifier employe"), tr("employe modifié!"), QMessageBox::Cancel);
+
 }
 
 void Main_Employee::on_pb_afficher_4_clicked()
@@ -218,19 +238,28 @@ void Main_Employee::on_pb_afficher_4_clicked()
 
 void Main_Employee::on_reset_clicked()
 {
-    ui->ComboModif->clear();
+    // Reset QComboBox to the first item or any specific item
+    ui->ComboModif->setCurrentIndex(-1); // Reset to the first item
 
-        ui->type2->clear();
-        ui->etat2->clear();
+    // You can also reset it to a specific index if needed
+     ui->type2->setCurrentIndex(-1);
+     ui->etat2->setCurrentIndex(-1);
 
-        ui->prix2->clear();
-        ui->niveauremplissage2->clear();
-        ui->date2->clear();
-        ui->idZone2->clear();
+    // Clear other fields as necessary
+    ui->prix2->clear();
+    ui->niveauremplissage2->clear();
+    ui->date2->clear();
+    ui->idZone2->clear();
 }
-
 void Main_Employee::on_pushButton_clicked()
 {
+    if (!captchaSolved) {
+        // Show CAPTCHA dialog if not already solved
+        recaptcha recaptchaDialog(this);
+        recaptchaDialog.exec();
+    }
+
+    if (captchaSolved) {
         QString enteredmail = ui->mail_lineEdit->text();
         QString enteredPassword = ui->password_lineEdit->text();
 
@@ -247,12 +276,19 @@ void Main_Employee::on_pushButton_clicked()
         if (query.next()) {
             // Valid email and password
             QMessageBox::information(this, "Login Successful", "Login successful!");
+            // Enable the other three tabs after successful login
+            ui->tabWidget->setTabEnabled(1, true);
+            ui->tabWidget->setTabEnabled(2, true);
+            ui->tabWidget->setTabEnabled(3, true);
+            ui->tabWidget->setCurrentIndex(1);
         } else {
             // Invalid email or password
             qDebug() << "Invalid mail or password. Please try again.";
-            QMessageBox::information(this, "try again", "wrong mail or password!");
+            QMessageBox::information(this, "Try Again", "Wrong mail or password!");
         }
+    }
 }
+
 
 void Main_Employee::on_pushButton_2_clicked()
 {
@@ -265,7 +301,7 @@ void Main_Employee::on_pushButton_3_clicked()
 {
     QString searchText = ui->lineEditSearch->text(); // Assuming you have a QLineEdit for search input named lineEditSearch
 
-    employe e; // Create an instance of your employe class
+//    employe e; // Create an instance of your employe class
     QSqlQueryModel* searchResults = e.rechercher(searchText); // Call the modified rechercher function
 
     // Set the model for your QTableView (assuming tab_equipement_5 is a QTableView)

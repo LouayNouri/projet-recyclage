@@ -33,17 +33,17 @@ TextToSpeechWindow::TextToSpeechWindow(QWidget *parent, const QString &data)
     ui3->resumeButton->setStyleSheet("QPushButton {font: 14pt bold;color: #319515;border: 2px solid transparent; border-radius: 10px;padding: 5px;min-width: 70px;}QPushButton:hover {border: 2px solid #319515;; }");
     ui3->pauseButton->setStyleSheet("QPushButton {font: 14pt bold;color: #319515;border: 2px solid transparent; border-radius: 10px;padding: 5px;min-width: 70px;}QPushButton:hover {border: 2px solid #319515;; }");
     ui3->stopButton->setStyleSheet("QPushButton {font: 14pt bold;color: red;border: 2px solid transparent; border-radius: 10px;padding: 5px;min-width: 70px;}QPushButton:hover {border: 2px solid red;; }");
-    ui3->plainTextEdit->setStyleSheet("color: white;");
-    ui3->label_2->setStyleSheet("font: 10pt bold;color: white;");
-    ui3->label_3->setStyleSheet("color: white;font: 10pt bold");
-    ui3->label_4->setStyleSheet("color: white;font: 10pt bold");
-    ui3->label_5->setStyleSheet("color: white;font: 10pt bold");
-    ui3->label_6->setStyleSheet("color: white;font: 10pt bold");
-    ui3->label->setStyleSheet("color: white;font: 10pt bold");
+    ui3->plainTextEdit->setStyleSheet("color: black;");
+    ui3->label_2->setStyleSheet("font: 10pt bold;color: black;");
+    ui3->label_3->setStyleSheet("color: black;font: 10pt bold");
+    ui3->label_4->setStyleSheet("color: black;font: 10pt bold");
+    ui3->label_5->setStyleSheet("color: black;font: 10pt bold");
+    ui3->label_6->setStyleSheet("color: black;font: 10pt bold");
+    ui3->label->setStyleSheet("color: black;font: 10pt bold");
     ui3->centralwidget->setStyleSheet("background-image: url(C:/Users/MEGA-PC/Desktop/QT-test/Project_2/dark-green-wall-backdrop-grunge-background-texture.jpg);");
-    ui3->engine->view()->setStyleSheet("color: white;");
-    ui3->language->view()->setStyleSheet("color: white;");
-    ui3->voice->view()->setStyleSheet("color: white;");
+    ui3->engine->view()->setStyleSheet("color: black;");
+    ui3->language->view()->setStyleSheet("color: black;");
+    ui3->voice->view()->setStyleSheet("color: black;");
 
 }
 void TextToSpeechWindow::updatePlainText(const QString &data)

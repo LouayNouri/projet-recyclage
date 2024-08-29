@@ -54,6 +54,11 @@ Main_trash::Main_trash(QWidget *parent)
         if (switchToEmployeeButton) {
             connect(switchToEmployeeButton, &QPushButton::clicked, this, &Main_trash::switchToEmployee);
         }
+//        QPushButton *switchToEmployeeButton2 = ui->dock_2->findChild<QPushButton *>("switchToEmployeeButton2");
+//            if (switchToEmployeeButton2) {
+//                connect(switchToEmployeeButton2, &QPushButton::clicked, this, &Main_trash::switchToEmployee);
+//            }
+
 
 //    ttsWindow = new TextToSpeechWindow(this); // Add this line
 //    ttsWindow->show();
@@ -78,6 +83,9 @@ Main_trash::Main_trash(QWidget *parent)
     }
 
     connect(ui->switchToEmployee, &QPushButton::clicked, this, &Main_trash::switchToEmployee);
+    connect(ui->switchToEmployee_2, &QPushButton::clicked, this, &Main_trash::switchToEmployee);
+    connect(ui->switchToEmployee_3, &QPushButton::clicked, this, &Main_trash::switchToEmployee);
+    connect(ui->switchToEmployee_4, &QPushButton::clicked, this, &Main_trash::switchToEmployee);
 
 
 
@@ -121,12 +129,12 @@ Main_trash::Main_trash(QWidget *parent)
     ui->stats_3->installEventFilter(this);
     ui->stats_4->installEventFilter(this);
     ui->stack->installEventFilter(this);
-    ui->mecha->hide();
-    ui->papcha->hide();
-    ui->placha->hide();
-    ui->glacha->hide();
-    ui->stacha->hide();
-    playGif("C:/Users/MEGA-PC/Desktop/QT-test/Project_2/FF.gif");
+//    ui->mecha->hide();
+//    ui->papcha->hide();
+//    ui->placha->hide();
+//    ui->glacha->hide();
+//    ui->stacha->hide();
+//    playGif("C:/Users/MEGA-PC/Desktop/QT-test/Project_2/FF.gif");
     ui->view_2->setSelectionBehavior(QAbstractItemView::SelectItems);
     this->installEventFilter(this);
     ui->view_2->installEventFilter(this);
@@ -134,32 +142,35 @@ Main_trash::Main_trash(QWidget *parent)
 
 
 
-    ui->bio->setStyleSheet("QCheckBox { color: white; }"
+    ui->bio->setStyleSheet("QCheckBox { color: black; }"
                             "QCheckBox::indicator { width: 30px; height: 30px; }"
-                            "QCheckBox::indicator:checked { image: url(C:/Users/MEGA-PC/Desktop/QT-test/Project_2/vecteezy_cheque_1200261.png); }"
+
                             );
-    ui->recyclable->setStyleSheet("QCheckBox { color: white; }"
+    ui->recyclable->setStyleSheet("QCheckBox { color: black; }"
                             "QCheckBox::indicator { width: 30px; height: 30px;}"
-                            "QCheckBox::indicator:checked { image: url(C:/Users/MEGA-PC/Desktop/QT-test/Project_2/vecteezy_cheque_1200261.png); }"
+
                             );
     ui->reusable->setStyleSheet("QCheckBox::indicator { width: 30px; height: 30px;}"
-                            "QCheckBox::indicator:checked { image: url(C:/Users/MEGA-PC/Desktop/QT-test/Project_2/vecteezy_cheque_1200261.png); }"
-                                "QCheckBox { color: white; }"
+
+                                "QCheckBox { color: black; }"
                             );
     ui->biodegradableCheckBox->setStyleSheet("QCheckBox::indicator { width: 20px; height: 20px;}"
                             "QCheckBox::indicator:checked { image: url(C:/Users/MEGA-PC/Desktop/QT-test/Project_2/vecteezy_cheque_1200261.png); }"
-                                             "QCheckBox { color: white; }"
+                                             "QCheckBox { color: black; }"
                             );
     ui->recyclableCheckBox->setStyleSheet("QCheckBox::indicator { width: 20px; height: 20px;}"
                             "QCheckBox::indicator:checked { image: url(C:/Users/MEGA-PC/Desktop/QT-test/Project_2/vecteezy_cheque_1200261.png); }"
-                                          "QCheckBox { color: white; }"
+                                          "QCheckBox { color: black; }"
                             );
     ui->reusableCheckBox->setStyleSheet("QCheckBox::indicator { width: 20px; height: 20px; }"
                             "QCheckBox::indicator:checked { image: url(C:/Users/MEGA-PC/Desktop/QT-test/Project_2/vecteezy_cheque_1200261.png); }"
-                                        "QCheckBox { color: white; }"
+                                        "QCheckBox { color: black; }"
                             );
 
        ui->dock->hide();
+       ui->dock_2->hide();
+       ui->dock_3->hide();
+//       ui->dock_0>hide();
 
 
 
@@ -325,8 +336,8 @@ void Main_trash::updateView_2() {
 void Main_trash::playGif(const QString &gifPath)
 {
     movie->setFileName(gifPath);
-    ui->GIF->setMovie(movie);
-    ui->GIF->setScaledContents(true);
+//    ui->GIF->setMovie(movie);
+//    ui->GIF->setScaledContents(true);
     movie->start();
 
 
@@ -335,72 +346,72 @@ void Main_trash::playGif(const QString &gifPath)
 
 bool Main_trash::eventFilter(QObject *obj, QEvent *event)
 {
-    if (obj == ui->stats_1) {
-        if (event->type() == QEvent::HoverEnter) {
-            // The mouse has entered the button.
-            // Show the QLabel here.
-            ui->mecha->show();
-            return true;
-        } else if (event->type() == QEvent::HoverLeave) {
-            // The mouse has left the button.
-            // Hide the QLabel here.
-            ui->mecha->hide();
-            return true;
-        }
-    }
-        if (obj == ui->stats_2) {
-            if (event->type() == QEvent::HoverEnter) {
-                // The mouse has entered the button.
-                // Show the QLabel here.
-                ui->glacha->show();
-                return true;
-            } else if (event->type() == QEvent::HoverLeave) {
-                // The mouse has left the button.
-                // Hide the QLabel here.
-                ui->glacha->hide();
-                return true;
-            }
-        }
-            if (obj == ui->stats_3) {
-                if (event->type() == QEvent::HoverEnter) {
-                    // The mouse has entered the button.
-                    // Show the QLabel here.
-                    ui->papcha->show();
-                    return true;
-                } else if (event->type() == QEvent::HoverLeave) {
-                    // The mouse has left the button.
-                    // Hide the QLabel here.
-                    ui->papcha->hide();
-                    return true;
-                }
-            }
-                if (obj == ui->stats_4) {
-                    if (event->type() == QEvent::HoverEnter) {
-                        // The mouse has entered the button.
-                        // Show the QLabel here.
-                        ui->placha->show();
-                        return true;
-                    } else if (event->type() == QEvent::HoverLeave) {
-                        // The mouse has left the button.
-                        // Hide the QLabel here.
-                        ui->placha->hide();
-                        return true;
-                    }
-                }
+//    if (obj == ui->stats_1) {
+//        if (event->type() == QEvent::HoverEnter) {
+//            // The mouse has entered the button.
+//            // Show the QLabel here.
+//            ui->mecha->show();
+//            return true;
+//        } else if (event->type() == QEvent::HoverLeave) {
+//            // The mouse has left the button.
+//            // Hide the QLabel here.
+//            ui->mecha->hide();
+//            return true;
+//        }
+//    }
+//        if (obj == ui->stats_2) {
+//            if (event->type() == QEvent::HoverEnter) {
+//                // The mouse has entered the button.
+//                // Show the QLabel here.
+//                ui->glacha->show();
+//                return true;
+//            } else if (event->type() == QEvent::HoverLeave) {
+//                // The mouse has left the button.
+//                // Hide the QLabel here.
+//                ui->glacha->hide();
+//                return true;
+//            }
+//        }
+//            if (obj == ui->stats_3) {
+//                if (event->type() == QEvent::HoverEnter) {
+//                    // The mouse has entered the button.
+//                    // Show the QLabel here.
+//                    ui->papcha->show();
+//                    return true;
+//                } else if (event->type() == QEvent::HoverLeave) {
+//                    // The mouse has left the button.
+//                    // Hide the QLabel here.
+//                    ui->papcha->hide();
+//                    return true;
+//                }
+//            }
+//                if (obj == ui->stats_4) {
+//                    if (event->type() == QEvent::HoverEnter) {
+//                        // The mouse has entered the button.
+//                        // Show the QLabel here.
+//                        ui->placha->show();
+//                        return true;
+//                    } else if (event->type() == QEvent::HoverLeave) {
+//                        // The mouse has left the button.
+//                        // Hide the QLabel here.
+//                        ui->placha->hide();
+//                        return true;
+//                    }
+//                }
 
-                if (obj == ui->stack) {
-                    if (event->type() == QEvent::HoverEnter) {
-                        // The mouse has entered the button.
-                        // Show the QLabel here.
-                        ui->stacha->show();
-                        return true;
-                    } else if (event->type() == QEvent::HoverLeave) {
-                        // The mouse has left the button.
-                        // Hide the QLabel here.
-                        ui->stacha->hide();
-                        return true;
-                    }
-                }
+//                if (obj == ui->stack) {
+//                    if (event->type() == QEvent::HoverEnter) {
+//                        // The mouse has entered the button.
+//                        // Show the QLabel here.
+//                        ui->stacha->show();
+//                        return true;
+//                    } else if (event->type() == QEvent::HoverLeave) {
+//                        // The mouse has left the button.
+//                        // Hide the QLabel here.
+//                        ui->stacha->hide();
+//                        return true;
+//                    }
+//                }
 
                 if (event->type() == QEvent::KeyPress) {
                     QKeyEvent *keyEvent = static_cast<QKeyEvent *>(event);
@@ -450,10 +461,16 @@ bool Main_trash::eventFilter(QObject *obj, QEvent *event)
                             // The mouse is in the top side of the screen.
                             // Show the dock widget here.
                             ui->dock->show();
+                            ui->dock_0->show();
+                            ui->dock_2->show();
+                            ui->dock_3->show();
                         } else {
                             // The mouse is not in the top side of the screen.
                             // Hide the dock widget here.
                             ui->dock->hide();
+                            ui->dock_0->hide();
+                            ui->dock_2->hide();
+                            ui->dock_3->hide();
                         }
                         return true;
                     }
@@ -599,7 +616,7 @@ return series;
 
 }
 
-void Main_trash::prepareChart(const QString& materialType, const QString& title, const QColor& color1, const QColor& color2, const QColor& color3) {
+void Main_trash::prepareChart(const QString& materialType, const QString& title, const QColor& color1, const QColor& color2, const QColor& color3, const QColor& color4) {
     QSqlQuery query;
     double totalAmount = 0.0;
     QMap<QString, double> amounts;
@@ -631,7 +648,7 @@ void Main_trash::prepareChart(const QString& materialType, const QString& title,
         donutBreakdown->addBreakdownSeries(series1, color1);
         donutBreakdown->addBreakdownSeries(series2, color2);
         donutBreakdown->addBreakdownSeries(series3, color3);
-        donutBreakdown->addBreakdownSeries(series4, color3);
+        donutBreakdown->addBreakdownSeries(series4, color4);
 
         QMainWindow *chartWindow = new QMainWindow(this);
         QChartView *chartView = new QChartView(donutBreakdown);
@@ -653,16 +670,18 @@ void Main_trash::showPieChart(int chartType)
 
     switch(chartType) {
         case 1:
-            prepareChart("Leadership", "Leadership", QColor("#63666A"), QColor("#b2967d"), QColor("#bfc0c0"));
+
+
+            prepareChart("Leadership", "Leadership",QColor("#FF0000"), QColor("#FF69B4"), QColor("#B31B1B"), QColor("#65000B"));
             break;
         case 2:
-            prepareChart("Health & Safety", "Health & Safety", QColor("#004b23"), QColor("#80b918"), QColor("#008000"));
+            prepareChart("Health & Safety", "Health & Safety", QColor("#F4C430"), QColor("#DBB483"), QColor("#e1ad01"),QColor("#7B3F00")    );
             break;
         case 3:
-            prepareChart("Customer Service", "Customer Service", QColor("#644234"), QColor("#815f51"), QColor("#cba48b"));
+            prepareChart("Customer Service", "Customer Service",QColor("#5edc1f"), QColor("#77DD77"), QColor("#008000"), QColor("#004b23"));
             break;
         case 4:
-            prepareChart("Project Management", "Project Management", QColor("#53599a"), QColor("#0077b6"), QColor("#5bc0be"));
+            prepareChart("Project Management", "Project Management", QColor("#3044C5"), QColor("#5bc0be"), QColor("#0077b6"),QColor("#000080"));
             break;
 
     }
@@ -920,22 +939,22 @@ void Main_trash::exportall() {
     QPdfWriter pdf(fileName);
     QPainter painter(&pdf);
 
-    painter.setPen(Qt::red);
+    painter.setPen(Qt::blue);
     painter.setFont(QFont("Arial", 40));
-    painter.drawText(2500,2700,"-List of Submits-");
+    painter.drawText(2300,1500,"-List of Programs-");
 
     painter.drawPixmap(QRect(2900,80,4000,1800),QPixmap("C:/Users/MEGA-PC/Desktop/QT-test/Project_2/im1.png"));
     painter.drawPixmap(QRect(7500,-200,2300,2000),QPixmap("C:/Users/MEGA-PC/Desktop/QT-test/Project_2/6430960.jpg"));
     painter.drawPixmap(QRect(0,-200,2300,2000),QPixmap("C:/Users/MEGA-PC/Desktop/QT-test/Project_2/6430960.jpg"));
 
 
-    painter.setPen(Qt::green);
-    painter.setFont(QFont("Arial bold", 15));
-    painter.drawText(200,3300,"Material");
-    painter.drawText(1300,3300,"Unit");
-    painter.drawText(2200,3300,"Amount");
-    painter.drawText(4200,3300,"Properties");
-    painter.drawText(7000,3300,"Date");
+    painter.setPen(Qt::red);
+    painter.setFont(QFont("Arial bold", 13));
+    painter.drawText(200,3300,"program");
+    painter.drawText(1700,3300,"Department");
+    painter.drawText(3200,3300,"duration");
+    painter.drawText(4300,3300,"Properties");
+    painter.drawText(7100,3300,"Date");
     painter.drawText(8700,3300,"Code");
 
     QSqlQuery query;
@@ -944,13 +963,13 @@ void Main_trash::exportall() {
 
     int i = 4000;
     painter.setPen(Qt::black);
-    painter.setFont(QFont("Arial", 12));
+    painter.setFont(QFont("Arial", 10));
     while (query.next()) {
         painter.drawText(200,i,query.value(0).toString());
-        painter.drawText(1000,i,query.value(1).toString());
-        painter.drawText(2500,i,query.value(2).toString());
-        painter.drawText(3200,i,query.value(3).toString());
-        painter.drawText(6500,i,query.value(4).toString());
+        painter.drawText(1900,i,query.value(1).toString());
+        painter.drawText(3600,i,query.value(2).toString());
+        painter.drawText(4300,i,query.value(3).toString());
+        painter.drawText(6600,i,query.value(4).toString());
         painter.drawText(8700,i,query.value(5).toString());
 
         i = i + 500;
@@ -968,21 +987,21 @@ void Main_trash::exportdisplayed() {
     QPdfWriter pdf(fileName);
     QPainter painter(&pdf);
 
-    painter.setPen(Qt::red);
+    painter.setPen(Qt::blue);
     painter.setFont(QFont("Arial", 40));
-    painter.drawText(2300,2700,"-Filtered Submits-");
+    painter.drawText(2300,2700,"-Filtered Programs-");
 
     painter.drawPixmap(QRect(2900,80,4000,1800),QPixmap("C:/Users/MEGA-PC/Desktop/QT-test/Project_2/im1.png"));
     painter.drawPixmap(QRect(7500,-100,2300,2000),QPixmap("C:/Users/MEGA-PC/Desktop/QT-test/Project_2/6356816.jpg"));
     painter.drawPixmap(QRect(0,-100,2300,2000),QPixmap("C:/Users/MEGA-PC/Desktop/QT-test/Project_2/6356816.jpg"));
 
-    painter.setPen(Qt::green);
-    painter.setFont(QFont("Arial bold", 15));
-    painter.drawText(200,3300,"Material");
-    painter.drawText(1300,3300,"Unit");
-    painter.drawText(2200,3300,"Amount");
-    painter.drawText(4200,3300,"Properties");
-    painter.drawText(7000,3300,"Date");
+    painter.setPen(Qt::red);
+    painter.setFont(QFont("Arial bold", 13));
+    painter.drawText(200,3300,"program");
+    painter.drawText(1800,3300,"Department");
+    painter.drawText(3200,3300,"duration");
+    painter.drawText(4300,3300,"Properties");
+    painter.drawText(7100,3300,"Date");
     painter.drawText(8700,3300,"Code");
 
     QAbstractItemModel *model = ui->view->model();
@@ -990,13 +1009,13 @@ void Main_trash::exportdisplayed() {
 
     int i = 4000;
     painter.setPen(Qt::black);
-    painter.setFont(QFont("Arial", 12));
+    painter.setFont(QFont("Arial", 10));
     for (int r = 0; r < rows; ++r) {
         painter.drawText(200,i,model->data(model->index(r, 0)).toString());
-        painter.drawText(1000,i,model->data(model->index(r, 1)).toString());
-        painter.drawText(2500,i,model->data(model->index(r, 2)).toString());
-        painter.drawText(3200,i,model->data(model->index(r, 3)).toString());
-        painter.drawText(6500,i,model->data(model->index(r, 4)).toString());
+        painter.drawText(1900,i,model->data(model->index(r, 1)).toString());
+        painter.drawText(3600,i,model->data(model->index(r, 2)).toString());
+        painter.drawText(4300,i,model->data(model->index(r, 3)).toString());
+        painter.drawText(6600,i,model->data(model->index(r, 4)).toString());
         painter.drawText(8700,i,model->data(model->index(r, 5)).toString());
 
         i = i + 500;

@@ -29,19 +29,17 @@ QString recaptcha::generateRandomString(int length) {
 
 void recaptcha::on_pushButton_clicked()
 {
-
-    // Get the text entered in the line edit named "captcha"
-    QString enteredWord = ui->answer->text(); // Adjust the name based on your actual line edit name
+    QString enteredWord = ui->answer->text();
     qDebug() << "Entered Word:" << enteredWord;
     qDebug() << "Generated String:" << generatedString;
-    // Compare the entered word with the generated string
-    if (enteredWord == generatedString) {
-        // Correct captcha
-        accept();
 
+    if (enteredWord == generatedString) {
+        emit captchaVerified(true); // Emit signal when captcha is correct
+        accept();
     } else {
-        // Incorrect captcha
-        // Handle the case where captcha is not true
- QMessageBox::warning(this, "try again", "captcha is not true!");
+        emit captchaVerified(false); // Emit signal when captcha is incorrect
+        QMessageBox::warning(this, "Try again", "CAPTCHA is incorrect!");
     }
 }
+
+
