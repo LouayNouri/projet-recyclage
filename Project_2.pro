@@ -68,4 +68,5 @@ RESOURCES += \
 target.path = C:/Users/MEGA-PC/Desktop/QT-test/Project_2
 INSTALLS += target
 
-DISTFILES +=
+DISTFILES += \
+    send_email.py

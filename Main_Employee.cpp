@@ -16,6 +16,8 @@
 #include"connection.h"
 #include<QSqlQuery>
 #include<QSqlQueryModel>
+#include <QProcess>
+#include <QTime>
 
 
 Main_Employee::Main_Employee(QWidget *parent) :
@@ -57,6 +59,111 @@ Main_Employee::~Main_Employee()
 {
     delete ui;
 }
+
+
+bool Main_Employee::sendEmailWithNewPassword(const QString &email)
+{
+    QProcess process;
+    QString program = "python";
+    QStringList arguments;
+    arguments << "C:/Users/MEGA-PC/Documents/GitHub/projet-recyclage/send_email.py" << email;
+
+    process.start(program, arguments);
+    process.waitForFinished();
+
+    QString output = process.readAllStandardOutput();
+    QString error = process.readAllStandardError();
+
+    if (output.contains("Success")) {
+        qDebug() << "Email sent successfully!";
+        return true;
+    } else {
+        qDebug() << "Failed to send email. Error:" << error;
+        return false;
+    }
+}
+
+
+QString Main_Employee::generateRandomPassword(int length)
+{
+    const QString possibleCharacters("ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789");
+    QString randomString;
+
+    // Seed the random number generator with the current time
+    qsrand(QTime::currentTime().msec());
+
+    for (int i = 0; i < length; ++i) {
+        int index = qrand() % possibleCharacters.length();
+        randomString.append(possibleCharacters.at(index));
+    }
+
+    return randomString;
+}
+
+
+
+void Main_Employee::on_pushButton_2_clicked()
+{
+    // Retrieve the email from the QLineEdit
+    QString email = ui->mail_lineEdit->text().trimmed();
+
+    if (email.isEmpty()) {
+        QMessageBox::warning(this, "Error", "Please enter your email address.");
+        return;
+    }
+
+    // Check if the email exists in the database
+    QSqlQuery query;
+    query.prepare("SELECT * FROM employe WHERE mail = :mail");
+    query.bindValue(":mail", email);
+
+    if (!query.exec()) {
+        qDebug() << "Database query failed:" << query.lastError().text();
+        QMessageBox::critical(this, "Error", "Failed to connect to the database.");
+        return;
+    }
+
+    if (!query.next()) {
+        QMessageBox::warning(this, "Error", "No account found with this email.");
+        return;
+    }
+
+    // Generate a new random password
+    QString newPassword = generateRandomPassword(5);
+
+    // Update the new password in the database
+    query.prepare("UPDATE employe SET password = :password WHERE mail = :mail");
+    query.bindValue(":password", newPassword);
+    query.bindValue(":mail", email);
+
+    if (!query.exec()) {
+        qDebug() << "Failed to update password:" << query.lastError().text();
+        QMessageBox::critical(this, "Error", "Failed to update the password.");
+        return;
+    }
+
+    // Send the new password via email
+    QProcess process;
+    QString program = "python";
+    QStringList arguments;
+    arguments << "C:/Users/MEGA-PC/Documents/GitHub/projet-recyclage/send_email.py" << email << newPassword;
+
+    process.start(program, arguments);
+    process.waitForFinished();
+
+    QString output = process.readAllStandardOutput();
+    QString error = process.readAllStandardError();
+
+    if (output.contains("Success")) {
+        QMessageBox::information(this, "Success", "A new password has been sent to your email.");
+    } else {
+        QMessageBox::warning(this, "Error", "Failed to send the email. Please try again later.");
+    }
+}
+
+
+
+
 
 
 
@@ -327,12 +434,7 @@ void Main_Employee::performLogin()
 
 
 
-void Main_Employee::on_pushButton_2_clicked()
-{
- forget forget;
- forget.setModal(true);
- forget.exec();
-}
+
 
 void Main_Employee::on_pushButton_3_clicked()
 {

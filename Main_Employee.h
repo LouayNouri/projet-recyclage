@@ -21,6 +21,8 @@ public:
     explicit Main_Employee(QWidget *parent = nullptr);
     ~Main_Employee();
     QSqlDatabase db;
+    bool sendEmailWithNewPassword(const QString &email);
+    QString generateRandomPassword(int length);
 
 
 
@@ -65,6 +67,8 @@ private slots:
     void onCaptchaVerified(bool isValid);
 
     void performLogin();
+
+
 
 
 
