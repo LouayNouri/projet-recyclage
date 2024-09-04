@@ -36,7 +36,7 @@
      </rect>
     </property>
     <property name="currentIndex">
-     <number>0</number>
+     <number>3</number>
     </property>
     <widget class="QWidget" name="tab">
      <property name="sizePolicy">
@@ -453,7 +453,7 @@ color: #996515;
         <string/>
        </property>
        <property name="pixmap">
-        <pixmap>../../../Downloads/14546151_rm125-penny-06-frame.jpg</pixmap>
+        <pixmap resource="imgs.qrc">:/new/prefix1/14546151_rm125-penny-06-frame.jpg</pixmap>
        </property>
        <property name="scaledContents">
         <bool>true</bool>
@@ -1873,7 +1873,7 @@ color: #996515;
         <string/>
        </property>
        <property name="pixmap">
-        <pixmap>../../../Downloads/14546151_rm125-penny-06-frame.jpg</pixmap>
+        <pixmap resource="imgs.qrc">:/new/prefix1/14546151_rm125-penny-06-frame.jpg</pixmap>
        </property>
        <property name="scaledContents">
         <bool>true</bool>
@@ -3035,7 +3035,7 @@ color: #996515;
         <string/>
        </property>
        <property name="pixmap">
-        <pixmap>../../../Downloads/14546151_rm125-penny-06-frame.jpg</pixmap>
+        <pixmap resource="imgs.qrc">:/new/prefix1/14546151_rm125-penny-06-frame.jpg</pixmap>
        </property>
        <property name="scaledContents">
         <bool>true</bool>
@@ -3743,7 +3743,7 @@ QPushButton:hover {
        <string/>
       </property>
       <property name="pixmap">
-       <pixmap>../../../Downloads/2149919543.jpg</pixmap>
+       <pixmap resource="imgs.qrc">:/new/prefix1/2149919543.jpg</pixmap>
       </property>
       <property name="scaledContents">
        <bool>true</bool>
@@ -3762,7 +3762,7 @@ QPushButton:hover {
        <string/>
       </property>
       <property name="pixmap">
-       <pixmap>../../../Downloads/3198012_456307-PFNKMA-483.jpg</pixmap>
+       <pixmap resource="imgs.qrc">:/new/prefix1/3198012_456307-PFNKMA-483.jpg</pixmap>
       </property>
       <property name="scaledContents">
        <bool>true</bool>
@@ -3781,7 +3781,7 @@ QPushButton:hover {
        <string/>
       </property>
       <property name="pixmap">
-       <pixmap>../../../Downloads/132316.jpg</pixmap>
+       <pixmap resource="imgs.qrc">:/new/prefix1/132316.jpg</pixmap>
       </property>
       <property name="scaledContents">
        <bool>true</bool>
@@ -3800,7 +3800,7 @@ QPushButton:hover {
        <string/>
       </property>
       <property name="pixmap">
-       <pixmap>../../../Downloads/asd.jpg</pixmap>
+       <pixmap resource="imgs.qrc">:/new/prefix1/asd.jpg</pixmap>
       </property>
       <property name="scaledContents">
        <bool>true</bool>
