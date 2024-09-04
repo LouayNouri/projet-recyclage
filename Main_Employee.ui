@@ -27,7 +27,7 @@
      </rect>
     </property>
     <property name="currentIndex">
-     <number>2</number>
+     <number>0</number>
     </property>
     <property name="tabBarAutoHide">
      <bool>false</bool>
@@ -68,13 +68,13 @@
         <string notr="true">    color: #DAA520;</string>
        </property>
        <property name="text">
-        <string>mail</string>
+        <string>Mail</string>
        </property>
       </widget>
       <widget class="QLabel" name="label_32">
        <property name="geometry">
         <rect>
-         <x>20</x>
+         <x>10</x>
          <y>140</y>
          <width>121</width>
          <height>31</height>
@@ -90,7 +90,7 @@
         <string notr="true">    color: #DAA520;</string>
        </property>
        <property name="text">
-        <string>password</string>
+        <string>Password</string>
        </property>
       </widget>
       <widget class="QLineEdit" name="mail_lineEdit">
@@ -286,7 +286,7 @@ color: #996515;
        <rect>
         <x>19</x>
         <y>70</y>
-        <width>140</width>
+        <width>153</width>
         <height>391</height>
        </rect>
       </property>
@@ -319,7 +319,7 @@ color: #996515;
           <string notr="true">    color: #DAA520;</string>
          </property>
          <property name="text">
-          <string>poste</string>
+          <string>Position</string>
          </property>
         </widget>
        </item>
@@ -328,14 +328,14 @@ color: #996515;
          <property name="font">
           <font>
            <family>Monotype Corsiva</family>
-           <pointsize>28</pointsize>
+           <pointsize>25</pointsize>
           </font>
          </property>
          <property name="styleSheet">
           <string notr="true">    color: #DAA520;</string>
          </property>
          <property name="text">
-          <string>Etat</string>
+          <string>Status</string>
          </property>
         </widget>
        </item>
@@ -351,7 +351,7 @@ color: #996515;
           <string notr="true">    color: #DAA520;</string>
          </property>
          <property name="text">
-          <string>mail</string>
+          <string>Mail</string>
          </property>
         </widget>
        </item>
@@ -367,7 +367,7 @@ color: #996515;
           <string notr="true">    color: #DAA520;</string>
          </property>
          <property name="text">
-          <string>password</string>
+          <string>Password</string>
          </property>
         </widget>
        </item>
@@ -448,12 +448,22 @@ QComboBox::item {
       </property>
       <item>
        <property name="text">
-        <string>marié(e)</string>
+        <string>Active</string>
        </property>
       </item>
       <item>
        <property name="text">
-        <string>non marié(e)</string>
+        <string>On Leave</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Retired</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Inactive</string>
        </property>
       </item>
      </widget>
@@ -750,17 +760,47 @@ QComboBox::item {
       </property>
       <item>
        <property name="text">
-        <string>de</string>
+        <string>IT manager</string>
        </property>
       </item>
       <item>
        <property name="text">
-        <string>d</string>
+        <string>Cloud security specialist</string>
        </property>
       </item>
       <item>
        <property name="text">
-        <string>sd</string>
+        <string>Project Manager</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Senior project manager</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Support Engineer</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Technical Support Specialist</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Safety Engineer</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Inspector</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Team leader</string>
        </property>
       </item>
      </widget>
@@ -1192,17 +1232,22 @@ QComboBox::item {
       </property>
       <item>
        <property name="text">
-        <string/>
+        <string>Active</string>
        </property>
       </item>
       <item>
        <property name="text">
-        <string>marié(e)</string>
+        <string>On Leave</string>
        </property>
       </item>
       <item>
        <property name="text">
-        <string>non marié(e)</string>
+        <string>Retired</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Inactive</string>
        </property>
       </item>
      </widget>
@@ -1351,22 +1396,47 @@ QComboBox::item {
       </property>
       <item>
        <property name="text">
-        <string/>
+        <string>IT manager</string>
        </property>
       </item>
       <item>
        <property name="text">
-        <string>d</string>
+        <string>Cloud security specialist</string>
        </property>
       </item>
       <item>
        <property name="text">
-        <string>sd</string>
+        <string>Project Manager</string>
        </property>
       </item>
       <item>
        <property name="text">
-        <string>de</string>
+        <string>Senior project manager</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Support Engineer</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Technical Support Specialist</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Safety Engineer</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Inspector</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Team leader</string>
        </property>
       </item>
      </widget>
@@ -1605,7 +1675,7 @@ QPushButton:hover {
        <rect>
         <x>20</x>
         <y>70</y>
-        <width>140</width>
+        <width>153</width>
         <height>391</height>
        </rect>
       </property>
@@ -1638,7 +1708,7 @@ QPushButton:hover {
           <string notr="true">    color: #DAA520;</string>
          </property>
          <property name="text">
-          <string>poste</string>
+          <string>Position</string>
          </property>
         </widget>
        </item>
@@ -1647,14 +1717,14 @@ QPushButton:hover {
          <property name="font">
           <font>
            <family>Monotype Corsiva</family>
-           <pointsize>28</pointsize>
+           <pointsize>25</pointsize>
           </font>
          </property>
          <property name="styleSheet">
           <string notr="true">    color: #DAA520;</string>
          </property>
          <property name="text">
-          <string>Etat</string>
+          <string>Status</string>
          </property>
         </widget>
        </item>
@@ -1670,7 +1740,7 @@ QPushButton:hover {
           <string notr="true">    color: #DAA520;</string>
          </property>
          <property name="text">
-          <string>mail</string>
+          <string>Mail</string>
          </property>
         </widget>
        </item>
@@ -1686,7 +1756,7 @@ QPushButton:hover {
           <string notr="true">    color: #DAA520;</string>
          </property>
          <property name="text">
-          <string>password</string>
+          <string>Password</string>
          </property>
         </widget>
        </item>

@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>944</width>
-    <height>661</height>
+    <width>329</width>
+    <height>605</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -16,11 +16,14 @@
   <widget class="QGroupBox" name="groupBox">
    <property name="geometry">
     <rect>
-     <x>250</x>
-     <y>150</y>
+     <x>0</x>
+     <y>140</y>
      <width>331</width>
      <height>261</height>
     </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true"> border: 2px solid transparent; /* Creamy light grey border */</string>
    </property>
    <property name="title">
     <string/>
@@ -28,38 +31,133 @@
    <widget class="QLineEdit" name="answer">
     <property name="geometry">
      <rect>
-      <x>110</x>
-      <y>120</y>
-      <width>113</width>
-      <height>22</height>
+      <x>82</x>
+      <y>150</y>
+      <width>161</width>
+      <height>31</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>15</pointsize>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QLineEdit {
+    background-color: #FFFFFF; /* White background */
+    border: 2px solid #fff; /* Creamy light grey border */
+    padding: 5px;
+    border-radius: 5px;
+    color: #000000; /* Black text */
+    selection-background-color: #FFD700; /* Gold background for selected text */
+    selection-color: #FFFFFF; /* White text for selected text */
+}
+
+QLineEdit:focus {
+    border: 2px solid #FFD700; /* Gold border when focused */
+    background-color: #FAFAD2; /* Lighter creamy background when focused */
+}
+</string>
     </property>
    </widget>
    <widget class="QLineEdit" name="captcha">
     <property name="geometry">
      <rect>
       <x>80</x>
-      <y>40</y>
+      <y>70</y>
       <width>171</width>
       <height>61</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>15</pointsize>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QLineEdit {
+    background-color: #FFFFFF; /* White background */
+    border: 2px solid #fff; /* Creamy light grey border */
+    padding: 5px;
+    border-radius: 5px;
+    color: #000000; /* Black text */
+    selection-background-color: #FFD700; /* Gold background for selected text */
+    selection-color: #FFFFFF; /* White text for selected text */
+}
+
+QLineEdit:focus {
+    border: 2px solid #FFD700; /* Gold border when focused */
+    background-color: #FAFAD2; /* Lighter creamy background when focused */
+}
+</string>
     </property>
    </widget>
    <widget class="QPushButton" name="done">
     <property name="geometry">
      <rect>
       <x>120</x>
-      <y>170</y>
-      <width>93</width>
-      <height>28</height>
+      <y>220</y>
+      <width>101</width>
+      <height>41</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>15</pointsize>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton {
+    outline: 0;
+    text-align: center;
+    border: 2px solid transparent; /* Invisible border */
+    border-radius: 10px;
+    padding: 5px;
+    min-width: 70px;
+    color: #000;
+    font-size: 17.5px;
+    background: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0 #b8b8b8, stop:0.05 #b8b8b8, stop:0.5 #ebf5ff, stop:0.95 #b8b8b8, stop:1 #b8b8b8);
+
+}
+
+QPushButton:hover {
+ 
+    background: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0 rgb(90, 161, 86), stop:0.05 rgb(90, 161, 86), stop:0.5 #fff, stop:0.95 rgb(90, 161, 86), stop:1 rgb(90, 161, 86));
+	
+	color: rgb(90, 161, 86);
+}
+
+</string>
     </property>
     <property name="text">
      <string>done</string>
     </property>
    </widget>
   </widget>
+  <widget class="QLabel" name="label">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>331</width>
+     <height>601</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="pixmap">
+    <pixmap resource="imgs.qrc">:/new/prefix1/14546151_rm125-penny-06-frame.jpg</pixmap>
+   </property>
+   <property name="scaledContents">
+    <bool>true</bool>
+   </property>
+  </widget>
+  <zorder>label</zorder>
+  <zorder>groupBox</zorder>
  </widget>
- <resources/>
+ <resources>
+  <include location="imgs.qrc"/>
+ </resources>
  <connections/>
 </ui>
